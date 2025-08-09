@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+results/figures/
+results/*.tmp
+reference_backup/
+reference_bad/
+.venv/
+__pycache__/
+*.pyc
+reference_backup/
+results/*.tmp

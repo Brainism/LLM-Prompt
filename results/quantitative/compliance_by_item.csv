@@ -1,0 +1,17 @@
+id,prompt_type,scenario,passed,reason
+1,general,format-json,0,json_parse_fail
+1,instructed,format-json,1,ok
+2,general,limit-words,0,words=6 expected=10
+2,instructed,limit-words,0,words=8 expected=10
+3,general,bullets,1,bullets=4 expected=4
+3,instructed,bullets,1,bullets=4 expected=4
+4,general,forbid-terms,0,digits_forbidden
+4,instructed,forbid-terms,1,digits_forbidden
+5,general,format-json,0,json_parse_fail
+5,instructed,format-json,1,ok
+6,general,limit-words,0,words=10 expected=12
+6,instructed,limit-words,0,words=10 expected=12
+7,general,bullets,1,bullets=5 expected=5
+7,instructed,bullets,1,bullets=5 expected=5
+8,general,forbid-terms,1,digits_forbidden
+8,instructed,forbid-terms,1,digits_forbidden
