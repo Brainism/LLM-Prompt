@@ -1,0 +1,22 @@
+{
+  "by_group": {
+    "general": 0.375,
+    "instructed": 0.75
+  },
+  "by_scenario": {
+    "format-json": 0.5,
+    "limit-words": 0.0,
+    "bullets": 1.0,
+    "forbid-terms": 0.75
+  },
+  "by_group_scenario": {
+    "general|format-json": 0.0,
+    "instructed|format-json": 1.0,
+    "general|limit-words": 0.0,
+    "instructed|limit-words": 0.0,
+    "general|bullets": 1.0,
+    "instructed|bullets": 1.0,
+    "general|forbid-terms": 0.5,
+    "instructed|forbid-terms": 1.0
+  }
+}
