@@ -1,0 +1,8 @@
+{
+  "id": "7",
+  "prompt_type": "general",
+  "output_text": "- 전기차를 충전기 연결기.\n- 충전기 버튼을 시작.\n- 충전 상태를 확인.\n- 충전 완료 후 연결기를 분리.\n- 충전기 연결기.",
+  "compliance_passed": true,
+  "compliance_reason": "bullets=5 expected=5",
+  "attempts": 1
+}

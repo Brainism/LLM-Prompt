@@ -1,0 +1,8 @@
+{
+  "id": "5",
+  "prompt_type": "general",
+  "output_text": "```json\n{\n \"product\": \"책상\",\n \"price\": 10000\n}\n```",
+  "compliance_passed": false,
+  "compliance_reason": "json_parse_fail",
+  "attempts": 2
+}

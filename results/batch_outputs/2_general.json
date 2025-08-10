@@ -1,0 +1,8 @@
+{
+  "id": "2",
+  "prompt_type": "general",
+  "output_text": " 데이터 품질은 모델 성능과 신뢰도에 중요하다.",
+  "compliance_passed": false,
+  "compliance_reason": "words=6 expected=10",
+  "attempts": 2
+}
