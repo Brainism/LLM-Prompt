@@ -1,13 +1,19 @@
-.venv/
-__pycache__/
-*.pyc
-results/figures/
-results/*.tmp
-reference_backup/
-reference_bad/
-.venv/
-__pycache__/
-*.pyc
-reference_backup/
-results/*.tmp
-!results/figures/
+cd C:\Project\LLM
+
+echo __pycache__/>> .gitignore
+echo *.py[cod]>> .gitignore
+echo .venv/>> .gitignore
+echo venv/>> .gitignore
+echo .vscode/>> .gitignore
+echo Thumbs.db>> .gitignore
+
+echo results/batch_outputs/>> .gitignore
+echo results/aligned/>> .gitignore
+echo code/results/>> .gitignore
+echo results/snapshot_*/>> .gitignore
+
+echo !results/quantitative/>> .gitignore
+echo !results/quantitative/*.json>> .gitignore
+echo !results/quantitative/*.csv>> .gitignore
+echo !results/quantitative/print_summary.txt>> .gitignore
+echo !results/stats_summary.csv>> .gitignore
