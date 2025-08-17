@@ -1,0 +1,91 @@
+{
+  "per_item": [
+    {
+      "id": "1",
+      "prompt_type": "general",
+      "bleu4": 0.13485111859503685
+    },
+    {
+      "id": "1",
+      "prompt_type": "instructed",
+      "bleu4": 1.0
+    },
+    {
+      "id": "2",
+      "prompt_type": "general",
+      "bleu4": 0.5204069361525009
+    },
+    {
+      "id": "2",
+      "prompt_type": "instructed",
+      "bleu4": 0.5873949094699213
+    },
+    {
+      "id": "3",
+      "prompt_type": "general",
+      "bleu4": 0.08562365224473284
+    },
+    {
+      "id": "3",
+      "prompt_type": "instructed",
+      "bleu4": 0.3442447960363953
+    },
+    {
+      "id": "4",
+      "prompt_type": "general",
+      "bleu4": 0.16620830006469264
+    },
+    {
+      "id": "4",
+      "prompt_type": "instructed",
+      "bleu4": 0.6147881529512643
+    },
+    {
+      "id": "5",
+      "prompt_type": "general",
+      "bleu4": 0.13485111859503685
+    },
+    {
+      "id": "5",
+      "prompt_type": "instructed",
+      "bleu4": 1.0
+    },
+    {
+      "id": "6",
+      "prompt_type": "general",
+      "bleu4": 0.3672056269893592
+    },
+    {
+      "id": "6",
+      "prompt_type": "instructed",
+      "bleu4": 0.3672056269893592
+    },
+    {
+      "id": "7",
+      "prompt_type": "general",
+      "bleu4": 0.10813005337959174
+    },
+    {
+      "id": "7",
+      "prompt_type": "instructed",
+      "bleu4": 0.09449865252803165
+    },
+    {
+      "id": "8",
+      "prompt_type": "general",
+      "bleu4": 0.22089591134157885
+    },
+    {
+      "id": "8",
+      "prompt_type": "instructed",
+      "bleu4": 0.24446151121745047
+    }
+  ],
+  "summary": {
+    "overall_mean_bleu4": 0.3744228979096845,
+    "group_mean_bleu4": {
+      "general": 0.21727158967031623,
+      "instructed": 0.5315742061490528
+    }
+  }
+}

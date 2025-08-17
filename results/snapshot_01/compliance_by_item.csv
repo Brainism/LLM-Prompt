@@ -1,0 +1,17 @@
+id,mode,scenario,passed,reason
+1,general,format-json,0,json_parse_fail
+1,instructed,format-json,1,ok
+2,general,limit-words,1,words=6 <= 10
+2,instructed,limit-words,1,words=8 <= 10
+3,general,bullets,0,bullets=1 required>=4
+3,instructed,bullets,0,bullets=1 required>=4
+4,general,forbid-terms,0,digits_present
+4,instructed,forbid-terms,1,no_digits_found
+5,general,format-json,0,json_parse_fail
+5,instructed,format-json,1,ok
+6,general,limit-words,1,words=10 <= 12
+6,instructed,limit-words,1,words=10 <= 12
+7,general,bullets,0,bullets=1 required>=5
+7,instructed,bullets,0,bullets=1 required>=5
+8,general,forbid-terms,1,no_digits_found
+8,instructed,forbid-terms,1,no_digits_found

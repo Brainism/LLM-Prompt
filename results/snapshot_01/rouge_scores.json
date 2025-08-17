@@ -1,0 +1,123 @@
+{
+  "per_item": [
+    {
+      "id": "1",
+      "prompt_type": "general",
+      "rougeL_p": 0.0,
+      "rougeL_r": 0.0,
+      "rougeL_f": 0.0
+    },
+    {
+      "id": "1",
+      "prompt_type": "instructed",
+      "rougeL_p": 1.0,
+      "rougeL_r": 1.0,
+      "rougeL_f": 1.0
+    },
+    {
+      "id": "2",
+      "prompt_type": "general",
+      "rougeL_p": 0.6666666666666666,
+      "rougeL_r": 0.5714285714285714,
+      "rougeL_f": 0.6153846153846153
+    },
+    {
+      "id": "2",
+      "prompt_type": "instructed",
+      "rougeL_p": 0.625,
+      "rougeL_r": 0.7142857142857143,
+      "rougeL_f": 0.6666666666666666
+    },
+    {
+      "id": "3",
+      "prompt_type": "general",
+      "rougeL_p": 0.2222222222222222,
+      "rougeL_r": 0.3333333333333333,
+      "rougeL_f": 0.26666666666666666
+    },
+    {
+      "id": "3",
+      "prompt_type": "instructed",
+      "rougeL_p": 0.6363636363636364,
+      "rougeL_r": 0.5833333333333334,
+      "rougeL_f": 0.6086956521739131
+    },
+    {
+      "id": "4",
+      "prompt_type": "general",
+      "rougeL_p": 0.0,
+      "rougeL_r": 0.0,
+      "rougeL_f": 0.0
+    },
+    {
+      "id": "4",
+      "prompt_type": "instructed",
+      "rougeL_p": 0.6666666666666666,
+      "rougeL_r": 0.6666666666666666,
+      "rougeL_f": 0.6666666666666666
+    },
+    {
+      "id": "5",
+      "prompt_type": "general",
+      "rougeL_p": 0.0,
+      "rougeL_r": 0.0,
+      "rougeL_f": 0.0
+    },
+    {
+      "id": "5",
+      "prompt_type": "instructed",
+      "rougeL_p": 1.0,
+      "rougeL_r": 1.0,
+      "rougeL_f": 1.0
+    },
+    {
+      "id": "6",
+      "prompt_type": "general",
+      "rougeL_p": 0.5,
+      "rougeL_r": 0.7142857142857143,
+      "rougeL_f": 0.588235294117647
+    },
+    {
+      "id": "6",
+      "prompt_type": "instructed",
+      "rougeL_p": 0.5,
+      "rougeL_r": 0.7142857142857143,
+      "rougeL_f": 0.588235294117647
+    },
+    {
+      "id": "7",
+      "prompt_type": "general",
+      "rougeL_p": 0.3333333333333333,
+      "rougeL_r": 0.4666666666666667,
+      "rougeL_f": 0.3888888888888889
+    },
+    {
+      "id": "7",
+      "prompt_type": "instructed",
+      "rougeL_p": 0.2857142857142857,
+      "rougeL_r": 0.4,
+      "rougeL_f": 0.3333333333333333
+    },
+    {
+      "id": "8",
+      "prompt_type": "general",
+      "rougeL_p": 0.16666666666666666,
+      "rougeL_r": 0.16666666666666666,
+      "rougeL_f": 0.16666666666666666
+    },
+    {
+      "id": "8",
+      "prompt_type": "instructed",
+      "rougeL_p": 0.3333333333333333,
+      "rougeL_r": 0.3333333333333333,
+      "rougeL_f": 0.3333333333333333
+    }
+  ],
+  "summary": {
+    "overall_mean_f": 0.4514233173760028,
+    "group_mean_f": {
+      "general": 0.25323026646556057,
+      "instructed": 0.649616368286445
+    }
+  }
+}

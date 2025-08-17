@@ -1,0 +1,23 @@
+# Python / venv
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Generated eval outputs
+results/aligned/
+results/batch_outputs/
+results/snapshot_*/
+code/results/
+
+# Optional: if you don't want these re-generated files in status
+results/quantitative/print_summary.txt
+
+# OS / editors / docs
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.docx
+LLM prompt scripts *.txt
