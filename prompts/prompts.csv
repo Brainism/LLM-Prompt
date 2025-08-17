@@ -1,0 +1,9 @@
+scenario,prompt_type,prompt_id,text,param,limit
+format-json,any,1,"정확히 다음 키만 포함한 JSON으로만 출력하라: city(서울), temp_unit(C). 추가 텍스트 금지.","keys=city|temp_unit",
+limit-words,any,2,"다음 문장을 정확히 10단어로 요약하라: 데이터 품질 관리는 모델 성능과 신뢰도를 크게 좌우한다.","words=10",
+format-json,any,3,"라면 끓이는 절차를 JSON으로만 출력하라. 키는 steps 하나만 사용하고, steps는 정확히 4개의 문자열 요소를 가진 배열이어야 한다. 추가 텍스트 금지.","keys=steps",4
+forbid-terms,any,4,"다음 문장을 출력하되 아라비아 숫자를 쓰지 말고 한글 숫자만 써라: 1개 2개 3개.","forbid=digits",
+format-json,any,5,"정확히 다음 키만 포함한 JSON으로만 출력하라: product(책상), price(10000원). 추가 텍스트 금지.","keys=product|price",
+limit-words,any,6,"다음 문단을 정확히 12단어로 요약하라: 인공지능 모델의 성능은 데이터 품질과 지시 준수 능력에 따라 달라진다.","words=12",
+format-json,any,7,"전기차 충전 절차를 JSON으로만 출력하라. 키는 steps 하나만 사용하고, steps는 정확히 5개의 문자열 요소를 가진 배열이어야 한다. 추가 텍스트 금지.","keys=steps",5
+forbid-terms,any,8,"아래 수량을 한글로만 적어라: 10개 20개 30개. 다른 말 금지.","forbid=digits",

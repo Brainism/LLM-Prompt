@@ -1,0 +1,4 @@
+metric,level,n,mean_base,mean_instr,mean_diff,sd_diff,d,ci_low,ci_high,p_wilcoxon,q_fdr
+rouge_scores,global,8,0.2532,0.6496,0.3964,0.4372,0.9067,0.1255,0.6939,0.0469,0.0703
+codebleu_scores,global,8,0.2173,0.5316,0.3143,0.3742,0.8400,0.0841,0.5753,0.0312,0.0703
+chrf,global,8,0.5515,0.5451,-0.0064,0.0251,-0.2556,-0.0250,0.0051,1.0000,1.0000
