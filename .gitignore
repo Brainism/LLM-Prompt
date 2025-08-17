@@ -1,19 +1,23 @@
-cd C:\Project\LLM
+# Python / venv
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
 
-echo __pycache__/>> .gitignore
-echo *.py[cod]>> .gitignore
-echo .venv/>> .gitignore
-echo venv/>> .gitignore
-echo .vscode/>> .gitignore
-echo Thumbs.db>> .gitignore
+# Generated eval outputs
+results/aligned/
+results/batch_outputs/
+results/snapshot_*/
+code/results/
 
-echo results/batch_outputs/>> .gitignore
-echo results/aligned/>> .gitignore
-echo code/results/>> .gitignore
-echo results/snapshot_*/>> .gitignore
+# Optional: if you don't want these re-generated files in status
+results/quantitative/print_summary.txt
 
-echo !results/quantitative/>> .gitignore
-echo !results/quantitative/*.json>> .gitignore
-echo !results/quantitative/*.csv>> .gitignore
-echo !results/quantitative/print_summary.txt>> .gitignore
-echo !results/stats_summary.csv>> .gitignore
+# OS / editors / docs
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.docx
+LLM prompt scripts *.txt
