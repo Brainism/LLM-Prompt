@@ -1,8 +1,0 @@
-{
-  "id": "7",
-  "prompt_type": "instructed",
-  "output_text": "- 물을 충전기 연결하기\n- 충전기 버튼을 'START' 누르기\n- 전기차 연결하기\n- 충전기 버튼을 'STOP' 누르기\n- 충전 완료 확인하기",
-  "compliance_passed": true,
-  "compliance_reason": "bullets=5 expected=5",
-  "attempts": 2
-}

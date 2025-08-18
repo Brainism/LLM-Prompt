@@ -16,3 +16,11 @@ results/figures/*
 *.zip
 *.7z
 *.tar.gz
+
+**/.venv/
+__pycache__/
+*.pyc
+results/batch_outputs/
+results/aligned/*.txt
+*.log
+*.tmp

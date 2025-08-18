@@ -1,8 +1,0 @@
-{
-  "id": "4",
-  "prompt_type": "general",
-  "output_text": "1개 2개 3개",
-  "compliance_passed": false,
-  "compliance_reason": "digits_forbidden",
-  "attempts": 2
-}
