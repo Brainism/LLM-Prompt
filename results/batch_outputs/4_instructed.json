@@ -1,8 +1,0 @@
-{
-  "id": "4",
-  "prompt_type": "instructed",
-  "output_text": "하나 개 두 개 세 개.",
-  "compliance_passed": true,
-  "compliance_reason": "digits_forbidden",
-  "attempts": 1
-}

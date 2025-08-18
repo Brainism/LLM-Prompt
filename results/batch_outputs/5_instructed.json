@@ -1,8 +1,0 @@
-{
-  "id": "5",
-  "prompt_type": "instructed",
-  "output_text": "{\"product\":\"책상\",\"price\":\"10000원\"}",
-  "compliance_passed": true,
-  "compliance_reason": "ok",
-  "attempts": 2
-}
