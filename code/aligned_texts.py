@@ -1,189 +1,211 @@
-# file: code/aligned_texts.py
 from __future__ import annotations
-import json, sys, subprocess, re
+import argparse, json, math, csv, sys
 from pathlib import Path
+from typing import Tuple, List, Dict
+import numpy as np
 
-def _looks_like_root(p: Path) -> bool:
-    return ((p / "results" / "batch_outputs").exists()
-            or ((p / "results").exists() and (p / "prompts").exists())
-            or (p / "code").exists())
+try:
+    from scipy.stats import wilcoxon
+    SCIPY_OK = True
+except Exception:
+    SCIPY_OK = False
 
-def search_root() -> Path:
-    start = Path(__file__).resolve().parent
-    for p in [start] + list(start.parents):
-        if _looks_like_root(p):
-            return p
-    cwd = Path.cwd()
-    for p in [cwd] + list(cwd.parents):
-        if _looks_like_root(p):
-            return p
-    return cwd
 
-def find_first(*cands: Path) -> Path | None:
-    for p in cands:
-        if p and p.exists():
-            return p
-    return None
+def _to_float(x) -> float:
+    try:
+        return float(x)
+    except Exception:
+        return float("nan")
 
-_CB = re.compile(r"^\s*```(?:[\w+-]+)?\s*(.*?)\s*```\s*$", re.DOTALL)
 
-def _unwrap_fence(s: str) -> str:
-    m = _CB.match(s or "")
-    return m.group(1) if m else (s or "")
+def _extract_score(v):
+    if isinstance(v, (int, float)):
+        return float(v)
+    if isinstance(v, dict):
+        for k in ("score", "value", "f1", "f", "metric", "val"):
+            if k in v and isinstance(v[k], (int, float, str)):
+                return _to_float(v[k])
+    return float("nan")
 
-def load_jsonl_map(p: Path, text_keys=("output","text","generation","output_text","content","response","completion")) -> dict[str,str]:
-    m: dict[str,str] = {}
-    with p.open(encoding="utf-8") as f:
-        for ln in f:
-            if not ln.strip():
-                continue
-            o = json.loads(ln)
-            pid = str(o.get("id") or o.get("prompt_id") or o.get("name"))
-            txt = ""
-            for k in text_keys:
-                if o.get(k) is not None:
-                    txt = o[k]; break
-            txt = _unwrap_fence(txt)
-            m[pid] = (txt or "").replace("\n"," ").strip()
-    return m
 
-def load_reference_map(p: Path) -> dict[str,str]:
-    pref = ("text","reference","ref","target","expected","gold","answer","output","completion","gt","label",
-            "output_text","target_text","reference_text","gold_text","answer_text",
-            "ground_truth","groundtruth","gt_text","ideal","solution","canonical","ref_text","expected_output","label_text")
-    ignore = {"id","prompt_id","name","scenario","param","limit","meta","tags"}
-    m: dict[str,str] = {}
-    with p.open(encoding="utf-8") as f:
-        for ln in f:
-            if not ln.strip():
-                continue
-            o = json.loads(ln)
-            pid = str(o.get("id") or o.get("prompt_id") or o.get("name"))
-            txt = None
-            for k in pref:
-                if k in o:
-                    v = o[k]
-                    if isinstance(v, str) and v.strip():
-                        txt = v; break
-                    if isinstance(v, dict):
-                        vv = v.get("text") or v.get("value")
-                        if isinstance(vv, str) and vv.strip():
-                            txt = vv; break
-            if txt is None:
-                for k,v in o.items():
-                    if k in ignore: continue
-                    if isinstance(v, str) and v.strip():
-                        txt = v; break
-                    if isinstance(v, dict):
-                        vv = v.get("text") or v.get("value")
-                        if isinstance(vv, str) and vv.strip():
-                            txt = vv; break
-            txt = _unwrap_fence(txt or "")
-            m[pid] = (txt or "").replace("\n"," ").strip()
-    return m
+def load_pairs_any(path: Path) -> Tuple[np.ndarray, np.ndarray]:
+    if not path or not path.exists():
+        return np.array([], dtype=float), np.array([], dtype=float)
 
-def _gather_items_from_json_dir(d: Path):
-    gen, ins = [], []
-    for p in sorted(d.glob("*.json")):
-        try:
-            o = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
-            continue
-        pid = str(o.get("id") or o.get("prompt_id") or o.get("name") or p.stem)
-        mode = str(o.get("prompt_type") or o.get("mode") or "").lower()
-        txt  = o.get("output_text") or o.get("output") or o.get("text") or ""
-        item = {"id": pid, "output": (txt or "").replace("\n"," ")}
-        if mode.startswith("gen"):
-            gen.append(item)
-        elif mode.startswith("instr"):
-            ins.append(item)
-    return gen, ins
+    data = json.loads(path.read_text(encoding="utf-8"))
 
-def _write_jsonl(path: Path, items: list[dict]):
-    with path.open("w", encoding="utf-8") as f:
-        for it in items:
-            f.write(json.dumps(it, ensure_ascii=False) + "\n")
+    # A) dict of maps
+    if isinstance(data, dict) and ("general" in data) and ("instructed" in data or "instruct" in data):
+        inst_key = "instructed" if "instructed" in data else "instruct"
+        gmap = data.get("general", {}) or {}
+        imap = data.get(inst_key, {}) or {}
+        if not isinstance(gmap, dict) or not isinstance(imap, dict):
+            return np.array([], dtype=float), np.array([], dtype=float)
+        ids = sorted(set(gmap.keys()) & set(imap.keys()))
+        g = np.array([_extract_score(gmap[k]) for k in ids], dtype=float)
+        i = np.array([_extract_score(imap[k]) for k in ids], dtype=float)
 
-def find_outputs_pair(root: Path) -> tuple[Path, Path]:
-    d1 = root / "results" / "batch_outputs"
-    d2 = root / "code" / "results" / "batch_outputs"
-    for d in [d1, d2]:
-        if not d.exists():
-            continue
-        g = d / "general.jsonl"
-        i = d / "instructed.jsonl"
-        if g.exists() and i.exists():
-            return g, i
-        gen_items, ins_items = _gather_items_from_json_dir(d)
-        if gen_items and ins_items:
-            _write_jsonl(g, gen_items)
-            _write_jsonl(i, ins_items)
-            print(f"[build] JSON → JSONL: {g.name}, {i.name} (dir={d})")
-            return g, i
-    rcode = root / "code" / "results"
-    if rcode.exists():
-        gen_items, ins_items = _gather_items_from_json_dir(rcode)
-        if gen_items and ins_items:
-            outdir = d1 if d1.exists() else d2 if d2.exists() else rcode
-            outdir.mkdir(parents=True, exist_ok=True)
-            g, i = outdir / "general.jsonl", outdir / "instructed.jsonl"
-            _write_jsonl(g, gen_items)
-            _write_jsonl(i, ins_items)
-            print(f"[build] code/results/*.json → JSONL: {g}, {i}")
-            return g, i
-    raise FileNotFoundError("출력 general/instructed를 찾거나 생성할 수 없습니다.")
+    elif isinstance(data, list) and data and isinstance(data[0], dict) and (
+        ("general" in data[0]) or ("instructed" in data[0]) or ("instruct" in data[0])
+    ):
+        g_list, i_list = [], []
+        for d in data:
+            inst_val = d.get("instructed", d.get("instruct"))
+            g_val = d.get("general")
+            if g_val is not None and inst_val is not None:
+                g_list.append(_extract_score(g_val))
+                i_list.append(_extract_score(inst_val))
+        g = np.array(g_list, dtype=float)
+        i = np.array(i_list, dtype=float)
+
+    elif isinstance(data, list) and data and isinstance(data[0], dict) and (
+        ("score" in data[0]) and ("system" in data[0] or "model" in data[0])
+    ):
+        gmap: Dict[str, float] = {}
+        imap: Dict[str, float] = {}
+        for d in data:
+            sid = str(d.get("id"))
+            sysname = str(d.get("system", d.get("model", ""))).lower()
+            sc = _extract_score(d.get("score"))
+            if not sid:
+                sid = str(len(gmap) + len(imap))
+            if sysname.startswith("gen"):
+                gmap[sid] = sc
+            elif sysname.startswith("instr"):
+                imap[sid] = sc
+        ids = sorted(set(gmap.keys()) & set(imap.keys()))
+        g = np.array([gmap[k] for k in ids], dtype=float)
+        i = np.array([imap[k] for k in ids], dtype=float)
+
+    else:
+        return np.array([], dtype=float), np.array([], dtype=float)
+
+    mask = ~(np.isnan(g) | np.isnan(i))
+    return g[mask], i[mask]
+
+
+def cohen_d_paired(g: np.ndarray, i: np.ndarray) -> float:
+    diff = i - g
+    sd = np.std(diff, ddof=1) if diff.size > 1 else 0.0
+    if sd == 0.0:
+        return float("nan")
+    return float(np.mean(diff) / sd)
+
+
+def bootstrap_ci(diff: np.ndarray, n_boot: int = 10000, alpha: float = 0.05, seed: int = 42):
+    if diff.size == 0 or n_boot <= 0:
+        return float("nan"), float("nan")
+    rng = np.random.default_rng(seed)
+    n = diff.size
+    boots = np.empty(n_boot, dtype=float)
+    for b in range(n_boot):
+        idx = rng.integers(0, n, n)
+        boots[b] = float(np.mean(diff[idx]))
+    lo = float(np.percentile(boots, 100 * (alpha / 2)))
+    hi = float(np.percentile(boots, 100 * (1 - alpha / 2)))
+    return lo, hi
+
+
+def bh_fdr(pvals: List[float]) -> List[float]:
+    arr = np.array(pvals, dtype=float)
+    m = len(arr)
+    order = np.argsort(arr)
+    ranks = np.empty(m, dtype=int)
+    ranks[order] = np.arange(1, m + 1)
+    q = arr * m / ranks
+    q_sorted = np.minimum.accumulate(q[order][::-1])[::-1]
+    qvals = np.empty(m, dtype=float)
+    qvals[order] = q_sorted
+    return qvals.tolist()
+
+
+def summarize_metric(name: str, path: Path, n_boot: int, do_wilcoxon: bool):
+    g, i = load_pairs_any(path)
+    n = int(g.size)
+    out = {
+        "metric": name,
+        "n": n,
+        "general_mean": float(np.mean(g)) if n else float("nan"),
+        "instruct_mean": float(np.mean(i)) if n else float("nan"),
+        "delta_mean": float(np.mean(i - g)) if n else float("nan"),
+        "delta_pct": float((np.mean(i - g) / (np.mean(g) + 1e-12)) * 100) if n else float("nan"),
+        "boot_ci_lo": float("nan"),
+        "boot_ci_hi": float("nan"),
+        "wilcoxon_p": float("nan"),
+        "cohen_d": float("nan"),
+    }
+    if n >= 2:
+        diff = i - g
+        lo, hi = bootstrap_ci(diff, n_boot=n_boot) if n_boot and n_boot > 0 else (float("nan"), float("nan"))
+        out["boot_ci_lo"], out["boot_ci_hi"] = lo, hi
+        out["cohen_d"] = cohen_d_paired(g, i)
+        if do_wilcoxon and SCIPY_OK and np.any(diff != 0):
+            try:
+                stat, p = wilcoxon(i, g, zero_method="wilcox", alternative="two-sided", mode="auto")
+                out["wilcoxon_p"] = float(p)
+            except Exception:
+                pass
+    return out
+
 
 def main():
-    root = search_root()
-    ref = find_first(root/"reference"/"reference_corpus.jsonl",
-                     root/"data"/"reference_corpus.jsonl",
-                     root/"results"/"reference"/"reference_corpus.jsonl")
-    if not ref:
-        sys.stderr.write("❌ reference_corpus.jsonl 필요\n"); sys.exit(2)
-    try:
-        gen, ins = find_outputs_pair(root)
-    except FileNotFoundError as e:
-        sys.stderr.write(f"❌ {e}\n"); sys.exit(2)
-    sacre = root/"code"/"sacre_eval.py"
-    stats = root/"code"/"stats_tests.py"
-    if not sacre.exists():
-        sys.stderr.write(f"❌ 없음: {sacre}\n"); sys.exit(2)
-    if not stats.exists():
-        sys.stderr.write(f"❌ 없음: {stats}\n"); sys.exit(2)
-    aligned_dir = root/"results"/"aligned"
-    aligned_dir.mkdir(parents=True, exist_ok=True)
-    ref_map = load_reference_map(ref)
-    gen_map = load_jsonl_map(gen)
-    ins_map = load_jsonl_map(ins)
-    ids = sorted(set(ref_map) & set(gen_map) & set(ins_map))
-    if not ids:
-        sys.stderr.write("❌ 공통 id 없음\n"); sys.exit(2)
-    refs_txt = aligned_dir/"refs.txt"
-    g_txt    = aligned_dir/"hyps_general.txt"
-    i_txt    = aligned_dir/"hyps_instructed.txt"
-    with refs_txt.open("w", encoding="utf-8") as fr, \
-         g_txt.open("w", encoding="utf-8") as fg, \
-         i_txt.open("w", encoding="utf-8") as fi:
-        for pid in ids:
-            fr.write(ref_map[pid] + "\n")
-            fg.write(gen_map[pid] + "\n")
-            fi.write(ins_map[pid] + "\n")
-    print(f"[aligned] wrote {len(ids)} lines -> {aligned_dir}")
-    out_bleu = root/"results"/"quantitative"/"bleu_sacre.json"
-    out_chrf = root/"results"/"quantitative"/"chrf.json"
-    out_bleu.parent.mkdir(parents=True, exist_ok=True)
-    cmd_bleu = [sys.executable, str(sacre),
-                "--refs", str(refs_txt),
-                "--hyps-general", str(g_txt),
-                "--hyps-instructed", str(i_txt),
-                "--out-bleu", str(out_bleu),
-                "--out-chrf", str(out_chrf)]
-    print("[sacre] running:", " ".join(cmd_bleu))
-    subprocess.run(cmd_bleu, check=True)
-    cmd_stats = [sys.executable, str(stats)]
-    print("[stats] running:", " ".join(cmd_stats))
-    subprocess.run(cmd_stats, check=True)
-    print("[OK] BLEU/chrF computed and stats refreshed.")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--bleu", type=str, help="path to bleu json")
+    ap.add_argument("--chrf", type=str, help="path to chrf json")
+    ap.add_argument("--rouge", type=str, help="path to rouge json")
+    ap.add_argument("--output", type=str, default="results/quantitative/stats_summary.csv")
+    ap.add_argument("--bootstrap", type=int, default=0, help="num bootstrap samples for CI (0=off)")
+    ap.add_argument("--wilcoxon", action="store_true", help="run Wilcoxon signed-rank test (needs SciPy)")
+    ap.add_argument("--fdr", action="store_true", help="apply BH-FDR across metrics")
+    ap.add_argument("--dry-run", action="store_true")
+    args = ap.parse_args()
+
+    rows, pvals = [], []
+
+    items = []
+    if args.bleu:  items.append(("BLEU", Path(args.bleu)))
+    if args.chrf:  items.append(("chrF", Path(args.chrf)))
+    if args.rouge: items.append(("ROUGE", Path(args.rouge)))
+
+    for name, p in items:
+        if not p.exists():
+            print(f"[warn] skip {name}: not found -> {p}")
+            continue
+        r = summarize_metric(name, p, n_boot=args.bootstrap, do_wilcoxon=args.wilcoxon)
+        rows.append(r)
+        pvals.append(r.get("wilcoxon_p", float("nan")))
+
+    if args.fdr and rows:
+        valid_idx = [i for i, pv in enumerate(pvals) if isinstance(pv, (int, float)) and not math.isnan(pv)]
+        if valid_idx:
+            qvals = bh_fdr([pvals[i] for i in valid_idx])
+            for j, i in enumerate(valid_idx):
+                rows[i]["fdr_q"] = float(qvals[j])
+        else:
+            for r in rows:
+                r["fdr_q"] = ""
+
+    outp = Path(args.output)
+    outp.parent.mkdir(parents=True, exist_ok=True)
+    cols = [
+        "metric","n","general_mean","instruct_mean","delta_mean","delta_pct",
+        "boot_ci_lo","boot_ci_hi","wilcoxon_p","fdr_q","cohen_d"
+    ]
+
+    if args.dry_run:
+        print("[dry-run] would write CSV ->", outp)
+        for r in rows:
+            print(r)
+        return
+
+    with outp.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=cols)
+        w.writeheader()
+        for r in rows:
+            if "fdr_q" not in r: r["fdr_q"] = ""
+            w.writerow({k: r.get(k, "") for k in cols})
+
+    print(f"[OK] wrote {outp} ({len(rows)} rows)")
 
 if __name__ == "__main__":
     main()
