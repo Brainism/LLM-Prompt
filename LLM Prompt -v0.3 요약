@@ -1,0 +1,29 @@
+이번 연구(v0.3)는 결론을 도출하며 일단락 하였습니다. repository는 후속 연구(표본/지표 확장, 휴먼 평가 etc)를 위한 기반으로 계속 유지합니다.
+본 README는 한 번에 업로드 가능한 완성본이며, 모든 명령은 Windows / cmd.exe를 기준으로 합니다.
+
+1) 프로젝트 한 눈에 보기
+- 목표: 동일 데이터셋에 대해 General vs Instructed 프롬포트의 성능 차이를 자동 지표를 통한 정량 평가
+- 지표: BLEU(sacrebleu), chrF, ROUGE
+- 통계: Bootstrap, CI, Wilcoxon, signed-rank test, BH-FDR 보정
+- 결론: n=8 표본에서 유의한 차이 없음. (모든 지표의 95% CI에 0 포함, Wilcoxon p=1.0, FDR q=1.0)
+
+2) 폴더 구조
+code/                 # 실행 스크립트(.py)
+docs/                 # 문서/노트
+notebooks/            # Jupyter 노트북
+reference/            # 레퍼런스 데이터(예: reference_corpus.jsonl)
+results/
+  aligned/            # 정렬된 텍스트 refs.txt / general.txt / instructed.txt
+  quantitative/       # bleu_sacre.json / chrf.json / rouge.json / stats_summary.csv / per_item_diffs_*.csv
+  figures/            # 시각화 결과물
+
+3) 결과
+1. 통계 요약 (n=8)
+metric	mean_base	mean_instr	delta	delta_%	d	CI95_low	CI95_high	p_wilcoxon	q_fdr
+ROUGE	0.5463	0.5527	+0.0064	+1.1734	+0.0705	-0.0561	0.0625	1.0000	1.0000
+bleu_sacre	0.4731	0.4558	−0.0172	−3.6400	−0.2414	−0.0693	0.0154	1.0000	1.0000
+chrf	0.5515	0.5451	−0.0064	−1.1630	−0.2556	−0.0250	0.0051	1.0000	1.0000
+
+2. per-item 분포
+- pos / neg / zero = 2 / 1 / 5
+- max |Δ|: BLEU 0.1909, ROUGE 0.1667, chrF 0.0674
