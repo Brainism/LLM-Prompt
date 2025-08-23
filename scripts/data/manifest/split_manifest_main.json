@@ -1,0 +1,962 @@
+[
+  {
+    "id": "SUM_0000",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0000"
+  },
+  {
+    "id": "SUM_0001",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0001"
+  },
+  {
+    "id": "SUM_0002",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0002"
+  },
+  {
+    "id": "SUM_0003",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0003"
+  },
+  {
+    "id": "SUM_0004",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0004"
+  },
+  {
+    "id": "SUM_0005",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0005"
+  },
+  {
+    "id": "SUM_0006",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0006"
+  },
+  {
+    "id": "SUM_0007",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0007"
+  },
+  {
+    "id": "SUM_0008",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0008"
+  },
+  {
+    "id": "SUM_0009",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0009"
+  },
+  {
+    "id": "SUM_0010",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0010"
+  },
+  {
+    "id": "SUM_0011",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0011"
+  },
+  {
+    "id": "SUM_0012",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0012"
+  },
+  {
+    "id": "SUM_0013",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0013"
+  },
+  {
+    "id": "SUM_0014",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0014"
+  },
+  {
+    "id": "SUM_0015",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0015"
+  },
+  {
+    "id": "SUM_0016",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0016"
+  },
+  {
+    "id": "SUM_0017",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0017"
+  },
+  {
+    "id": "SUM_0018",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0018"
+  },
+  {
+    "id": "SUM_0019",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0019"
+  },
+  {
+    "id": "SUM_0020",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0020"
+  },
+  {
+    "id": "SUM_0021",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0021"
+  },
+  {
+    "id": "SUM_0022",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0022"
+  },
+  {
+    "id": "SUM_0023",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0023"
+  },
+  {
+    "id": "SUM_0024",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0024"
+  },
+  {
+    "id": "SUM_0025",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0025"
+  },
+  {
+    "id": "SUM_0026",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0026"
+  },
+  {
+    "id": "SUM_0027",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0027"
+  },
+  {
+    "id": "SUM_0028",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0028"
+  },
+  {
+    "id": "SUM_0029",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0029"
+  },
+  {
+    "id": "SUM_0030",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0030"
+  },
+  {
+    "id": "SUM_0031",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0031"
+  },
+  {
+    "id": "SUM_0032",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0032"
+  },
+  {
+    "id": "SUM_0033",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0033"
+  },
+  {
+    "id": "SUM_0034",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "SUM_0034"
+  },
+  {
+    "id": "SUM_0035",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0035"
+  },
+  {
+    "id": "SUM_0036",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0036"
+  },
+  {
+    "id": "SUM_0037",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0037"
+  },
+  {
+    "id": "SUM_0038",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "SUM_0038"
+  },
+  {
+    "id": "SUM_0039",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "SUM_0039"
+  },
+  {
+    "id": "QA_0000",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0000"
+  },
+  {
+    "id": "QA_0001",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0001"
+  },
+  {
+    "id": "QA_0002",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0002"
+  },
+  {
+    "id": "QA_0003",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0003"
+  },
+  {
+    "id": "QA_0004",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0004"
+  },
+  {
+    "id": "QA_0005",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0005"
+  },
+  {
+    "id": "QA_0006",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0006"
+  },
+  {
+    "id": "QA_0007",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0007"
+  },
+  {
+    "id": "QA_0008",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0008"
+  },
+  {
+    "id": "QA_0009",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0009"
+  },
+  {
+    "id": "QA_0010",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0010"
+  },
+  {
+    "id": "QA_0011",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0011"
+  },
+  {
+    "id": "QA_0012",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0012"
+  },
+  {
+    "id": "QA_0013",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0013"
+  },
+  {
+    "id": "QA_0014",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0014"
+  },
+  {
+    "id": "QA_0015",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0015"
+  },
+  {
+    "id": "QA_0016",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0016"
+  },
+  {
+    "id": "QA_0017",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0017"
+  },
+  {
+    "id": "QA_0018",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0018"
+  },
+  {
+    "id": "QA_0019",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0019"
+  },
+  {
+    "id": "QA_0020",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0020"
+  },
+  {
+    "id": "QA_0021",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0021"
+  },
+  {
+    "id": "QA_0022",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0022"
+  },
+  {
+    "id": "QA_0023",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0023"
+  },
+  {
+    "id": "QA_0024",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0024"
+  },
+  {
+    "id": "QA_0025",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0025"
+  },
+  {
+    "id": "QA_0026",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0026"
+  },
+  {
+    "id": "QA_0027",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0027"
+  },
+  {
+    "id": "QA_0028",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0028"
+  },
+  {
+    "id": "QA_0029",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0029"
+  },
+  {
+    "id": "QA_0030",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0030"
+  },
+  {
+    "id": "QA_0031",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0031"
+  },
+  {
+    "id": "QA_0032",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0032"
+  },
+  {
+    "id": "QA_0033",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0033"
+  },
+  {
+    "id": "QA_0034",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "QA_0034"
+  },
+  {
+    "id": "QA_0035",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0035"
+  },
+  {
+    "id": "QA_0036",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0036"
+  },
+  {
+    "id": "QA_0037",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0037"
+  },
+  {
+    "id": "QA_0038",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0038"
+  },
+  {
+    "id": "QA_0039",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "QA_0039"
+  },
+  {
+    "id": "IE_0000",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0000"
+  },
+  {
+    "id": "IE_0001",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0001"
+  },
+  {
+    "id": "IE_0002",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0002"
+  },
+  {
+    "id": "IE_0003",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0003"
+  },
+  {
+    "id": "IE_0004",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0004"
+  },
+  {
+    "id": "IE_0005",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0005"
+  },
+  {
+    "id": "IE_0006",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0006"
+  },
+  {
+    "id": "IE_0007",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0007"
+  },
+  {
+    "id": "IE_0008",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0008"
+  },
+  {
+    "id": "IE_0009",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0009"
+  },
+  {
+    "id": "IE_0010",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0010"
+  },
+  {
+    "id": "IE_0011",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0011"
+  },
+  {
+    "id": "IE_0012",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0012"
+  },
+  {
+    "id": "IE_0013",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0013"
+  },
+  {
+    "id": "IE_0014",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0014"
+  },
+  {
+    "id": "IE_0015",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0015"
+  },
+  {
+    "id": "IE_0016",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0016"
+  },
+  {
+    "id": "IE_0017",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0017"
+  },
+  {
+    "id": "IE_0018",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0018"
+  },
+  {
+    "id": "IE_0019",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0019"
+  },
+  {
+    "id": "IE_0020",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0020"
+  },
+  {
+    "id": "IE_0021",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0021"
+  },
+  {
+    "id": "IE_0022",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0022"
+  },
+  {
+    "id": "IE_0023",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0023"
+  },
+  {
+    "id": "IE_0024",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0024"
+  },
+  {
+    "id": "IE_0025",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0025"
+  },
+  {
+    "id": "IE_0026",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0026"
+  },
+  {
+    "id": "IE_0027",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0027"
+  },
+  {
+    "id": "IE_0028",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0028"
+  },
+  {
+    "id": "IE_0029",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0029"
+  },
+  {
+    "id": "IE_0030",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0030"
+  },
+  {
+    "id": "IE_0031",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0031"
+  },
+  {
+    "id": "IE_0032",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0032"
+  },
+  {
+    "id": "IE_0033",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0033"
+  },
+  {
+    "id": "IE_0034",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0034"
+  },
+  {
+    "id": "IE_0035",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0035"
+  },
+  {
+    "id": "IE_0036",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0036"
+  },
+  {
+    "id": "IE_0037",
+    "domain": "information_extraction",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0037"
+  },
+  {
+    "id": "IE_0038",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0038"
+  },
+  {
+    "id": "IE_0039",
+    "domain": "information_extraction",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "IE_0039"
+  }
+]

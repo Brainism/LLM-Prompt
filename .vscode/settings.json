@@ -1,0 +1,9 @@
+{
+  "terminal.integrated.scrollback": 1000,
+  "files.watcherExclude": {
+    "**/.venv/**": true,
+    "**/__pycache__/**": true,
+    "**/results/**": true,
+    "**/node_modules/**": true
+  }
+}

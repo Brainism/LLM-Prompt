@@ -1,0 +1,204 @@
+{
+  "summary": [
+    {
+      "scenario": "bullets",
+      "mode": "general",
+      "acc": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.841886116991581,
+      "n": 2
+    },
+    {
+      "scenario": "bullets",
+      "mode": "instructed",
+      "acc": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.841886116991581,
+      "n": 2
+    },
+    {
+      "scenario": "forbid-terms",
+      "mode": "general",
+      "acc": 0.5,
+      "ci_low": 0.01257911709342505,
+      "ci_high": 0.9874208829065749,
+      "n": 2
+    },
+    {
+      "scenario": "forbid-terms",
+      "mode": "instructed",
+      "acc": 1.0,
+      "ci_low": 0.15811388300841897,
+      "ci_high": 1.0,
+      "n": 2
+    },
+    {
+      "scenario": "format-json",
+      "mode": "general",
+      "acc": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.841886116991581,
+      "n": 2
+    },
+    {
+      "scenario": "format-json",
+      "mode": "instructed",
+      "acc": 1.0,
+      "ci_low": 0.15811388300841897,
+      "ci_high": 1.0,
+      "n": 2
+    },
+    {
+      "scenario": "limit-words",
+      "mode": "general",
+      "acc": 1.0,
+      "ci_low": 0.15811388300841897,
+      "ci_high": 1.0,
+      "n": 2
+    },
+    {
+      "scenario": "limit-words",
+      "mode": "instructed",
+      "acc": 1.0,
+      "ci_low": 0.15811388300841897,
+      "ci_high": 1.0,
+      "n": 2
+    }
+  ],
+  "legacy": {
+    "by_group": {
+      "general": 0.375,
+      "instructed": 0.75
+    },
+    "by_scenario": {
+      "format-json": 0.5,
+      "limit-words": 1.0,
+      "bullets": 0.0,
+      "forbid-terms": 0.75
+    },
+    "by_group_scenario": {
+      "general|format-json": 0.0,
+      "instructed|format-json": 1.0,
+      "general|limit-words": 1.0,
+      "instructed|limit-words": 1.0,
+      "general|bullets": 0.0,
+      "instructed|bullets": 0.0,
+      "general|forbid-terms": 0.5,
+      "instructed|forbid-terms": 1.0
+    }
+  },
+  "items": [
+    {
+      "id": "1",
+      "mode": "general",
+      "scenario": "format-json",
+      "passed": 0,
+      "reason": "json_parse_fail"
+    },
+    {
+      "id": "1",
+      "mode": "instructed",
+      "scenario": "format-json",
+      "passed": 1,
+      "reason": "ok"
+    },
+    {
+      "id": "2",
+      "mode": "general",
+      "scenario": "limit-words",
+      "passed": 1,
+      "reason": "words=6 <= 10"
+    },
+    {
+      "id": "2",
+      "mode": "instructed",
+      "scenario": "limit-words",
+      "passed": 1,
+      "reason": "words=8 <= 10"
+    },
+    {
+      "id": "3",
+      "mode": "general",
+      "scenario": "bullets",
+      "passed": 0,
+      "reason": "bullets=1 required>=4"
+    },
+    {
+      "id": "3",
+      "mode": "instructed",
+      "scenario": "bullets",
+      "passed": 0,
+      "reason": "bullets=1 required>=4"
+    },
+    {
+      "id": "4",
+      "mode": "general",
+      "scenario": "forbid-terms",
+      "passed": 0,
+      "reason": "digits_present"
+    },
+    {
+      "id": "4",
+      "mode": "instructed",
+      "scenario": "forbid-terms",
+      "passed": 1,
+      "reason": "no_digits_found"
+    },
+    {
+      "id": "5",
+      "mode": "general",
+      "scenario": "format-json",
+      "passed": 0,
+      "reason": "json_parse_fail"
+    },
+    {
+      "id": "5",
+      "mode": "instructed",
+      "scenario": "format-json",
+      "passed": 1,
+      "reason": "ok"
+    },
+    {
+      "id": "6",
+      "mode": "general",
+      "scenario": "limit-words",
+      "passed": 1,
+      "reason": "words=10 <= 12"
+    },
+    {
+      "id": "6",
+      "mode": "instructed",
+      "scenario": "limit-words",
+      "passed": 1,
+      "reason": "words=10 <= 12"
+    },
+    {
+      "id": "7",
+      "mode": "general",
+      "scenario": "bullets",
+      "passed": 0,
+      "reason": "bullets=1 required>=5"
+    },
+    {
+      "id": "7",
+      "mode": "instructed",
+      "scenario": "bullets",
+      "passed": 0,
+      "reason": "bullets=1 required>=5"
+    },
+    {
+      "id": "8",
+      "mode": "general",
+      "scenario": "forbid-terms",
+      "passed": 1,
+      "reason": "no_digits_found"
+    },
+    {
+      "id": "8",
+      "mode": "instructed",
+      "scenario": "forbid-terms",
+      "passed": 1,
+      "reason": "no_digits_found"
+    }
+  ]
+}

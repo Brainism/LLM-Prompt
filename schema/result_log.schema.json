@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LLM Result Log (per item)",
+  "type": "object",
+  "required": ["id", "mode", "model", "provider", "output", "timing"],
+  "properties": {
+    "id": { "type": ["string","integer"] },
+    "mode": { "type": "string", "enum": ["general", "instructed"] },
+    "model": { "type": "string" },
+    "provider": { "type": "string" },
+    "input": { "type": "string" },
+    "output": { "type": "string", "minLength": 1 },
+    "reference": { "type": ["string","null"] },
+    "timing": {
+      "type": "object",
+      "required": ["latency_ms"],
+      "properties": {
+        "latency_ms": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "bleu": { "type": ["number","null"], "minimum": 0 },
+        "rougeL": { "type": ["number","null"], "minimum": 0 },
+        "chrf": { "type": ["number","null"], "minimum": 0 },
+        "bertscore_f1": { "type": ["number","null"], "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "compliance": {
+      "type": "object",
+      "properties": {
+        "format_json": { "type": ["boolean","null"] },
+        "forbid_terms": { "type": ["boolean","null"] },
+        "bullets_min_n": { "type": ["boolean","null"] },
+        "limit_chars": { "type": ["boolean","null"] },
+        "limit_items_json": { "type": ["boolean","null"] }
+      },
+      "additionalProperties": true
+    },
+    "efficiency": {
+      "type": "object",
+      "properties": {
+        "cost_usd": { "type": ["number","null"], "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string" }
+  },
+  "additionalProperties": true
+}

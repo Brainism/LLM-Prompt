@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "split_manifest_main",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id","input","reference","domain","lang","len_bin","diff_bin","cluster_id","license"],
+        "properties": {
+          "id": {"type": "string"},
+          "input": {"type": "string"},
+          "reference": {"type": "string"},
+          "domain": {"type": "string"},
+          "lang": {"type": "string", "enum": ["ko","en","etc"]},
+          "len_bin": {"type": "string", "enum": ["short","mid","long"]},
+          "diff_bin": {"type": "string", "enum": ["easy","mid","hard"]},
+          "cluster_id": {"type": "string"},
+          "license": {"type": "string"}
+        }
+      }
+    }
+  },
+  "required": ["items"]
+}

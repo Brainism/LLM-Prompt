@@ -1,0 +1,8 @@
+{
+  "id": "8",
+  "prompt_type": "instructed",
+  "output_text": "열 개, 이십 개, 삼십 개",
+  "compliance_passed": true,
+  "compliance_reason": "digits_forbidden",
+  "attempts": 1
+}
