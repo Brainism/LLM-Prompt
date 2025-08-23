@@ -1,0 +1,5 @@
+seed: 42
+sampling:
+  temperature: 0.2
+  top_p: 1.0
+  max_tokens: 1024

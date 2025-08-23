@@ -1,0 +1,5 @@
+PASSWORD
+SECRET_KEY
+주민등록번호
+credit card
+SSN
