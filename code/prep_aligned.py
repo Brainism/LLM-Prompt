@@ -34,7 +34,6 @@ def load_pairs_any(path: Path) -> Tuple[np.ndarray, np.ndarray]:
 
     data = json.loads(path.read_text(encoding="utf-8"))
 
-    # A) dict of maps
     if isinstance(data, dict) and ("general" in data) and ("instructed" in data or "instruct" in data):
         inst_key = "instructed" if "instructed" in data else "instruct"
         gmap = data.get("general", {}) or {}

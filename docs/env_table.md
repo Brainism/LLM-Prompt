@@ -13,7 +13,7 @@ A. System
 | RAM | 15.9 GB (TotalPhysicalMemory 17,022,259,200 bytes) |
 | GPU | NVIDIA GeForce GTX 1660 Ti, 6 GB (6144 MiB) |
 | Driver / CUDA | Driver 555.97, CUDA 12.5 |
-| Disk | C: 전체 476.03 GB (사용 309.16 / 여유 166.87) · D: 전체 1,862.95 GB (사용 15.59 / 여유 1,847.36) |
+| Disk | C: 전체 476.03 GB (사용 309.16 / 여유 166.87) · D: 전체 1,862.95GB (사용 15.59 / 여유 1,847.36) |
 
 > 원자료: `nvidia-smi` / PowerShell 디스크 출력 / WMI CPU·메모리 정보
 

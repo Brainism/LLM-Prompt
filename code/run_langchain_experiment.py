@@ -29,6 +29,7 @@ def run(args: argparse.Namespace) -> None:
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     outfile = outdir / f"{args.mode}.jsonl"
+
     llm = get_llm(
         args.provider,
         args.model,
@@ -36,39 +37,71 @@ def run(args: argparse.Namespace) -> None:
         num_predict=args.num_predict,
     )
 
-    n_ok, n_err = 0, 0
-    with outfile.open("w", encoding="utf-8") as f:
+    seen: set[str] = set()
+    if outfile.exists():
+        for _ln, s in enumerate(
+            outfile.read_text(encoding="utf-8-sig", errors="replace").splitlines(),
+            start=1,
+        ):
+            s = s.strip()
+            if not s:
+                continue
+            try:
+                rec = json.loads(s)
+                if "id" in rec:
+                    seen.add(str(rec["id"]))
+            except Exception:
+                pass
+
+    n_ok, n_err, n_skip = 0, 0, 0
+
+    with outfile.open("a", encoding="utf-8") as f:
         for item in prompts:
+            if str(item.id) in seen:
+                n_skip += 1
+                continue
+
             prompt = build_prompt(args.mode, item.text)
+
             t0 = time.perf_counter()
             out_text = ""
             err_msg = None
-
             try:
                 out_text = llm.generate(prompt)
             except Exception as e:
                 err_msg = f"{type(e).__name__}: {e}"
             finally:
-                dt_ms = (time.perf_counter() - t0) * 1000.0
+                dt_ms = int((time.perf_counter() - t0) * 1000)
 
-            ts_utc = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+            created_at = (
+                datetime.now(timezone.utc)
+                .isoformat(timespec="seconds")
+                .replace("+00:00", "Z")
+            )
 
             rec = {
                 "id": item.id,
-                "input": item.text,
-                "prompt": prompt, 
-                "output": out_text if out_text is not None else "",
-                "latency_ms": float(dt_ms),
                 "mode": args.mode,
-                "provider": args.provider,
                 "model": args.model,
-                "cost_usd": 0.0,
-                "temperature": args.temperature,
-                "num_predict": args.num_predict,
-                "timestamp": ts_utc,
-                "len_in": len(prompt),
-                "len_out": len(out_text or ""),
+                "provider": args.provider,
+
+                "input": item.text,
+                "output": out_text if out_text is not None else "",
+
+                "timing": {"latency_ms": dt_ms},
+                "created_at": created_at,
+
+                "prompt": prompt,
+                "decoding": {
+                    "temperature": args.temperature,
+                    "num_predict": args.num_predict,
+                },
+                "efficiency": {"cost_usd": 0.0},
+                "len_in_chars": len(item.text or ""),
+                "len_prompt_chars": len(prompt or ""),
+                "len_out_chars": len(out_text or ""),
             }
+
             if err_msg:
                 rec["error"] = err_msg
                 n_err += 1
@@ -77,7 +110,10 @@ def run(args: argparse.Namespace) -> None:
 
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
-    print(f"[OK] wrote outputs to {outfile.resolve()} (ok={n_ok}, err={n_err})")
+    print(
+        f"[OK] wrote outputs to {outfile.resolve()} "
+        f"(ok={n_ok}, err={n_err}, skipped={n_skip})"
+    )
 
 
 def parse_args() -> argparse.Namespace:
