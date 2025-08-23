@@ -1,0 +1,19 @@
+param(
+  [string]$Outputs = "results/raw/fake_outputs.jsonl",
+  [string]$RunName = "run1",
+  [switch]$NoBERT = $false,
+  [double]$PromptPer1k = 0.0,
+  [double]$CompletionPer1k = 0.0
+)
+$ErrorActionPreference="Stop"
+$py = ".\.venv\Scripts\python.exe"
+
+if (!(Test-Path $Outputs)) {
+  & $py scripts\m3_fake_outputs.py
+  $Outputs = "results/raw/fake_outputs.jsonl"
+}
+
+$args = @("--outputs", $Outputs, "--run_name", $RunName, "--prompt_cost_per_1k", $PromptPer1k, "--completion_cost_per_1k", $CompletionPer1k)
+if ($NoBERT) { $args += @("--no-bertscore") }
+
+& $py scripts\m3_eval.py @args
