@@ -1,60 +1,54 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "result_log",
+  "title": "LLM Result Log (per item)",
   "type": "object",
-  "additionalProperties": true,
-
-  "anyOf": [
-    { "required": ["id"] },
-    { "required": ["item_id"] },
-    { "required": ["example_id"] }
-  ],
-  "allOf": [
-    {
-      "anyOf": [
-        { "required": ["output"] },
-        { "required": ["text"] },
-        { "required": ["generation"] },
-        { "required": ["answer"] },
-        { "required": ["content"] },
-        { "required": ["response"] }
-      ]
-    },
-    { "required": ["latency_ms"] }
-  ],
-
+  "required": ["id", "mode", "model", "provider", "output", "timing"],
   "properties": {
-    "id":         { "type": "string" },
-    "item_id":    { "type": "string" },
-    "example_id": { "type": "string" },
-
-    "run_id":   { "type": "string" },
-    "model":    { "type": "string" },
-    "mode":     { "type": "string", "enum": ["general", "instructed"] },
+    "id": { "type": ["string","integer"] },
+    "mode": { "type": "string", "enum": ["general", "instructed"] },
+    "model": { "type": "string" },
     "provider": { "type": "string" },
-
-    "input":   { "type": "string" },
-
-    "output":    { "type": "string" },
-    "text":      { "type": "string" },
-    "generation":{ "type": "string" },
-    "answer":    { "type": "string" },
-    "content":   { "type": "string" },
-    "response":  { "type": "string" },
-
-    "latency_ms": { "type": "number", "minimum": 0 },
-    "cost_usd":   { "type": "number", "minimum": 0 },
-
-    "tok_in":  { "type": "integer", "minimum": 0 },
-    "tok_out": { "type": "integer", "minimum": 0 },
-    "len_in":  { "type": "integer", "minimum": 0 },
-    "len_out": { "type": "integer", "minimum": 0 },
-
-    "valid_json":       { "type": "boolean" },
-    "forbid_violation": { "type": "boolean" },
-    "length_ok":        { "type": "boolean" },
-    "bullet_ok":        { "type": "boolean" },
-
-    "timestamp": { "type": "string" }
-  }
+    "input": { "type": "string" },
+    "output": { "type": "string", "minLength": 1 },
+    "reference": { "type": ["string","null"] },
+    "timing": {
+      "type": "object",
+      "required": ["latency_ms"],
+      "properties": {
+        "latency_ms": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "bleu": { "type": ["number","null"], "minimum": 0 },
+        "rougeL": { "type": ["number","null"], "minimum": 0 },
+        "chrf": { "type": ["number","null"], "minimum": 0 },
+        "bertscore_f1": { "type": ["number","null"], "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "compliance": {
+      "type": "object",
+      "properties": {
+        "format_json": { "type": ["boolean","null"] },
+        "forbid_terms": { "type": ["boolean","null"] },
+        "bullets_min_n": { "type": ["boolean","null"] },
+        "limit_chars": { "type": ["boolean","null"] },
+        "limit_items_json": { "type": ["boolean","null"] }
+      },
+      "additionalProperties": true
+    },
+    "efficiency": {
+      "type": "object",
+      "properties": {
+        "cost_usd": { "type": ["number","null"], "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string" }
+  },
+  "additionalProperties": true
 }

@@ -1,0 +1,8 @@
+{
+  "id": "1",
+  "prompt_type": "general",
+  "output_text": "```json\n{\n  \"city\": \"서울\",\n  \"temp_unit\": \"C\"\n}\n```",
+  "compliance_passed": false,
+  "compliance_reason": "json_parse_fail",
+  "attempts": 2
+}
