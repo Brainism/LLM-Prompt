@@ -2,4 +2,4 @@ echo .venv/>> .gitignore
 echo __pycache__/>> .gitignore
 echo .ipynb_checkpoints/>> .gitignore
 echo .pytest_cache/>> .gitignore
-echo .vscode/>> .gitignore
+echo .vscode/>> .gitignore.venv/
