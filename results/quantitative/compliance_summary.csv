@@ -1,6 +1,3 @@
-﻿metric,general_rate,instructed_rate
-format_json,1.000,1.000
-limit_chars,1.000,1.000
-bullets_min_n,1.000,1.000
-limit_items_json,1.000,1.000
-forbid_terms,1.000,1.000
+version https://git-lfs.github.com/spec/v1
+oid sha256:a89d32d419b27e4390131c142f32edd64f2231aad038a678b803e7f763da24d9
+size 173
