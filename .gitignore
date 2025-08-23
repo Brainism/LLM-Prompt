@@ -1,26 +1,29 @@
-# env / IDE
+# venv & Python cache
 .venv/
-.vscode/
 __pycache__/
 *.pyc
 
-# generated
-results/batch_outputs/
-results/aligned/*.txt
-results/figures/*
-!results/figures/.keep
-*.tmp
-*.log
-
-# big artifacts (릴리스에만 올릴 것)
-*.zip
-*.7z
-*.tar.gz
-
-**/.venv/
-__pycache__/
-*.pyc
-results/batch_outputs/
-results/aligned/*.txt
+# Logs & temp
+logs/
+*.out
 *.log
 *.tmp
+*.bak
+
+# Results (artifacts)
+results/raw/
+results/aligned/
+results/figures/
+results/quantitative/*.json
+results/quantitative/*.png
+# allow the summary CSV
+!results/quantitative/
+!results/quantitative/stats_summary.csv
+
+# Scratch data
+prompts/prompts_smoke.csv
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
