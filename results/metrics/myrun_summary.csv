@@ -1,2 +1,3 @@
-run_name,n_items,rouge1_f_mean,rouge2_f_mean,rougeL_f_mean,bertscore_f1_mean,json_valid_rate,req_keys_rate_mean,forbid_violation_rate,latency_ms_p50,latency_ms_p95,cost_p50,cost_p95
-myrun,120,0.7571737603688198,0.1438593268182468,0.4513888608579754,0.9304540236790975,0.0,0.0,0.08333333333333333,979.0,1765.15,0.0,0.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:d35b1b3d8acb7c143edaca97a36ccf12419587524120f74d1302859b8d33c9e4
+size 320
