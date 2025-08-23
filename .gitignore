@@ -1,29 +1,21 @@
-# venv & Python cache
-.venv/
-__pycache__/
-*.pyc
-
-# Logs & temp
-logs/
-*.out
-*.log
-*.tmp
-*.bak
-
-# Results (artifacts)
-results/raw/
-results/aligned/
-results/figures/
-results/quantitative/*.json
-results/quantitative/*.png
-# allow the summary CSV
-!results/quantitative/
-!results/quantitative/stats_summary.csv
-
-# Scratch data
-prompts/prompts_smoke.csv
-
-# OS/editor
-.DS_Store
-Thumbs.db
-.ipynb_checkpoints/
+(
+echo .venv/
+echo __pycache__/
+echo *.pyc
+echo logs/
+echo *.out
+echo *.log
+echo *.tmp
+echo *.bak
+echo results/raw/
+echo results/aligned/
+echo results/figures/
+echo results/quantitative/*.json
+echo results/quantitative/*.png
+echo !results/quantitative/
+echo !results/quantitative/stats_summary.csv
+echo prompts/prompts_smoke.csv
+echo .DS_Store
+echo Thumbs.db
+echo .ipynb_checkpoints/
+) > .gitignore
