@@ -1,0 +1,8 @@
+{
+  "id": "2",
+  "prompt_type": "instructed",
+  "output_text": "데이터 품질은 모델 성능과 신뢰도를 결정하는 중요한 요인이다.",
+  "compliance_passed": false,
+  "compliance_reason": "words=8 expected=10",
+  "attempts": 2
+}

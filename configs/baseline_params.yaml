@@ -1,0 +1,34 @@
+run_id: baseline-2025-08-24
+provider: ollama
+
+inputs:
+  prompts_csv: prompts/prompts.csv
+  prompt_column: input
+  id_column: id
+  reference_jsonl: reference/reference_corpus.jsonl
+
+models:
+  general:
+    name: gemma:7b
+  instructed:
+    name: gemma:7b-instruct
+
+decoding:
+  seed: 42
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 512
+  stop: null
+
+outputs:
+  raw_dir: results/raw
+  aligned_dir: results/aligned
+  quantitative_dir: results/quantitative
+  figures_dir: results/figures
+  logs_dir: logs
+
+evaluation:
+  metrics: [bleu, chrf, rougeL]
+  bootstrap: 10000
+  wilcoxon: true
+  fdr: true

@@ -1,0 +1,602 @@
+[
+  {
+    "id": "ex-0001",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0001",
+    "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0002",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0002",
+    "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b",
+    "n_chars": 86,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0003",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0003",
+    "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0004",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0004",
+    "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5",
+    "n_chars": 87,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0005",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0005",
+    "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0",
+    "n_chars": 55,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0006",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0006",
+    "prompt_hash": "a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071",
+    "n_chars": 96,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0007",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0007",
+    "prompt_hash": "01a8914261d2748630b61a6823136f015110bc1fe11753b61e030dbed3f27e92",
+    "n_chars": 46,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0008",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0008",
+    "prompt_hash": "aa078e9e6e3445aaf346a7c358573c7d39908f79532c3325bb955cb7be3cede3",
+    "n_chars": 83,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0009",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0009",
+    "prompt_hash": "8f1dadb16aedcff49e93995535a22774a1fb4bc130566c7442bd5824a38fe550",
+    "n_chars": 46,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0010",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0010",
+    "prompt_hash": "b837f2f3825b13f85c6ff0e6de537a1187537cfed85ce0168667e97bb61b8b76",
+    "n_chars": 67,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0011",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0011",
+    "prompt_hash": "42a6a871f3de2ff47b5f1a16cc64d8a5cb0d18f5011726eb48972d05a88a6a79",
+    "n_chars": 32,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0012",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0012",
+    "prompt_hash": "60e07a9162681c24e2334e6d86e3f796818bed1727ba03b72358dc5a074eeff4",
+    "n_chars": 76,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0013",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0013",
+    "prompt_hash": "a214a5bb66a69300b777920e6146cce219a5b729043495ec08790cc38d924c94",
+    "n_chars": 36,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0014",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0014",
+    "prompt_hash": "244d1078d1e77497eece8596a5077cff8b30dad9a7e2bb9249d5f33158d7a5e5",
+    "n_chars": 77,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0015",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0015",
+    "prompt_hash": "4fbfadcdaec5138c1e61dddf80d95dfcb46751d23af98c734b66b44290252abe",
+    "n_chars": 36,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0016",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0016",
+    "prompt_hash": "2319cf5cb4c345c6ee5e63da3e351078dbe526bf7894c01f670e099d933bc40b",
+    "n_chars": 59,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0017",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0017",
+    "prompt_hash": "9f21dfcfb9edfe53a05d8c40958fc8491825867ef804518f05475792774e77bd",
+    "n_chars": 65,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0018",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0018",
+    "prompt_hash": "55b1909cbbae7ce00491a92df67c98331a448b0751972e1287e36fff537fb01f",
+    "n_chars": 62,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0019",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0019",
+    "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0020",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0020",
+    "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b",
+    "n_chars": 86,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0021",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0021",
+    "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0022",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0022",
+    "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5",
+    "n_chars": 87,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0023",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0023",
+    "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0",
+    "n_chars": 55,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0024",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0024",
+    "prompt_hash": "a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071",
+    "n_chars": 96,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0025",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0025",
+    "prompt_hash": "01a8914261d2748630b61a6823136f015110bc1fe11753b61e030dbed3f27e92",
+    "n_chars": 46,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0026",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0026",
+    "prompt_hash": "aa078e9e6e3445aaf346a7c358573c7d39908f79532c3325bb955cb7be3cede3",
+    "n_chars": 83,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0027",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0027",
+    "prompt_hash": "8f1dadb16aedcff49e93995535a22774a1fb4bc130566c7442bd5824a38fe550",
+    "n_chars": 46,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0028",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0028",
+    "prompt_hash": "b837f2f3825b13f85c6ff0e6de537a1187537cfed85ce0168667e97bb61b8b76",
+    "n_chars": 67,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0029",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0029",
+    "prompt_hash": "42a6a871f3de2ff47b5f1a16cc64d8a5cb0d18f5011726eb48972d05a88a6a79",
+    "n_chars": 32,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0030",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0030",
+    "prompt_hash": "60e07a9162681c24e2334e6d86e3f796818bed1727ba03b72358dc5a074eeff4",
+    "n_chars": 76,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0031",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0031",
+    "prompt_hash": "a214a5bb66a69300b777920e6146cce219a5b729043495ec08790cc38d924c94",
+    "n_chars": 36,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0032",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0032",
+    "prompt_hash": "244d1078d1e77497eece8596a5077cff8b30dad9a7e2bb9249d5f33158d7a5e5",
+    "n_chars": 77,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0033",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0033",
+    "prompt_hash": "4fbfadcdaec5138c1e61dddf80d95dfcb46751d23af98c734b66b44290252abe",
+    "n_chars": 36,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0034",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0034",
+    "prompt_hash": "2319cf5cb4c345c6ee5e63da3e351078dbe526bf7894c01f670e099d933bc40b",
+    "n_chars": 59,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0035",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0035",
+    "prompt_hash": "9f21dfcfb9edfe53a05d8c40958fc8491825867ef804518f05475792774e77bd",
+    "n_chars": 65,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0036",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0036",
+    "prompt_hash": "55b1909cbbae7ce00491a92df67c98331a448b0751972e1287e36fff537fb01f",
+    "n_chars": 62,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0037",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0037",
+    "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0038",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0038",
+    "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b",
+    "n_chars": 86,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0039",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0039",
+    "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0040",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0040",
+    "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5",
+    "n_chars": 87,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0041",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0041",
+    "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0",
+    "n_chars": 55,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0042",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0042",
+    "prompt_hash": "a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071",
+    "n_chars": 96,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0043",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0043",
+    "prompt_hash": "01a8914261d2748630b61a6823136f015110bc1fe11753b61e030dbed3f27e92",
+    "n_chars": 46,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0044",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0044",
+    "prompt_hash": "aa078e9e6e3445aaf346a7c358573c7d39908f79532c3325bb955cb7be3cede3",
+    "n_chars": 83,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0045",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0045",
+    "prompt_hash": "8f1dadb16aedcff49e93995535a22774a1fb4bc130566c7442bd5824a38fe550",
+    "n_chars": 46,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0046",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0046",
+    "prompt_hash": "b837f2f3825b13f85c6ff0e6de537a1187537cfed85ce0168667e97bb61b8b76",
+    "n_chars": 67,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0047",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0047",
+    "prompt_hash": "42a6a871f3de2ff47b5f1a16cc64d8a5cb0d18f5011726eb48972d05a88a6a79",
+    "n_chars": 32,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0048",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0048",
+    "prompt_hash": "60e07a9162681c24e2334e6d86e3f796818bed1727ba03b72358dc5a074eeff4",
+    "n_chars": 76,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0049",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0049",
+    "prompt_hash": "a214a5bb66a69300b777920e6146cce219a5b729043495ec08790cc38d924c94",
+    "n_chars": 36,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0050",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0050",
+    "prompt_hash": "244d1078d1e77497eece8596a5077cff8b30dad9a7e2bb9249d5f33158d7a5e5",
+    "n_chars": 77,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0051",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0051",
+    "prompt_hash": "4fbfadcdaec5138c1e61dddf80d95dfcb46751d23af98c734b66b44290252abe",
+    "n_chars": 36,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0052",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0052",
+    "prompt_hash": "2319cf5cb4c345c6ee5e63da3e351078dbe526bf7894c01f670e099d933bc40b",
+    "n_chars": 59,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0053",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0053",
+    "prompt_hash": "9f21dfcfb9edfe53a05d8c40958fc8491825867ef804518f05475792774e77bd",
+    "n_chars": 65,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0054",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0054",
+    "prompt_hash": "55b1909cbbae7ce00491a92df67c98331a448b0751972e1287e36fff537fb01f",
+    "n_chars": 62,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0055",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0055",
+    "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0056",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0056",
+    "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b",
+    "n_chars": 86,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0057",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0057",
+    "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd",
+    "n_chars": 57,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0058",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0058",
+    "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5",
+    "n_chars": 87,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0059",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0059",
+    "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0",
+    "n_chars": 55,
+    "license": "unknown"
+  },
+  {
+    "id": "ex-0060",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "short",
+    "cluster_id": "EX_CLUSTER_0060",
+    "prompt_hash": "fa5e7d54d7de6cf832812df068eb62ce9578fbbee029cf5752dd1dec31901c2e",
+    "n_chars": 57,
+    "license": "unknown"
+  }
+]

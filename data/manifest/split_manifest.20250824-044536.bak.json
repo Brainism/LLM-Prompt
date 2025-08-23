@@ -1,0 +1,50 @@
+[
+  {
+    "id": "EN_0000",
+    "domain": "qa",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "EN_CLUSTER_0000"
+  },
+  {
+    "id": "EN_0002",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "normal",
+    "cluster_id": "EN_CLUSTER_0002"
+  },
+  {
+    "id": "EN_0003",
+    "domain": "summarization",
+    "lang": "en",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "EN_CLUSTER_0003"
+  },
+  {
+    "id": "KO_0000",
+    "domain": "qa",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "KO_0000"
+  },
+  {
+    "id": "KO_0002",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "hard",
+    "cluster_id": "KO_0002"
+  },
+  {
+    "id": "KO_0005",
+    "domain": "summarization",
+    "lang": "ko",
+    "len_bin": "short",
+    "diff_bin": "easy",
+    "cluster_id": "KO_0005"
+  }
+]

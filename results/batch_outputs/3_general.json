@@ -1,0 +1,8 @@
+{
+  "id": "3",
+  "prompt_type": "general",
+  "output_text": "- 물을 채워 라면 접어넣기.\n- 라면을 끓여 물을 제거하기.\n- 라면에 소스를 부어 섞기.\n- 라면을 담그기.",
+  "compliance_passed": true,
+  "compliance_reason": "bullets=4 expected=4",
+  "attempts": 1
+}

@@ -1,0 +1,587 @@
+{
+  "metric": "bleu",
+  "n": 96,
+  "items": [
+    {
+      "id": "ex-0001",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0002",
+      "general": 5.109089028063328e-10,
+      "instructed": 5.109089028063328e-10,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0003",
+      "general": 11.354651727212334,
+      "instructed": 11.354651727212334,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0004",
+      "general": 1.227733990306844,
+      "instructed": 28.51270610154952,
+      "diff": 27.284972111242674
+    },
+    {
+      "id": "ex-0005",
+      "general": 0.35454852375323276,
+      "instructed": 1.3887943864964027e-09,
+      "diff": -0.35454852236443835
+    },
+    {
+      "id": "ex-0006",
+      "general": 0.06825186052481161,
+      "instructed": 0.0,
+      "diff": -0.06825186052481161
+    },
+    {
+      "id": "ex-0007",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0008",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0009",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0010",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0011",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0012",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0013",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0014",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0015",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0016",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0017",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0018",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0019",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0020",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0021",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0022",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0023",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0024",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0025",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0026",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0027",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0028",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0029",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0030",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0031",
+      "general": 0.060459760719866106,
+      "instructed": 0.0,
+      "diff": -0.060459760719866106
+    },
+    {
+      "id": "ex-0032",
+      "general": 5.109089028063328e-10,
+      "instructed": 5.109089028063328e-10,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0033",
+      "general": 1.3887943864964027e-09,
+      "instructed": 12.976007289085173,
+      "diff": 12.976007287696378
+    },
+    {
+      "id": "ex-0034",
+      "general": 0.0,
+      "instructed": 2.401509512112529,
+      "diff": 2.401509512112529
+    },
+    {
+      "id": "ex-0035",
+      "general": 0.0,
+      "instructed": 1.3887943864964027e-09,
+      "diff": 1.3887943864964027e-09
+    },
+    {
+      "id": "ex-0036",
+      "general": 6.914400106940206e-11,
+      "instructed": 0.0,
+      "diff": -6.914400106940206e-11
+    },
+    {
+      "id": "ex-0037",
+      "general": 0.0,
+      "instructed": 6.178110636313396,
+      "diff": 6.178110636313396
+    },
+    {
+      "id": "ex-0038",
+      "general": 0.0,
+      "instructed": 2.2869567780619007,
+      "diff": 2.2869567780619007
+    },
+    {
+      "id": "ex-0039",
+      "general": 0.0,
+      "instructed": 2.775638555723182,
+      "diff": 2.775638555723182
+    },
+    {
+      "id": "ex-0040",
+      "general": 0.0,
+      "instructed": 6.567274736060395,
+      "diff": 6.567274736060395
+    },
+    {
+      "id": "ex-0041",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0042",
+      "general": 0.0,
+      "instructed": 5.522397783539471,
+      "diff": 5.522397783539471
+    },
+    {
+      "id": "ex-0043",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0044",
+      "general": 0.0,
+      "instructed": 2.627961710408444,
+      "diff": 2.627961710408444
+    },
+    {
+      "id": "ex-0045",
+      "general": 0.0,
+      "instructed": 2.627961710408444,
+      "diff": 2.627961710408444
+    },
+    {
+      "id": "ex-0046",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0047",
+      "general": 0.0,
+      "instructed": 15.97357760615681,
+      "diff": 15.97357760615681
+    },
+    {
+      "id": "ex-0048",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0049",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0050",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0051",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0052",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0053",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0054",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0055",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0056",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0057",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0058",
+      "general": 2.8398387225677895,
+      "instructed": 0.0,
+      "diff": -2.8398387225677895
+    },
+    {
+      "id": "ex-0059",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0060",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0061",
+      "general": 0.29027977985517095,
+      "instructed": 0.0,
+      "diff": -0.29027977985517095
+    },
+    {
+      "id": "ex-0062",
+      "general": 0.060459760719866106,
+      "instructed": 5.109089028063328e-10,
+      "diff": -0.0604597602089572
+    },
+    {
+      "id": "ex-0063",
+      "general": 1.3887943864964027e-09,
+      "instructed": 11.354651727212334,
+      "diff": 11.354651725823539
+    },
+    {
+      "id": "ex-0064",
+      "general": 5.109089028063328e-10,
+      "instructed": 2.401509512112529,
+      "diff": 2.40150951160162
+    },
+    {
+      "id": "ex-0065",
+      "general": 0.0,
+      "instructed": 1.3887943864964027e-09,
+      "diff": 1.3887943864964027e-09
+    },
+    {
+      "id": "ex-0066",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0067",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0068",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0069",
+      "general": 0.0,
+      "instructed": 13.950796967929131,
+      "diff": 13.950796967929131
+    },
+    {
+      "id": "ex-0070",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0071",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0072",
+      "general": 0.8321783954793125,
+      "instructed": 0.0,
+      "diff": -0.8321783954793125
+    },
+    {
+      "id": "ex-0073",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0074",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0075",
+      "general": 1.199348129252962,
+      "instructed": 0.0,
+      "diff": -1.199348129252962
+    },
+    {
+      "id": "ex-0076",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0077",
+      "general": 2.445593937240363,
+      "instructed": 0.0,
+      "diff": -2.445593937240363
+    },
+    {
+      "id": "ex-0078",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0079",
+      "general": 1.286713095960916,
+      "instructed": 0.0,
+      "diff": -1.286713095960916
+    },
+    {
+      "id": "ex-0080",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0081",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0082",
+      "general": 1.5061893230938672,
+      "instructed": 0.0,
+      "diff": -1.5061893230938672
+    },
+    {
+      "id": "ex-0083",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0084",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0085",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0086",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0087",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0088",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0089",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0090",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    },
+    {
+      "id": "ex-0091",
+      "general": 1.3760851941185817,
+      "instructed": 2.1045242361846244,
+      "diff": 0.7284390420660427
+    },
+    {
+      "id": "ex-0092",
+      "general": 0.0,
+      "instructed": 1.5102474580708127,
+      "diff": 1.5102474580708127
+    },
+    {
+      "id": "ex-0093",
+      "general": 1.3887943864964027e-09,
+      "instructed": 3.0717490052419594,
+      "diff": 3.071749003853165
+    },
+    {
+      "id": "ex-0094",
+      "general": 10.446783901682902,
+      "instructed": 0.0,
+      "diff": -10.446783901682902
+    },
+    {
+      "id": "ex-0095",
+      "general": 1.499557682047771,
+      "instructed": 0.0,
+      "diff": -1.499557682047771
+    },
+    {
+      "id": "ex-0096",
+      "general": 0.0,
+      "instructed": 0.0,
+      "diff": 0.0
+    }
+  ],
+  "corpus": {
+    "general": 0.3838403519823421,
+    "instructed": 1.3978982610321051,
+    "diff": 1.014057909049763
+  }
+}

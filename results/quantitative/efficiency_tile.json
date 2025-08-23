@@ -1,0 +1,61 @@
+{
+  "overall": {
+    "latency_ms": {
+      "count": 120,
+      "mean": 9796.7154708332,
+      "p50": 8898.831849975977,
+      "p95": 18966.801685030798
+    },
+    "cost_usd": {
+      "count": 120,
+      "mean": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    }
+  },
+  "meta": {
+    "n_records": 120,
+    "latency_field": "latency_ms",
+    "cost_field": "cost_usd",
+    "percentiles": [
+      50.0,
+      95.0
+    ]
+  },
+  "by_group": {
+    "fields": [
+      "model",
+      "mode"
+    ],
+    "tiles": {
+      "gemma:7b|general": {
+        "latency_ms": {
+          "count": 60,
+          "mean": 10932.274483332489,
+          "p50": 10933.893400011584,
+          "p95": 21922.170450026166
+        },
+        "cost_usd": {
+          "count": 60,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        }
+      },
+      "gemma:7b-instruct|instructed": {
+        "latency_ms": {
+          "count": 60,
+          "mean": 8661.156458333911,
+          "p50": 7435.843149956781,
+          "p95": 15884.169744985411
+        },
+        "cost_usd": {
+          "count": 60,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        }
+      }
+    }
+  }
+}
