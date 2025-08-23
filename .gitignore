@@ -1,52 +1,5 @@
-(
-# Python venv / cache
-.venv/
-env/
-*.pyc
-__pycache__/
-.ipynb_checkpoints/
-.pytest_cache/
-
-# VSCode
-.vscode/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Build / logs / tmp
-dist/
-build/
-*.log
-tmp/
-*.tmp
-
-# Project artifacts (필요 시 조정)
-results/
-aligned/
-snapshots/
-data/raw/
-data/cache/
-models/
-aw/
-echo results/aligned/
-echo results/figures/
-echo results/quantitative/*.json
-echo results/quantitative/*.png
-echo !results/quantitative/
-echo !results/quantitative/stats_summary.csv
-echo prompts/prompts_smoke.csv
-echo .DS_Store
-echo Thumbs.db
-echo .ipynb_checkpoints/
-) > .gitignore
-
-(
-  echo __pycache__/
-  echo *.pyc
-  echo .venv/
-  echo logs/
-  echo dist/*.zip
-  echo results/raw/*.jsonl
-  echo !results/raw_patched/*.jsonl
-) >> .gitignore.venv/
+echo .venv/>> .gitignore
+echo __pycache__/>> .gitignore
+echo .ipynb_checkpoints/>> .gitignore
+echo .pytest_cache/>> .gitignore
+echo .vscode/>> .gitignore
