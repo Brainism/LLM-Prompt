@@ -28,4 +28,4 @@ echo .ipynb_checkpoints/
   echo dist/*.zip
   echo results/raw/*.jsonl
   echo !results/raw_patched/*.jsonl
-) >> .gitignore
+) >> .gitignore.venv/
