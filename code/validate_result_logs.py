@@ -2,70 +2,82 @@ import json
 import sys
 import argparse
 from pathlib import Path
-from jsonschema import Draft7Validator, exceptions as jsonschema_exceptions
+from jsonschema import Draft7Validator
 
-ROOT   = Path(__file__).resolve().parents[1]
-SCHEMA = ROOT / "schema" / "result_log.schema.json"
-RAWDIR = ROOT / "results" / "raw"
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_SCHEMA = ROOT / "schema" / "result_log.schema.json"
+DEFAULT_RAWDIR = ROOT / "results" / "raw"
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--max-errors", type=int, default=50, help="maximum number of errors to print")
-    ap.add_argument("--require", nargs="*", default=[], help="extra required keys (e.g., mode provider)")
-    args = ap.parse_args()
-
-    if not SCHEMA.exists():
-        raise FileNotFoundError(f"스키마를 찾을 수 없습니다: {SCHEMA}")
-    if not RAWDIR.exists():
-        raise FileNotFoundError(f"raw 로그 폴더가 없습니다: {RAWDIR}")
-
-    schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
-    validator = Draft7Validator(schema)
-
-    files = sorted(RAWDIR.glob("*.jsonl"))
-    if not files:
-        print("[WARN] results/raw 에 jsonl이 없습니다.")
-        sys.exit(0)
-
-    total = 0
-    ok = 0
-    errs = []
-
-    for fp in files:
-        text = fp.read_text(encoding="utf-8")
-        for ln_no, line in enumerate(text.splitlines(), start=1):
+def iter_jsonl_lines(fp: Path):
+    with fp.open("r", encoding="utf-8-sig", errors="replace") as f:
+        for ln_no, line in enumerate(f, start=1):
             s = line.strip()
             if not s:
                 continue
-            total += 1
+            yield ln_no, s
+
+def main():
+    ap = argparse.ArgumentParser(description="Validate result JSONL logs against schema")
+    ap.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA, help="path to JSON schema file")
+    ap.add_argument("--raw-dir", type=Path, default=DEFAULT_RAWDIR, help="directory containing *.jsonl logs")
+    ap.add_argument("--glob", default="*.jsonl", help="filename glob pattern (default: *.jsonl)")
+    ap.add_argument("--max-errors", type=int, default=50, help="maximum number of errors to print")
+    ap.add_argument("--require", nargs="*", default=[], help="extra required keys (e.g., mode provider model)")
+    args = ap.parse_args()
+
+    if not args.schema.exists():
+        raise FileNotFoundError(f"스키마를 찾을 수 없습니다: {args.schema}")
+    if not args.raw_dir.exists():
+        raise FileNotFoundError(f"raw 로그 폴더가 없습니다: {args.raw_dir}")
+
+    schema = json.loads(args.schema.read_text(encoding="utf-8"))
+    validator = Draft7Validator(schema)
+
+    files = sorted(args.raw_dir.glob(args.glob))
+    if not files:
+        print("[WARN] 결과 로그가 없습니다.")
+        sys.exit(0)
+
+    total_records = 0
+    ok_records = 0
+    errors = []
+
+    for fp in files:
+        for ln_no, s in iter_jsonl_lines(fp):
+            total_records += 1
             try:
                 rec = json.loads(s)
             except Exception as e:
-                errs.append((fp.name, ln_no, "(parse)", f"JSON 파싱 실패: {e}"))
+                errors.append((fp.name, ln_no, "(parse)", f"JSON 파싱 실패: {e}"))
                 continue
 
-            v_errors = list(validator.iter_errors(rec))
+            v_errs = list(validator.iter_errors(rec))
             for k in args.require:
                 if k not in rec:
-                    v_errors.append(jsonschema_exceptions.ValidationError(
-                        f"Extra required key missing: '{k}'", path=[k]
-                    ))
+                    v_errs.append(("__extra__", [k], f"Extra required key missing: '{k}'"))
 
-            if v_errors:
-                for e in v_errors:
-                    path = "/".join(map(str, e.path)) or "(root)"
-                    errs.append((fp.name, ln_no, path, e.message))
+            if v_errs:
+                for e in v_errs:
+                    if isinstance(e, tuple):
+                        _, path_list, msg = e
+                        path_str = "/".join(map(str, path_list)) if path_list else "(root)"
+                        errors.append((fp.name, ln_no, path_str, msg))
+                    else:
+                        path_str = "/".join(map(str, getattr(e, "path", []))) or "(root)"
+                        errors.append((fp.name, ln_no, path_str, getattr(e, "message", str(e))))
             else:
-                ok += 1
+                ok_records += 1
 
-    print(f"[SUMMARY] files={len(files)}  records={total}  ok={ok}  errors={len(errs)}")
-    if errs:
-        print(f"[DETAILS] showing first {min(args.max_errors, len(errs))} errors:")
-        for f, ln, path, msg in errs[:args.max_errors]:
+    print(f"[SUMMARY] files={len(files)}  records={total_records}  ok={ok_records}  errors={len(errors)}")
+    if errors:
+        show_n = min(args.max_errors, len(errors))
+        print(f"[DETAILS] showing first {show_n} errors:")
+        for f, ln, path, msg in errors[:show_n]:
             print(f"- {f}:{ln} :: {path} :: {msg}")
         sys.exit(1)
     else:
         print("✅ result logs OK")
+        sys.exit(0)
 
 if __name__ == "__main__":
     main()
