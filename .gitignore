@@ -1,5 +1,16 @@
-echo .venv/>> .gitignore
-echo __pycache__/>> .gitignore
-echo .ipynb_checkpoints/>> .gitignore
-echo .pytest_cache/>> .gitignore
-echo .vscode/>> .gitignore.venv/
+# --- Python / venv
+.venv/
+__pycache__/
+*.py[cod]
+
+# --- Backups
+*.backup.json
+*.backup.py
+
+# --- Results: 기본 무시, 핵심 요약만 추적
+results/**
+!results/quantitative/
+!results/figures/
+!results/quantitative/stats_summary.csv
+!results/quantitative/compliance_summary.json
+!results/figures/summary_tile.png
