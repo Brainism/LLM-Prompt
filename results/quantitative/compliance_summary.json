@@ -1,185 +1,147 @@
 {
   "summary": [
     {
-      "scenario": "forbid-terms",
+      "scenario": "unknown",
       "mode": "general",
-      "acc": 1.0,
-      "ci_low": 0.15811388300841897,
-      "ci_high": 1.0,
-      "n": 2
+      "acc": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.3694166475528192,
+      "n": 8
     },
     {
-      "scenario": "forbid-terms",
+      "scenario": "unknown",
       "mode": "instructed",
-      "acc": 1.0,
-      "ci_low": 0.15811388300841897,
-      "ci_high": 1.0,
-      "n": 2
-    },
-    {
-      "scenario": "format-json",
-      "mode": "general",
-      "acc": 1.0,
-      "ci_low": 0.3976353643835253,
-      "ci_high": 1.0,
-      "n": 4
-    },
-    {
-      "scenario": "format-json",
-      "mode": "instructed",
-      "acc": 1.0,
-      "ci_low": 0.3976353643835253,
-      "ci_high": 1.0,
-      "n": 4
-    },
-    {
-      "scenario": "limit-words",
-      "mode": "general",
-      "acc": 1.0,
-      "ci_low": 0.15811388300841897,
-      "ci_high": 1.0,
-      "n": 2
-    },
-    {
-      "scenario": "limit-words",
-      "mode": "instructed",
-      "acc": 1.0,
-      "ci_low": 0.15811388300841897,
-      "ci_high": 1.0,
-      "n": 2
+      "acc": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.3694166475528192,
+      "n": 8
     }
   ],
   "legacy": {
     "by_group": {
-      "general": 1.0,
-      "instructed": 1.0
+      "general": 0.0,
+      "instructed": 0.0
     },
     "by_scenario": {
-      "format-json": 1.0,
-      "limit-words": 1.0,
-      "forbid-terms": 1.0
+      "unknown": 0.0
     },
     "by_group_scenario": {
-      "general|format-json": 1.0,
-      "instructed|format-json": 1.0,
-      "general|limit-words": 1.0,
-      "instructed|limit-words": 1.0,
-      "general|forbid-terms": 1.0,
-      "instructed|forbid-terms": 1.0
+      "general|unknown": 0.0,
+      "instructed|unknown": 0.0
     }
   },
   "items": [
     {
       "id": "1",
       "mode": "general",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "1",
       "mode": "instructed",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "2",
       "mode": "general",
-      "scenario": "limit-words",
-      "passed": 1,
-      "reason": "words=6 <= 10"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "2",
       "mode": "instructed",
-      "scenario": "limit-words",
-      "passed": 1,
-      "reason": "words=8 <= 10"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "3",
       "mode": "general",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "3",
       "mode": "instructed",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "4",
       "mode": "general",
-      "scenario": "forbid-terms",
-      "passed": 1,
-      "reason": "no_digits_found"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "4",
       "mode": "instructed",
-      "scenario": "forbid-terms",
-      "passed": 1,
-      "reason": "no_digits_found"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "5",
       "mode": "general",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "5",
       "mode": "instructed",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "6",
       "mode": "general",
-      "scenario": "limit-words",
-      "passed": 1,
-      "reason": "words=10 <= 12"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "6",
       "mode": "instructed",
-      "scenario": "limit-words",
-      "passed": 1,
-      "reason": "words=10 <= 12"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "7",
       "mode": "general",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "7",
       "mode": "instructed",
-      "scenario": "format-json",
-      "passed": 1,
-      "reason": "ok"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "8",
       "mode": "general",
-      "scenario": "forbid-terms",
-      "passed": 1,
-      "reason": "no_digits_found"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     },
     {
       "id": "8",
       "mode": "instructed",
-      "scenario": "forbid-terms",
-      "passed": 1,
-      "reason": "no_digits_found"
+      "scenario": "unknown",
+      "passed": 0,
+      "reason": "unknown_scenario"
     }
   ]
 }
