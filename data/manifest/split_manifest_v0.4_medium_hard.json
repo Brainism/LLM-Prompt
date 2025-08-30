@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ex-0101",
+    "domain": "general",
+    "lang": "ko",
+    "len_bin": "medium",
+    "diff_bin": "hard",
+    "cluster_id": "EX_CLUSTER_0101",
+    "prompt_hash": "HASH_PLACEHOLDER_0101",
+    "n_chars": 124,
+    "license": "unknown",
+    "input": "최근 사회적 갈등을 줄이기 위한 방안으로 공론화 위원회 제도가 도입되고 있습니다. 이 제도의 장점과 단점을 균형 있게 분석하고, 한국의 현실에 맞게 보완할 수 있는 구체적 제안을 세 가지 이상 제시하시오.",
+    "reference": "공론화 위원회는 다양한 이해관계자의 의견을 반영할 수 있는 장점이 있지만, 시간과 비용이 많이 들고 전문성이 부족할 수 있다. 한국에서는 전문가 자문단 병행, 온라인 참여 확대, 의사결정 후 실행 점검 절차 강화가 필요하다."
+  },
+  {
+    "id": "ex-0102",
+    "domain": "healthcare",
+    "lang": "ko",
+    "len_bin": "medium",
+    "diff_bin": "hard",
+    "cluster_id": "EX_CLUSTER_0102",
+    "prompt_hash": "HASH_PLACEHOLDER_0102",
+    "n_chars": 139,
+    "license": "unknown",
+    "input": "당뇨병 환자의 식단 관리에서 탄수화물 섭취를 제한하는 방법과 지중해식 식단을 적용하는 방법의 장단점을 비교하고, 환자의 연령과 생활습관을 고려하여 어떤 접근법이 더 적절한지 논리적으로 설명하시오.",
+    "reference": "탄수화물 제한은 혈당 조절에 효과적이지만 지속성이 떨어질 수 있다. 지중해식은 장기적 순응도가 높고 심혈관 질환 예방에도 유리하다. 고령·비활동 환자에게는 지중해식이, 젊고 체중감량이 필요한 환자에게는 저탄수화 식단이 적절하다."
+  },
+  {
+    "id": "ex-0103",
+    "domain": "technology",
+    "lang": "ko",
+    "len_bin": "medium",
+    "diff_bin": "hard",
+    "cluster_id": "EX_CLUSTER_0103",
+    "prompt_hash": "HASH_PLACEHOLDER_0103",
+    "n_chars": 132,
+    "license": "unknown",
+    "input": "인공지능이 생성한 텍스트를 판별하기 위한 검출 모델이 점점 어려워지고 있습니다. AI 생성물 판별의 한계와 그로 인한 사회적·법적 문제를 논하고, 기술적·정책적 차원에서 병행할 수 있는 대응 방안을 제안하시오.",
+    "reference": "AI 생성물 판별은 기술이 고도화될수록 신뢰도가 떨어진다. 저작권, 허위정보 확산 등의 문제가 발생한다. 기술적으로는 워터마킹과 메타데이터 보강, 정책적으로는 투명성 의무화와 법적 책임 규정이 필요하다."
+  },
+  {
+    "id": "ex-0104",
+    "domain": "finance",
+    "lang": "ko",
+    "len_bin": "medium",
+    "diff_bin": "hard",
+    "cluster_id": "EX_CLUSTER_0104",
+    "prompt_hash": "HASH_PLACEHOLDER_0104",
+    "n_chars": 118,
+    "license": "unknown",
+    "input": "최근 한국에서 청년층 부채 문제가 심각해지고 있습니다. 금융 교육, 정책적 지원, 개인 재무 관리 측면에서 각각 어떤 대책이 가능한지 구체적으로 제시하고, 세 접근법의 상호 보완 가능성을 논하시오.",
+    "reference": "금융 교육은 장기적 예방 효과가 크고, 정책적 지원은 단기 부담 완화에 효과적이다. 개인 재무 관리 역량 강화는 지속 가능한 해결책이다. 세 접근법은 병행할 때 효과가 극대화된다."
+  },
+  {
+    "id": "ex-0105",
+    "domain": "education",
+    "lang": "ko",
+    "len_bin": "medium",
+    "diff_bin": "hard",
+    "cluster_id": "EX_CLUSTER_0105",
+    "prompt_hash": "HASH_PLACEHOLDER_0105",
+    "n_chars": 143,
+    "license": "unknown",
+    "input": "원격 교육의 장단점에 대해 논하되, 학습자의 자율성과 교사의 피드백 가능성을 중심으로 비판적으로 비교하시오. 또한, 초등학교와 대학교 수준에서 각각 원격 교육의 효과가 어떻게 다르게 나타날 수 있는지도 설명하시오.",
+    "reference": "원격 교육은 자율성이 높지만 자기조절이 어려운 학생에게는 불리하다. 교사의 즉각적 피드백이 부족하다. 초등학교에서는 집중력 저하 위험이 크고, 대학에서는 시간·공간 유연성이 학습 효율에 긍정적일 수 있다."
+  },
+  {
+    "id": "ex-0106",
+    "domain": "policy",
+    "lang": "ko",
+    "len_bin": "medium",
+    "diff_bin": "hard",
+    "cluster_id": "EX_CLUSTER_0106",
+    "prompt_hash": "HASH_PLACEHOLDER_0106",
+    "n_chars": 141,
+    "license": "unknown",
+    "input": "기후 위기 대응 정책에서 탄소세와 배출권 거래제는 각각 어떤 장단점을 가지며, 한국의 산업 구조와 에너지 소비 패턴을 고려할 때 어느 방식이 더 효과적인지 논리적으로 분석하고 정책적 보완책을 제시하시오.",
+    "reference": "탄소세는 단순하고 예측 가능성이 높지만, 산업계 반발이 크다. 배출권 거래제는 유연성이 있지만 가격 변동성이 심하다. 한국에서는 혼합 모델을 적용하고, 에너지 전환 보조금과 취약 계층 보호 장치를 병행해야 한다."
+  }
+]
