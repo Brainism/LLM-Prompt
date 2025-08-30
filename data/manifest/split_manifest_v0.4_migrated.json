@@ -8,7 +8,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C001",
+      "cluster_id": "c001",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6"
@@ -20,8 +20,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C001",
+      "diff_bin": "mid",
+      "cluster_id": "c001",
       "license": "CC0-1.0",
       "n_chars": 86,
       "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b"
@@ -34,7 +34,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C001",
+      "cluster_id": "c001",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd"
@@ -47,7 +47,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "easy",
-      "cluster_id": "C002",
+      "cluster_id": "c002",
       "license": "CC0-1.0",
       "n_chars": 87,
       "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5"
@@ -59,8 +59,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C002",
+      "diff_bin": "mid",
+      "cluster_id": "c002",
       "license": "CC-BY-4.0",
       "n_chars": 55,
       "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0"
@@ -73,7 +73,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "hard",
-      "cluster_id": "C002",
+      "cluster_id": "c002",
       "license": "CC0-1.0",
       "n_chars": 96,
       "prompt_hash": "a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071"
@@ -86,7 +86,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C003",
+      "cluster_id": "c003",
       "license": "CC-BY-4.0",
       "n_chars": 46,
       "prompt_hash": "01a8914261d2748630b61a6823136f015110bc1fe11753b61e030dbed3f27e92"
@@ -98,8 +98,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C003",
+      "diff_bin": "mid",
+      "cluster_id": "c003",
       "license": "CC0-1.0",
       "n_chars": 83,
       "prompt_hash": "aa078e9e6e3445aaf346a7c358573c7d39908f79532c3325bb955cb7be3cede3"
@@ -112,7 +112,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C003",
+      "cluster_id": "c003",
       "license": "CC-BY-4.0",
       "n_chars": 46,
       "prompt_hash": "8f1dadb16aedcff49e93995535a22774a1fb4bc130566c7442bd5824a38fe550"
@@ -125,7 +125,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C004",
+      "cluster_id": "c004",
       "license": "CC0-1.0",
       "n_chars": 67,
       "prompt_hash": "b837f2f3825b13f85c6ff0e6de537a1187537cfed85ce0168667e97bb61b8b76"
@@ -137,8 +137,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C004",
+      "diff_bin": "mid",
+      "cluster_id": "c004",
       "license": "CC-BY-4.0",
       "n_chars": 32,
       "prompt_hash": "42a6a871f3de2ff47b5f1a16cc64d8a5cb0d18f5011726eb48972d05a88a6a79"
@@ -151,7 +151,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "hard",
-      "cluster_id": "C004",
+      "cluster_id": "c004",
       "license": "CC0-1.0",
       "n_chars": 76,
       "prompt_hash": "60e07a9162681c24e2334e6d86e3f796818bed1727ba03b72358dc5a074eeff4"
@@ -164,7 +164,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C005",
+      "cluster_id": "c005",
       "license": "CC-BY-4.0",
       "n_chars": 36,
       "prompt_hash": "a214a5bb66a69300b777920e6146cce219a5b729043495ec08790cc38d924c94"
@@ -176,8 +176,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C005",
+      "diff_bin": "mid",
+      "cluster_id": "c005",
       "license": "CC0-1.0",
       "n_chars": 77,
       "prompt_hash": "244d1078d1e77497eece8596a5077cff8b30dad9a7e2bb9249d5f33158d7a5e5"
@@ -190,7 +190,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C005",
+      "cluster_id": "c005",
       "license": "CC-BY-4.0",
       "n_chars": 36,
       "prompt_hash": "4fbfadcdaec5138c1e61dddf80d95dfcb46751d23af98c734b66b44290252abe"
@@ -203,7 +203,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C006",
+      "cluster_id": "c006",
       "license": "CC0-1.0",
       "n_chars": 59,
       "prompt_hash": "2319cf5cb4c345c6ee5e63da3e351078dbe526bf7894c01f670e099d933bc40b"
@@ -215,8 +215,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C006",
+      "diff_bin": "mid",
+      "cluster_id": "c006",
       "license": "CC-BY-4.0",
       "n_chars": 65,
       "prompt_hash": "9f21dfcfb9edfe53a05d8c40958fc8491825867ef804518f05475792774e77bd"
@@ -229,7 +229,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C006",
+      "cluster_id": "c006",
       "license": "CC0-1.0",
       "n_chars": 62,
       "prompt_hash": "55b1909cbbae7ce00491a92df67c98331a448b0751972e1287e36fff537fb01f"
@@ -242,7 +242,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C007",
+      "cluster_id": "c007",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6"
@@ -254,8 +254,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C007",
+      "diff_bin": "mid",
+      "cluster_id": "c007",
       "license": "CC0-1.0",
       "n_chars": 86,
       "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b"
@@ -268,7 +268,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C007",
+      "cluster_id": "c007",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd"
@@ -281,7 +281,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "easy",
-      "cluster_id": "C008",
+      "cluster_id": "c008",
       "license": "CC0-1.0",
       "n_chars": 87,
       "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5"
@@ -293,8 +293,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C008",
+      "diff_bin": "mid",
+      "cluster_id": "c008",
       "license": "CC-BY-4.0",
       "n_chars": 55,
       "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0"
@@ -307,7 +307,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "hard",
-      "cluster_id": "C008",
+      "cluster_id": "c008",
       "license": "CC0-1.0",
       "n_chars": 96,
       "prompt_hash": "a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071"
@@ -320,7 +320,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C009",
+      "cluster_id": "c009",
       "license": "CC-BY-4.0",
       "n_chars": 46,
       "prompt_hash": "01a8914261d2748630b61a6823136f015110bc1fe11753b61e030dbed3f27e92"
@@ -332,8 +332,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C009",
+      "diff_bin": "mid",
+      "cluster_id": "c009",
       "license": "CC0-1.0",
       "n_chars": 83,
       "prompt_hash": "aa078e9e6e3445aaf346a7c358573c7d39908f79532c3325bb955cb7be3cede3"
@@ -346,7 +346,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C009",
+      "cluster_id": "c009",
       "license": "CC-BY-4.0",
       "n_chars": 46,
       "prompt_hash": "8f1dadb16aedcff49e93995535a22774a1fb4bc130566c7442bd5824a38fe550"
@@ -359,7 +359,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C010",
+      "cluster_id": "c010",
       "license": "CC0-1.0",
       "n_chars": 67,
       "prompt_hash": "b837f2f3825b13f85c6ff0e6de537a1187537cfed85ce0168667e97bb61b8b76"
@@ -371,8 +371,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C010",
+      "diff_bin": "mid",
+      "cluster_id": "c010",
       "license": "CC-BY-4.0",
       "n_chars": 32,
       "prompt_hash": "42a6a871f3de2ff47b5f1a16cc64d8a5cb0d18f5011726eb48972d05a88a6a79"
@@ -385,7 +385,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "hard",
-      "cluster_id": "C010",
+      "cluster_id": "c010",
       "license": "CC0-1.0",
       "n_chars": 76,
       "prompt_hash": "60e07a9162681c24e2334e6d86e3f796818bed1727ba03b72358dc5a074eeff4"
@@ -398,7 +398,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C011",
+      "cluster_id": "c011",
       "license": "CC-BY-4.0",
       "n_chars": 36,
       "prompt_hash": "a214a5bb66a69300b777920e6146cce219a5b729043495ec08790cc38d924c94"
@@ -410,8 +410,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C011",
+      "diff_bin": "mid",
+      "cluster_id": "c011",
       "license": "CC0-1.0",
       "n_chars": 77,
       "prompt_hash": "244d1078d1e77497eece8596a5077cff8b30dad9a7e2bb9249d5f33158d7a5e5"
@@ -424,7 +424,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C011",
+      "cluster_id": "c011",
       "license": "CC-BY-4.0",
       "n_chars": 36,
       "prompt_hash": "4fbfadcdaec5138c1e61dddf80d95dfcb46751d23af98c734b66b44290252abe"
@@ -437,7 +437,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C012",
+      "cluster_id": "c012",
       "license": "CC0-1.0",
       "n_chars": 59,
       "prompt_hash": "2319cf5cb4c345c6ee5e63da3e351078dbe526bf7894c01f670e099d933bc40b"
@@ -449,8 +449,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C012",
+      "diff_bin": "mid",
+      "cluster_id": "c012",
       "license": "CC-BY-4.0",
       "n_chars": 65,
       "prompt_hash": "9f21dfcfb9edfe53a05d8c40958fc8491825867ef804518f05475792774e77bd"
@@ -463,7 +463,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C012",
+      "cluster_id": "c012",
       "license": "CC0-1.0",
       "n_chars": 62,
       "prompt_hash": "55b1909cbbae7ce00491a92df67c98331a448b0751972e1287e36fff537fb01f"
@@ -476,7 +476,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C013",
+      "cluster_id": "c013",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6"
@@ -488,8 +488,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C013",
+      "diff_bin": "mid",
+      "cluster_id": "c013",
       "license": "CC0-1.0",
       "n_chars": 86,
       "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b"
@@ -502,7 +502,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C013",
+      "cluster_id": "c013",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd"
@@ -515,7 +515,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "easy",
-      "cluster_id": "C014",
+      "cluster_id": "c014",
       "license": "CC0-1.0",
       "n_chars": 87,
       "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5"
@@ -527,8 +527,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C014",
+      "diff_bin": "mid",
+      "cluster_id": "c014",
       "license": "CC-BY-4.0",
       "n_chars": 55,
       "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0"
@@ -541,7 +541,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "hard",
-      "cluster_id": "C014",
+      "cluster_id": "c014",
       "license": "CC0-1.0",
       "n_chars": 96,
       "prompt_hash": "a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071"
@@ -554,7 +554,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C015",
+      "cluster_id": "c015",
       "license": "CC-BY-4.0",
       "n_chars": 46,
       "prompt_hash": "01a8914261d2748630b61a6823136f015110bc1fe11753b61e030dbed3f27e92"
@@ -566,8 +566,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C015",
+      "diff_bin": "mid",
+      "cluster_id": "c015",
       "license": "CC0-1.0",
       "n_chars": 83,
       "prompt_hash": "aa078e9e6e3445aaf346a7c358573c7d39908f79532c3325bb955cb7be3cede3"
@@ -580,7 +580,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C015",
+      "cluster_id": "c015",
       "license": "CC-BY-4.0",
       "n_chars": 46,
       "prompt_hash": "8f1dadb16aedcff49e93995535a22774a1fb4bc130566c7442bd5824a38fe550"
@@ -593,7 +593,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C016",
+      "cluster_id": "c016",
       "license": "CC0-1.0",
       "n_chars": 67,
       "prompt_hash": "b837f2f3825b13f85c6ff0e6de537a1187537cfed85ce0168667e97bb61b8b76"
@@ -605,8 +605,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C016",
+      "diff_bin": "mid",
+      "cluster_id": "c016",
       "license": "CC-BY-4.0",
       "n_chars": 32,
       "prompt_hash": "42a6a871f3de2ff47b5f1a16cc64d8a5cb0d18f5011726eb48972d05a88a6a79"
@@ -619,7 +619,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "hard",
-      "cluster_id": "C016",
+      "cluster_id": "c016",
       "license": "CC0-1.0",
       "n_chars": 76,
       "prompt_hash": "60e07a9162681c24e2334e6d86e3f796818bed1727ba03b72358dc5a074eeff4"
@@ -632,7 +632,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C017",
+      "cluster_id": "c017",
       "license": "CC-BY-4.0",
       "n_chars": 36,
       "prompt_hash": "a214a5bb66a69300b777920e6146cce219a5b729043495ec08790cc38d924c94"
@@ -644,8 +644,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C017",
+      "diff_bin": "mid",
+      "cluster_id": "c017",
       "license": "CC0-1.0",
       "n_chars": 77,
       "prompt_hash": "244d1078d1e77497eece8596a5077cff8b30dad9a7e2bb9249d5f33158d7a5e5"
@@ -658,7 +658,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C017",
+      "cluster_id": "c017",
       "license": "CC-BY-4.0",
       "n_chars": 36,
       "prompt_hash": "4fbfadcdaec5138c1e61dddf80d95dfcb46751d23af98c734b66b44290252abe"
@@ -671,7 +671,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C018",
+      "cluster_id": "c018",
       "license": "CC0-1.0",
       "n_chars": 59,
       "prompt_hash": "2319cf5cb4c345c6ee5e63da3e351078dbe526bf7894c01f670e099d933bc40b"
@@ -683,8 +683,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C018",
+      "diff_bin": "mid",
+      "cluster_id": "c018",
       "license": "CC-BY-4.0",
       "n_chars": 65,
       "prompt_hash": "9f21dfcfb9edfe53a05d8c40958fc8491825867ef804518f05475792774e77bd"
@@ -697,7 +697,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C018",
+      "cluster_id": "c018",
       "license": "CC0-1.0",
       "n_chars": 62,
       "prompt_hash": "55b1909cbbae7ce00491a92df67c98331a448b0751972e1287e36fff537fb01f"
@@ -710,7 +710,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "C019",
+      "cluster_id": "c019",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "68ecfe6d2c07358404ab6c75e01b30490e2d1b80c464f7e8c6b5e6769e07d2b6"
@@ -722,8 +722,8 @@
       "domain": "healthcare",
       "lang": "en",
       "len_bin": "medium",
-      "diff_bin": "medium",
-      "cluster_id": "C019",
+      "diff_bin": "mid",
+      "cluster_id": "c019",
       "license": "CC0-1.0",
       "n_chars": 86,
       "prompt_hash": "94f4be4b225506696991e81f0af34f4b2a200f5c5a817d0cd9614e23b266c51b"
@@ -736,7 +736,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C019",
+      "cluster_id": "c019",
       "license": "CC-BY-4.0",
       "n_chars": 57,
       "prompt_hash": "f8d0387f89e535af25e8d24e57b04ff5cdf1a7091a1671dc80223506ad5550fd"
@@ -749,7 +749,7 @@
       "lang": "en",
       "len_bin": "medium",
       "diff_bin": "easy",
-      "cluster_id": "C020",
+      "cluster_id": "c020",
       "license": "CC0-1.0",
       "n_chars": 87,
       "prompt_hash": "411d4e30af80a7e3b46c2c124e99d9e460d6f08f45f6f77cb9f088c9411f44f5"
@@ -761,8 +761,8 @@
       "domain": "education",
       "lang": "ko",
       "len_bin": "short",
-      "diff_bin": "medium",
-      "cluster_id": "C020",
+      "diff_bin": "mid",
+      "cluster_id": "c020",
       "license": "CC-BY-4.0",
       "n_chars": 55,
       "prompt_hash": "2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0"
@@ -775,7 +775,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "C020",
+      "cluster_id": "c020",
       "license": "CC0-1.0",
       "n_chars": 57,
       "prompt_hash": "fa5e7d54d7de6cf832812df068eb62ce9578fbbee029cf5752dd1dec31901c2e"
