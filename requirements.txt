@@ -1,10 +1,36 @@
-langchain==0.3.*
-langchain-core==0.3.*
-langchain-community==0.3.*
-langchain-openai==0.3.*
-langchain-ollama==0.3.*
-pandas>=2.0
-numpy>=1.26
-scipy>=1.11
+# =======================
+# Core (Py>=3.10 권장)
+# =======================
+numpy>=1.24,<2.0
+pandas>=2.0,<3.0
+scipy>=1.10
 matplotlib>=3.8
-tiktoken>=0.7
+tqdm>=4.66
+orjson>=3.9
+
+# =======================
+# Eval / Validation
+# =======================
+sacrebleu==2.4.2
+rouge-score==0.1.2
+jsonschema==4.22.0
+
+# =======================
+# LangChain stack (0.3 계열 고정)
+# =======================
+langchain==0.3.1
+langchain-core>=0.3.27,<0.4.0   # <-- 핵심 수정 (ollama 0.2.2와 호환)
+langchain-community==0.3.1
+langchain-openai>=0.2.0,<0.4.0
+langchain-ollama==0.2.2
+
+# =======================
+# Model API / Tokenizer
+# =======================
+openai>=1.40.0
+tiktoken>=0.7.0
+
+# =======================
+# Optional (시각화 등)
+# =======================
+seaborn>=0.13
