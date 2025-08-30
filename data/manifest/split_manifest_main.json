@@ -1,5 +1,4 @@
 {
-  "$schema": "../../schema/split_manifest_main.schema.json",
   "items": [
     {
       "id": "ex-0001",
@@ -9,7 +8,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c001",
+      "cluster_id": "C001",
       "license": "CC-BY-4.0"
     },
     {
@@ -18,9 +17,9 @@
       "reference": "{\"title\": \"Herd immunity effects of vaccination\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c001",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C001",
       "license": "CC0-1.0"
     },
     {
@@ -31,7 +30,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c001",
+      "cluster_id": "C001",
       "license": "CC-BY-4.0"
     },
     {
@@ -42,7 +41,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c002",
+      "cluster_id": "C002",
       "license": "CC0-1.0"
     },
     {
@@ -51,9 +50,9 @@
       "reference": "{\"title\": \"형성평가의 학습 동기 강화\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c002",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C002",
       "license": "CC-BY-4.0"
     },
     {
@@ -64,7 +63,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c002",
+      "cluster_id": "C002",
       "license": "CC0-1.0"
     },
     {
@@ -75,7 +74,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c003",
+      "cluster_id": "C003",
       "license": "CC-BY-4.0"
     },
     {
@@ -84,9 +83,9 @@
       "reference": "A concise description of Herd immunity effects of vaccination",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c003",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C003",
       "license": "CC0-1.0"
     },
     {
@@ -97,7 +96,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c003",
+      "cluster_id": "C003",
       "license": "CC-BY-4.0"
     },
     {
@@ -108,7 +107,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c004",
+      "cluster_id": "C004",
       "license": "CC0-1.0"
     },
     {
@@ -117,9 +116,9 @@
       "reference": "- 요점 1\n- 요점 2\n- 요점 3",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c004",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C004",
       "license": "CC-BY-4.0"
     },
     {
@@ -130,7 +129,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c004",
+      "cluster_id": "C004",
       "license": "CC0-1.0"
     },
     {
@@ -141,7 +140,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c005",
+      "cluster_id": "C005",
       "license": "CC-BY-4.0"
     },
     {
@@ -150,9 +149,9 @@
       "reference": "Herd immunity effects of vaccination",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c005",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C005",
       "license": "CC0-1.0"
     },
     {
@@ -163,7 +162,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c005",
+      "cluster_id": "C005",
       "license": "CC-BY-4.0"
     },
     {
@@ -174,7 +173,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c006",
+      "cluster_id": "C006",
       "license": "CC0-1.0"
     },
     {
@@ -183,9 +182,9 @@
       "reference": "Formative assessment and learning motivation의 한국어 번역",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c006",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C006",
       "license": "CC-BY-4.0"
     },
     {
@@ -196,7 +195,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c006",
+      "cluster_id": "C006",
       "license": "CC0-1.0"
     },
     {
@@ -207,7 +206,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c007",
+      "cluster_id": "C007",
       "license": "CC-BY-4.0"
     },
     {
@@ -216,9 +215,9 @@
       "reference": "{\"title\": \"Herd immunity effects of vaccination\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c007",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C007",
       "license": "CC0-1.0"
     },
     {
@@ -229,7 +228,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c007",
+      "cluster_id": "C007",
       "license": "CC-BY-4.0"
     },
     {
@@ -240,7 +239,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c008",
+      "cluster_id": "C008",
       "license": "CC0-1.0"
     },
     {
@@ -249,9 +248,9 @@
       "reference": "{\"title\": \"형성평가의 학습 동기 강화\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c008",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C008",
       "license": "CC-BY-4.0"
     },
     {
@@ -262,7 +261,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c008",
+      "cluster_id": "C008",
       "license": "CC0-1.0"
     },
     {
@@ -273,7 +272,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c009",
+      "cluster_id": "C009",
       "license": "CC-BY-4.0"
     },
     {
@@ -282,9 +281,9 @@
       "reference": "A concise description of Herd immunity effects of vaccination",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c009",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C009",
       "license": "CC0-1.0"
     },
     {
@@ -295,7 +294,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c009",
+      "cluster_id": "C009",
       "license": "CC-BY-4.0"
     },
     {
@@ -306,7 +305,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c010",
+      "cluster_id": "C010",
       "license": "CC0-1.0"
     },
     {
@@ -315,9 +314,9 @@
       "reference": "- 요점 1\n- 요점 2\n- 요점 3",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c010",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C010",
       "license": "CC-BY-4.0"
     },
     {
@@ -328,7 +327,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c010",
+      "cluster_id": "C010",
       "license": "CC0-1.0"
     },
     {
@@ -339,7 +338,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c011",
+      "cluster_id": "C011",
       "license": "CC-BY-4.0"
     },
     {
@@ -348,9 +347,9 @@
       "reference": "Herd immunity effects of vaccination",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c011",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C011",
       "license": "CC0-1.0"
     },
     {
@@ -361,7 +360,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c011",
+      "cluster_id": "C011",
       "license": "CC-BY-4.0"
     },
     {
@@ -372,7 +371,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c012",
+      "cluster_id": "C012",
       "license": "CC0-1.0"
     },
     {
@@ -381,9 +380,9 @@
       "reference": "Formative assessment and learning motivation의 한국어 번역",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c012",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C012",
       "license": "CC-BY-4.0"
     },
     {
@@ -394,7 +393,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c012",
+      "cluster_id": "C012",
       "license": "CC0-1.0"
     },
     {
@@ -405,7 +404,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c013",
+      "cluster_id": "C013",
       "license": "CC-BY-4.0"
     },
     {
@@ -414,9 +413,9 @@
       "reference": "{\"title\": \"Herd immunity effects of vaccination\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c013",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C013",
       "license": "CC0-1.0"
     },
     {
@@ -427,7 +426,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c013",
+      "cluster_id": "C013",
       "license": "CC-BY-4.0"
     },
     {
@@ -438,7 +437,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c014",
+      "cluster_id": "C014",
       "license": "CC0-1.0"
     },
     {
@@ -447,9 +446,9 @@
       "reference": "{\"title\": \"형성평가의 학습 동기 강화\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c014",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C014",
       "license": "CC-BY-4.0"
     },
     {
@@ -460,7 +459,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c014",
+      "cluster_id": "C014",
       "license": "CC0-1.0"
     },
     {
@@ -471,7 +470,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c015",
+      "cluster_id": "C015",
       "license": "CC-BY-4.0"
     },
     {
@@ -480,9 +479,9 @@
       "reference": "A concise description of Herd immunity effects of vaccination",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c015",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C015",
       "license": "CC0-1.0"
     },
     {
@@ -493,7 +492,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c015",
+      "cluster_id": "C015",
       "license": "CC-BY-4.0"
     },
     {
@@ -504,7 +503,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c016",
+      "cluster_id": "C016",
       "license": "CC0-1.0"
     },
     {
@@ -513,9 +512,9 @@
       "reference": "- 요점 1\n- 요점 2\n- 요점 3",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c016",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C016",
       "license": "CC-BY-4.0"
     },
     {
@@ -526,7 +525,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c016",
+      "cluster_id": "C016",
       "license": "CC0-1.0"
     },
     {
@@ -537,7 +536,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c017",
+      "cluster_id": "C017",
       "license": "CC-BY-4.0"
     },
     {
@@ -546,9 +545,9 @@
       "reference": "Herd immunity effects of vaccination",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c017",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C017",
       "license": "CC0-1.0"
     },
     {
@@ -559,7 +558,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c017",
+      "cluster_id": "C017",
       "license": "CC-BY-4.0"
     },
     {
@@ -570,7 +569,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c018",
+      "cluster_id": "C018",
       "license": "CC0-1.0"
     },
     {
@@ -579,9 +578,9 @@
       "reference": "Formative assessment and learning motivation의 한국어 번역",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c018",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C018",
       "license": "CC-BY-4.0"
     },
     {
@@ -592,7 +591,7 @@
       "lang": "en",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c018",
+      "cluster_id": "C018",
       "license": "CC0-1.0"
     },
     {
@@ -603,7 +602,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c019",
+      "cluster_id": "C019",
       "license": "CC-BY-4.0"
     },
     {
@@ -612,9 +611,9 @@
       "reference": "{\"title\": \"Herd immunity effects of vaccination\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "healthcare",
       "lang": "en",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c019",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C019",
       "license": "CC0-1.0"
     },
     {
@@ -625,7 +624,7 @@
       "lang": "ko",
       "len_bin": "long",
       "diff_bin": "hard",
-      "cluster_id": "c019",
+      "cluster_id": "C019",
       "license": "CC-BY-4.0"
     },
     {
@@ -636,7 +635,7 @@
       "lang": "en",
       "len_bin": "short",
       "diff_bin": "easy",
-      "cluster_id": "c020",
+      "cluster_id": "C020",
       "license": "CC0-1.0"
     },
     {
@@ -645,9 +644,9 @@
       "reference": "{\"title\": \"형성평가의 학습 동기 강화\", \"tags\": [\"key1\", \"key2\"]}",
       "domain": "education",
       "lang": "ko",
-      "len_bin": "mid",
-      "diff_bin": "mid",
-      "cluster_id": "c020",
+      "len_bin": "medium",
+      "diff_bin": "medium",
+      "cluster_id": "C020",
       "license": "CC-BY-4.0"
     },
     {
@@ -658,7 +657,7 @@
       "lang": "ko",
       "len_bin": "short",
       "diff_bin": "hard",
-      "cluster_id": "c020",
+      "cluster_id": "C020",
       "license": "CC0-1.0"
     }
   ]
