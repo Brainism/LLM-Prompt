@@ -1,0 +1,54 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate manifest
+        run: |
+          python scripts/validate_manifest.py --manifest data/manifest/split_manifest_main.json --schema schema/split_manifest_main.schema.json --max-errors 50
+
+      - name: Generate compliance summary (if by-item exists)
+        run: |
+          if (Test-Path 'results/quantitative/compliance_by_item.csv') {
+            python code/generate_compliance_summary.py --by-item results/quantitative/compliance_by_item.csv --out results/quantitative/compliance_summary.csv --pass-col passed --mode-col mode
+          }
+
+      - name: Stats summary (smoke)
+        run: |
+          if (Test-Path 'results/quantitative/bleu_sacre.json') {
+            python code/stats_tests_plus.py --bleu results/quantitative/bleu_sacre.json --chrf results/quantitative/chrf.json --rouge results/quantitative/rouge.json --output results/quantitative/stats_summary.csv --bootstrap 1000 --wilcoxon --fdr
+          }
+
+      - name: Compliance viz
+        run: |
+          if (Test-Path 'results/quantitative/compliance_summary.csv') {
+            python code/compliance_viz.py --summary results/quantitative/compliance_summary.csv --outdir results/figures
+          } elseif (Test-Path 'results/quantitative/compliance_summary.json') {
+            python code/compliance_viz.py --summary results/quantitative/compliance_summary.json --outdir results/figures
+          }
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-artifacts
+          path: |
+            results/quantitative/stats_summary.csv
+            results/quantitative/compliance_summary.csv
+            results/figures/*.png
+          if-no-files-found: ignore
