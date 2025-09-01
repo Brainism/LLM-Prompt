@@ -6,6 +6,7 @@ import json
 import re
 from pathlib import Path
 
+
 def truthy(v: str) -> bool:
     return str(v or "").strip().lower() in ("1", "true", "y", "yes")
 
@@ -17,6 +18,7 @@ def read_text_any(p: Path) -> str:
         except UnicodeDecodeError:
             continue
     return p.read_bytes().decode("utf-8", errors="ignore")
+
 
 def load_needs_json_ids(csv_path: Path) -> tuple[set[str], dict[str, list[str]]]:
     if not csv_path.exists():
@@ -38,13 +40,17 @@ def load_needs_json_ids(csv_path: Path) -> tuple[set[str], dict[str, list[str]]]
             ref = r.get("reference") or ""
             ref_obj = json.loads(ref) if ref.strip().startswith("{") else None
             if isinstance(ref_obj, dict) and isinstance(ref_obj.get("tags"), list):
-                ref_tags_map[pid] = [str(t).strip() for t in ref_obj["tags"] if str(t).strip()]
+                ref_tags_map[pid] = [
+                    str(t).strip() for t in ref_obj["tags"] if str(t).strip()
+                ]
         except Exception:
             pass
 
     return ids, ref_tags_map
 
+
 CODEFENCE_RE = re.compile(r"```(?:json)?\s*([\s\S]+?)\s*```", re.IGNORECASE)
+
 
 def extract_json_block(s: str) -> dict | list | None:
     if not isinstance(s, str) or not s.strip():
@@ -71,10 +77,10 @@ def _json_candidates(s: str) -> list[str]:
     cands: list[str] = []
     i, j = s.find("{"), s.rfind("}")
     if i != -1 and j != -1 and j > i:
-        cands.append(s[i:j+1])
+        cands.append(s[i : j + 1])
     i2, j2 = s.find("["), s.rfind("]")
     if i2 != -1 and j2 != -1 and j2 > i2:
-        cands.append(s[i2:j2+1])
+        cands.append(s[i2 : j2 + 1])
     return cands
 
 
@@ -90,7 +96,7 @@ def normalize_title_tags(
     *,
     min_tags: int = 2,
     max_tags: int | None = 5,
-    ref_tags: list[str] | None = None
+    ref_tags: list[str] | None = None,
 ) -> dict | None:
     if not isinstance(obj, dict):
         return None
@@ -119,12 +125,13 @@ def normalize_title_tags(
 
     return {"title": title, "tags": tags}
 
+
 def process_jsonl_file(
     in_path: Path,
     out_path: Path,
     target_ids: set[str],
     ref_tags_map: dict[str, list[str]],
-    max_tags: int
+    max_tags: int,
 ) -> tuple[int, int, int]:
     text = read_text_any(in_path)
     lines = [ln for ln in text.splitlines() if ln.strip()]
@@ -150,14 +157,15 @@ def process_jsonl_file(
                 ref_tags = ref_tags_map.get(pid)
                 norm = (
                     normalize_title_tags(
-                        obj,
-                        min_tags=2,
-                        max_tags=max_tags,
-                        ref_tags=ref_tags
-                    ) if obj is not None else None
+                        obj, min_tags=2, max_tags=max_tags, ref_tags=ref_tags
+                    )
+                    if obj is not None
+                    else None
                 )
                 if norm is not None:
-                    rec["output"] = json.dumps(norm, ensure_ascii=False, separators=(",", ":"))
+                    rec["output"] = json.dumps(
+                        norm, ensure_ascii=False, separators=(",", ":")
+                    )
                     patched += 1
                 else:
                     skipped += 1
@@ -168,13 +176,31 @@ def process_jsonl_file(
 
     return total, patched, skipped
 
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--apply-from", type=Path, required=True, help="prompts.csv (needs_json 플래그 소스)")
-    ap.add_argument("--raw-in",  type=Path, default=Path("results") / "raw", help="입력 jsonl 폴더")
-    ap.add_argument("--raw-out", type=Path, default=Path("results") / "raw_patched", help="출력 jsonl 폴더")
+    ap.add_argument(
+        "--apply-from",
+        type=Path,
+        required=True,
+        help="prompts.csv (needs_json 플래그 소스)",
+    )
+    ap.add_argument(
+        "--raw-in", type=Path, default=Path("results") / "raw", help="입력 jsonl 폴더"
+    )
+    ap.add_argument(
+        "--raw-out",
+        type=Path,
+        default=Path("results") / "raw_patched",
+        help="출력 jsonl 폴더",
+    )
     ap.add_argument("--glob", default="*.jsonl", help="대상 파일 패턴 (기본: *.jsonl)")
-    ap.add_argument("--max-tags", type=int, default=5, help="tags 최대 개수(기본 5, 0이면 제한 없음)")
+    ap.add_argument(
+        "--max-tags",
+        type=int,
+        default=5,
+        help="tags 최대 개수(기본 5, 0이면 제한 없음)",
+    )
     args = ap.parse_args()
 
     target_ids, ref_tags_map = load_needs_json_ids(args.apply_from)
@@ -199,9 +225,13 @@ def main():
         grand_total += total
         grand_patched += patched
         grand_skipped += skipped
-        print(f"[ok] {fp.name} -> {out_fp.name}  (records={total}, patched={patched}, skipped={skipped})")
+        print(
+            f"[ok] {fp.name} -> {out_fp.name}  (records={total}, patched={patched}, skipped={skipped})"
+        )
 
-    print(f"[summary] files={len(files)}  total={grand_total}  patched={grand_patched}  skipped={grand_skipped}")
+    print(
+        f"[summary] files={len(files)}  total={grand_total}  patched={grand_patched}  skipped={grand_skipped}"
+    )
     print(
         "[hint] 다음을 실행하여 재집계하세요:\n"
         f"  python code/compliance_check.py --apply-from prompts/prompts.csv --raw-dir {out_dir} "

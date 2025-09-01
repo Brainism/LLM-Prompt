@@ -1,21 +1,28 @@
 from __future__ import annotations
 
-import argparse, json, csv, math
+import argparse
+import csv
+import json
+import math
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
+
 import numpy as np
 
 try:
     from scipy.stats import wilcoxon
+
     SCIPY_OK = True
 except Exception:
     SCIPY_OK = False
+
 
 def _to_float(x) -> float:
     try:
         return float(x)
     except Exception:
         return float("nan")
+
 
 def _extract_score(v):
     if isinstance(v, (int, float)):
@@ -26,6 +33,7 @@ def _extract_score(v):
                 return _to_float(v[k])
     return float("nan")
 
+
 def _infer_metric_key_from_per_item(per_item: List[dict]) -> str:
     priority = ["rougeL_f", "bleu4", "rougeL", "bleu", "score", "value", "f1", "f"]
     if not per_item:
@@ -35,9 +43,12 @@ def _infer_metric_key_from_per_item(per_item: List[dict]) -> str:
         if k in sample and isinstance(sample[k], (int, float)):
             return k
     for k, v in sample.items():
-        if k not in ("id", "prompt_type", "prompt_id", "mode") and isinstance(v, (int, float)):
+        if k not in ("id", "prompt_type", "prompt_id", "mode") and isinstance(
+            v, (int, float)
+        ):
             return k
     raise ValueError("No numeric metric key found in per_item")
+
 
 def cohen_d_paired(g: np.ndarray, i: np.ndarray) -> float:
     diff = i - g
@@ -45,6 +56,7 @@ def cohen_d_paired(g: np.ndarray, i: np.ndarray) -> float:
     if sd == 0.0:
         return float("nan")
     return float(np.mean(diff) / sd)
+
 
 def paired_bootstrap_ci(
     g: np.ndarray, i: np.ndarray, B: int = 10000, alpha: float = 0.05, seed: int = 123
@@ -58,6 +70,7 @@ def paired_bootstrap_ci(
     lo = float(np.percentile(diffs, 100 * alpha / 2))
     hi = float(np.percentile(diffs, 100 * (1 - alpha / 2)))
     return lo, hi
+
 
 def bh_fdr(pvals: np.ndarray) -> np.ndarray:
     p = np.array(pvals, dtype=float)
@@ -73,10 +86,12 @@ def bh_fdr(pvals: np.ndarray) -> np.ndarray:
     qvals[order] = np.clip(q_sorted, 0.0, 1.0)
     return qvals
 
+
 def _fmt4(x: float) -> str:
     if x != x:  # NaN
         return "nan"
     return f"{x:.4f}"
+
 
 def load_pairs_arrays(path: Path) -> Tuple[List[str], np.ndarray, np.ndarray]:
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -84,7 +99,12 @@ def load_pairs_arrays(path: Path) -> Tuple[List[str], np.ndarray, np.ndarray]:
     g_list: List[float] = []
     i_list: List[float] = []
 
-    if isinstance(data, dict) and "items" in data and isinstance(data["items"], list) and data["items"]:
+    if (
+        isinstance(data, dict)
+        and "items" in data
+        and isinstance(data["items"], list)
+        and data["items"]
+    ):
         for idx, it in enumerate(data["items"]):
             pid = str(it.get("id") or it.get("prompt_id") or idx)
             if "general" in it and "instructed" in it:
@@ -95,9 +115,15 @@ def load_pairs_arrays(path: Path) -> Tuple[List[str], np.ndarray, np.ndarray]:
                 gv = _extract_score(modes.get("general"))
                 iv = _extract_score(modes.get("instructed"))
             if not (math.isnan(gv) or math.isnan(iv)):
-                ids.append(pid); g_list.append(gv); i_list.append(iv)
+                ids.append(pid)
+                g_list.append(gv)
+                i_list.append(iv)
 
-    elif isinstance(data, dict) and ("general" in data) and ("instructed" in data or "instruct" in data):
+    elif (
+        isinstance(data, dict)
+        and ("general" in data)
+        and ("instructed" in data or "instruct" in data)
+    ):
         inst_key = "instructed" if "instructed" in data else "instruct"
         g_raw, i_raw = data.get("general"), data.get(inst_key)
 
@@ -122,7 +148,11 @@ def load_pairs_arrays(path: Path) -> Tuple[List[str], np.ndarray, np.ndarray]:
         g_list = [_extract_score(gmap[k]) for k in common]
         i_list = [_extract_score(imap[k]) for k in common]
 
-    elif isinstance(data, dict) and "per_item" in data and isinstance(data["per_item"], list):
+    elif (
+        isinstance(data, dict)
+        and "per_item" in data
+        and isinstance(data["per_item"], list)
+    ):
         per = data["per_item"]
         mkey = _infer_metric_key_from_per_item(per)
         gmap: Dict[str, float] = {}
@@ -142,25 +172,40 @@ def load_pairs_arrays(path: Path) -> Tuple[List[str], np.ndarray, np.ndarray]:
         g_list = [gmap[k] for k in common]
         i_list = [imap[k] for k in common]
 
-    elif isinstance(data, list) and data and isinstance(data[0], dict) and (
-        ("general" in data[0]) or ("instructed" in data[0]) or ("instruct" in data[0])
+    elif (
+        isinstance(data, list)
+        and data
+        and isinstance(data[0], dict)
+        and (
+            ("general" in data[0])
+            or ("instructed" in data[0])
+            or ("instruct" in data[0])
+        )
     ):
         for idx, d in enumerate(data):
             gv = _extract_score(d.get("general"))
             iv = _extract_score(d.get("instructed", d.get("instruct")))
             if not (math.isnan(gv) or math.isnan(iv)):
-                ids.append(str(d.get("id", idx))); g_list.append(gv); i_list.append(iv)
+                ids.append(str(d.get("id", idx)))
+                g_list.append(gv)
+                i_list.append(iv)
 
-    elif isinstance(data, list) and data and isinstance(data[0], dict) and (
-        ("score" in data[0]) and ("system" in data[0] or "model" in data[0])
+    elif (
+        isinstance(data, list)
+        and data
+        and isinstance(data[0], dict)
+        and (("score" in data[0]) and ("system" in data[0] or "model" in data[0]))
     ):
-        gmap: Dict[str, float] = {}; imap: Dict[str, float] = {}
+        gmap: Dict[str, float] = {}
+        imap: Dict[str, float] = {}
         for idx, d in enumerate(data):
             pid = str(d.get("id", idx))
             sysname = str(d.get("system", d.get("model", ""))).lower()
             sc = _extract_score(d.get("score"))
-            if sysname.startswith("gen"): gmap[pid] = sc
-            elif sysname.startswith("instr"): imap[pid] = sc
+            if sysname.startswith("gen"):
+                gmap[pid] = sc
+            elif sysname.startswith("instr"):
+                imap[pid] = sc
         common = sorted(set(gmap.keys()) & set(imap.keys()))
         ids = common
         g_list = [gmap[k] for k in common]
@@ -174,7 +219,10 @@ def load_pairs_arrays(path: Path) -> Tuple[List[str], np.ndarray, np.ndarray]:
     mask = ~(np.isnan(g) | np.isnan(i))
     return ids, g[mask], i[mask]
 
-def summarize_arrays(g: np.ndarray, i: np.ndarray, n_boot: int, do_wilcoxon: bool) -> Dict:
+
+def summarize_arrays(
+    g: np.ndarray, i: np.ndarray, n_boot: int, do_wilcoxon: bool
+) -> Dict:
     diff = i - g
     n = int(diff.size)
     mean_g = float(np.mean(g)) if n else float("nan")
@@ -187,11 +235,19 @@ def summarize_arrays(g: np.ndarray, i: np.ndarray, n_boot: int, do_wilcoxon: boo
     p = float("nan")
     if do_wilcoxon and SCIPY_OK and n > 0 and np.any(diff != 0):
         try:
-            p = float(wilcoxon(i, g, zero_method="pratt", alternative="two-sided", mode="auto").pvalue)
+            p = float(
+                wilcoxon(
+                    i, g, zero_method="pratt", alternative="two-sided", mode="auto"
+                ).pvalue
+            )
         except Exception:
             p = float("nan")
 
-    ci_lo, ci_hi = paired_bootstrap_ci(g, i, B=n_boot, alpha=0.05) if n_boot else (float("nan"), float("nan"))
+    ci_lo, ci_hi = (
+        paired_bootstrap_ci(g, i, B=n_boot, alpha=0.05)
+        if n_boot
+        else (float("nan"), float("nan"))
+    )
 
     return dict(
         n=n,
@@ -206,6 +262,7 @@ def summarize_arrays(g: np.ndarray, i: np.ndarray, n_boot: int, do_wilcoxon: boo
         p_wilcoxon=p,
     )
 
+
 def _search_dirs() -> List[Path]:
     here = Path.cwd()
     dirs = [here / "results" / "quantitative"]
@@ -215,19 +272,25 @@ def _search_dirs() -> List[Path]:
         dirs.append(p / "results" / "quantitative")
     return [d for d in dirs if d.exists() and d.is_dir()]
 
+
 def _derive_metric_name(p: Path) -> str:
     try:
         obj = json.loads(p.read_text(encoding="utf-8"))
         m = obj.get("metric")
         if not m:
             name = p.stem.lower()
-            if "rouge" in name: m = "ROUGE"
-            elif "codebleu" in name or "bleu" in name: m = "BLEU"
-            elif "chrf" in name: m = "chrF"
-            else: m = p.stem
+            if "rouge" in name:
+                m = "ROUGE"
+            elif "codebleu" in name or "bleu" in name:
+                m = "BLEU"
+            elif "chrf" in name:
+                m = "chrF"
+            else:
+                m = p.stem
         return str(m)
     except Exception:
         return p.stem
+
 
 def _try_loadable(p: Path) -> bool:
     try:
@@ -236,12 +299,13 @@ def _try_loadable(p: Path) -> bool:
     except Exception:
         return False
 
+
 def discover_metric_files() -> Dict[str, Path]:
     candidates: Dict[str, Path] = {}
     prefs = {
         "rouge": ["rouge_corpus", "rouge_l_f1_corpus", "rouge", "rouge_l"],
-        "bleu":  ["bleu_sacre", "bleu", "codebleu"],
-        "chrf":  ["chrf", "chrf_sacre"],
+        "bleu": ["bleu_sacre", "bleu", "codebleu"],
+        "chrf": ["chrf", "chrf_sacre"],
     }
     for d in _search_dirs():
         for p in sorted(d.glob("*.json")):
@@ -249,25 +313,46 @@ def discover_metric_files() -> Dict[str, Path]:
                 continue
             name = p.stem.lower()
             bucket = None
-            if "rouge" in name: bucket = "rouge"
-            elif "codebleu" in name or "bleu" in name: bucket = "bleu"
-            elif "chrf" in name: bucket = "chrf"
+            if "rouge" in name:
+                bucket = "rouge"
+            elif "codebleu" in name or "bleu" in name:
+                bucket = "bleu"
+            elif "chrf" in name:
+                bucket = "chrf"
             if not bucket:
                 continue
             if bucket not in candidates:
                 candidates[bucket] = p
             else:
+
                 def rank(stem: str, pref: List[str]) -> int:
                     sl = stem.lower()
                     for i, k in enumerate(pref):
-                        if k in sl: return i
+                        if k in sl:
+                            return i
                     return 99
-                if rank(p.stem, prefs[bucket]) < rank(candidates[bucket].stem, prefs[bucket]):
+
+                if rank(p.stem, prefs[bucket]) < rank(
+                    candidates[bucket].stem, prefs[bucket]
+                ):
                     candidates[bucket] = p
     return candidates
 
+
 def print_table(rows: List[Dict]) -> None:
-    headers = ["metric","n","mean_base","mean_instr","delta","delta_%","d","CI95_low","CI95_high","p","q"]
+    headers = [
+        "metric",
+        "n",
+        "mean_base",
+        "mean_instr",
+        "delta",
+        "delta_%",
+        "d",
+        "CI95_low",
+        "CI95_high",
+        "p",
+        "q",
+    ]
     colw = {h: max(len(h), 8) for h in headers}
     for r in rows:
         colw["metric"] = max(colw["metric"], len(str(r["metric"])))
@@ -287,35 +372,49 @@ def print_table(rows: List[Dict]) -> None:
             _fmt4(r.get("q_fdr", float("nan"))).rjust(colw["q"]),
         ]
 
-    line = " | ".join([
-        "metric".ljust(colw["metric"]),
-        "n".rjust(colw["n"]),
-        "mean_base".rjust(colw["mean_base"]),
-        "mean_instr".rjust(colw["mean_instr"]),
-        "delta".rjust(colw["delta"]),
-        "delta_%".rjust(colw["delta_%"]),
-        "d".rjust(colw["d"]),
-        "CI95_low".rjust(colw["CI95_low"]),
-        "CI95_high".rjust(colw["CI95_high"]),
-        "p".rjust(colw["p"]),
-        "q".rjust(colw["q"]),
-    ])
+    line = " | ".join(
+        [
+            "metric".ljust(colw["metric"]),
+            "n".rjust(colw["n"]),
+            "mean_base".rjust(colw["mean_base"]),
+            "mean_instr".rjust(colw["mean_instr"]),
+            "delta".rjust(colw["delta"]),
+            "delta_%".rjust(colw["delta_%"]),
+            "d".rjust(colw["d"]),
+            "CI95_low".rjust(colw["CI95_low"]),
+            "CI95_high".rjust(colw["CI95_high"]),
+            "p".rjust(colw["p"]),
+            "q".rjust(colw["q"]),
+        ]
+    )
     print(line)
     print("-" * len(line))
     for r in rows:
         print(" | ".join(fmt_row(r)))
 
+
 def parse_args():
-    ap = argparse.ArgumentParser(description="Paired stats (auto-discovery + robust schema loader).")
+    ap = argparse.ArgumentParser(
+        description="Paired stats (auto-discovery + robust schema loader)."
+    )
     ap.add_argument("--rouge", type=Path, help="ROUGE json")
     ap.add_argument("--bleu", type=Path, help="BLEU/CodeBLEU json")
     ap.add_argument("--chrf", type=Path, help="chrF json")
-    ap.add_argument("--output", type=Path, default=Path("results/quantitative/stats_summary.csv"))
-    ap.add_argument("--bootstrap", type=int, default=0, help="bootstrap resamples (0=off)")
-    ap.add_argument("--wilcoxon", action="store_true", help="compute Wilcoxon signed-rank p")
+    ap.add_argument(
+        "--output", type=Path, default=Path("results/quantitative/stats_summary.csv")
+    )
+    ap.add_argument(
+        "--bootstrap", type=int, default=0, help="bootstrap resamples (0=off)"
+    )
+    ap.add_argument(
+        "--wilcoxon", action="store_true", help="compute Wilcoxon signed-rank p"
+    )
     ap.add_argument("--fdr", action="store_true", help="apply BH-FDR across metrics")
-    ap.add_argument("--dry-run", action="store_true", help="파일을 쓰지 않고 요약만 출력")
+    ap.add_argument(
+        "--dry-run", action="store_true", help="파일을 쓰지 않고 요약만 출력"
+    )
     return ap.parse_args()
+
 
 def main():
     args = parse_args()
@@ -323,8 +422,8 @@ def main():
     if not any([args.rouge, args.bleu, args.chrf]):
         discovered = discover_metric_files()
         args.rouge = args.rouge or discovered.get("rouge")
-        args.bleu  = args.bleu  or discovered.get("bleu")
-        args.chrf  = args.chrf  or discovered.get("chrf")
+        args.bleu = args.bleu or discovered.get("bleu")
+        args.chrf = args.chrf or discovered.get("chrf")
 
     if args.dry_run:
         print("[auto-discovery]")
@@ -334,8 +433,8 @@ def main():
 
     metric_paths: List[Tuple[str, Optional[Path]]] = [
         ("ROUGE", args.rouge),
-        ("BLEU",  args.bleu),
-        ("chrF",  args.chrf),
+        ("BLEU", args.bleu),
+        ("chrF", args.chrf),
     ]
 
     rows: List[Dict] = []
@@ -355,8 +454,12 @@ def main():
 
     if not rows:
         print("❌ 사용할 지표 파일을 찾지 못했습니다.")
-        print("   - 자동 탐색 경로: ./results/quantitative/ (또는 상위 폴더의 동일 경로)")
-        print("   - 또는 직접 지정: --rouge path.json --bleu path.json --chrf path.json")
+        print(
+            "   - 자동 탐색 경로: ./results/quantitative/ (또는 상위 폴더의 동일 경로)"
+        )
+        print(
+            "   - 또는 직접 지정: --rouge path.json --bleu path.json --chrf path.json"
+        )
         return
 
     if args.fdr:
@@ -374,10 +477,19 @@ def main():
         out = args.output
         out.parent.mkdir(parents=True, exist_ok=True)
         cols = [
-            "metric", "level", "n",
-            "mean_base", "mean_instr", "mean_diff", "delta_pct",
-            "sd_diff", "d", "ci_low", "ci_high",
-            "p_wilcoxon", "q_fdr",
+            "metric",
+            "level",
+            "n",
+            "mean_base",
+            "mean_instr",
+            "mean_diff",
+            "delta_pct",
+            "sd_diff",
+            "d",
+            "ci_low",
+            "ci_high",
+            "p_wilcoxon",
+            "q_fdr",
         ]
         with out.open("w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=cols)
@@ -392,7 +504,10 @@ def main():
                 print(" -", p)
 
     if not SCIPY_OK and args.wilcoxon:
-        print("\n[warn] SciPy 미설치로 Wilcoxon p를 계산하지 못했습니다. `pip install scipy` 권장.")
+        print(
+            "\n[warn] SciPy 미설치로 Wilcoxon p를 계산하지 못했습니다. `pip install scipy` 권장."
+        )
+
 
 if __name__ == "__main__":
     main()

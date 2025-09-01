@@ -1,15 +1,20 @@
-import csv, json, sys, subprocess
+import csv
+import json
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROMPTS = ROOT / "prompts" / "prompts.csv"
-RAW     = ROOT / "results" / "raw"
-ALN     = ROOT / "results" / "aligned"
-QNT     = ROOT / "results" / "quantitative"
+RAW = ROOT / "results" / "raw"
+ALN = ROOT / "results" / "aligned"
+QNT = ROOT / "results" / "quantitative"
+
 
 def die(msg):
     print(f"[ERR] {msg}", file=sys.stderr)
     raise SystemExit(1)
+
 
 def load_jsonl(fp: Path):
     for line in fp.read_text(encoding="utf-8").splitlines():
@@ -21,6 +26,7 @@ def load_jsonl(fp: Path):
         except Exception:
             continue
 
+
 def pick_id(rec: dict):
     for k in ("id", "item_id", "example_id"):
         if k in rec:
@@ -31,6 +37,7 @@ def pick_id(rec: dict):
             if k in meta:
                 return meta[k]
     return None
+
 
 def pick_text(rec: dict):
     for k in ("output", "text", "generation", "answer", "content", "response"):
@@ -44,6 +51,7 @@ def pick_text(rec: dict):
             return v
     return ""
 
+
 def find_raw_file(kind: str) -> Path:
     """
     kind: 'general' or 'instructed'
@@ -56,7 +64,10 @@ def find_raw_file(kind: str) -> Path:
         if kind == "instructed" and ("instruct" in name):
             return fp
         cand.append(fp)
-    return sorted(cand, key=lambda p: p.stat().st_mtime, reverse=True)[0] if cand else None
+    return (
+        sorted(cand, key=lambda p: p.stat().st_mtime, reverse=True)[0] if cand else None
+    )
+
 
 def main():
     if not PROMPTS.exists():
@@ -75,7 +86,9 @@ def main():
     g_fp = find_raw_file("general")
     i_fp = find_raw_file("instructed")
     if not g_fp or not i_fp:
-        die(f"raw 로그를 찾지 못했습니다. (general={g_fp}, instructed={i_fp})  results/raw/*.jsonl 확인")
+        die(
+            f"raw 로그를 찾지 못했습니다. (general={g_fp}, instructed={i_fp})  results/raw/*.jsonl 확인"
+        )
 
     def build_out_map(fp: Path):
         m = {}
@@ -90,26 +103,44 @@ def main():
     out_i = build_out_map(i_fp)
 
     (ALN / "ids.txt").write_text("\n".join(order) + "\n", encoding="utf-8")
-    (ALN / "refs.txt").write_text("\n".join(refs[_id] for _id in order) + "\n", encoding="utf-8")
-    (ALN / "general.txt").write_text("\n".join(out_g.get(_id, "") for _id in order) + "\n", encoding="utf-8")
-    (ALN / "instructed.txt").write_text("\n".join(out_i.get(_id, "") for _id in order) + "\n", encoding="utf-8")
+    (ALN / "refs.txt").write_text(
+        "\n".join(refs[_id] for _id in order) + "\n", encoding="utf-8"
+    )
+    (ALN / "general.txt").write_text(
+        "\n".join(out_g.get(_id, "") for _id in order) + "\n", encoding="utf-8"
+    )
+    (ALN / "instructed.txt").write_text(
+        "\n".join(out_i.get(_id, "") for _id in order) + "\n", encoding="utf-8"
+    )
 
     print("[OK] wrote aligned files to", ALN)
 
     sacre = ROOT / "code" / "sacre_eval.py"
     if sacre.exists():
         print("[run] sacre_eval.py …")
-        subprocess.run([
-            sys.executable, str(sacre),
-            "--refs",        str((ALN/"refs.txt").relative_to(ROOT)),
-            "--hyps-general",str((ALN/"general.txt").relative_to(ROOT)),
-            "--hyps-instructed", str((ALN/"instructed.txt").relative_to(ROOT)),
-            "--out-bleu",    str((QNT/"bleu_sacre.json").relative_to(ROOT)),
-            "--out-chrf",    str((QNT/"chrf.json").relative_to(ROOT)),
-            "--out-rouge",   str((QNT/"rouge.json").relative_to(ROOT))
-        ], cwd=ROOT, check=False)
+        subprocess.run(
+            [
+                sys.executable,
+                str(sacre),
+                "--refs",
+                str((ALN / "refs.txt").relative_to(ROOT)),
+                "--hyps-general",
+                str((ALN / "general.txt").relative_to(ROOT)),
+                "--hyps-instructed",
+                str((ALN / "instructed.txt").relative_to(ROOT)),
+                "--out-bleu",
+                str((QNT / "bleu_sacre.json").relative_to(ROOT)),
+                "--out-chrf",
+                str((QNT / "chrf.json").relative_to(ROOT)),
+                "--out-rouge",
+                str((QNT / "rouge.json").relative_to(ROOT)),
+            ],
+            cwd=ROOT,
+            check=False,
+        )
     else:
         print("[note] code/sacre_eval.py 가 없어 자동 평가는 건너뜀")
+
 
 if __name__ == "__main__":
     main()

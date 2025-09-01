@@ -1,7 +1,14 @@
+import collections
+import csv
+import sys
 from pathlib import Path
-import csv, collections, sys
 
-p = Path(__file__).resolve().parents[1] / "results" / "quantitative" / "compliance_by_item.csv"
+p = (
+    Path(__file__).resolve().parents[1]
+    / "results"
+    / "quantitative"
+    / "compliance_by_item.csv"
+)
 if len(sys.argv) > 1:
     p = Path(sys.argv[1])
 

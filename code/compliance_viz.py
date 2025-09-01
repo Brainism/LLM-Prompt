@@ -1,10 +1,10 @@
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 def _read_text_bom_safe(p: Path) -> str:
@@ -78,7 +78,9 @@ def _normalize_df(df: pd.DataFrame) -> pd.DataFrame:
     if "pass_rate" in df.columns:
         df["pass_rate"] = pd.to_numeric(df["pass_rate"], errors="coerce")
     if "n_total" in df.columns:
-        df["n_total"] = pd.to_numeric(df["n_total"], errors="coerce").fillna(0).astype(int)
+        df["n_total"] = (
+            pd.to_numeric(df["n_total"], errors="coerce").fillna(0).astype(int)
+        )
 
     return df
 
@@ -116,57 +118,97 @@ def _weighted_pass_rate(g: pd.DataFrame) -> float:
 
 
 def plot_by_model_mode(df: pd.DataFrame, outdir: Path) -> Optional[Path]:
-    if not {"model", "mode", "pass_rate"}.issubset(df.columns):
+    if "pass_rate" not in df.columns:
         return None
+
+    have_model = "model" in df.columns
+    have_mode = "mode" in df.columns
+    if not (have_model or have_mode):
+        return None
+
+    keys = [k for k in ("model", "mode") if k in df.columns]
+
+    tmp = df.dropna(subset=["pass_rate"]).copy()
+    if "n_total" not in tmp.columns:
+        tmp["n_total"] = 1
+    tmp["__okw"] = tmp["pass_rate"] * tmp["n_total"]
+
     agg = (
-        df.dropna(subset=["pass_rate"])
-          .groupby(["model", "mode"], dropna=False)
-          .apply(_weighted_pass_rate)
-          .reset_index(name="pass_rate")
+        tmp.groupby(keys, dropna=False)
+        .agg(n_total=("n_total", "sum"), okw=("__okw", "sum"))
+        .reset_index()
     )
     if agg.empty:
         return None
+    agg["pass_rate"] = agg["okw"] / agg["n_total"].where(agg["n_total"] != 0)
+    agg = agg.sort_values(keys, kind="stable")
 
-    agg = agg.sort_values(["model", "mode"], kind="stable")
+    if have_model and have_mode:
+        labels = [
+            f"{m}\n({mo})"
+            for m, mo in zip(agg["model"].astype(str), agg["mode"].astype(str))
+        ]
+        title = "Compliance pass rate by model / mode"
+    elif have_model:
+        labels = agg["model"].astype(str).tolist()
+        title = "Compliance pass rate by model"
+    else:
+        labels = agg["mode"].astype(str).tolist()
+        title = "Compliance pass rate by mode"
 
     outdir.mkdir(parents=True, exist_ok=True)
     fig_path = outdir / "compliance_passrate_by_model_mode.png"
 
-    plt.figure(figsize=(9, 5))
-    labels = [f"{m}\n({mo})" for m, mo in zip(agg["model"], agg["mode"])]
+    plt.figure(figsize=(max(8, 0.8 * len(labels)), 5))
     plt.bar(labels, agg["pass_rate"])
     plt.ylim(0, 1.0)
     plt.ylabel("Pass rate")
-    plt.title("Compliance pass rate by model / mode")
+    plt.title(title)
     for i, v in enumerate(agg["pass_rate"]):
-        plt.text(i, min(v + 0.02, 0.98), f"{v:.2f}", ha="center", va="bottom", fontsize=9)
+        plt.text(
+            i, min(v + 0.02, 0.98), f"{v:.2f}", ha="center", va="bottom", fontsize=9
+        )
     plt.tight_layout()
     plt.savefig(fig_path, dpi=200)
     plt.close()
     return fig_path
 
 
-def plot_top_fail_rules(df: pd.DataFrame, outdir: Path, topk: int = 15) -> Optional[Path]:
-    if not {"rule", "pass_rate"}.issubset(df.columns):
+def plot_top_fail_rules(
+    df: pd.DataFrame, outdir: Path, topk: int = 15
+) -> Optional[Path]:
+    if "rule" not in df.columns or "pass_rate" not in df.columns:
         return None
-    tmp = df.dropna(subset=["pass_rate"]).copy()
-    tmp["fail_rate"] = 1.0 - tmp["pass_rate"]
+
+    tmp = df.copy()
+    tmp = tmp[tmp["rule"].notna()].copy()
+    if tmp.empty:
+        return None
+    tmp["pass_rate"] = pd.to_numeric(tmp["pass_rate"], errors="coerce")
+    tmp = tmp.dropna(subset=["pass_rate"])
+
+    if "n_total" not in tmp.columns:
+        tmp["n_total"] = 1
+    tmp["__okw"] = tmp["pass_rate"] * tmp["n_total"]
+
     agg = (
         tmp.groupby("rule", dropna=False)
-           .apply(_weighted_pass_rate)
-           .reset_index(name="pass_rate")
+        .agg(n_total=("n_total", "sum"), okw=("__okw", "sum"))
+        .reset_index()
     )
-    agg["fail_rate"] = 1.0 - agg["pass_rate"]
-    agg = agg.sort_values("fail_rate", ascending=False).head(topk)
-
     if agg.empty:
         return None
+    agg["pass_rate"] = agg["okw"] / agg["n_total"].where(agg["n_total"] != 0)
+    agg["fail_rate"] = 1.0 - agg["pass_rate"]
+    agg = agg.sort_values("fail_rate", ascending=False).head(topk)
 
     outdir.mkdir(parents=True, exist_ok=True)
     fig_path = outdir / "compliance_top_fail_rules.png"
 
+    labels = agg["rule"].astype(str)
+
     plt.figure(figsize=(9, max(4, 0.32 * len(agg))))
-    plt.barh(agg["rule"], agg["fail_rate"])
+    plt.barh(labels, agg["fail_rate"])
     plt.xlim(0, 1.0)
     plt.xlabel("Fail rate")
     plt.title(f"Top-{len(agg)} failing rules")
@@ -196,7 +238,9 @@ def main(summary_path: str, outdir: str):
     else:
         print(" - skip: top failing rules (columns missing)")
 
+
 import sys
+
 
 def _autodetect_summary() -> str | None:
     candidates = [
@@ -211,9 +255,10 @@ def _autodetect_summary() -> str | None:
             return str(p)
     return None
 
-import sys
+
 from pathlib import Path
 
+
 def _autodetect_summary() -> str | None:
     candidates = [
         Path(r"results/quantitative/compliance_summary.csv"),
@@ -226,10 +271,13 @@ def _autodetect_summary() -> str | None:
         for p in Path("results").rglob(f"*compliance*summary*.{ext}"):
             return str(p)
     return None
+
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--summary", default=None, help="Path to JSON/CSV compliance summary")
+    ap.add_argument(
+        "--summary", default=None, help="Path to JSON/CSV compliance summary"
+    )
     ap.add_argument("--outdir", default=r"results\figures", help="Output directory")
     a = ap.parse_args()
 
@@ -237,7 +285,9 @@ if __name__ == "__main__":
     if not summary:
         print("[FATAL] --summary 미지정이며 자동 탐지 실패.")
         print("힌트) 먼저 요약 생성:")
-        print(r"  python code\compliance_eval.py --outputs results\raw --schema schema\split_manifest_main.schema.json --out results\quantitative\compliance_summary.csv")
+        print(
+            r"  python code\compliance_eval.py --outputs results\raw --schema schema\split_manifest_main.schema.json --out results\quantitative\compliance_summary.csv"
+        )
         sys.exit(2)
 
     main(summary, a.outdir)

@@ -12,6 +12,7 @@ LEN_SHORT_MAX = 70
 LEN_MED_MIN, LEN_MED_MAX = 71, 160
 LEN_LONG_MIN = 161
 
+
 def bucket_from_n_chars(n: int) -> str:
     if n <= LEN_SHORT_MAX:
         return "short"
@@ -19,11 +20,13 @@ def bucket_from_n_chars(n: int) -> str:
         return "medium"
     return "long"
 
+
 def sanitize_cluster_id(val: Any) -> str:
     s = str(val if val is not None else "")
     s = s.upper()
     s = re.sub(r"[^A-Z0-9_-]", "_", s)
     return s or "CLUSTER"
+
 
 def normalize_diff_bin(val: Any, *, allow_null: bool) -> Any:
     if val is None:
@@ -35,6 +38,7 @@ def normalize_diff_bin(val: Any, *, allow_null: bool) -> Any:
         return v
     return None if allow_null else "medium"
 
+
 def normalize_len_bin(val: Any) -> str:
     if val is None:
         return "medium"
@@ -45,10 +49,12 @@ def normalize_len_bin(val: Any) -> str:
         return v
     return "medium"
 
+
 def sha256_hex(text: str) -> str:
     h = hashlib.sha256()
     h.update(text.encode("utf-8"))
     return h.hexdigest()
+
 
 def atomic_write(path: str, data: Dict):
     ddir = os.path.dirname(os.path.abspath(path)) or "."
@@ -60,24 +66,69 @@ def atomic_write(path: str, data: Dict):
         os.fsync(f.fileno())
     os.replace(tmp, path)
 
-def main():
-    ap = argparse.ArgumentParser(description="Fix manifest fields: drop $schema, normalize len_bin/diff_bin, cluster_id, n_chars, prompt_hash.")
-    ap.add_argument("manifest", help=r"Path to manifest JSON (e.g., data\manifest\split_manifest_main.json)")
 
-    ap.add_argument("--keep-schema", action="store_true", help="Do NOT drop the top-level $schema key")
-    ap.add_argument("--out", type=str, default=None, help="Output path (default: input.with .fixed.json)")
-    ap.add_argument("--inplace", action="store_true", help="Overwrite input file in place")
+def main():
+    ap = argparse.ArgumentParser(
+        description="Fix manifest fields: drop $schema, normalize len_bin/diff_bin, cluster_id, n_chars, prompt_hash."
+    )
+    ap.add_argument(
+        "manifest",
+        help=r"Path to manifest JSON (e.g., data\manifest\split_manifest_main.json)",
+    )
+
+    ap.add_argument(
+        "--keep-schema",
+        action="store_true",
+        help="Do NOT drop the top-level $schema key",
+    )
+    ap.add_argument(
+        "--out",
+        type=str,
+        default=None,
+        help="Output path (default: input.with .fixed.json)",
+    )
+    ap.add_argument(
+        "--inplace", action="store_true", help="Overwrite input file in place"
+    )
 
     g = ap.add_mutually_exclusive_group()
-    g.add_argument("--allow-null-diff", action="store_true", help="Unknown diff_bin -> null (default)")
-    g.add_argument("--strict-diff", action="store_true", help="Unknown diff_bin -> 'medium'")
+    g.add_argument(
+        "--allow-null-diff",
+        action="store_true",
+        help="Unknown diff_bin -> null (default)",
+    )
+    g.add_argument(
+        "--strict-diff", action="store_true", help="Unknown diff_bin -> 'medium'"
+    )
 
-    ap.add_argument("--add-prompt-hash", action="store_true", help="Add/refresh prompt_hash (sha256 of input)")
-    ap.add_argument("--derive-n-chars", action="store_true", default=True, help="Derive n_chars from input length (default on)")
-    ap.add_argument("--no-derive-n-chars", dest="derive_n_chars", action="store_false", help="Disable deriving n_chars")
+    ap.add_argument(
+        "--add-prompt-hash",
+        action="store_true",
+        help="Add/refresh prompt_hash (sha256 of input)",
+    )
+    ap.add_argument(
+        "--derive-n-chars",
+        action="store_true",
+        default=True,
+        help="Derive n_chars from input length (default on)",
+    )
+    ap.add_argument(
+        "--no-derive-n-chars",
+        dest="derive_n_chars",
+        action="store_false",
+        help="Disable deriving n_chars",
+    )
 
-    ap.add_argument("--auto-len-bin", action="store_true", help="Adjust len_bin from n_chars bucket when mismatched")
-    ap.add_argument("--auto-n-chars", action="store_true", help="Clamp n_chars to len_bin bucket (NOT recommended)")
+    ap.add_argument(
+        "--auto-len-bin",
+        action="store_true",
+        help="Adjust len_bin from n_chars bucket when mismatched",
+    )
+    ap.add_argument(
+        "--auto-n-chars",
+        action="store_true",
+        help="Clamp n_chars to len_bin bucket (NOT recommended)",
+    )
 
     args = ap.parse_args()
 
@@ -85,7 +136,11 @@ def main():
     if args.inplace and args.out:
         print("[ERR] --inplace and --out are mutually exclusive.", file=sys.stderr)
         sys.exit(2)
-    out_path = in_path if args.inplace else (args.out or (os.path.splitext(in_path)[0] + ".fixed.json"))
+    out_path = (
+        in_path
+        if args.inplace
+        else (args.out or (os.path.splitext(in_path)[0] + ".fixed.json"))
+    )
 
     print("[PATH] input :", in_path)
     print("[PATH] output:", out_path)
@@ -174,27 +229,44 @@ def main():
     with open(out_path, "r", encoding="utf-8") as f:
         after = json.load(f)
 
-    bad_c = [i for i, it in enumerate(after.get("items", []))
-             if not RX_CLUSTER.fullmatch(str(it.get("cluster_id", "")))]
-    mid_l = [i for i, it in enumerate(after.get("items", []))
-             if str(it.get("len_bin", "")).lower() in {"mid"}]
+    bad_c = [
+        i
+        for i, it in enumerate(after.get("items", []))
+        if not RX_CLUSTER.fullmatch(str(it.get("cluster_id", "")))
+    ]
+    mid_l = [
+        i
+        for i, it in enumerate(after.get("items", []))
+        if str(it.get("len_bin", "")).lower() in {"mid"}
+    ]
 
     print(f"[OK] wrote: {out_path}")
-    print(f"[FIX] cluster_id={fix_c}, diff_bin={fix_d}, len_bin={fix_l}, "
-          f"n_chars_set={set_n}, prompt_hash_set={set_h}, total_items={len(items)}")
+    print(
+        f"[FIX] cluster_id={fix_c}, diff_bin={fix_d}, len_bin={fix_l}, "
+        f"n_chars_set={set_n}, prompt_hash_set={set_h}, total_items={len(items)}"
+    )
     if warn_len_mismatch:
-        print(f"[WARN] len_bin vs n_chars mismatch detected: {warn_len_mismatch} item(s)")
+        print(
+            f"[WARN] len_bin vs n_chars mismatch detected: {warn_len_mismatch} item(s)"
+        )
     if bad_c:
         print("[WARN] remaining bad cluster_id idx:", bad_c[:10])
     if mid_l:
         print("[WARN] remaining len_bin='mid' idx:", mid_l[:10])
 
     sample = [
-        (it.get("id"), it.get("cluster_id"), it.get("diff_bin"), it.get("len_bin"),
-         it.get("n_chars"), it.get("prompt_hash", "")[:8])
+        (
+            it.get("id"),
+            it.get("cluster_id"),
+            it.get("diff_bin"),
+            it.get("len_bin"),
+            it.get("n_chars"),
+            it.get("prompt_hash", "")[:8],
+        )
         for it in after.get("items", [])[:5]
     ]
     print("[SAMPLE first5]", sample)
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,22 @@
+exclude: ^(results/|docs/|\.venv/|hf_cache/|__pycache__/|data/large/)
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff         # lint
+        args: [--fix]
+      - id: ruff-format  # 포맷(Black 호환)
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-json

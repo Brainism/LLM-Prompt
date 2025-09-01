@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+
 def _needs_title_tags_json(text: str) -> bool:
     """
     입력 지시문이 'title, tags' JSON을 요구하는지 간단히 판정.
@@ -11,6 +12,7 @@ def _needs_title_tags_json(text: str) -> bool:
     has_title = "title" in t
     has_tags = "tags" in t
     return has_json and has_title and has_tags
+
 
 JSON_ONLY_TITLE_TAGS_POLICY = """Return ONLY a valid JSON object with exactly these keys:
 - "title": string
@@ -24,10 +26,7 @@ Example:
 
 
 def get_general_prompt(text: str) -> str:
-    return (
-        "요청에 답하시오. 필요하다면 간단히 설명해도 됩니다.\n\n"
-        f"{text}"
-    )
+    return "요청에 답하시오. 필요하다면 간단히 설명해도 됩니다.\n\n" f"{text}"
 
 
 def get_instructed_prompt(text: str) -> str:
@@ -47,7 +46,7 @@ def get_instructed_prompt(text: str) -> str:
         "",
         "예시1 (JSON만):",
         "요청: 정확히 다음 키만 포함한 JSON으로만 출력하라: city(서울), temp_unit(C). 추가 텍스트 금지.",
-        "출력: {\"city\":\"서울\",\"temp_unit\":\"C\"}",
+        '출력: {"city":"서울","temp_unit":"C"}',
         "",
         "예시2 (불릿):",
         "요청: 라면 끓이는 절차를 2개의 불릿으로만 써라. 각 줄은 '-'로 시작. 다른 말 금지.",
@@ -66,15 +65,19 @@ def get_instructed_prompt(text: str) -> str:
     ]
 
     if _needs_title_tags_json(text):
-        parts.extend([
-            "[STRICT JSON OUTPUT POLICY]",
-            JSON_ONLY_TITLE_TAGS_POLICY,
-            "",
-        ])
+        parts.extend(
+            [
+                "[STRICT JSON OUTPUT POLICY]",
+                JSON_ONLY_TITLE_TAGS_POLICY,
+                "",
+            ]
+        )
 
-    parts.extend([
-        "지시문(그대로 따르시오):",
-        f"{text}",
-    ])
+    parts.extend(
+        [
+            "지시문(그대로 따르시오):",
+            f"{text}",
+        ]
+    )
 
     return "\n".join(parts)

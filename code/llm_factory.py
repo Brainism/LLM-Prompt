@@ -10,11 +10,17 @@ try:
 except Exception:
     ChatOllama = None  # type: ignore
 
-from langchain_core.messages import SystemMessage, HumanMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 
 
 class LLMWrapper:
-    def __init__(self, provider: str, model: str, temperature: float = 0.2, num_predict: Optional[int] = None):
+    def __init__(
+        self,
+        provider: str,
+        model: str,
+        temperature: float = 0.2,
+        num_predict: Optional[int] = None,
+    ):
         self.provider = provider
         self.model = model
         self.temperature = temperature
@@ -37,10 +43,20 @@ class LLMWrapper:
 
     def generate(self, prompt: str) -> str:
         chat = self._chat()
-        msgs = [SystemMessage(content="You are a helpful assistant."), HumanMessage(content=prompt)]
+        msgs = [
+            SystemMessage(content="You are a helpful assistant."),
+            HumanMessage(content=prompt),
+        ]
         resp = chat.invoke(msgs)
         return getattr(resp, "content", str(resp))
 
 
-def get_llm(provider: str, model: str, temperature: float = 0.2, num_predict: Optional[int] = None) -> LLMWrapper:
-    return LLMWrapper(provider=provider, model=model, temperature=temperature, num_predict=num_predict)
+def get_llm(
+    provider: str,
+    model: str,
+    temperature: float = 0.2,
+    num_predict: Optional[int] = None,
+) -> LLMWrapper:
+    return LLMWrapper(
+        provider=provider, model=model, temperature=temperature, num_predict=num_predict
+    )

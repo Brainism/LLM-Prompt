@@ -16,9 +16,9 @@ Wilcoxon signed-rank (쌍대 비교), α=0.05
 효과크기: Cohen’s d (또는 dz)
 
 4. 절차
-prompts ↔ raw 1:1 정합 확인(60/60)  
-BLEU/ROUGE/chrF 계산 → `results/quantitative/*.json`  
-`stats_tests_plus.py`로 평균/Δ/CI/p/q/d 산출 → `stats_summary.csv`  
+prompts ↔ raw 1:1 정합 확인(60/60)
+BLEU/ROUGE/chrF 계산 → `results/quantitative/*.json`
+`stats_tests_plus.py`로 평균/Δ/CI/p/q/d 산출 → `stats_summary.csv`
 준수율·효율 로그 결합(추가) → 테이블/그림 작성
 
 5. 보고
