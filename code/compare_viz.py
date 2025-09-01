@@ -1,11 +1,14 @@
 from __future__ import annotations
-import argparse, json, math
+
+import argparse
+import json
+import math
 from pathlib import Path
 
+import matplotlib
 import numpy as np
 import pandas as pd
 
-import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -58,7 +61,9 @@ def choose_p_and_d(stats_csv: str, metric_name: str):
     return p, d
 
 
-def save_mean_bar(metric_label: str, g: np.ndarray, i: np.ndarray, out_png: Path, p=None, d=None):
+def save_mean_bar(
+    metric_label: str, g: np.ndarray, i: np.ndarray, out_png: Path, p=None, d=None
+):
     mg, seg, ng = mean_sem(g)
     mi, sei, ni = mean_sem(i)
     out_png.parent.mkdir(parents=True, exist_ok=True)
@@ -74,12 +79,20 @@ def save_mean_bar(metric_label: str, g: np.ndarray, i: np.ndarray, out_png: Path
         title += f"  |  d={d:.2f}"
     plt.title(title)
     for b, v in zip(bars, [mg, mi]):
-        plt.text(b.get_x()+b.get_width()/2, v+0.02, f"{v:.3f}", ha="center", va="bottom")
+        plt.text(
+            b.get_x() + b.get_width() / 2,
+            v + 0.02,
+            f"{v:.3f}",
+            ha="center",
+            va="bottom",
+        )
     plt.savefig(out_png, dpi=150, bbox_inches="tight")
     plt.close()
 
 
-def save_paired_lines(metric_label: str, ids, g: np.ndarray, i: np.ndarray, out_png: Path):
+def save_paired_lines(
+    metric_label: str, ids, g: np.ndarray, i: np.ndarray, out_png: Path
+):
     out_png.parent.mkdir(parents=True, exist_ok=True)
     x0, x1 = 0, 1
     plt.figure()
@@ -110,24 +123,33 @@ def save_delta_hist(metric_label: str, g: np.ndarray, i: np.ndarray, out_png: Pa
     return mu
 
 
-def save_summary_table(rouge_ids, g_r, i_r, bleu_ids, g_b, i_b, stats_csv: str, out_csv: Path):
+def save_summary_table(
+    rouge_ids, g_r, i_r, bleu_ids, g_b, i_b, stats_csv: str, out_csv: Path
+):
     rows = []
     for name, ids, g, i, mkey in [
         ("rougeL_f", rouge_ids, g_r, i_r, "ROUGE-L F"),
-        ("bleu4",    bleu_ids,  g_b, i_b, "BLEU-4"),
+        ("bleu4", bleu_ids, g_b, i_b, "BLEU-4"),
     ]:
         mg, seg, ng = mean_sem(g)
         mi, sei, ni = mean_sem(i)
         p, d = choose_p_and_d(stats_csv, name)
-        rows.append({
-            "metric": name,
-            "label": mkey,
-            "n": min(ng, ni),
-            "mean_general": mg, "sem_general": seg,
-            "mean_instructed": mi, "sem_instructed": sei,
-            "delta_mean": float(np.mean(i - g)) if len(g)==len(i) and len(g)>0 else 0.0,
-            "p_value": p, "cohens_d": d
-        })
+        rows.append(
+            {
+                "metric": name,
+                "label": mkey,
+                "n": min(ng, ni),
+                "mean_general": mg,
+                "sem_general": seg,
+                "mean_instructed": mi,
+                "sem_instructed": sei,
+                "delta_mean": float(np.mean(i - g))
+                if len(g) == len(i) and len(g) > 0
+                else 0.0,
+                "p_value": p,
+                "cohens_d": d,
+            }
+        )
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).to_csv(out_csv, index=False, encoding="utf-8")
     print(f"[OK] table -> {out_csv}")
@@ -151,7 +173,16 @@ def main(rouge_json: str, bleu_json: str, stats_csv: str, outdir: str):
     save_paired_lines("BLEU-4", b_ids, g_b, i_b, outdir / "cmp_bleu_paired.png")
     save_delta_hist("BLEU-4", g_b, i_b, outdir / "cmp_bleu_delta.png")
 
-    save_summary_table(r_ids, g_r, i_r, b_ids, g_b, i_b, stats_csv, Path("results/quantitative/compare_summary.csv"))
+    save_summary_table(
+        r_ids,
+        g_r,
+        i_r,
+        b_ids,
+        g_b,
+        i_b,
+        stats_csv,
+        Path("results/quantitative/compare_summary.csv"),
+    )
     print(f"[OK] saved images in {outdir.resolve()}")
 
 

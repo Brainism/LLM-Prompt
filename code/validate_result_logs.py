@@ -1,12 +1,14 @@
+import argparse
 import json
 import sys
-import argparse
 from pathlib import Path
+
 from jsonschema import Draft7Validator
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SCHEMA = ROOT / "schema" / "result_log.schema.json"
 DEFAULT_RAWDIR = ROOT / "results" / "raw"
+
 
 def iter_jsonl_lines(fp: Path):
     with fp.open("r", encoding="utf-8-sig", errors="replace") as f:
@@ -16,13 +18,32 @@ def iter_jsonl_lines(fp: Path):
                 continue
             yield ln_no, s
 
+
 def main():
-    ap = argparse.ArgumentParser(description="Validate result JSONL logs against schema")
-    ap.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA, help="path to JSON schema file")
-    ap.add_argument("--raw-dir", type=Path, default=DEFAULT_RAWDIR, help="directory containing *.jsonl logs")
-    ap.add_argument("--glob", default="*.jsonl", help="filename glob pattern (default: *.jsonl)")
-    ap.add_argument("--max-errors", type=int, default=50, help="maximum number of errors to print")
-    ap.add_argument("--require", nargs="*", default=[], help="extra required keys (e.g., mode provider model)")
+    ap = argparse.ArgumentParser(
+        description="Validate result JSONL logs against schema"
+    )
+    ap.add_argument(
+        "--schema", type=Path, default=DEFAULT_SCHEMA, help="path to JSON schema file"
+    )
+    ap.add_argument(
+        "--raw-dir",
+        type=Path,
+        default=DEFAULT_RAWDIR,
+        help="directory containing *.jsonl logs",
+    )
+    ap.add_argument(
+        "--glob", default="*.jsonl", help="filename glob pattern (default: *.jsonl)"
+    )
+    ap.add_argument(
+        "--max-errors", type=int, default=50, help="maximum number of errors to print"
+    )
+    ap.add_argument(
+        "--require",
+        nargs="*",
+        default=[],
+        help="extra required keys (e.g., mode provider model)",
+    )
     args = ap.parse_args()
 
     if not args.schema.exists():
@@ -54,21 +75,31 @@ def main():
             v_errs = list(validator.iter_errors(rec))
             for k in args.require:
                 if k not in rec:
-                    v_errs.append(("__extra__", [k], f"Extra required key missing: '{k}'"))
+                    v_errs.append(
+                        ("__extra__", [k], f"Extra required key missing: '{k}'")
+                    )
 
             if v_errs:
                 for e in v_errs:
                     if isinstance(e, tuple):
                         _, path_list, msg = e
-                        path_str = "/".join(map(str, path_list)) if path_list else "(root)"
+                        path_str = (
+                            "/".join(map(str, path_list)) if path_list else "(root)"
+                        )
                         errors.append((fp.name, ln_no, path_str, msg))
                     else:
-                        path_str = "/".join(map(str, getattr(e, "path", []))) or "(root)"
-                        errors.append((fp.name, ln_no, path_str, getattr(e, "message", str(e))))
+                        path_str = (
+                            "/".join(map(str, getattr(e, "path", []))) or "(root)"
+                        )
+                        errors.append(
+                            (fp.name, ln_no, path_str, getattr(e, "message", str(e)))
+                        )
             else:
                 ok_records += 1
 
-    print(f"[SUMMARY] files={len(files)}  records={total_records}  ok={ok_records}  errors={len(errors)}")
+    print(
+        f"[SUMMARY] files={len(files)}  records={total_records}  ok={ok_records}  errors={len(errors)}"
+    )
     if errors:
         show_n = min(args.max_errors, len(errors))
         print(f"[DETAILS] showing first {show_n} errors:")
@@ -78,6 +109,7 @@ def main():
     else:
         print("✅ result logs OK")
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()

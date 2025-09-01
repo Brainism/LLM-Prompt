@@ -1,7 +1,10 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
 from pathlib import Path
+
 import pandas as pd
+
 
 @dataclass
 class PromptItem:
@@ -9,7 +12,10 @@ class PromptItem:
     prompt_type: str
     text: str
 
-def load_prompts(csv_path: str, text_col: str = "text", id_col: str | None = "prompt_id") -> list[PromptItem]:
+
+def load_prompts(
+    csv_path: str, text_col: str = "text", id_col: str | None = "prompt_id"
+) -> list[PromptItem]:
     p = Path(csv_path)
     if not p.exists():
         raise FileNotFoundError(p)

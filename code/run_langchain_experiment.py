@@ -6,9 +6,9 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+from llm_factory import get_llm
 from prompt_manager import load_prompts
 from prompt_templates import get_general_prompt, get_instructed_prompt
-from llm_factory import get_llm
 
 
 def build_prompt(mode: str, text: str) -> str:
@@ -84,13 +84,10 @@ def run(args: argparse.Namespace) -> None:
                 "mode": args.mode,
                 "model": args.model,
                 "provider": args.provider,
-
                 "input": item.text,
                 "output": out_text if out_text is not None else "",
-
                 "timing": {"latency_ms": dt_ms},
                 "created_at": created_at,
-
                 "prompt": prompt,
                 "decoding": {
                     "temperature": args.temperature,
@@ -119,7 +116,9 @@ def run(args: argparse.Namespace) -> None:
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
     p.add_argument("--prompt-file", required=True, help="CSV file with prompts")
-    p.add_argument("--prompt-column", default="input", help="column name for input text")
+    p.add_argument(
+        "--prompt-column", default="input", help="column name for input text"
+    )
     p.add_argument("--id-column", default="id", help="column name for unique id")
     p.add_argument("--mode", choices=["general", "instructed"], required=True)
     p.add_argument("--outdir", default="results/raw")

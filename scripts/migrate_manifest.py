@@ -1,13 +1,13 @@
-import json, hashlib, os, sys
+import hashlib
+import json
+import os
+import sys
 
 SRC = r"data\manifest\split_manifest_main.json"
 DST = r"data\manifest\split_manifest_v0.4_migrated.json"
 
-LEN_BINS = {
-    "short": (1, 70),
-    "medium": (71, 160),
-    "long": (161, 10_000_000)
-}
+LEN_BINS = {"short": (1, 70), "medium": (71, 160), "long": (161, 10_000_000)}
+
 
 def detect_len_bin(n):
     for k, (lo, hi) in LEN_BINS.items():
@@ -15,8 +15,10 @@ def detect_len_bin(n):
             return k
     return "long"
 
+
 def sha256_hex(s: str) -> str:
     return hashlib.sha256(s.encode("utf-8")).hexdigest()
+
 
 def main():
     with open(SRC, "r", encoding="utf-8") as f:
@@ -65,6 +67,7 @@ def main():
         json.dump(migrated, f, ensure_ascii=False, indent=2)
 
     print(f"[OK] migrated -> {DST} (items={len(migrated['items'])})")
+
 
 if __name__ == "__main__":
     main()

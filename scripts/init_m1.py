@@ -1,8 +1,9 @@
+from datetime import datetime
 from pathlib import Path
 from textwrap import dedent
-from datetime import datetime
 
-DOCS = Path("docs"); DOCS.mkdir(parents=True, exist_ok=True)
+DOCS = Path("docs")
+DOCS.mkdir(parents=True, exist_ok=True)
 
 study_scope = dedent(f"""\
 # Study Scope (v1)

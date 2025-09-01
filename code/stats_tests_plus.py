@@ -12,6 +12,7 @@ try:
 except Exception:
     scipy_wilcoxon = None
 
+
 def _to_float(x: Any) -> Optional[float]:
     try:
         if x is None:
@@ -64,13 +65,16 @@ def load_any_metric(path: Path) -> Tuple[np.ndarray, str]:
     return arr, name
 
 
-def load_three(bleu: Optional[str], chrf: Optional[str], rouge: Optional[str]) -> Dict[str, np.ndarray]:
+def load_three(
+    bleu: Optional[str], chrf: Optional[str], rouge: Optional[str]
+) -> Dict[str, np.ndarray]:
     out: Dict[str, np.ndarray] = {}
     for name, p in [("bleu", bleu), ("chrf", chrf), ("rouge", rouge)]:
         if p:
             diffs, inferred = load_any_metric(Path(p))
             out[(inferred or name).lower()] = diffs
     return out
+
 
 def bootstrap_ci(
     diffs: np.ndarray, B: int = 10000, alpha: float = 0.05, seed: int = 42
@@ -126,7 +130,10 @@ def cohens_d_paired(diffs: np.ndarray) -> float:
 
 def bh_fdr(names: List[str], pvals: List[float]) -> Dict[str, float]:
     m = len(pvals)
-    clean = [(names[i], (1.0 if (pvals[i] is None or math.isnan(pvals[i])) else pvals[i])) for i in range(m)]
+    clean = [
+        (names[i], (1.0 if (pvals[i] is None or math.isnan(pvals[i])) else pvals[i]))
+        for i in range(m)
+    ]
     order = sorted(range(m), key=lambda i: clean[i][1])
     q_tmp = [0.0] * m
     min_q = 1.0
@@ -138,6 +145,7 @@ def bh_fdr(names: List[str], pvals: List[float]) -> Dict[str, float]:
         q_tmp[idx] = q
     return {names[i]: q_tmp[i] for i in range(m)}
 
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--bleu", help="Path to BLEU JSON")
@@ -145,9 +153,17 @@ def main():
     ap.add_argument("--rouge", help="Path to ROUGE JSON")
     ap.add_argument("--output", required=True, help="Output CSV path")
     ap.add_argument("--bootstrap", type=int, default=10000, help="Bootstrap iterations")
-    ap.add_argument("--alpha", type=float, default=0.05, help="CI alpha (default 0.05 for 95% CI)")
-    ap.add_argument("--wilcoxon", action="store_true", help="Run Wilcoxon signed-rank test on diffs")
-    ap.add_argument("--fdr", action="store_true", help="Apply Benjamini–Hochberg FDR across reported metrics")
+    ap.add_argument(
+        "--alpha", type=float, default=0.05, help="CI alpha (default 0.05 for 95% CI)"
+    )
+    ap.add_argument(
+        "--wilcoxon", action="store_true", help="Run Wilcoxon signed-rank test on diffs"
+    )
+    ap.add_argument(
+        "--fdr",
+        action="store_true",
+        help="Apply Benjamini–Hochberg FDR across reported metrics",
+    )
     args = ap.parse_args()
 
     metrics_map = load_three(args.bleu, args.chrf, args.rouge)
@@ -179,12 +195,25 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["metric", "n", "mean_diff", "ci_lo", "ci_hi", "stat_or_z", "p", "q_fdr", "cohens_d"])
-        for (name, n, md, lo, hi, stat, p, d) in rows:
+        w.writerow(
+            [
+                "metric",
+                "n",
+                "mean_diff",
+                "ci_lo",
+                "ci_hi",
+                "stat_or_z",
+                "p",
+                "q_fdr",
+                "cohens_d",
+            ]
+        )
+        for name, n, md, lo, hi, stat, p, d in rows:
             q = qmap.get(name, "")
             w.writerow([name, n, md, lo, hi, stat, p, q, d])
 
     print(f"[OK] wrote: {out}")
+
 
 if __name__ == "__main__":
     main()

@@ -1,10 +1,11 @@
 import json
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RAWDIR = ROOT / "results" / "raw"
 ARCH = RAWDIR / "_archive"
+
 
 def parse_ts(s: str) -> float:
     try:
@@ -13,6 +14,7 @@ def parse_ts(s: str) -> float:
         return datetime.fromisoformat(s).timestamp()
     except Exception:
         return 0.0
+
 
 def load_jsonl(fp: Path):
     text = fp.read_text(encoding="utf-8")
@@ -25,8 +27,13 @@ def load_jsonl(fp: Path):
         except Exception:
             continue
 
+
 def write_jsonl(fp: Path, records):
-    fp.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in records) + "\n", encoding="utf-8")
+    fp.write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in records) + "\n",
+        encoding="utf-8",
+    )
+
 
 def main():
     RAWDIR.mkdir(parents=True, exist_ok=True)
@@ -43,7 +50,7 @@ def main():
     for fp in files:
         for rec in load_jsonl(fp):
             mode = rec.get("mode")
-            rid  = rec.get("id") or rec.get("item_id") or rec.get("example_id")
+            rid = rec.get("id") or rec.get("item_id") or rec.get("example_id")
             if not mode or rid is None:
                 if not mode:
                     mode = "instructed" if "instruct" in fp.name.lower() else "general"
@@ -60,9 +67,13 @@ def main():
     out_instruct = RAWDIR / "instructed.jsonl"
 
     if out_general.exists():
-        out_general.with_suffix(".jsonl.bak").write_text(out_general.read_text(encoding="utf-8"), encoding="utf-8")
+        out_general.with_suffix(".jsonl.bak").write_text(
+            out_general.read_text(encoding="utf-8"), encoding="utf-8"
+        )
     if out_instruct.exists():
-        out_instruct.with_suffix(".jsonl.bak").write_text(out_instruct.read_text(encoding="utf-8"), encoding="utf-8")
+        out_instruct.with_suffix(".jsonl.bak").write_text(
+            out_instruct.read_text(encoding="utf-8"), encoding="utf-8"
+        )
 
     write_jsonl(out_general, general)
     write_jsonl(out_instruct, instructed)
@@ -71,7 +82,10 @@ def main():
         if fp.name not in {out_general.name, out_instruct.name}:
             fp.rename(ARCH / fp.name)
 
-    print(f"[OK] consolidated: general={len(general)}, instructed={len(instructed)}; archived {len(files)-2} files -> {ARCH}")
+    print(
+        f"[OK] consolidated: general={len(general)}, instructed={len(instructed)}; archived {len(files)-2} files -> {ARCH}"
+    )
+
 
 if __name__ == "__main__":
     main()

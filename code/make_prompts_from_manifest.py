@@ -1,10 +1,11 @@
 # code/make_prompts_from_manifest.py
-import json, csv
+import csv
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]  # .../LLM
 MANI = ROOT / "data" / "manifest" / "split_manifest_main.json"
-OUT  = ROOT / "prompts" / "prompts.csv"
+OUT = ROOT / "prompts" / "prompts.csv"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
 if not MANI.exists():
@@ -17,11 +18,30 @@ if not items:
 
 with OUT.open("w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
-    w.writerow(["id","input","reference","domain","lang","len_bin","diff_bin","cluster_id"])
+    w.writerow(
+        [
+            "id",
+            "input",
+            "reference",
+            "domain",
+            "lang",
+            "len_bin",
+            "diff_bin",
+            "cluster_id",
+        ]
+    )
     for it in items:
-        w.writerow([
-            it["id"], it["input"], it["reference"], it["domain"],
-            it["lang"], it["len_bin"], it["diff_bin"], it["cluster_id"]
-        ])
+        w.writerow(
+            [
+                it["id"],
+                it["input"],
+                it["reference"],
+                it["domain"],
+                it["lang"],
+                it["len_bin"],
+                it["diff_bin"],
+                it["cluster_id"],
+            ]
+        )
 
 print(f"Wrote {OUT} (n={len(items)})")

@@ -9,21 +9,44 @@ import numpy as np
 
 
 def parse_args() -> argparse.Namespace:
-    ap = argparse.ArgumentParser(description="Aggregate p50/p95 latency & cost from JSONL logs.")
-    ap.add_argument("--raw-glob", default="results/raw/*.jsonl",
-                    help="Glob pattern for input JSONL logs (default: results/raw/*.jsonl)")
-    ap.add_argument("--out", default="results/quantitative/efficiency_tile.json",
-                    help="Output JSON path (default: results/quantitative/efficiency_tile.json)")
-    ap.add_argument("--latency-field", default="latency_ms",
-                    help="Field name for latency in milliseconds (default: latency_ms)")
-    ap.add_argument("--cost-field", default="cost_usd",
-                    help="Field name for cost in USD (default: cost_usd)")
-    ap.add_argument("--group-by", default="",
-                    help="Comma-separated fields to group by (e.g., model,mode). Empty for overall only.")
-    ap.add_argument("--percentiles", default="50,95",
-                    help="Comma-separated percentiles to compute (default: 50,95)")
-    ap.add_argument("--fail-on-empty", action="store_true",
-                    help="Exit with non-zero code if no valid records found.")
+    ap = argparse.ArgumentParser(
+        description="Aggregate p50/p95 latency & cost from JSONL logs."
+    )
+    ap.add_argument(
+        "--raw-glob",
+        default="results/raw/*.jsonl",
+        help="Glob pattern for input JSONL logs (default: results/raw/*.jsonl)",
+    )
+    ap.add_argument(
+        "--out",
+        default="results/quantitative/efficiency_tile.json",
+        help="Output JSON path (default: results/quantitative/efficiency_tile.json)",
+    )
+    ap.add_argument(
+        "--latency-field",
+        default="latency_ms",
+        help="Field name for latency in milliseconds (default: latency_ms)",
+    )
+    ap.add_argument(
+        "--cost-field",
+        default="cost_usd",
+        help="Field name for cost in USD (default: cost_usd)",
+    )
+    ap.add_argument(
+        "--group-by",
+        default="",
+        help="Comma-separated fields to group by (e.g., model,mode). Empty for overall only.",
+    )
+    ap.add_argument(
+        "--percentiles",
+        default="50,95",
+        help="Comma-separated percentiles to compute (default: 50,95)",
+    )
+    ap.add_argument(
+        "--fail-on-empty",
+        action="store_true",
+        help="Exit with non-zero code if no valid records found.",
+    )
     return ap.parse_args()
 
 
@@ -138,12 +161,15 @@ def main() -> None:
         else:
             outp = Path(args.out)
             outp.parent.mkdir(parents=True, exist_ok=True)
-            outp.write_text(json.dumps({"overall": {}, "meta": {"n_records": 0}}, indent=2), encoding="utf-8")
+            outp.write_text(
+                json.dumps({"overall": {}, "meta": {"n_records": 0}}, indent=2),
+                encoding="utf-8",
+            )
             print("[warn]", msg, "→ wrote empty tile:", outp)
             return
 
     pcts = []
-    for tok in (args.percentiles.split(",") if args.percentiles else []):
+    for tok in args.percentiles.split(",") if args.percentiles else []:
         tok = tok.strip()
         if tok:
             try:

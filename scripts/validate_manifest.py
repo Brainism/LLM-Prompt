@@ -1,9 +1,11 @@
+import argparse
+import json
 import os
 import sys
-import json
-import argparse
 from typing import Any, Dict, List
-from jsonschema import Draft7Validator, exceptions as js_exceptions
+
+from jsonschema import Draft7Validator
+
 
 def _resolve_path(path_str: str, script_dir: str) -> str:
     if not path_str:
@@ -16,6 +18,7 @@ def _resolve_path(path_str: str, script_dir: str) -> str:
     cand = os.path.abspath(os.path.join(script_dir, path_str))
     return cand
 
+
 def _filesize(path: str) -> str:
     try:
         n = os.path.getsize(path)
@@ -23,9 +26,11 @@ def _filesize(path: str) -> str:
     except Exception:
         return "?"
 
+
 def _json_pointer_from_error_path(path_parts) -> str:
     parts = [str(p) for p in path_parts]
     return "/".join(parts) if parts else "(root)"
+
 
 def _preview_item(item: Dict[str, Any]) -> Dict[str, Any]:
     return {
@@ -37,11 +42,13 @@ def _preview_item(item: Dict[str, Any]) -> Dict[str, Any]:
         "n_chars": item.get("n_chars"),
     }
 
+
 def _print_sample_items(items: List[Dict[str, Any]], k: int):
     sample = items[:k]
     print("[DEBUG] sample items (trimmed):")
     for i, it in enumerate(sample):
         print(f"  #{i}: {_preview_item(it)}")
+
 
 def _warn_duplicates(items: List[Dict[str, Any]]):
     ids = [it.get("id") for it in items if isinstance(it, dict)]
@@ -53,7 +60,10 @@ def _warn_duplicates(items: List[Dict[str, Any]]):
             seen.add(x)
     if dups:
         uniq = sorted(set(dups))
-        print(f"[WARN] duplicate id(s) detected (count={len(uniq)}): {uniq[:10]}{' ...' if len(uniq)>10 else ''}")
+        print(
+            f"[WARN] duplicate id(s) detected (count={len(uniq)}): {uniq[:10]}{' ...' if len(uniq)>10 else ''}"
+        )
+
 
 def _warn_lenbin_nchars_presence(items: List[Dict[str, Any]]):
     missing_nc = []
@@ -74,21 +84,38 @@ def _warn_lenbin_nchars_presence(items: List[Dict[str, Any]]):
             elif lb == "long" and not (nc >= 161):
                 mismatch.append(i)
     if missing_nc:
-        print(f"[WARN] len_bin 존재하지만 n_chars 누락 idx (예시 10개): {missing_nc[:10]}")
+        print(
+            f"[WARN] len_bin 존재하지만 n_chars 누락 idx (예시 10개): {missing_nc[:10]}"
+        )
     if missing_lb:
-        print(f"[WARN] n_chars 존재하지만 len_bin 누락 idx (예시 10개): {missing_lb[:10]}")
+        print(
+            f"[WARN] n_chars 존재하지만 len_bin 누락 idx (예시 10개): {missing_lb[:10]}"
+        )
     if mismatch:
-        print(f"[WARN] len_bin ↔ n_chars 범위 불일치 의심 idx (예시 10개): {mismatch[:10]}")
+        print(
+            f"[WARN] len_bin ↔ n_chars 범위 불일치 의심 idx (예시 10개): {mismatch[:10]}"
+        )
 
-def validate_manifest(manifest_path: str, schema_path: str, *, max_errors: int = 100, show_sample: int = 5) -> int:
+
+def validate_manifest(
+    manifest_path: str, schema_path: str, *, max_errors: int = 100, show_sample: int = 5
+) -> int:
     script_dir = os.path.dirname(os.path.abspath(__file__))
     print("[DEBUG] CWD =", os.getcwd())
 
     manifest_path = _resolve_path(manifest_path, script_dir)
-    schema_path   = _resolve_path(schema_path, script_dir)
+    schema_path = _resolve_path(schema_path, script_dir)
 
-    print("[DEBUG] manifest_path =", os.path.abspath(manifest_path), f"({ _filesize(manifest_path) })")
-    print("[DEBUG] schema_path   =", os.path.abspath(schema_path),   f"({ _filesize(schema_path) })")
+    print(
+        "[DEBUG] manifest_path =",
+        os.path.abspath(manifest_path),
+        f"({ _filesize(manifest_path) })",
+    )
+    print(
+        "[DEBUG] schema_path   =",
+        os.path.abspath(schema_path),
+        f"({ _filesize(schema_path) })",
+    )
 
     try:
         with open(schema_path, "r", encoding="utf-8") as f:
@@ -128,7 +155,7 @@ def validate_manifest(manifest_path: str, schema_path: str, *, max_errors: int =
         return 0
 
     print("[ERR] validation failed:")
-    for e in errors[: max_errors]:
+    for e in errors[:max_errors]:
         path_str = _json_pointer_from_error_path(e.path)
         print(f" - at [{path_str}]: {e.message}")
         try:
@@ -145,9 +172,14 @@ def validate_manifest(manifest_path: str, schema_path: str, *, max_errors: int =
         print(f"[NOTE] ... {more} more errors not shown")
 
     print(f"[FAIL] {len(errors)} validation error(s).")
-    print("[HINT] 흔한 원인: len_bin='mid' 미정규화, cluster_id 비허용문자, id 패턴 불일치, n_chars 범위/누락 등.")
-    print("[HINT] 자동 보정 도구: python scripts\\fix_manifest_fields_v3.py data\\manifest\\split_manifest_main.json --inplace --add-prompt-hash --auto-len-bin")
+    print(
+        "[HINT] 흔한 원인: len_bin='mid' 미정규화, cluster_id 비허용문자, id 패턴 불일치, n_chars 범위/누락 등."
+    )
+    print(
+        "[HINT] 자동 보정 도구: python scripts\\fix_manifest_fields_v3.py data\\manifest\\split_manifest_main.json --inplace --add-prompt-hash --auto-len-bin"
+    )
     return 1
+
 
 def main_legacy(manifest_path: str, schema_path: str):
     code = validate_manifest(manifest_path, schema_path, max_errors=50, show_sample=5)
@@ -158,6 +190,7 @@ def main_legacy(manifest_path: str, schema_path: str):
         sys.exit(2)
     else:
         sys.exit(code)
+
 
 def cli():
     ap = argparse.ArgumentParser(
@@ -174,18 +207,30 @@ def cli():
         help="Path to JSON schema (default: schema\\split_manifest_main.schema.json)",
     )
     ap.add_argument(
-        "--max-errors", type=int, default=100, help="Max errors to display (default: 100)"
+        "--max-errors",
+        type=int,
+        default=100,
+        help="Max errors to display (default: 100)",
     )
     ap.add_argument(
-        "--show-sample", type=int, default=5, help="How many items to preview (default: 5)"
+        "--show-sample",
+        type=int,
+        default=5,
+        help="How many items to preview (default: 5)",
     )
     ap.add_argument(
-        "--legacy", action="store_true",
-        help="Use legacy exit codes/messages similar to the minimal version."
+        "--legacy",
+        action="store_true",
+        help="Use legacy exit codes/messages similar to the minimal version.",
     )
     args = ap.parse_args()
 
-    code = validate_manifest(args.manifest, args.schema, max_errors=args.max_errors, show_sample=args.show_sample)
+    code = validate_manifest(
+        args.manifest,
+        args.schema,
+        max_errors=args.max_errors,
+        show_sample=args.show_sample,
+    )
     if args.legacy:
         if code == 0:
             print("[OK] manifest validated!")
@@ -196,6 +241,7 @@ def cli():
             sys.exit(code)
     else:
         sys.exit(code)
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 3 and sys.argv[0].endswith("validate_manifest.py"):

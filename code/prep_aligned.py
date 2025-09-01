@@ -1,11 +1,17 @@
 from __future__ import annotations
-import argparse, json, math, csv, sys
+
+import argparse
+import csv
+import json
+import math
 from pathlib import Path
-from typing import Tuple, List, Dict
+from typing import Dict, List, Tuple
+
 import numpy as np
 
 try:
     from scipy.stats import wilcoxon
+
     SCIPY_OK = True
 except Exception:
     SCIPY_OK = False
@@ -34,7 +40,11 @@ def load_pairs_any(path: Path) -> Tuple[np.ndarray, np.ndarray]:
 
     data = json.loads(path.read_text(encoding="utf-8"))
 
-    if isinstance(data, dict) and ("general" in data) and ("instructed" in data or "instruct" in data):
+    if (
+        isinstance(data, dict)
+        and ("general" in data)
+        and ("instructed" in data or "instruct" in data)
+    ):
         inst_key = "instructed" if "instructed" in data else "instruct"
         gmap = data.get("general", {}) or {}
         imap = data.get(inst_key, {}) or {}
@@ -44,8 +54,15 @@ def load_pairs_any(path: Path) -> Tuple[np.ndarray, np.ndarray]:
         g = np.array([_extract_score(gmap[k]) for k in ids], dtype=float)
         i = np.array([_extract_score(imap[k]) for k in ids], dtype=float)
 
-    elif isinstance(data, list) and data and isinstance(data[0], dict) and (
-        ("general" in data[0]) or ("instructed" in data[0]) or ("instruct" in data[0])
+    elif (
+        isinstance(data, list)
+        and data
+        and isinstance(data[0], dict)
+        and (
+            ("general" in data[0])
+            or ("instructed" in data[0])
+            or ("instruct" in data[0])
+        )
     ):
         g_list, i_list = [], []
         for d in data:
@@ -57,8 +74,11 @@ def load_pairs_any(path: Path) -> Tuple[np.ndarray, np.ndarray]:
         g = np.array(g_list, dtype=float)
         i = np.array(i_list, dtype=float)
 
-    elif isinstance(data, list) and data and isinstance(data[0], dict) and (
-        ("score" in data[0]) and ("system" in data[0] or "model" in data[0])
+    elif (
+        isinstance(data, list)
+        and data
+        and isinstance(data[0], dict)
+        and (("score" in data[0]) and ("system" in data[0] or "model" in data[0]))
     ):
         gmap: Dict[str, float] = {}
         imap: Dict[str, float] = {}
@@ -91,7 +111,9 @@ def cohen_d_paired(g: np.ndarray, i: np.ndarray) -> float:
     return float(np.mean(diff) / sd)
 
 
-def bootstrap_ci(diff: np.ndarray, n_boot: int = 10000, alpha: float = 0.05, seed: int = 42):
+def bootstrap_ci(
+    diff: np.ndarray, n_boot: int = 10000, alpha: float = 0.05, seed: int = 42
+):
     if diff.size == 0 or n_boot <= 0:
         return float("nan"), float("nan")
     rng = np.random.default_rng(seed)
@@ -127,7 +149,9 @@ def summarize_metric(name: str, path: Path, n_boot: int, do_wilcoxon: bool):
         "general_mean": float(np.mean(g)) if n else float("nan"),
         "instruct_mean": float(np.mean(i)) if n else float("nan"),
         "delta_mean": float(np.mean(i - g)) if n else float("nan"),
-        "delta_pct": float((np.mean(i - g) / (np.mean(g) + 1e-12)) * 100) if n else float("nan"),
+        "delta_pct": float((np.mean(i - g) / (np.mean(g) + 1e-12)) * 100)
+        if n
+        else float("nan"),
         "boot_ci_lo": float("nan"),
         "boot_ci_hi": float("nan"),
         "wilcoxon_p": float("nan"),
@@ -135,12 +159,18 @@ def summarize_metric(name: str, path: Path, n_boot: int, do_wilcoxon: bool):
     }
     if n >= 2:
         diff = i - g
-        lo, hi = bootstrap_ci(diff, n_boot=n_boot) if n_boot and n_boot > 0 else (float("nan"), float("nan"))
+        lo, hi = (
+            bootstrap_ci(diff, n_boot=n_boot)
+            if n_boot and n_boot > 0
+            else (float("nan"), float("nan"))
+        )
         out["boot_ci_lo"], out["boot_ci_hi"] = lo, hi
         out["cohen_d"] = cohen_d_paired(g, i)
         if do_wilcoxon and SCIPY_OK and np.any(diff != 0):
             try:
-                stat, p = wilcoxon(i, g, zero_method="wilcox", alternative="two-sided", mode="auto")
+                stat, p = wilcoxon(
+                    i, g, zero_method="wilcox", alternative="two-sided", mode="auto"
+                )
                 out["wilcoxon_p"] = float(p)
             except Exception:
                 pass
@@ -152,9 +182,17 @@ def main():
     ap.add_argument("--bleu", type=str, help="path to bleu json")
     ap.add_argument("--chrf", type=str, help="path to chrf json")
     ap.add_argument("--rouge", type=str, help="path to rouge json")
-    ap.add_argument("--output", type=str, default="results/quantitative/stats_summary.csv")
-    ap.add_argument("--bootstrap", type=int, default=0, help="num bootstrap samples for CI (0=off)")
-    ap.add_argument("--wilcoxon", action="store_true", help="run Wilcoxon signed-rank test (needs SciPy)")
+    ap.add_argument(
+        "--output", type=str, default="results/quantitative/stats_summary.csv"
+    )
+    ap.add_argument(
+        "--bootstrap", type=int, default=0, help="num bootstrap samples for CI (0=off)"
+    )
+    ap.add_argument(
+        "--wilcoxon",
+        action="store_true",
+        help="run Wilcoxon signed-rank test (needs SciPy)",
+    )
     ap.add_argument("--fdr", action="store_true", help="apply BH-FDR across metrics")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -162,9 +200,12 @@ def main():
     rows, pvals = [], []
 
     items = []
-    if args.bleu:  items.append(("BLEU", Path(args.bleu)))
-    if args.chrf:  items.append(("chrF", Path(args.chrf)))
-    if args.rouge: items.append(("ROUGE", Path(args.rouge)))
+    if args.bleu:
+        items.append(("BLEU", Path(args.bleu)))
+    if args.chrf:
+        items.append(("chrF", Path(args.chrf)))
+    if args.rouge:
+        items.append(("ROUGE", Path(args.rouge)))
 
     for name, p in items:
         if not p.exists():
@@ -175,7 +216,11 @@ def main():
         pvals.append(r.get("wilcoxon_p", float("nan")))
 
     if args.fdr and rows:
-        valid_idx = [i for i, pv in enumerate(pvals) if isinstance(pv, (int, float)) and not math.isnan(pv)]
+        valid_idx = [
+            i
+            for i, pv in enumerate(pvals)
+            if isinstance(pv, (int, float)) and not math.isnan(pv)
+        ]
         if valid_idx:
             qvals = bh_fdr([pvals[i] for i in valid_idx])
             for j, i in enumerate(valid_idx):
@@ -187,8 +232,17 @@ def main():
     outp = Path(args.output)
     outp.parent.mkdir(parents=True, exist_ok=True)
     cols = [
-        "metric","n","general_mean","instruct_mean","delta_mean","delta_pct",
-        "boot_ci_lo","boot_ci_hi","wilcoxon_p","fdr_q","cohen_d"
+        "metric",
+        "n",
+        "general_mean",
+        "instruct_mean",
+        "delta_mean",
+        "delta_pct",
+        "boot_ci_lo",
+        "boot_ci_hi",
+        "wilcoxon_p",
+        "fdr_q",
+        "cohen_d",
     ]
 
     if args.dry_run:
@@ -201,10 +255,12 @@ def main():
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
         for r in rows:
-            if "fdr_q" not in r: r["fdr_q"] = ""
+            if "fdr_q" not in r:
+                r["fdr_q"] = ""
             w.writerow({k: r.get(k, "") for k in cols})
 
     print(f"[OK] wrote {outp} ({len(rows)} rows)")
+
 
 if __name__ == "__main__":
     main()

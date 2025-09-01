@@ -1,17 +1,22 @@
-from pathlib import Path
-import json, time
+import json
+import time
 from datetime import datetime, timezone
+from pathlib import Path
 
-ROOT   = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
 RAWDIR = ROOT / "results" / "raw"
 
+
 def now_utc_iso():
-    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    return (
+        datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    )
+
 
 def patch_file(fp: Path) -> int:
     ts = time.strftime("%Y%m%d-%H%M%S")
     backup = fp.with_suffix(fp.suffix + f".{ts}.bak")
-    lines  = fp.read_text(encoding="utf-8-sig", errors="replace").splitlines()
+    lines = fp.read_text(encoding="utf-8-sig", errors="replace").splitlines()
 
     out_lines = []
     changed = 0
@@ -35,7 +40,10 @@ def patch_file(fp: Path) -> int:
         root_ms = rec.get("latency_ms")
         if not isinstance(t, dict):
             if isinstance(root_ms, (int, float)):
-                rec["timing"] = {"latency_ms": int(root_ms), "note": "migrated_from_root"}
+                rec["timing"] = {
+                    "latency_ms": int(root_ms),
+                    "note": "migrated_from_root",
+                }
             else:
                 rec["timing"] = {"latency_ms": 0, "note": "backfilled_no_measure"}
             touched = True
@@ -57,6 +65,7 @@ def patch_file(fp: Path) -> int:
     fp.write_text("\n".join(out_lines) + "\n", encoding="utf-8")
     return changed
 
+
 def main():
     if not RAWDIR.exists():
         raise SystemExit(f"[fail] raw dir not found: {RAWDIR}")
@@ -70,6 +79,7 @@ def main():
         print(f"[ok] {f.name}: patched {c} record(s)")
         total += c
     print(f"[done] total patched records: {total}")
+
 
 if __name__ == "__main__":
     main()

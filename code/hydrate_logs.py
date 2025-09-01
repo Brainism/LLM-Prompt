@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import json
 from pathlib import Path
 
@@ -6,13 +7,19 @@ ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "results" / "raw"
 
 DEFAULTS = {
-    "general":    {"model": "gemma:7b",           "mode": "general",    "provider": "ollama"},
-    "instructed": {"model": "gemma:7b-instruct",  "mode": "instructed", "provider": "ollama"},
+    "general": {"model": "gemma:7b", "mode": "general", "provider": "ollama"},
+    "instructed": {
+        "model": "gemma:7b-instruct",
+        "mode": "instructed",
+        "provider": "ollama",
+    },
 }
+
 
 def infer_kind(filename: str) -> str:
     name = filename.lower()
     return "instructed" if "instruct" in name else "general"
+
 
 def hydrate_file(fp: Path):
     kind = infer_kind(fp.name)
@@ -40,6 +47,7 @@ def hydrate_file(fp: Path):
     fp.write_text("\n".join(out_lines) + "\n", encoding="utf-8")
     print(f"[OK] hydrated {fp.name} (records={changed}) -> backup: {bak.name}")
 
+
 def main():
     files = sorted(RAW.glob("*.jsonl"))
     if not files:
@@ -47,6 +55,7 @@ def main():
         return
     for fp in files:
         hydrate_file(fp)
+
 
 if __name__ == "__main__":
     main()

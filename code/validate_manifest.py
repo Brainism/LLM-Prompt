@@ -1,5 +1,6 @@
 import json
-from jsonschema import validate, Draft7Validator
+
+from jsonschema import Draft7Validator
 
 schema = json.load(open("schema/split_manifest_main.schema.json", encoding="utf-8"))
 manifest = json.load(open("data/manifest/split_manifest_main.json", encoding="utf-8"))

@@ -1,9 +1,11 @@
-import csv, json
-from pathlib import Path
+import csv
+import json
 from datetime import datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RAWDIR = ROOT / "results" / "raw"
+
 
 def parse_ts(s: str) -> float:
     try:
@@ -13,6 +15,7 @@ def parse_ts(s: str) -> float:
     except Exception:
         return 0.0
 
+
 def read_id_set(csv_path: Path, id_col: str) -> list[str]:
     ids = []
     with csv_path.open(newline="", encoding="utf-8") as f:
@@ -20,6 +23,7 @@ def read_id_set(csv_path: Path, id_col: str) -> list[str]:
         for row in r:
             ids.append(str(row[id_col]))
     return ids
+
 
 def load_jsonl(fp: Path):
     if not fp.exists():
@@ -35,8 +39,13 @@ def load_jsonl(fp: Path):
             pass
     return out
 
+
 def write_jsonl(fp: Path, recs):
-    fp.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in recs) + "\n", encoding="utf-8")
+    fp.write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in recs) + "\n",
+        encoding="utf-8",
+    )
+
 
 def canonize_one(mode: str, records: list[dict], allowed_ids: set[str]) -> list[dict]:
     latest = {}
@@ -56,16 +65,23 @@ def canonize_one(mode: str, records: list[dict], allowed_ids: set[str]) -> list[
         kept += 1
     canon = [rec for _, rec in latest.values()]
     canon.sort(key=lambda x: str(x.get("id", "")))
-    print(f"[{mode}] input={len(records)} kept={len(canon)} (dedup from {kept}, dropped={dropped})")
+    print(
+        f"[{mode}] input={len(records)} kept={len(canon)} (dedup from {kept}, dropped={dropped})"
+    )
     return canon
+
 
 def backup_then_write(path: Path, recs: list[dict]):
     if path.exists():
-        path.with_suffix(path.suffix + ".bak").write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
+        path.with_suffix(path.suffix + ".bak").write_text(
+            path.read_text(encoding="utf-8"), encoding="utf-8"
+        )
     write_jsonl(path, recs)
+
 
 def main():
     import argparse
+
     ap = argparse.ArgumentParser()
     ap.add_argument("--prompts", default=str(ROOT / "prompts" / "prompts.csv"))
     ap.add_argument("--id-column", default="id")
@@ -88,7 +104,10 @@ def main():
     backup_then_write(g_path, g_canon)
     backup_then_write(i_path, i_canon)
 
-    print(f"[OK] canonized -> {g_path.name}={len(g_canon)}, {i_path.name}={len(i_canon)}")
+    print(
+        f"[OK] canonized -> {g_path.name}={len(g_canon)}, {i_path.name}={len(i_canon)}"
+    )
+
 
 if __name__ == "__main__":
     main()

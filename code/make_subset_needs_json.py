@@ -1,5 +1,7 @@
 from __future__ import annotations
-import csv, re
+
+import csv
+import re
 from pathlib import Path
 
 SRC = Path("prompts/prompts.csv")
@@ -7,12 +9,15 @@ DST = Path("prompts/prompts_needs_json.csv")
 
 ID_RE = re.compile(r"^ex-(\d{4})$")
 
+
 def truthy(v: str) -> bool:
-    return str(v or "").strip().lower() in ("1","true","y","yes")
+    return str(v or "").strip().lower() in ("1", "true", "y", "yes")
+
 
 def natkey(id_str: str):
     m = ID_RE.match(id_str or "")
     return int(m.group(1)) if m else 10**9
+
 
 def main():
     if not SRC.exists():
@@ -49,6 +54,7 @@ def main():
     print(f"[ids] first: {ids[:5]}")
     if bad:
         print(f"[warn] malformed ids found: {bad}")
+
 
 if __name__ == "__main__":
     main()
