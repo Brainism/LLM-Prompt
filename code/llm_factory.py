@@ -1,62 +1,50 @@
-﻿from typing import Optional
+﻿from __future__ import annotations
+from dataclasses import dataclass
+from typing import Optional
 
 try:
     from langchain_openai import ChatOpenAI
 except Exception:
-    ChatOpenAI = None  # type: ignore
+    ChatOpenAI = None
 
 try:
-    from langchain_ollama import ChatOllama
+    from langchain_community.chat_models import ChatOllama
 except Exception:
-    ChatOllama = None  # type: ignore
-
-from langchain_core.messages import HumanMessage, SystemMessage
+    ChatOllama = None
 
 
-class LLMWrapper:
-    def __init__(
-        self,
-        provider: str,
-        model: str,
-        temperature: float = 0.2,
-        num_predict: Optional[int] = None,
-    ):
-        self.provider = provider
-        self.model = model
-        self.temperature = temperature
-        self.num_predict = num_predict
+@dataclass
+class LLMConfig:
+    provider: str = "openai"
+    model: str = "gpt-4o-mini"
+    temperature: float = 0.2
+    num_predict: Optional[int] = None
 
-    def _chat(self):
+
+class LLMFactory:
+    def __init__(self, cfg: LLMConfig):
+        self.provider = cfg.provider.lower()
+        self.model = cfg.model
+        self.temperature = cfg.temperature
+        self.num_predict = cfg.num_predict
+
+    def build(self):
         if self.provider == "openai":
             if ChatOpenAI is None:
-                raise RuntimeError("langchain-openai ?꾪룷???ㅽ뙣 ?먮뒗 誘몄꽕移?)
+                raise RuntimeError(
+                    "langchain-openai가 설치되어 있지 않습니다. pip install langchain-openai"
+                )
             return ChatOpenAI(model=self.model, temperature=self.temperature)
+
         elif self.provider == "ollama":
             if ChatOllama is None:
-                raise RuntimeError("langchain-ollama ?꾪룷???ㅽ뙣 ?먮뒗 誘몄꽕移?)
+                raise RuntimeError(
+                    "langchain-community가 설치되어 있지 않습니다. pip install langchain-community"
+                )
             kwargs = {"model": self.model, "temperature": self.temperature}
             if self.num_predict is not None:
                 kwargs["num_predict"] = self.num_predict
             return ChatOllama(**kwargs)
+
         else:
             raise ValueError(f"Unknown provider: {self.provider}")
-
-    def generate(self, prompt: str) -> str:
-        chat = self._chat()
-        msgs = [
-            SystemMessage(content="You are a helpful assistant."),
-            HumanMessage(content=prompt),
-        ]
-        resp = chat.invoke(msgs)
-        return getattr(resp, "content", str(resp))
-
-
-def get_llm(
-    provider: str,
-    model: str,
-    temperature: float = 0.2,
-    num_predict: Optional[int] = None,
-) -> LLMWrapper:
-    return LLMWrapper(
-        provider=provider, model=model, temperature=temperature, num_predict=num_predict
-    )

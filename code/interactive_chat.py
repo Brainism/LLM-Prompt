@@ -1,217 +1,259 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
+import json
+import re
+import shlex
+from dataclasses import dataclass
+from typing import Any, Dict, Optional, Tuple
 
-from compliance_rules import evaluate_item, parse_params
-from llm_factory import get_llm
-from prompt_templates import get_general_prompt, get_instructed_prompt
 
-PRESETS = {
-    "fj": ("format-json", {"keys": "city|temp_unit"}),
-    "fj2": ("format-json", {"keys": "product|price"}),
-    "w10": ("limit-words", {"words": "10"}),
-    "w12": ("limit-words", {"words": "12"}),
-    "b4": ("bullets", {"bullets": "4"}),
-    "b5": ("bullets", {"bullets": "5"}),
-    "fd": ("forbid-terms", {"forbid": "digits"}),
-    "w10j": ("limit-items-json", {"n": "10", "no_space": "true"}),
-    "w12j": ("limit-items-json", {"n": "12", "no_space": "true"}),
-    "c20": ("limit-chars", {"chars": "20", "mode": "nonspace"}),
-}
+def parse_params(raw: str) -> Dict[str, Any]:
+    raw = (raw or "").strip()
+    if not raw:
+        return {}
+    if raw.startswith("{") and raw.endswith("}"):
+        try:
+            obj = json.loads(raw)
+            if isinstance(obj, dict):
+                return obj
+        except Exception:
+            pass
+    out: Dict[str, Any] = {}
+    for tok in shlex.split(raw):
+        if "=" in tok:
+            k, v = tok.split("=", 1)
+            out[k.strip()] = _coerce_scalar(v.strip())
+        else:
+            out[tok.strip()] = True
+    return out
 
-ALIASES = {
-    "紐⑤뱶": "mode",
-    "?쒕굹由ъ삤": "scenario",
-    "?꾨━??: "preset",
-    "誘몃━?ㅼ젙": "preset",
-    "?⑥텞??: "presets",
-    "紐⑸줉": "presets",
-    "?꾧꺽": "strict",
-    "珥덇린??: "clear",
-    "?대━??: "clear",
-    "?섍?湲?: "exit",
-    "醫낅즺": "exit",
-}
 
-BANNER = f"""
-[??뷀삎 紐⑤뱶 ?ъ슜踰?
-紐낅졊:
-  /mode general|instructed         (?먮뒗 /紐⑤뱶)
-  /scenario <?대쫫> [param=...]     (?먮뒗 /?쒕굹由ъ삤) ?? /scenario format-json keys=city|temp_unit
-  /preset <??                     (?먮뒗 /?꾨━??   ?? /preset fj
-  /presets                         (?먮뒗 /?⑥텞??   ?꾨━??紐⑸줉 蹂닿린
-  /strict on|off                   (?먮뒗 /?꾧꺽 on)
-  /clear                           (?먮뒗 /珥덇린??
-  /exit                            (?먮뒗 /醫낅즺)
+def _coerce_scalar(s: str) -> Any:
+    if s.lower() in ("true", "false"):
+        return s.lower() == "true"
+    if s.lower() in ("none", "null"):
+        return None
+    try:
+        if "." in s:
+            return float(s)
+        return int(s)
+    except Exception:
+        return s
 
-?꾨━???⑥텞?? {", ".join(f"{k}??v[0]}:{v[1]}" for k,v in PRESETS.items())}
 
-TIP:
-- ?꾨━???ㅻ쭔 ?낅젰?대룄 ?곸슜?⑸땲?? ?? fj  ?먮뒗  w10
-- ?쇰컲 ?낅젰? 紐⑤뜽??洹몃?濡??꾨떖?섎ŉ, ?꾩옱 ?ㅼ젙???쒕굹由ъ삤濡?利됱떆 '以?섍???瑜??섑뻾?⑸땲??
-"""
+def extract_json_from_text(text: str) -> Optional[Any]:
+    if not text:
+        return None
+    patterns = [r"\{.*\}", r"\[.*\]"]
+    for pat in patterns:
+        m = re.search(pat, text, flags=re.DOTALL)
+        if m:
+            sub = m.group(0)
+            try:
+                return json.loads(sub)
+            except Exception:
+                continue
+    return None
+
+
+@dataclass
+class EvalResult:
+    ok: bool
+    reason: str = ""
+
+
+def evaluate_item(
+    scenario: Optional[str], output_text: str, params: Dict[str, Any]
+) -> EvalResult:
+    scn = (scenario or "").strip().lower() or "none"
+
+    if scn == "json_array_len":
+        obj = extract_json_from_text(output_text)
+        if not isinstance(obj, dict):
+            return EvalResult(False, "no_json_object_found")
+        json_key = str(params.get("json_key", "items"))
+        arr = obj.get(json_key)
+        if not isinstance(arr, list):
+            return EvalResult(False, f"json_key_not_list:{json_key}")
+        min_items = int(params.get("min", 1))
+        max_items = int(params.get("max", 5))
+        n = len(arr)
+        if n < min_items or n > max_items:
+            return EvalResult(
+                False, f"len_out_of_range:{n} not in [{min_items},{max_items}]"
+            )
+        return EvalResult(True, "ok")
+
+    if scn == "json_keys":
+        obj = extract_json_from_text(output_text)
+        if not isinstance(obj, dict):
+            return EvalResult(False, "no_json_object_found")
+        req = params.get("required_keys") or params.get("keys") or []
+        if not isinstance(req, (list, tuple)):
+            return EvalResult(False, "required_keys_not_list")
+        missing = [k for k in req if k not in obj]
+        if missing:
+            return EvalResult(False, f"missing_keys:{','.join(map(str, missing))}")
+        return EvalResult(True, "ok")
+
+    if scn == "digits_forbidden":
+        if re.search(r"[0-9]", output_text):
+            return EvalResult(False, "digits_present")
+        return EvalResult(True, "ok")
+
+    return EvalResult(True, "no_scenario")
 
 
 def reason_ko(reason: str) -> str:
-    if reason == "ok":
-        return "OK"
-    if reason == "json_parse_fail":
-        return "JSON ?뚯떛 ?ㅽ뙣"
-    if reason.startswith("json_keys_mismatch"):
-        return "JSON ??遺덉씪移?
-    if reason == "digits_forbidden":
-        return "?レ옄 湲덉? ?꾨컲(0-9 諛쒓껄)"
-    if reason == "non_bullet_lines_present":
-        return "遺덈┸ ?댁쇅??以??ы븿"
-    if reason.startswith("words="):
-        return "?⑥뼱 ??遺덉씪移?(" + reason + ")"
-    if reason == "unknown_scenario":
-        return "?????녿뒗 ?쒕굹由ъ삤"
-    if reason == "not_json_list":
-        return "JSON 諛곗뿴???꾨떂"
-    if reason.startswith("list_len="):
-        return "諛곗뿴 湲몄씠 遺덉씪移?(" + reason + ")"
-    if reason.endswith("_not_string"):
-        return "諛곗뿴 ??ぉ??臾몄옄?댁씠 ?꾨떂"
-    if reason.endswith("_has_space"):
-        return "諛곗뿴 ??ぉ??怨듬갚 ?ы븿"
-    if reason.startswith("chars="):
-        return "湲????遺덉씪移?(" + reason + ")"
-
-    return reason
+    mapping = {
+        "ok": "정상",
+        "no_json_object_found": "출력에서 JSON 객체를 찾지 못했습니다.",
+        "required_keys_not_list": "required_keys 파라미터가 리스트가 아닙니다.",
+        "digits_present": "출력에 숫자가 포함되어 있습니다.",
+    }
+    if reason.startswith("json_key_not_list:"):
+        return f"지정 키가 리스트가 아닙니다 ({reason.split(':',1)[1]})."
+    if reason.startswith("len_out_of_range:"):
+        return f"배열 길이가 허용 범위를 벗어났습니다 ({reason.split(':',1)[1]})."
+    if reason.startswith("missing_keys:"):
+        return f"필수 키 누락: {reason.split(':',1)[1]}"
+    return mapping.get(reason, reason)
 
 
-def build_prompt(mode: str, text: str, strict: bool) -> str:
-    p = (
-        get_instructed_prompt(text)
-        if mode == "instructed"
-        else get_general_prompt(text)
+PRESETS: Dict[str, Tuple[str, Dict[str, Any]]] = {
+    "g": ("none", {}),
+    "i": ("digits_forbidden", {}),
+    "len3": ("json_array_len", {"json_key": "tags", "min": 3, "max": 3}),
+    "keys_basic": ("json_keys", {"required_keys": ["id", "name"]}),
+}
+
+
+def apply_preset(name: str) -> Tuple[Optional[str], Dict[str, Any], bool]:
+    key = (name or "").strip().lower()
+    if key in PRESETS:
+        scn, params = PRESETS[key]
+        return scn, dict(params), True
+    return None, {}, False
+
+
+def normalize_cmd(s: str) -> str:
+    return (s or "").lower().strip()
+
+
+def print_help() -> None:
+    print(
+        """Commands:
+  /help
+  /exit
+  /clear
+  /mode general|instructed
+  /scenario <name> [k=v ... | {"json":"ok"}]
+  /preset <name>
+  /presets
+  /strict on|off
+
+Examples:
+  /mode general
+  /scenario json_array_len json_key=items min=2 max=5
+  /scenario json_keys {"required_keys":["id","name"]}
+  /preset len3
+  /strict on
+  (아무것도 안 붙이고) 모델 출력 붙여넣기 → 현재 시나리오로 검증
+"""
     )
-    if strict:
-        p += "\n\n[?꾧꺽] 吏?쒕맂 ?뺤떇 ?댁쇅??留?癒몃━留??ㅻ챸/肄붾뱶釉붾줉/諛깊떛) 湲덉?. 寃곌낵留?異쒕젰."
-    return p
 
 
-def apply_preset(key: str):
-    k = key.strip().lower()
-    if k in PRESETS:
-        scen, params = PRESETS[k]
-        return scen, params, True
-    return None, None, False
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--strict", action="store_true", help="Strict 모드로 시작")
+    args = ap.parse_args()
 
+    mode = "general"
+    scenario: Optional[str] = None
+    params: Dict[str, Any] = {}
+    strict = bool(args.strict)
 
-def normalize_cmd(cmd: str) -> str:
-    return ALIASES.get(cmd, cmd)
+    print("=== Interactive Eval ===")
+    print("'/help' 로 명령 안내를 보세요. '/exit' 로 종료.")
+    print(f"현재 모드: {mode}, strict={strict}")
 
-
-def main(args):
-    llm = get_llm(args.provider, args.model, temperature=args.temperature)
-    mode = args.mode
-    strict = False
-    scenario: str | None = None
-    params: dict[str, str] = {}
-
-    print(BANNER.strip())
     while True:
         try:
-            user = input(
-                f"\n[{mode}{'|?꾧꺽' if strict else ''}{'|'+scenario if scenario else ''}] ?? "
-            ).strip()
+            user = input("> ").rstrip("\n")
         except (EOFError, KeyboardInterrupt):
-            print("\n?덈뀞!")
+            print("\nBye.")
             return
+
         if not user:
             continue
 
-        if user[0] in ("/", "!", ".", "竊?):
-            cmd, *rest = user[1:].split(" ", 1)
-            cmd = normalize_cmd(cmd.strip().lower())
-            rest = rest[0] if rest else ""
+        if user[0] in ("/", "!", "."):
+            cmdline = user[1:].strip()
+            if not cmdline:
+                continue
+            cmd, *rest = cmdline.split(" ", 1)
+            arg = rest[0] if rest else ""
+            cmd = normalize_cmd(cmd)
 
-            if cmd == "exit":
+            if cmd in ("exit", "quit"):
                 return
-
-            elif cmd == "mode":
-                v = rest.strip()
+            if cmd in ("h", "help"):
+                print_help()
+                continue
+            if cmd == "clear":
+                mode, scenario, params, strict = "general", None, {}, False
+                print("상태 초기화 완료.")
+                continue
+            if cmd == "mode":
+                v = normalize_cmd(arg)
                 if v in ("general", "instructed"):
                     mode = v
-                    print(f"-> 紐⑤뱶 蹂寃? {mode}")
+                    print(f"-> mode={mode}")
                 else:
-                    print("?ъ슜踰? /mode general|instructed")
-
-            elif cmd == "scenario":
-                parts = rest.split(" ", 1)
-                scenario = parts[0].strip() if parts and parts[0] else None
-                params = parse_params(parts[1] if len(parts) > 1 else "")
-                print(f"-> ?쒕굹由ъ삤={scenario}, ?뚮씪誘명꽣={params}")
-
-            elif cmd == "preset":
-                scen, pr, ok = apply_preset(rest)
+                    print("사용법: /mode general|instructed")
+                continue
+            if cmd == "scenario":
+                name, pstr = (arg.split(" ", 1) + [""])[:2] if arg else ("", "")
+                if not name:
+                    print("사용법: /scenario <name> [k=v ... | {json}]")
+                    continue
+                scenario = name.strip()
+                params = parse_params(pstr)
+                print(f"-> scenario={scenario} params={params}")
+                continue
+            if cmd == "preset":
+                scn, pr, ok = apply_preset(arg)
                 if ok:
-                    scenario, params = scen, pr
-                    print(f"-> ?꾨━??'{rest}' ?곸슜: {scenario} {params}")
+                    scenario, params = scn, pr
+                    print(f"-> preset 적용: {arg} -> {scenario} {params}")
                 else:
-                    print("?????녿뒗 ?꾨━???? /presets 濡?紐⑸줉 ?뺤씤")
+                    print("알 수 없는 프리셋. /presets 로 목록 확인")
+                continue
+            if cmd == "presets":
+                print("프리셋 목록:")
+                for k, (scn, pr) in PRESETS.items():
+                    print(f"  {k:>8} -> {scn} {pr}")
+                continue
+            if cmd == "strict":
+                v = normalize_cmd(arg)
+                strict = v == "on"
+                print(f"-> strict={strict}")
+                continue
 
-            elif cmd == "presets":
-                print("?꾨━??紐⑸줉:")
-                for k, (sc, pr) in PRESETS.items():
-                    print(f"  {k:>4} -> {sc} {pr}")
-
-            elif cmd == "strict":
-                strict = rest.strip().lower() == "on"
-                print(f"-> ?꾧꺽 紐⑤뱶: {strict}")
-
-            elif cmd == "clear":
-                scenario, params, strict = None, {}, False
-                print("-> ?곹깭 珥덇린???꾨즺")
-
-            elif cmd in PRESETS:
-                scen, pr, _ = apply_preset(cmd)
-                scenario, params = scen, pr
-                print(f"-> ?꾨━??'{cmd}' ?곸슜: {scenario} {params}")
-            else:
-                print("?????녿뒗 紐낅졊. /presets 濡??꾩?留??뺤씤")
+            print("알 수 없는 명령. /help 참고.")
             continue
 
-        scen, pr, ok = apply_preset(user)
-        if ok:
-            scenario, params = scen, pr
-            print(f"-> ?꾨━??'{user}' ?곸슜: {scenario} {params}")
+        output_text = user
+
+        if strict and len(output_text.strip()) < 3:
+            print("[검증] 너무 짧은 응답입니다 (strict).")
             continue
 
-        prompt = build_prompt(mode, user, strict)
-        out = llm.generate(prompt)
-        print(f"AI> {out}")
-
-        if scenario:
-            ok, reason = evaluate_item(scenario, out, params)
-            mark = "?? if ok else "??
-            print(f"[以?섍??? {mark} {reason_ko(reason)}")
-
-            if not ok and scenario == "limit-words":
-                n = params.get("words", "")
-                retry_hint = (
-                    f"\n\n[?ъ옉?? ??異쒕젰? {n}?⑥뼱媛 ?꾨떃?덈떎. "
-                    f"?꾨옒 洹쒖튃??紐⑤몢 吏耳?'理쒖쥌 寃곌낵留? ?ㅼ떆 ?곗꽭??\n"
-                    f"- ?뺥솗??{n}?⑥뼱\n"
-                    f"- 媛??⑥뼱??怨듬갚 ??移몄쑝濡쒕쭔 援щ텇\n"
-                    f"- 臾몄옣遺?맞룹닽??湲덉?\n"
-                    f"- 異쒕젰?뺤떇: ?⑥뼱1 ?⑥뼱2 ???⑥뼱{n}\n"
-                )
-                retry_prompt = build_prompt(mode, user + retry_hint, strict=True)
-                retry_out = llm.generate(retry_prompt)
-                print(f"AI(?ъ떆??> {retry_out}")
-                ok2, reason2 = evaluate_item(scenario, retry_out, params)
-                mark2 = "?? if ok2 else "??
-                print(f"[以?섍????ъ떆?? {mark2} {reason_ko(reason2)}")
+        res = evaluate_item(scenario, output_text, params)
+        mark = "✅" if res.ok else "❌"
+        print(f"[결과] {mark} {reason_ko(res.reason)}")
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["general", "instructed"], default="instructed")
-    ap.add_argument("--provider", choices=["openai", "ollama"], default="ollama")
-    ap.add_argument("--model", default="gemma:7b-instruct")
-    ap.add_argument("--temperature", type=float, default=0.2)
-    a = ap.parse_args()
-    main(a)
+    main()

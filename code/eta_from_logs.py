@@ -1,114 +1,40 @@
 ﻿from __future__ import annotations
-
 import argparse
-import csv
 import json
-from datetime import timedelta
 from pathlib import Path
+from typing import List, Set
 
-ROOT = Path(__file__).resolve().parents[1]
-RAW = ROOT / "results" / "raw"
-PROM = ROOT / "prompts" / "prompts.csv"
-
-
-def read_latencies(fp: Path):
-    xs = []
-    if not fp.exists():
-        return xs
-    for ln, s in enumerate(
-        fp.read_text(encoding="utf-8-sig", errors="replace").splitlines(), 1
-    ):
-        s = s.strip()
-        if not s:
-            continue
+def load_latencies(files: List[Path]) -> List[float]:
+    xs: List[float] = []
+    for p in files:
         try:
-            rec = json.loads(s)
-            t = rec.get("timing") or {}
-            ms = t.get("latency_ms")
+            obj = json.loads(p.read_text(encoding="utf-8"))
+            ms = obj.get("latency_ms")
             if isinstance(ms, (int, float)):
                 xs.append(float(ms))
-        except Exception:pass
+        except Exception:
+            pass
     return xs
 
-
-def ids_from_jsonl(fp: Path):
-    ids = set()
-    if not fp.exists():
-        return ids
-    for s in fp.read_text(encoding="utf-8-sig", errors="replace").splitlines():
-        s = s.strip()
-        if not s:
-            continue
+def load_ids(files: List[Path]) -> Set[str]:
+    ids: Set[str] = set()
+    for p in files:
         try:
-            rec = json.loads(s)
-            if "id" in rec:
-                ids.add(str(rec["id"]))
-        except Exception:pass
+            obj = json.loads(p.read_text(encoding="utf-8"))
+            if "id" in obj:
+                ids.add(str(obj["id"]))
+        except Exception:
+            pass
     return ids
-
-
-def all_ids_from_csv(csv_path: Path, id_col="id"):
-    ids = []
-    with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
-        r = csv.DictReader(f)
-        for row in r:
-            v = (row.get(id_col) or "").strip()
-            if v:
-                ids.append(v)
-    return ids
-
-
-def fmt_td(seconds: float) -> str:
-    return str(timedelta(seconds=int(round(seconds))))
-
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--prompts", type=Path, default=PROM)
-    ap.add_argument("--general", type=Path, default=RAW / "general.jsonl")
-    ap.add_argument("--instructed", type=Path, default=RAW / "instructed.jsonl")
-    ap.add_argument(
-        "--overhead-ms",
-        type=float,
-        default=250.0,
-        help="?덉퐫?쒕떦 怨좎젙 ?ㅻ쾭?ㅻ뱶(ms) 媛??,
-    )
-    ap.add_argument("--concurrency", type=int, default=1, help="?숈떆 ?ㅽ뻾 媛쒖닔(?쇰컲=1)")
-    args = ap.parse_args()
-
-    all_ids = all_ids_from_csv(args.prompts)
-    total = len(all_ids)
-
-    done_g = ids_from_jsonl(args.general)
-    done_i = ids_from_jsonl(args.instructed)
-
-    remain_g = total - len(done_g)
-    remain_i = total - len(done_i)
-
-    lat_g = read_latencies(args.general)
-    lat_i = read_latencies(args.instructed)
-    mean_g = (sum(lat_g) / len(lat_g)) if lat_g else None
-    mean_i = (sum(lat_i) / len(lat_i)) if lat_i else None
-
-    oh = args.overhead_ms
-    sec_g = (remain_g * ((mean_g or 0) + oh)) / 1000.0 / max(args.concurrency, 1)
-    sec_i = (remain_i * ((mean_i or 0) + oh)) / 1000.0 / max(args.concurrency, 1)
-
-    total_sec = sec_g + sec_i
-
-    print(f"[prompts] total={total}")
-    print(f"[done] general={len(done_g)} instructed={len(done_i)}")
-    print(f"[remain] general={remain_g} instructed={remain_i}")
-    print(
-        f"[latency(ms)] mean_general={mean_g:.1f} mean_instructed={mean_i:.1f}"
-        if (mean_g is not None and mean_i is not None)
-        else "[latency] 遺議? ?ㅻえ?щ씪??癒쇱? ?ㅽ뻾??痢≪젙移섎? ?④꺼二쇱꽭??
-    )
-    print(f"[assume] overhead_ms={oh:.0f}  concurrency={args.concurrency}")
-    print(
-        f"[ETA] general ~ {fmt_td(sec_g)}  +  instructed ~ {fmt_td(sec_i)}  =>  total ~ {fmt_td(total_sec)}"
-    )
-
+    ap.add_argument("--mean-latency-ms", type=float, default=250.0,
+                    help="Assumed average latency per request (ms).")
+    ap.add_argument("--concurrency", type=int, default=1,
+                    help="Number of concurrent workers.")
+    a = ap.parse_args()
+    print(f"[assume] overhead_ms={a.mean_latency_ms:.0f}  concurrency={a.concurrency}")
 
 if __name__ == "__main__":
     main()

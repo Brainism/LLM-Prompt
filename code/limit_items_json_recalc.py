@@ -1,50 +1,73 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import csv
 import json
+import re
 from pathlib import Path
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 
-def truthy(v: str) -> bool:
-    return str(v or "").strip().lower() in ("1", "true", "y", "yes")
+def read_jsonl(path: Path) -> Iterable[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8") as f:
+        for line in f:
+            s = line.strip()
+            if not s:
+                continue
+            try:
+                obj = json.loads(s)
+                if isinstance(obj, dict):
+                    yield obj
+            except Exception:
+                continue
 
 
-def load_targets(csv_path: Path) -> set[str]:
-    rows = list(csv.DictReader(csv_path.open("r", encoding="utf-8-sig")))
-    return {(r.get("id") or "").strip() for r in rows if truthy(r.get("needs_json"))}
+def extract_text_field(rec: Dict[str, Any]) -> str:
+    candidates = ["output", "prediction", "text", "response", "completion", "answer"]
+    for k in candidates:
+        v = rec.get(k)
+        if isinstance(v, str) and v.strip():
+            return v
+    return json.dumps(rec, ensure_ascii=False)
 
 
-def iter_jsonl(p: Path):
-    if not p.exists():
-        return
-    for line in p.read_text(encoding="utf-8-sig", errors="ignore").splitlines():
-        s = line.strip()
-        if not s:
-            continue
-        try:
-            yield json.loads(s)
-        except Exception:
-            continue
+def extract_json_from_text(text: str) -> Optional[Any]:
+    if not text:
+        return None
+    patterns = [r"\{.*\}", r"\[.*\]"]
+    for pat in patterns:
+        m = re.search(pat, text, flags=re.DOTALL)
+        if m:
+            sub = m.group(0)
+            try:
+                return json.loads(sub)
+            except Exception:
+                continue
+    return None
+
+
+def eval_record(text: str, json_key: str, min_items: int, max_items: int) -> bool:
+    obj = extract_json_from_text(text)
+    if not isinstance(obj, dict):
+        return False
+    arr = obj.get(json_key)
+    if not isinstance(arr, list):
+        return False
+    n = len(arr)
+    return min_items <= n <= max_items
 
 
 def eval_mode(
-    jsonl_path: Path, targets: set[str], key: str, min_items: int, max_items: int
-) -> tuple[int, int]:
-    total = 0
+    jsonl_path: Path, json_key: str, min_items: int, max_items: int
+) -> Tuple[int, int]:
     ok = 0
-    for rec in iter_jsonl(jsonl_path):
-        rid = str(rec.get("id", "")).strip()
-        if rid not in targets:
-            continue
+    total = 0
+    for rec in read_jsonl(jsonl_path):
+        text = extract_text_field(rec)
         total += 1
-        out = rec.get("output")
-        try:
-            obj = json.loads(out) if isinstance(out, str) else out
-        except Exception:
-            obj = None
-        arr = obj.get(key) if isinstance(obj, dict) else None
-        if isinstance(arr, list) and (min_items <= len(arr) <= max_items):
+        if eval_record(text, json_key, min_items, max_items):
             ok += 1
     return ok, total
 
@@ -52,61 +75,48 @@ def eval_mode(
 def update_compliance_summary(
     csv_path: Path, gen_rate: float, inst_rate: float
 ) -> None:
-    rows = []
-    found = False
+    rows: List[Dict[str, str]] = []
     if csv_path.exists():
-        rows = list(csv.DictReader(csv_path.open("r", encoding="utf-8-sig")))
-        header = (
-            rows[0].keys() if rows else ("metric", "general_rate", "instructed_rate")
-        )
-    else:
-        header = ("metric", "general_rate", "instructed_rate")
+        with csv_path.open("r", encoding="utf-8", newline="") as f:
+            r = csv.DictReader(f)
+            for row in r:
+                rows.append(dict(row))
 
-    new_rows = []
-    for r in rows:
-        metric = r.get("metric")
-        if metric == "limit_items_json":
-            r = dict(r)
-            if "general_rate" in r:
-                r["general_rate"] = f"{gen_rate:.3f}"
-                r["instructed_rate"] = f"{inst_rate:.3f}"
-            else:
-                r["general"] = f"{gen_rate:.3f}"
-                r["instructed"] = f"{inst_rate:.3f}"
-            found = True
-        new_rows.append(r)
+    def put(metric: str, value: float) -> None:
+        found = False
+        for row in rows:
+            if row.get("metric") == metric:
+                row["value"] = f"{value:.3f}"
+                found = True
+                break
+        if not found:
+            rows.append({"metric": metric, "value": f"{value:.3f}"})
 
-    if not found:
-        new_rows.append(
-            {
-                "metric": "limit_items_json",
-                "general_rate": f"{gen_rate:.3f}",
-                "instructed_rate": f"{inst_rate:.3f}",
-            }
-        )
-        header = ("metric", "general_rate", "instructed_rate")
+    put("general_rate", gen_rate)
+    put("instructed_rate", inst_rate)
 
-    with csv_path.open("w", encoding="utf-8-sig", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=header)
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with csv_path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["metric", "value"])
         w.writeheader()
-        for r in new_rows:
-            w.writerow(r)
+        w.writerows(rows)
 
 
-def main():
+def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument(
-        "--apply-from", type=Path, required=True, help="prompts.csv (needs_json 湲곗?)"
-    )
     ap.add_argument(
         "--raw-dir",
         type=Path,
-        default=Path("results") / "raw_patched",
-        help="?됯? ???濡쒓렇 ?대뜑",
+        default=Path("results") / "raw",
+        help="general.jsonl / instructed.jsonl 이 위치한 디렉터리",
     )
-    ap.add_argument("--json-key", default="tags", help="諛곗뿴 ???대쫫 (湲곕낯: tags)")
-    ap.add_argument("--min-items", type=int, default=2, help="理쒖냼 ?꾩씠????)
-    ap.add_argument("--max-items", type=int, default=5, help="理쒕? ?꾩씠????)
+    ap.add_argument("--general-file", type=str, default="general.jsonl")
+    ap.add_argument("--instructed-file", type=str, default="instructed.jsonl")
+    ap.add_argument(
+        "--json-key", type=str, default="tags", help="배열 길이를 확인할 JSON의 키"
+    )
+    ap.add_argument("--min-items", type=int, default=2, help="허용 최소 길이")
+    ap.add_argument("--max-items", type=int, default=5, help="허용 최대 길이")
     ap.add_argument(
         "--summary-csv",
         type=Path,
@@ -114,27 +124,18 @@ def main():
     )
     args = ap.parse_args()
 
-    targets = load_targets(args.apply_from)
+    g_path = args.raw_dir / args.general_file
+    i_path = args.raw_dir / args.instructed_file
 
-    gen_ok, gen_total = eval_mode(
-        args.raw_dir / "general.jsonl",
-        args.targets if hasattr(args, "targets") else targets,
-        args.json_key,
-        args.min_items,
-        args.max_items,
-    )
+    gen_ok, gen_total = eval_mode(g_path, args.json_key, args.min_items, args.max_items)
     inst_ok, inst_total = eval_mode(
-        args.raw_dir / "instructed.jsonl",
-        targets,
-        args.json_key,
-        args.min_items,
-        args.max_items,
+        i_path, args.json_key, args.min_items, args.max_items
     )
 
     gen_rate = (gen_ok / gen_total) if gen_total else 0.0
     inst_rate = (inst_ok / inst_total) if inst_total else 0.0
 
-    print(f"[limit_items_json] general: {gen_ok}/{gen_total} = {gen_rate:.3f}")
+    print(f"[limit_items_json] general:    {gen_ok}/{gen_total} = {gen_rate:.3f}")
     print(f"[limit_items_json] instructed: {inst_ok}/{inst_total} = {inst_rate:.3f}")
 
     update_compliance_summary(args.summary_csv, gen_rate, inst_rate)
