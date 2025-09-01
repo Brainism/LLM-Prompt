@@ -17,13 +17,13 @@ def looks_json(s: str) -> bool:
         try:
             json.loads(s)
             return True
-        except:
+        except Exception:
             return False
     return False
 
 
 def count_bullets(s: str) -> int:
-    return len(re.findall(r"(^|\n)\s*(?:[-*•]|\d+\.)\s+", s))
+    return len(re.findall(r"(^|\n)\s*(?:[-*??|\d+\.)\s+", s))
 
 
 def read_text_any(path: Path) -> str:
@@ -47,7 +47,7 @@ def parse_flag(v: str):
 
 
 def load_apply_map(csv_path: Path, id_col="id"):
-    """prompts.csv에서 id별 needs_* 플래그 로드 (없거나 비면 None)"""
+    """prompts.csv?먯꽌 id蹂?needs_* ?뚮옒洹?濡쒕뱶 (?녾굅??鍮꾨㈃ None)"""
     if not csv_path or not csv_path.exists():
         return {}
     m = {}
@@ -107,7 +107,7 @@ def main():
                 continue
             try:
                 rec = json.loads(line)
-            except:
+            except Exception:
                 continue
             pid = str(rec.get("id", ""))
             needs = apply_map.get(
@@ -146,7 +146,7 @@ def main():
                         v_limit_items_json = len(j) <= args.limit_items_json
                     else:
                         v_limit_items_json = None
-                except:
+                except Exception:
                     v_limit_items_json = False
 
             rows.append(

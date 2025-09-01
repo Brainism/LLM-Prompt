@@ -9,7 +9,7 @@ study_scope = dedent(f"""\
 # Study Scope (v1)
 - Generated at: {datetime.utcnow().isoformat()}Z
 
-## 1. Domains (select 1-2 for 최소 플랜)
+## 1. Domains (select 1-2 for 理쒖냼 ?뚮옖)
 - [x] Summarization (news/abstract)
 - [x] QA (short-form factual)
 - [ ] Translation
@@ -20,33 +20,33 @@ study_scope = dedent(f"""\
 - [x] English (secondary, 40%)
 
 ## 3. Length bins (by input tokens)
-- [x] Short (≤ 120)
+- [x] Short (??120)
 - [x] Medium (121-360)
-- [x] Long (≥ 361)
+- [x] Long (??361)
 
 ## 4. Difficulty bins
 - [x] Easy
 - [x] Normal
 - [x] Hard
 
-## 5. Target sample size (최소 플랜)
-- [x] Total n ≥ 50
-- [x] Per-bin minimum share ≥ 15% (length & difficulty)
+## 5. Target sample size (理쒖냼 ?뚮옖)
+- [x] Total n ??50
+- [x] Per-bin minimum share ??15% (length & difficulty)
 - [x] Robustness set: paraphrases 10-15% with cluster_id
 
 ## 6. Sources & License (fill)
 - Public benchmarks (60%): <list with license>
-- Teacher→Human (20%): <who/criteria>
+- Teacher?묱uman (20%): <who/criteria>
 - Rule-based tasks (20%): <schema path>
 """)
 
 analysis_plan = dedent(f"""\
-# Analysis Plan (Preregistered) — v1
+# Analysis Plan (Preregistered) ??v1
 - Generated at: {datetime.utcnow().isoformat()}Z
-- Principle: **가설 중심 / 변경 금지(변경 시 사유 기록)**
+- Principle: **媛??以묒떖 / 蹂寃?湲덉?(蹂寃????ъ쑀 湲곕줉)**
 
 ## A. Hypotheses (3-5 core)
-- **H1 (Similarity):** Prompt A has higher **ROUGE-L (median)** than B by **≥ +1.0pt** on Summarization.
+- **H1 (Similarity):** Prompt A has higher **ROUGE-L (median)** than B by **??+1.0pt** on Summarization.
 - **H2 (Interaction):** The **BERTScore F1** gain of A over B is larger on **Long** inputs vs **Short**.
 - **H3 (Compliance):** **JSON validity & required-key rate** is higher for A than B on QA/IE-style outputs.
 
@@ -57,7 +57,7 @@ analysis_plan = dedent(f"""\
 - **Robustness:** Paraphrase / word-order perturbation retention rate
 
 ## C. Data & Splits (link to manifest)
-- Target n ≥ 50, stratified by domain, length, difficulty, language
+- Target n ??50, stratified by domain, length, difficulty, language
 - Robustness clusters with `cluster_id`; **cluster-aware resampling** in stats
 - Exclusion rules: empty output, truncation/token overflow, corrupted reference
 
@@ -73,7 +73,7 @@ analysis_plan = dedent(f"""\
 - metrics: rouge1/2/L, bertscore_f1, json_valid, req_keys_rate, forbid_viol, tok_cost, lat_p50, lat_p95
 
 ## F. Stopping / Gate
-- Proceed to writing if ≥2/3 core H pass with q<0.05 or dz≥0.3 and CI excludes 0
+- Proceed to writing if ??/3 core H pass with q<0.05 or dz??.3 and CI excludes 0
 - Otherwise expand n (toward 80-120) or strengthen ablation
 
 ## G. Deviations

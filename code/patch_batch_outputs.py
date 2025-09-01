@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -9,23 +9,23 @@ GEN = BATCH / "general.jsonl"
 INS = BATCH / "instructed.jsonl"
 
 REPLACEMENTS = {
-    "1": {"city": "서울", "temp_unit": "C"},
+    "1": {"city": "?쒖슱", "temp_unit": "C"},
     "3": {
         "steps": [
-            "물을 끓인다",
-            "면을 넣는다",
-            "분말스프를 넣는다",
-            "그릇에 담아 마무리한다",
+            "臾쇱쓣 ?볦씤??,
+            "硫댁쓣 ?ｋ뒗??,
+            "遺꾨쭚?ㅽ봽瑜??ｋ뒗??,
+            "洹몃쫯???댁븘 留덈Т由ы븳??,
         ]
     },
-    "5": {"product": "책상", "price": "10000원"},
+    "5": {"product": "梨낆긽", "price": "10000??},
     "7": {
         "steps": [
-            "차량을 주차한다",
-            "커넥터를 연결한다",
-            "인증/결제를 진행한다",
-            "충전 완료까지 대기한다",
-            "커넥터를 분리하고 커버를 닫는다",
+            "李⑤웾??二쇱감?쒕떎",
+            "而ㅻ꽖?곕? ?곌껐?쒕떎",
+            "?몄쬆/寃곗젣瑜?吏꾪뻾?쒕떎",
+            "異⑹쟾 ?꾨즺源뚯? ?湲고븳??,
+            "而ㅻ꽖?곕? 遺꾨━?섍퀬 而ㅻ쾭瑜??ル뒗??,
         ]
     },
 }

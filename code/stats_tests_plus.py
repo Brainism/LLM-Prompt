@@ -162,7 +162,7 @@ def main():
     ap.add_argument(
         "--fdr",
         action="store_true",
-        help="Apply Benjamini–Hochberg FDR across reported metrics",
+        help="Apply Benjamini?밐ochberg FDR across reported metrics",
     )
     args = ap.parse_args()
 

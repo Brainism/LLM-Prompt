@@ -42,7 +42,7 @@ _FULLWIDTH.update({c: c - 0xFEE0 for c in range(0xFF01, 0xFF5F)})
 _FULLWIDTH_TRANSLATOR = str.maketrans({k: chr(v) for k, v in _FULLWIDTH.items()})
 _RX_WS = re.compile(r"\s+")
 _RX_DIGIT_GROUP = re.compile(r"(?<=\d)[ ,](?=\d)")
-_BULLET = re.compile(r"^(-|\*|•|\d+[.)])\s+")
+_BULLET = re.compile(r"^(-|\*|??\d+[.)])\s+")
 _CB = re.compile(r"^\s*```(?:[\w+-]+)?\s*(.*?)\s*```\s*$", re.DOTALL)
 
 
@@ -167,7 +167,9 @@ def load_outputs(inputs_path: Path) -> List[Dict]:
                 continue
         if items:
             return items
-    raise FileNotFoundError(f"출력 파일/디렉터리를 찾을 수 없습니다: {inputs_path}")
+    raise FileNotFoundError(
+        f"異쒕젰 ?뚯씪/?붾젆?곕━瑜?李얠쓣 ???놁뒿?덈떎: {inputs_path}"
+    )
 
 
 def load_rules_pattern(rules_dir: Optional[Path]) -> Optional[re.Pattern]:
@@ -465,7 +467,7 @@ def _rebase(root: Path, p: Optional[Path]) -> Optional[Path]:
 
 
 def parse_args():
-    ap = argparse.ArgumentParser(description="컴플라이언스 평가")
+    ap = argparse.ArgumentParser(description="而댄뵆?쇱씠?몄뒪 ?됯?")
     ap.add_argument("--inputs", type=Path)
     ap.add_argument("--prompts", type=Path)
     ap.add_argument("--schema-dir", type=Path)
@@ -482,9 +484,13 @@ def parse_args():
     )
     ap.add_argument("--min-bullets", type=int, default=3)
     ap.add_argument("--auto", action="store_true")
-    ap.add_argument("--override-bullets", type=int, help="bullets 요구치 강제 덮어쓰기")
     ap.add_argument(
-        "--override-bullets-ids", type=str, help="쉼표로 구분된 id 목록(없으면 전체)"
+        "--override-bullets", type=int, help="bullets ?붽뎄移?媛뺤젣 ??뼱?곌린"
+    )
+    ap.add_argument(
+        "--override-bullets-ids",
+        type=str,
+        help="?쇳몴濡?援щ텇??id 紐⑸줉(?놁쑝硫??꾩껜)",
     )
     ap.add_argument("--print-summary", action="store_true")
     return ap.parse_args()
@@ -509,12 +515,12 @@ def main():
     out_csv = _rebase(root, args.out_csv)
     if not inputs or not inputs.exists():
         sys.stderr.write(
-            f"❌ 입력을 찾을 수 없습니다 (예: {root / 'results' / 'batch_outputs'}).\n"
+            f"???낅젰??李얠쓣 ???놁뒿?덈떎 (?? {root / 'results' / 'batch_outputs'}).\n"
         )
         sys.exit(2)
     if not prompts or not prompts.exists():
         sys.stderr.write(
-            f"❌ 프롬프트 CSV를 찾을 수 없습니다 (예: {root / 'prompts' / 'prompts.csv'}).\n"
+            f"???꾨＼?꾪듃 CSV瑜?李얠쓣 ???놁뒿?덈떎 (?? {root / 'prompts' / 'prompts.csv'}).\n"
         )
         sys.exit(2)
     out_json.parent.mkdir(parents=True, exist_ok=True)

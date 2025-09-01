@@ -1,4 +1,4 @@
-import json
+﻿import json
 
 from jsonschema import Draft7Validator
 
@@ -8,6 +8,6 @@ manifest = json.load(open("data/manifest/split_manifest_main.json", encoding="ut
 errors = sorted(Draft7Validator(schema).iter_errors(manifest), key=lambda e: e.path)
 if errors:
     for e in errors:
-        print("❌", "/".join(map(str, e.path)) or "(root)", "-", e.message)
+        print("??, "/".join(map(str, e.path)) or "(root)", "-", e.message)
     raise SystemExit(1)
-print("✅ manifest OK")
+print("??manifest OK")

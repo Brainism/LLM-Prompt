@@ -47,16 +47,16 @@ def main():
     args = ap.parse_args()
 
     if not args.schema.exists():
-        raise FileNotFoundError(f"스키마를 찾을 수 없습니다: {args.schema}")
+        raise FileNotFoundError(f"?ㅽ궎留덈? 李얠쓣 ???놁뒿?덈떎: {args.schema}")
     if not args.raw_dir.exists():
-        raise FileNotFoundError(f"raw 로그 폴더가 없습니다: {args.raw_dir}")
+        raise FileNotFoundError(f"raw 濡쒓렇 ?대뜑媛 ?놁뒿?덈떎: {args.raw_dir}")
 
     schema = json.loads(args.schema.read_text(encoding="utf-8"))
     validator = Draft7Validator(schema)
 
     files = sorted(args.raw_dir.glob(args.glob))
     if not files:
-        print("[WARN] 결과 로그가 없습니다.")
+        print("[WARN] 寃곌낵 濡쒓렇媛 ?놁뒿?덈떎.")
         sys.exit(0)
 
     total_records = 0
@@ -69,7 +69,7 @@ def main():
             try:
                 rec = json.loads(s)
             except Exception as e:
-                errors.append((fp.name, ln_no, "(parse)", f"JSON 파싱 실패: {e}"))
+                errors.append((fp.name, ln_no, "(parse)", f"JSON ?뚯떛 ?ㅽ뙣: {e}"))
                 continue
 
             v_errs = list(validator.iter_errors(rec))
@@ -107,7 +107,7 @@ def main():
             print(f"- {f}:{ln} :: {path} :: {msg}")
         sys.exit(1)
     else:
-        print("✅ result logs OK")
+        print("??result logs OK")
         sys.exit(0)
 
 

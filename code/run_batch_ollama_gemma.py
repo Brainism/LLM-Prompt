@@ -1,4 +1,4 @@
-import csv
+﻿import csv
 import json
 import os
 import subprocess
@@ -63,7 +63,7 @@ def ensure_ollama_models():
 
     for m in (MODEL_GENERAL, MODEL_INSTRUCT):
         if not has_model(m):
-            log(f"모델 없음 → pull: {m}")
+            log(f"紐⑤뜽 ?놁쓬 ??pull: {m}")
             run_cmd(["ollama", "pull", m])
 
 
@@ -71,11 +71,11 @@ def ensure_prompts_csv():
     if PROMPTS.exists():
         return
     if not MANI.exists():
-        raise FileNotFoundError(f"매니페스트가 없습니다: {MANI}")
+        raise FileNotFoundError(f"留ㅻ땲?섏뒪?멸? ?놁뒿?덈떎: {MANI}")
     data = json.loads(MANI.read_text(encoding="utf-8"))
     items = data.get("items", [])
     if not items:
-        raise SystemExit("매니페스트 items가 비어 있습니다.")
+        raise SystemExit("留ㅻ땲?섏뒪??items媛 鍮꾩뼱 ?덉뒿?덈떎.")
     with PROMPTS.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(
@@ -103,7 +103,7 @@ def ensure_prompts_csv():
                     it["cluster_id"],
                 ]
             )
-    log(f"생성 완료: {PROMPTS} (n={len(items)})")
+    log(f"?앹꽦 ?꾨즺: {PROMPTS} (n={len(items)})")
 
 
 def aggregate_efficiency():
@@ -125,16 +125,16 @@ def aggregate_efficiency():
     }
     out = QNT / "efficiency_tile.json"
     out.write_text(json.dumps(tile, indent=2), encoding="utf-8")
-    log("efficiency tile →", out)
+    log("efficiency tile ??, out)
 
 
 def main():
     ensure_dirs()
     if not ollama_alive():
         raise SystemExit(
-            "Ollama 서버에 연결할 수 없습니다.\n"
-            f"- 기대 주소: {OLLAMA_HOST}\n"
-            "- Ollama Desktop 또는 `ollama serve` 를 실행하세요.\n"
+            "Ollama ?쒕쾭???곌껐?????놁뒿?덈떎.\n"
+            f"- 湲곕? 二쇱냼: {OLLAMA_HOST}\n"
+            "- Ollama Desktop ?먮뒗 `ollama serve` 瑜??ㅽ뻾?섏꽭??\n"
         )
     ensure_ollama_models()
     ensure_prompts_csv()
@@ -188,7 +188,7 @@ def main():
     stats_py = stats_plus if stats_plus.exists() else stats_uni
     if not stats_py.exists():
         raise SystemExit(
-            "통계 스크립트를 찾을 수 없습니다: stats_tests_plus.py 또는 stats_tests_unified.py"
+            "?듦퀎 ?ㅽ겕由쏀듃瑜?李얠쓣 ???놁뒿?덈떎: stats_tests_plus.py ?먮뒗 stats_tests_unified.py"
         )
     run_cmd(
         [
@@ -212,9 +212,9 @@ def main():
     try:
         aggregate_efficiency()
     except Exception as e:
-        log("효율 타일 계산 실패(건너뜀):", e)
+        log("?⑥쑉 ???怨꾩궛 ?ㅽ뙣(嫄대꼫?):", e)
 
-    log("🎉 완료: raw/aligned/quantitative 산출물 생성")
+    log("?럦 ?꾨즺: raw/aligned/quantitative ?곗텧臾??앹꽦")
 
 
 if __name__ == "__main__":

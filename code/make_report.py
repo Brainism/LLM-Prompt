@@ -1,4 +1,4 @@
-import argparse
+﻿import argparse
 import csv
 from pathlib import Path
 
@@ -18,8 +18,7 @@ def fmt(x, nd=2, na=""):
         if v != v:
             return na
         return f"{v:.{nd}f}"
-    except:
-        return na
+    except Exception:return na
 
 
 def main(stats, summary, figdir, out):
@@ -27,9 +26,9 @@ def main(stats, summary, figdir, out):
     figdir = Path(figdir) if figdir else Path("results/figures")
 
     md = []
-    md.append("# 📊 LLM Prompt v0.4 결과 요약")
+    md.append("# ?뱤 LLM Prompt v0.4 寃곌낵 ?붿빟")
     md.append("")
-    md.append("## 1) 통계 요약")
+    md.append("## 1) ?듦퀎 ?붿빟")
     if stats_rows:
         md.append("")
         md.append("| metric | n | mean_diff | 95% CI | p | q_fdr | Cohen's d |")
@@ -40,26 +39,26 @@ def main(stats, summary, figdir, out):
                 f"| {r.get('metric','')} | {r.get('n','')} | {fmt(r.get('mean_diff'))} | {ci} | {fmt(r.get('p'))} | {fmt(r.get('q_fdr'))} | {fmt(r.get('cohens_d'))} |"
             )
     else:
-        md.append("- (통계 파일 없음)")
+        md.append("- (?듦퀎 ?뚯씪 ?놁쓬)")
 
     md.append("")
-    md.append("## 2) 컴플라이언스 시각화")
+    md.append("## 2) 而댄뵆?쇱씠?몄뒪 ?쒓컖??)
     p1 = figdir / "compliance_passrate_by_model_mode.png"
     p2 = figdir / "compliance_top_fail_rules.png"
     if p1.exists():
         md.append(f"![passrate_by_model_mode]({p1.as_posix()})")
     else:
-        md.append("- pass rate 그래프 없음")
+        md.append("- pass rate 洹몃옒???놁쓬")
     if p2.exists():
         md.append(f"![top_fail_rules]({p2.as_posix()})")
     else:
-        md.append("- top failing rules 그래프 없음")
+        md.append("- top failing rules 洹몃옒???놁쓬")
 
     md.append("")
-    md.append("## 3) 액션 아이템(제안)")
-    md.append("1. 상위 실패 규칙 대상 가드레일/프롬프트 가이드 강화")
-    md.append("2. 데이터 증강(실패 규칙 유사 샘플 추가) 및 재평가")
-    md.append("3. 모델/모드 조합 중 pass rate 상위 설정을 기본값으로 채택")
+    md.append("## 3) ?≪뀡 ?꾩씠???쒖븞)")
+    md.append("1. ?곸쐞 ?ㅽ뙣 洹쒖튃 ???媛?쒕젅???꾨＼?꾪듃 媛?대뱶 媛뺥솕")
+    md.append("2. ?곗씠??利앷컯(?ㅽ뙣 洹쒖튃 ?좎궗 ?섑뵆 異붽?) 諛??ы룊媛")
+    md.append("3. 紐⑤뜽/紐⑤뱶 議고빀 以?pass rate ?곸쐞 ?ㅼ젙??湲곕낯媛믪쑝濡?梨꾪깮")
     md.append("")
 
     outp = Path(out)

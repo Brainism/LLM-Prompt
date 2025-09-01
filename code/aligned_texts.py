@@ -1,4 +1,4 @@
-import csv
+﻿import csv
 import json
 import subprocess
 import sys
@@ -71,7 +71,7 @@ def find_raw_file(kind: str) -> Path:
 
 def main():
     if not PROMPTS.exists():
-        die(f"프롬프트 CSV가 없습니다: {PROMPTS}")
+        die(f"?꾨＼?꾪듃 CSV媛 ?놁뒿?덈떎: {PROMPTS}")
     ALN.mkdir(parents=True, exist_ok=True)
     QNT.mkdir(parents=True, exist_ok=True)
 
@@ -87,7 +87,7 @@ def main():
     i_fp = find_raw_file("instructed")
     if not g_fp or not i_fp:
         die(
-            f"raw 로그를 찾지 못했습니다. (general={g_fp}, instructed={i_fp})  results/raw/*.jsonl 확인"
+            f"raw 濡쒓렇瑜?李얠? 紐삵뻽?듬땲?? (general={g_fp}, instructed={i_fp})  results/raw/*.jsonl ?뺤씤"
         )
 
     def build_out_map(fp: Path):
@@ -117,7 +117,7 @@ def main():
 
     sacre = ROOT / "code" / "sacre_eval.py"
     if sacre.exists():
-        print("[run] sacre_eval.py …")
+        print("[run] sacre_eval.py ??)
         subprocess.run(
             [
                 sys.executable,
@@ -139,7 +139,7 @@ def main():
             check=False,
         )
     else:
-        print("[note] code/sacre_eval.py 가 없어 자동 평가는 건너뜀")
+        print("[note] code/sacre_eval.py 媛 ?놁뼱 ?먮룞 ?됯???嫄대꼫?")
 
 
 if __name__ == "__main__":

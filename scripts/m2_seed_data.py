@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -20,16 +20,16 @@ class Item:
 
 KO_SOURCES = [
     (
-        "요약",
-        "인공지능 모델은 다양한 도메인에서 활용되고 있다. 최근에는 프롬프트 엔지니어링이 성능에 매우 큰 영향을 미친다는 점이 밝혀졌다. 본 문서는 프롬프트 설계 원칙과 평가 방법을 간단히 정리한다. 또한 재현성과 통계 검정의 중요성을 강조한다.",
+        "?붿빟",
+        "?멸났吏??紐⑤뜽? ?ㅼ뼇???꾨찓?몄뿉???쒖슜?섍퀬 ?덈떎. 理쒓렐?먮뒗 ?꾨＼?꾪듃 ?붿??덉뼱留곸씠 ?깅뒫??留ㅼ슦 ???곹뼢??誘몄튇?ㅻ뒗 ?먯씠 諛앺?議뚮떎. 蹂?臾몄꽌???꾨＼?꾪듃 ?ㅺ퀎 ?먯튃怨??됯? 諛⑸쾿??媛꾨떒???뺣━?쒕떎. ?먰븳 ?ы쁽?깃낵 ?듦퀎 寃?뺤쓽 以묒슂?깆쓣 媛뺤“?쒕떎.",
     ),
     (
-        "요약",
-        "데이터 전처리는 모델 성능의 기반이다. 텍스트 정규화, 토큰화 규칙, 금칙어, JSON 스키마 준수 등은 일관적으로 관리되어야 한다. 이 가이드는 실무 환경에서 흔히 발생하는 오류를 줄이기 위한 체크리스트를 제공한다.",
+        "?붿빟",
+        "?곗씠???꾩쿂由щ뒗 紐⑤뜽 ?깅뒫??湲곕컲?대떎. ?띿뒪???뺢퇋?? ?좏겙??洹쒖튃, 湲덉튃?? JSON ?ㅽ궎留?以???깆? ?쇨??곸쑝濡?愿由щ릺?댁빞 ?쒕떎. ??媛?대뱶???ㅻТ ?섍꼍?먯꽌 ?뷀엳 諛쒖깮?섎뒗 ?ㅻ쪟瑜?以꾩씠湲??꾪븳 泥댄겕由ъ뒪?몃? ?쒓났?쒕떎.",
     ),
     (
         "QA",
-        "대한민국의 수도는 어디인가? 배경지식에 따르면 서울특별시가 행정수도 역할을 수행하고 있다.",
+        "??쒕?援?쓽 ?섎룄???대뵒?멸?? 諛곌꼍吏?앹뿉 ?곕Ⅴ硫??쒖슱?밸퀎?쒓? ?됱젙?섎룄 ??븷???섑뻾?섍퀬 ?덈떎.",
     ),
 ]
 EN_SOURCES = [
@@ -49,7 +49,7 @@ EN_SOURCES = [
 
 
 def shortify(txt: str, n_sent: int = 2) -> str:
-    # 매우 단순한 '레퍼런스 요약' 생성기
+    # 留ㅼ슦 ?⑥닚??'?덊띁?곗뒪 ?붿빟' ?앹꽦湲?
     sents = [s.strip() for s in txt.replace("?", ".").split(".") if s.strip()]
     return ". ".join(sents[: max(1, min(n_sent, len(sents)))]) + ("." if sents else "")
 
@@ -61,11 +61,11 @@ def make_items(n: int, seed: int = 42):
 
     for i in range(n_half):
         src = random.choice(KO_SOURCES)
-        domain = "summarization" if src[0] == "요약" else "qa"
+        domain = "summarization" if src[0] == "?붿빟" else "qa"
         base = src[1]
         rep = random.choice([1, 2, 3])
         text = " ".join([base] * rep)
-        ref = shortify(base, n_sent=2) if domain == "summarization" else "서울"
+        ref = shortify(base, n_sent=2) if domain == "summarization" else "?쒖슱"
         item_id = f"KO_{i:04d}"
         items.append(
             Item(
@@ -110,7 +110,7 @@ def write_jsonl(path: Path, objs):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--n", type=int, default=60, help="생성할 아이템 수")
+    ap.add_argument("--n", type=int, default=60, help="?앹꽦???꾩씠????)
     ap.add_argument("--seed", type=int, default=42)
     args = ap.parse_args()
 

@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import csv
@@ -27,8 +27,7 @@ def read_latencies(fp: Path):
             ms = t.get("latency_ms")
             if isinstance(ms, (int, float)):
                 xs.append(float(ms))
-        except:
-            pass
+        except Exception:pass
     return xs
 
 
@@ -44,8 +43,7 @@ def ids_from_jsonl(fp: Path):
             rec = json.loads(s)
             if "id" in rec:
                 ids.add(str(rec["id"]))
-        except:
-            pass
+        except Exception:pass
     return ids
 
 
@@ -73,9 +71,9 @@ def main():
         "--overhead-ms",
         type=float,
         default=250.0,
-        help="레코드당 고정 오버헤드(ms) 가정",
+        help="?덉퐫?쒕떦 怨좎젙 ?ㅻ쾭?ㅻ뱶(ms) 媛??,
     )
-    ap.add_argument("--concurrency", type=int, default=1, help="동시 실행 개수(일반=1)")
+    ap.add_argument("--concurrency", type=int, default=1, help="?숈떆 ?ㅽ뻾 媛쒖닔(?쇰컲=1)")
     args = ap.parse_args()
 
     all_ids = all_ids_from_csv(args.prompts)
@@ -104,7 +102,7 @@ def main():
     print(
         f"[latency(ms)] mean_general={mean_g:.1f} mean_instructed={mean_i:.1f}"
         if (mean_g is not None and mean_i is not None)
-        else "[latency] 부족: 스모크라도 먼저 실행해 측정치를 남겨주세요"
+        else "[latency] 遺議? ?ㅻえ?щ씪??癒쇱? ?ㅽ뻾??痢≪젙移섎? ?④꺼二쇱꽭??
     )
     print(f"[assume] overhead_ms={oh:.0f}  concurrency={args.concurrency}")
     print(

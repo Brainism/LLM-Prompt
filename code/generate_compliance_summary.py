@@ -89,7 +89,7 @@ def build_summary(
     pcol = pass_col or _find_col(df, CAND_PASS)
     if pcol is None:
         raise SystemExit(
-            "[FATAL] pass 여부 컬럼을 찾지 못했습니다. --pass-col 로 지정하세요."
+            "[FATAL] pass ?щ? 而щ읆??李얠? 紐삵뻽?듬땲?? --pass-col 濡?吏?뺥븯?몄슂."
         )
 
     df = df.copy()

@@ -20,7 +20,7 @@ def main():
     g = [ln.rstrip("\n") for ln in open(args.hyps_general, encoding="utf-8")]
     i = [ln.rstrip("\n") for ln in open(args.hyps_instructed, encoding="utf-8")]
     if not (len(refs) == len(g) == len(i)):
-        raise SystemExit("refs/general/instructed 길이가 다릅니다.")
+        raise SystemExit("refs/general/instructed 湲몄씠媛 ?ㅻ쫭?덈떎.")
 
     bleu_g = sacrebleu.corpus_bleu(g, [refs])
     bleu_i = sacrebleu.corpus_bleu(i, [refs])

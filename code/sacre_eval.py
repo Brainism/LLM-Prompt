@@ -83,7 +83,7 @@ if __name__ == "__main__":
         main()
     except ModuleNotFoundError:
         print(
-            "필요 패키지 설치:",
+            "?꾩슂 ?⑦궎吏 ?ㅼ튂:",
             "python -m pip install sacrebleu rouge-score",
             file=sys.stderr,
         )

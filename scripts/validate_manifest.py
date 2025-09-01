@@ -85,15 +85,15 @@ def _warn_lenbin_nchars_presence(items: List[Dict[str, Any]]):
                 mismatch.append(i)
     if missing_nc:
         print(
-            f"[WARN] len_bin 존재하지만 n_chars 누락 idx (예시 10개): {missing_nc[:10]}"
+            f"[WARN] len_bin 議댁옱?섏?留?n_chars ?꾨씫 idx (?덉떆 10媛?: {missing_nc[:10]}"
         )
     if missing_lb:
         print(
-            f"[WARN] n_chars 존재하지만 len_bin 누락 idx (예시 10개): {missing_lb[:10]}"
+            f"[WARN] n_chars 議댁옱?섏?留?len_bin ?꾨씫 idx (?덉떆 10媛?: {missing_lb[:10]}"
         )
     if mismatch:
         print(
-            f"[WARN] len_bin ↔ n_chars 범위 불일치 의심 idx (예시 10개): {mismatch[:10]}"
+            f"[WARN] len_bin ??n_chars 踰붿쐞 遺덉씪移??섏떖 idx (?덉떆 10媛?: {mismatch[:10]}"
         )
 
 
@@ -173,10 +173,10 @@ def validate_manifest(
 
     print(f"[FAIL] {len(errors)} validation error(s).")
     print(
-        "[HINT] 흔한 원인: len_bin='mid' 미정규화, cluster_id 비허용문자, id 패턴 불일치, n_chars 범위/누락 등."
+        "[HINT] ?뷀븳 ?먯씤: len_bin='mid' 誘몄젙洹쒗솕, cluster_id 鍮꾪뿀?⑸Ц?? id ?⑦꽩 遺덉씪移? n_chars 踰붿쐞/?꾨씫 ??"
     )
     print(
-        "[HINT] 자동 보정 도구: python scripts\\fix_manifest_fields_v3.py data\\manifest\\split_manifest_main.json --inplace --add-prompt-hash --auto-len-bin"
+        "[HINT] ?먮룞 蹂댁젙 ?꾧뎄: python scripts\\fix_manifest_fields_v3.py data\\manifest\\split_manifest_main.json --inplace --add-prompt-hash --auto-len-bin"
     )
     return 1
 

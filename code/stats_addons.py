@@ -15,7 +15,7 @@ except Exception:
 
 
 def load_pairs(path):
-    """다양한 JSON 구조를 견고하게 읽어 (general, instructed) 쌍 배열로 반환"""
+    """?ㅼ뼇??JSON 援ъ“瑜?寃ш퀬?섍쾶 ?쎌뼱 (general, instructed) ??諛곗뿴濡?諛섑솚"""
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     g, i = [], []
@@ -23,7 +23,7 @@ def load_pairs(path):
     def as_float(x):
         try:
             return float(x)
-        except:
+        except Exception:
             return np.nan
 
     if isinstance(data, dict):
@@ -35,7 +35,7 @@ def load_pairs(path):
                     g.append(as_float(data["general"][k]))
                     i.append(as_float(data[inst_key][k]))
         else:
-            # {id: {general:…, instruct(ed):…}} 형태
+            # {id: {general:?? instruct(ed):??} ?뺥깭
             for _, v in data.items():
                 if isinstance(v, dict):
                     gval = v.get("general", v.get("base"))
@@ -109,7 +109,7 @@ def summarize_one(name, path, n_boot, do_wilcoxon):
 
 
 def bh_fdr(pvals, alpha=0.05):
-    """Benjamini–Hochberg FDR (return q-values in same order)"""
+    """Benjamini?밐ochberg FDR (return q-values in same order)"""
     arr = np.array(pvals, dtype=float)
     m = len(arr)
     order = np.argsort(arr)
