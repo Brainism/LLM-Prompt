@@ -71,7 +71,7 @@ def save_mean_bar(
     bars = plt.bar(["general", "instructed"], [mg, mi], yerr=[seg, sei], capsize=6)
     plt.ylim(0, 1)
     plt.ylabel(metric_label)
-    title = f"{metric_label}: mean±SEM (n={min(ng,ni)})"
+    title = f"{metric_label}: mean짹SEM (n={min(ng,ni)})"
     if p is not None:
         star = "***" if p < 0.001 else "**" if p < 0.01 else "*" if p < 0.05 else "n.s."
         title += f"  |  p={p:.3g} ({star})"
@@ -117,7 +117,7 @@ def save_delta_hist(metric_label: str, g: np.ndarray, i: np.ndarray, out_png: Pa
     plt.xlabel("delta (instructed - general)")
     plt.ylabel("count")
     mu = float(np.mean(delta)) if len(delta) else 0.0
-    plt.title(f"{metric_label}: Δ distribution (mean Δ={mu:.3f})")
+    plt.title(f"{metric_label}: ? distribution (mean ?={mu:.3f})")
     plt.savefig(out_png, dpi=150, bbox_inches="tight")
     plt.close()
     return mu

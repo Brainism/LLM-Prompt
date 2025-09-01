@@ -283,8 +283,8 @@ if __name__ == "__main__":
 
     summary = a.summary or _autodetect_summary()
     if not summary:
-        print("[FATAL] --summary 미지정이며 자동 탐지 실패.")
-        print("힌트) 먼저 요약 생성:")
+        print("[FATAL] --summary 誘몄??뺤씠硫??먮룞 ?먯? ?ㅽ뙣.")
+        print("?뚰듃) 癒쇱? ?붿빟 ?앹꽦:")
         print(
             r"  python code\compliance_eval.py --outputs results\raw --schema schema\split_manifest_main.schema.json --out results\quantitative\compliance_summary.csv"
         )

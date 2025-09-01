@@ -46,7 +46,7 @@ def main():
     ap.add_argument(
         "--outputs",
         required=True,
-        help="모델 출력 JSONL (필드: id, output[, latency_ms, prompt_tokens, completion_tokens, model_id, prompt_id])",
+        help="紐⑤뜽 異쒕젰 JSONL (?꾨뱶: id, output[, latency_ms, prompt_tokens, completion_tokens, model_id, prompt_id])",
     )
     ap.add_argument("--forbidden", default="rules/forbidden_terms.txt")
     ap.add_argument("--ie_schema", default="rules/json_schema_main.json")
@@ -209,7 +209,7 @@ def main():
 
     write_csv(out_dir / f"{args.run_name}_summary.csv", [summary])
     md_lines = [
-        f"# M3 Summary — {args.run_name}",
+        f"# M3 Summary ??{args.run_name}",
         "",
         f"- N items: **{summary['n_items']}**",
         f"- ROUGE-L (mean F): **{summary['rougeL_f_mean']:.4f}**"

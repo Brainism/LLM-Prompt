@@ -84,7 +84,7 @@ def length_bin(text: str) -> str:
 
 
 def infer_lang(text: str, fallback="ko") -> str:
-    if re.search(r"[가-힣]", text):
+    if re.search(r"[媛-??", text):
         return "ko"
     return fallback
 
@@ -281,7 +281,7 @@ def write_report(counts, out_md: Path, target_n: int):
             if warns:
                 lines.append("## Warnings")
                 for w in warns:
-                    lines.append(f"- ⚠️ {w}")
+                    lines.append(f"- ?좑툘 {w}")
 
         chk(counts["by_len_bin"], "len_bin")
         chk(counts["by_diff_bin"], "diff_bin")

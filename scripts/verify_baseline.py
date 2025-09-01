@@ -143,9 +143,9 @@ def main(results_dir: str, params_path: str, out_md: str):
     lines.append(f"- results dir: `{rp.resolve()}`")
     lines.append(f"- params file: `{Path(params_path).resolve()}`")
     lines.append("")
-    lines.append("## Summary (mean Δ and 95% CI via paired bootstrap)")
+    lines.append("## Summary (mean ? and 95% CI via paired bootstrap)")
     lines.append("")
-    lines.append("| metric | n | mean Δ | 95% CI low | 95% CI high | Wilcoxon p |")
+    lines.append("| metric | n | mean ? | 95% CI low | 95% CI high | Wilcoxon p |")
     lines.append("|---|---:|---:|---:|---:|---:|")
     for s in summary:
         if s["n"] == 0:

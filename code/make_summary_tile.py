@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 import math
@@ -37,7 +37,7 @@ def draw_metric_bar(ax, row):
     bars = ax.bar(["general", "instructed"], means, yerr=sems, capsize=6)
     ax.set_ylim(0, 1)
     ax.set_ylabel(row["label"])
-    title = f'{row["label"]}: mean±SEM (n={int(row["n"])})  |  {_fmt_p(row.get("p_value"))}  |  {_fmt_d(row.get("cohens_d"))}'
+    title = f'{row["label"]}: mean짹SEM (n={int(row["n"])})  |  {_fmt_p(row.get("p_value"))}  |  {_fmt_d(row.get("cohens_d"))}'
     ax.set_title(title)
     for b, v in zip(bars, means):
         ax.text(
@@ -62,7 +62,7 @@ def draw_compliance_group(ax, comp):
             vals.append(float(v))
     bars = ax.bar(labels, vals)
     ax.set_ylim(0, 1)
-    ax.set_ylabel("compliance rate (0–1)")
+    ax.set_ylabel("compliance rate (0??)")
     ax.set_title("Compliance rate by group")
     for b, v in zip(bars, vals):
         ax.text(
@@ -94,7 +94,7 @@ def draw_compliance_by_scn(ax, comp):
             )
     ax.set_ylim(0, 1)
     ax.set_xticks(x, scenarios, rotation=15)
-    ax.set_ylabel("compliance rate (0–1)")
+    ax.set_ylabel("compliance rate (0??)")
     ax.set_title("Compliance by scenario & group")
     ax.legend()
 
@@ -104,24 +104,24 @@ def main():
     print(f"[INFO] INPUT CSV   = {IN_SUMMARY}  (exists={IN_SUMMARY.exists()})")
     print(f"[INFO] INPUT JSON  = {IN_COMPLIANCE}  (exists={IN_COMPLIANCE.exists()})")
     if not IN_SUMMARY.exists() or not IN_COMPLIANCE.exists():
-        print("[ERROR] 입력 파일이 없습니다. 위 경로를 확인하세요.")
+        print("[ERROR] ?낅젰 ?뚯씪???놁뒿?덈떎. ??寃쎈줈瑜??뺤씤?섏꽭??")
         sys.exit(1)
 
     df = pd.read_csv(IN_SUMMARY, encoding="utf-8")
     comp = json.loads(IN_COMPLIANCE.read_text(encoding="utf-8"))
     if df.empty:
-        print("[ERROR] compare_summary.csv 가 비어 있습니다.")
+        print("[ERROR] compare_summary.csv 媛 鍮꾩뼱 ?덉뒿?덈떎.")
         sys.exit(2)
     need = {"rougeL_f", "bleu4"}
     have = set(df["metric"].unique().tolist())
     if not need.issubset(have):
-        print(f"[ERROR] compare_summary.csv에 필요한 metric이 없습니다. have={have}")
+        print(f"[ERROR] compare_summary.csv???꾩슂??metric???놁뒿?덈떎. have={have}")
         sys.exit(3)
 
     r = df[df["metric"] == "rougeL_f"].iloc[0].to_dict()
     b = df[df["metric"] == "bleu4"].iloc[0].to_dict()
 
-    print("[INFO] 그림 생성 중…")
+    print("[INFO] 洹몃┝ ?앹꽦 以묅?)
     fig, axes = plt.subplots(2, 2, figsize=(12, 8))
     draw_metric_bar(axes[0, 0], b)
     draw_metric_bar(axes[0, 1], r)

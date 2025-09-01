@@ -10,7 +10,7 @@ import numpy as np
 def _to_float(x):
     try:
         return float(x)
-    except:
+    except Exception:
         return float("nan")
 
 
@@ -165,7 +165,7 @@ def dump(metric_path: str, out_csv: str):
         w.writerow(["id", "general", "instructed", "diff"])
         for pid, gv, iv, dv in zip(ids, g, i, diff):
             w.writerow([pid, f"{gv:.6f}", f"{iv:.6f}", f"{dv:.6f}"])
-    print(f"[OK] wrote {out} ({len(diff)} rows).  meanΔ={diff.mean():.6f}")
+    print(f"[OK] wrote {out} ({len(diff)} rows).  mean?={diff.mean():.6f}")
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ def load_jsonl(fp: Path):
             continue
         try:
             yield json.loads(ln)
-        except:
+        except Exception:
             continue
 
 

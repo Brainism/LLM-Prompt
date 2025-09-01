@@ -34,7 +34,7 @@ def check_format_json(text: str, params: dict) -> tuple[bool, str]:
 def check_limit_words(text: str, params: dict) -> tuple[bool, str]:
     try:
         n = int(params.get("words", "0"))
-    except:
+    except Exception:
         n = 0
     words = [w for w in re.split(r"\s+", text.strip()) if w]
     return (len(words) == n, f"words={len(words)} expected={n}")
@@ -43,7 +43,7 @@ def check_limit_words(text: str, params: dict) -> tuple[bool, str]:
 def check_bullets(text: str, params: dict) -> tuple[bool, str]:
     try:
         n = int(params.get("bullets", "0"))
-    except:
+    except Exception:
         n = 0
     lines = [ln.strip() for ln in text.strip().splitlines() if ln.strip()]
     ok = [ln for ln in lines if ln.startswith("- ")]
@@ -79,7 +79,7 @@ def check_limit_items_json(text: str, params: dict) -> tuple[bool, str]:
 
     try:
         n = int(params.get("n", "0"))
-    except:
+    except Exception:
         n = 0
     try:
         obj = json.loads(text)
@@ -89,7 +89,7 @@ def check_limit_items_json(text: str, params: dict) -> tuple[bool, str]:
         return False, "not_json_list"
     if len(obj) != n:
         return False, f"list_len={len(obj)} expected={n}"
-    # 각 항목은 문자열, (옵션) 공백 금지
+    # 媛???ぉ? 臾몄옄?? (?듭뀡) 怨듬갚 湲덉?
     no_space = str(params.get("no_space", "false")).lower() == "true"
     for i, el in enumerate(obj):
         if not isinstance(el, str):
@@ -103,7 +103,7 @@ def check_limit_chars(text: str, params: dict) -> tuple[bool, str]:
     mode = str(params.get("mode", "nonspace")).lower()  # nonspace|all
     try:
         n = int(params.get("chars", "0"))
-    except:
+    except Exception:
         n = 0
     t = text if mode == "all" else "".join(ch for ch in text if not ch.isspace())
     return (len(t) == n, f"chars={len(t)} expected={n} mode={mode}")

@@ -1,4 +1,4 @@
-from typing import Optional
+﻿from typing import Optional
 
 try:
     from langchain_openai import ChatOpenAI
@@ -29,11 +29,11 @@ class LLMWrapper:
     def _chat(self):
         if self.provider == "openai":
             if ChatOpenAI is None:
-                raise RuntimeError("langchain-openai 임포트 실패 또는 미설치")
+                raise RuntimeError("langchain-openai ?꾪룷???ㅽ뙣 ?먮뒗 誘몄꽕移?)
             return ChatOpenAI(model=self.model, temperature=self.temperature)
         elif self.provider == "ollama":
             if ChatOllama is None:
-                raise RuntimeError("langchain-ollama 임포트 실패 또는 미설치")
+                raise RuntimeError("langchain-ollama ?꾪룷???ㅽ뙣 ?먮뒗 誘몄꽕移?)
             kwargs = {"model": self.model, "temperature": self.temperature}
             if self.num_predict is not None:
                 kwargs["num_predict"] = self.num_predict

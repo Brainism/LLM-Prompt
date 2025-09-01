@@ -411,7 +411,7 @@ def parse_args():
     )
     ap.add_argument("--fdr", action="store_true", help="apply BH-FDR across metrics")
     ap.add_argument(
-        "--dry-run", action="store_true", help="파일을 쓰지 않고 요약만 출력"
+        "--dry-run", action="store_true", help="?뚯씪???곗? ?딄퀬 ?붿빟留?異쒕젰"
     )
     return ap.parse_args()
 
@@ -453,12 +453,12 @@ def main():
         used.append(p)
 
     if not rows:
-        print("❌ 사용할 지표 파일을 찾지 못했습니다.")
+        print("???ъ슜??吏???뚯씪??李얠? 紐삵뻽?듬땲??")
         print(
-            "   - 자동 탐색 경로: ./results/quantitative/ (또는 상위 폴더의 동일 경로)"
+            "   - ?먮룞 ?먯깋 寃쎈줈: ./results/quantitative/ (?먮뒗 ?곸쐞 ?대뜑???숈씪 寃쎈줈)"
         )
         print(
-            "   - 또는 직접 지정: --rouge path.json --bleu path.json --chrf path.json"
+            "   - ?먮뒗 吏곸젒 吏?? --rouge path.json --bleu path.json --chrf path.json"
         )
         return
 
@@ -505,7 +505,7 @@ def main():
 
     if not SCIPY_OK and args.wilcoxon:
         print(
-            "\n[warn] SciPy 미설치로 Wilcoxon p를 계산하지 못했습니다. `pip install scipy` 권장."
+            "\n[warn] SciPy 誘몄꽕移섎줈 Wilcoxon p瑜?怨꾩궛?섏? 紐삵뻽?듬땲?? `pip install scipy` 沅뚯옣."
         )
 
 

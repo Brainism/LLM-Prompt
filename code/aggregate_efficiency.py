@@ -165,7 +165,7 @@ def main() -> None:
                 json.dumps({"overall": {}, "meta": {"n_records": 0}}, indent=2),
                 encoding="utf-8",
             )
-            print("[warn]", msg, "→ wrote empty tile:", outp)
+            print("[warn]", msg, "??wrote empty tile:", outp)
             return
 
     pcts = []

@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import csv
@@ -96,17 +96,17 @@ def update_compliance_summary(
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument(
-        "--apply-from", type=Path, required=True, help="prompts.csv (needs_json 기준)"
+        "--apply-from", type=Path, required=True, help="prompts.csv (needs_json 湲곗?)"
     )
     ap.add_argument(
         "--raw-dir",
         type=Path,
         default=Path("results") / "raw_patched",
-        help="평가 대상 로그 폴더",
+        help="?됯? ???濡쒓렇 ?대뜑",
     )
-    ap.add_argument("--json-key", default="tags", help="배열 키 이름 (기본: tags)")
-    ap.add_argument("--min-items", type=int, default=2, help="최소 아이템 수")
-    ap.add_argument("--max-items", type=int, default=5, help="최대 아이템 수")
+    ap.add_argument("--json-key", default="tags", help="諛곗뿴 ???대쫫 (湲곕낯: tags)")
+    ap.add_argument("--min-items", type=int, default=2, help="理쒖냼 ?꾩씠????)
+    ap.add_argument("--max-items", type=int, default=5, help="理쒕? ?꾩씠????)
     ap.add_argument(
         "--summary-csv",
         type=Path,

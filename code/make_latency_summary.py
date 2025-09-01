@@ -34,7 +34,7 @@ def summary_for(path: Path):
             ms = t.get("latency_ms")
             if isinstance(ms, (int, float)):
                 vals.append(float(ms))
-        except:
+        except Exception:
             pass
     if not vals:
         return {"count": 0}

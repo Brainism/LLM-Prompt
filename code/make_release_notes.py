@@ -59,7 +59,7 @@ def main():
     gitsha = git_commit_short()
 
     body = []
-    body.append(f"# Release Notes — {args.version}\n")
+    body.append(f"# Release Notes ??{args.version}\n")
     body.append(f"- Generated: {ts}")
     body.append(f"- Commit: `{gitsha}`")
     body.append(f"- Raw dir (final): `{args.raw_dir.as_posix()}`\n")

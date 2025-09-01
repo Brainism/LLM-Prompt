@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 
@@ -20,35 +20,35 @@ PRESETS = {
 }
 
 ALIASES = {
-    "모드": "mode",
-    "시나리오": "scenario",
-    "프리셋": "preset",
-    "미리설정": "preset",
-    "단축키": "presets",
-    "목록": "presets",
-    "엄격": "strict",
-    "초기화": "clear",
-    "클리어": "clear",
-    "나가기": "exit",
-    "종료": "exit",
+    "紐⑤뱶": "mode",
+    "?쒕굹由ъ삤": "scenario",
+    "?꾨━??: "preset",
+    "誘몃━?ㅼ젙": "preset",
+    "?⑥텞??: "presets",
+    "紐⑸줉": "presets",
+    "?꾧꺽": "strict",
+    "珥덇린??: "clear",
+    "?대━??: "clear",
+    "?섍?湲?: "exit",
+    "醫낅즺": "exit",
 }
 
 BANNER = f"""
-[대화형 모드 사용법]
-명령:
-  /mode general|instructed         (또는 /모드)
-  /scenario <이름> [param=...]     (또는 /시나리오) 예: /scenario format-json keys=city|temp_unit
-  /preset <키>                     (또는 /프리셋)   예: /preset fj
-  /presets                         (또는 /단축키)   프리셋 목록 보기
-  /strict on|off                   (또는 /엄격 on)
-  /clear                           (또는 /초기화)
-  /exit                            (또는 /종료)
+[??뷀삎 紐⑤뱶 ?ъ슜踰?
+紐낅졊:
+  /mode general|instructed         (?먮뒗 /紐⑤뱶)
+  /scenario <?대쫫> [param=...]     (?먮뒗 /?쒕굹由ъ삤) ?? /scenario format-json keys=city|temp_unit
+  /preset <??                     (?먮뒗 /?꾨━??   ?? /preset fj
+  /presets                         (?먮뒗 /?⑥텞??   ?꾨━??紐⑸줉 蹂닿린
+  /strict on|off                   (?먮뒗 /?꾧꺽 on)
+  /clear                           (?먮뒗 /珥덇린??
+  /exit                            (?먮뒗 /醫낅즺)
 
-프리셋 단축키: {", ".join(f"{k}→{v[0]}:{v[1]}" for k,v in PRESETS.items())}
+?꾨━???⑥텞?? {", ".join(f"{k}??v[0]}:{v[1]}" for k,v in PRESETS.items())}
 
 TIP:
-- 프리셋 키만 입력해도 적용됩니다. 예) fj  또는  w10
-- 일반 입력은 모델에 그대로 전달되며, 현재 설정된 시나리오로 즉시 '준수검사'를 수행합니다.
+- ?꾨━???ㅻ쭔 ?낅젰?대룄 ?곸슜?⑸땲?? ?? fj  ?먮뒗  w10
+- ?쇰컲 ?낅젰? 紐⑤뜽??洹몃?濡??꾨떖?섎ŉ, ?꾩옱 ?ㅼ젙???쒕굹由ъ삤濡?利됱떆 '以?섍???瑜??섑뻾?⑸땲??
 """
 
 
@@ -56,27 +56,27 @@ def reason_ko(reason: str) -> str:
     if reason == "ok":
         return "OK"
     if reason == "json_parse_fail":
-        return "JSON 파싱 실패"
+        return "JSON ?뚯떛 ?ㅽ뙣"
     if reason.startswith("json_keys_mismatch"):
-        return "JSON 키 불일치"
+        return "JSON ??遺덉씪移?
     if reason == "digits_forbidden":
-        return "숫자 금지 위반(0-9 발견)"
+        return "?レ옄 湲덉? ?꾨컲(0-9 諛쒓껄)"
     if reason == "non_bullet_lines_present":
-        return "불릿 이외의 줄 포함"
+        return "遺덈┸ ?댁쇅??以??ы븿"
     if reason.startswith("words="):
-        return "단어 수 불일치 (" + reason + ")"
+        return "?⑥뼱 ??遺덉씪移?(" + reason + ")"
     if reason == "unknown_scenario":
-        return "알 수 없는 시나리오"
+        return "?????녿뒗 ?쒕굹由ъ삤"
     if reason == "not_json_list":
-        return "JSON 배열이 아님"
+        return "JSON 諛곗뿴???꾨떂"
     if reason.startswith("list_len="):
-        return "배열 길이 불일치 (" + reason + ")"
+        return "諛곗뿴 湲몄씠 遺덉씪移?(" + reason + ")"
     if reason.endswith("_not_string"):
-        return "배열 항목에 문자열이 아님"
+        return "諛곗뿴 ??ぉ??臾몄옄?댁씠 ?꾨떂"
     if reason.endswith("_has_space"):
-        return "배열 항목에 공백 포함"
+        return "諛곗뿴 ??ぉ??怨듬갚 ?ы븿"
     if reason.startswith("chars="):
-        return "글자 수 불일치 (" + reason + ")"
+        return "湲????遺덉씪移?(" + reason + ")"
 
     return reason
 
@@ -88,7 +88,7 @@ def build_prompt(mode: str, text: str, strict: bool) -> str:
         else get_general_prompt(text)
     )
     if strict:
-        p += "\n\n[엄격] 지시된 형식 이외의 말(머리말/설명/코드블록/백틱) 금지. 결과만 출력."
+        p += "\n\n[?꾧꺽] 吏?쒕맂 ?뺤떇 ?댁쇅??留?癒몃━留??ㅻ챸/肄붾뱶釉붾줉/諛깊떛) 湲덉?. 寃곌낵留?異쒕젰."
     return p
 
 
@@ -115,15 +115,15 @@ def main(args):
     while True:
         try:
             user = input(
-                f"\n[{mode}{'|엄격' if strict else ''}{'|'+scenario if scenario else ''}] 나> "
+                f"\n[{mode}{'|?꾧꺽' if strict else ''}{'|'+scenario if scenario else ''}] ?? "
             ).strip()
         except (EOFError, KeyboardInterrupt):
-            print("\n안녕!")
+            print("\n?덈뀞!")
             return
         if not user:
             continue
 
-        if user[0] in ("/", "!", ".", "／"):
+        if user[0] in ("/", "!", ".", "竊?):
             cmd, *rest = user[1:].split(" ", 1)
             cmd = normalize_cmd(cmd.strip().lower())
             rest = rest[0] if rest else ""
@@ -135,49 +135,49 @@ def main(args):
                 v = rest.strip()
                 if v in ("general", "instructed"):
                     mode = v
-                    print(f"-> 모드 변경: {mode}")
+                    print(f"-> 紐⑤뱶 蹂寃? {mode}")
                 else:
-                    print("사용법: /mode general|instructed")
+                    print("?ъ슜踰? /mode general|instructed")
 
             elif cmd == "scenario":
                 parts = rest.split(" ", 1)
                 scenario = parts[0].strip() if parts and parts[0] else None
                 params = parse_params(parts[1] if len(parts) > 1 else "")
-                print(f"-> 시나리오={scenario}, 파라미터={params}")
+                print(f"-> ?쒕굹由ъ삤={scenario}, ?뚮씪誘명꽣={params}")
 
             elif cmd == "preset":
                 scen, pr, ok = apply_preset(rest)
                 if ok:
                     scenario, params = scen, pr
-                    print(f"-> 프리셋 '{rest}' 적용: {scenario} {params}")
+                    print(f"-> ?꾨━??'{rest}' ?곸슜: {scenario} {params}")
                 else:
-                    print("알 수 없는 프리셋 키. /presets 로 목록 확인")
+                    print("?????녿뒗 ?꾨━???? /presets 濡?紐⑸줉 ?뺤씤")
 
             elif cmd == "presets":
-                print("프리셋 목록:")
+                print("?꾨━??紐⑸줉:")
                 for k, (sc, pr) in PRESETS.items():
                     print(f"  {k:>4} -> {sc} {pr}")
 
             elif cmd == "strict":
                 strict = rest.strip().lower() == "on"
-                print(f"-> 엄격 모드: {strict}")
+                print(f"-> ?꾧꺽 紐⑤뱶: {strict}")
 
             elif cmd == "clear":
                 scenario, params, strict = None, {}, False
-                print("-> 상태 초기화 완료")
+                print("-> ?곹깭 珥덇린???꾨즺")
 
             elif cmd in PRESETS:
                 scen, pr, _ = apply_preset(cmd)
                 scenario, params = scen, pr
-                print(f"-> 프리셋 '{cmd}' 적용: {scenario} {params}")
+                print(f"-> ?꾨━??'{cmd}' ?곸슜: {scenario} {params}")
             else:
-                print("알 수 없는 명령. /presets 로 도움말 확인")
+                print("?????녿뒗 紐낅졊. /presets 濡??꾩?留??뺤씤")
             continue
 
         scen, pr, ok = apply_preset(user)
         if ok:
             scenario, params = scen, pr
-            print(f"-> 프리셋 '{user}' 적용: {scenario} {params}")
+            print(f"-> ?꾨━??'{user}' ?곸슜: {scenario} {params}")
             continue
 
         prompt = build_prompt(mode, user, strict)
@@ -186,25 +186,25 @@ def main(args):
 
         if scenario:
             ok, reason = evaluate_item(scenario, out, params)
-            mark = "✓" if ok else "✗"
-            print(f"[준수검사] {mark} {reason_ko(reason)}")
+            mark = "?? if ok else "??
+            print(f"[以?섍??? {mark} {reason_ko(reason)}")
 
             if not ok and scenario == "limit-words":
                 n = params.get("words", "")
                 retry_hint = (
-                    f"\n\n[재작성] 위 출력은 {n}단어가 아닙니다. "
-                    f"아래 규칙을 모두 지켜 '최종 결과만' 다시 쓰세요.\n"
-                    f"- 정확히 {n}단어\n"
-                    f"- 각 단어는 공백 한 칸으로만 구분\n"
-                    f"- 문장부호·숫자 금지\n"
-                    f"- 출력형식: 단어1 단어2 … 단어{n}\n"
+                    f"\n\n[?ъ옉?? ??異쒕젰? {n}?⑥뼱媛 ?꾨떃?덈떎. "
+                    f"?꾨옒 洹쒖튃??紐⑤몢 吏耳?'理쒖쥌 寃곌낵留? ?ㅼ떆 ?곗꽭??\n"
+                    f"- ?뺥솗??{n}?⑥뼱\n"
+                    f"- 媛??⑥뼱??怨듬갚 ??移몄쑝濡쒕쭔 援щ텇\n"
+                    f"- 臾몄옣遺?맞룹닽??湲덉?\n"
+                    f"- 異쒕젰?뺤떇: ?⑥뼱1 ?⑥뼱2 ???⑥뼱{n}\n"
                 )
                 retry_prompt = build_prompt(mode, user + retry_hint, strict=True)
                 retry_out = llm.generate(retry_prompt)
-                print(f"AI(재시도)> {retry_out}")
+                print(f"AI(?ъ떆??> {retry_out}")
                 ok2, reason2 = evaluate_item(scenario, retry_out, params)
-                mark2 = "✓" if ok2 else "✗"
-                print(f"[준수검사-재시도] {mark2} {reason_ko(reason2)}")
+                mark2 = "?? if ok2 else "??
+                print(f"[以?섍????ъ떆?? {mark2} {reason_ko(reason2)}")
 
 
 if __name__ == "__main__":

@@ -183,29 +183,29 @@ def main():
         "--apply-from",
         type=Path,
         required=True,
-        help="prompts.csv (needs_json 플래그 소스)",
+        help="prompts.csv (needs_json ?뚮옒洹??뚯뒪)",
     )
     ap.add_argument(
-        "--raw-in", type=Path, default=Path("results") / "raw", help="입력 jsonl 폴더"
+        "--raw-in", type=Path, default=Path("results") / "raw", help="?낅젰 jsonl ?대뜑"
     )
     ap.add_argument(
         "--raw-out",
         type=Path,
         default=Path("results") / "raw_patched",
-        help="출력 jsonl 폴더",
+        help="異쒕젰 jsonl ?대뜑",
     )
-    ap.add_argument("--glob", default="*.jsonl", help="대상 파일 패턴 (기본: *.jsonl)")
+    ap.add_argument("--glob", default="*.jsonl", help="????뚯씪 ?⑦꽩 (湲곕낯: *.jsonl)")
     ap.add_argument(
         "--max-tags",
         type=int,
         default=5,
-        help="tags 최대 개수(기본 5, 0이면 제한 없음)",
+        help="tags 理쒕? 媛쒖닔(湲곕낯 5, 0?대㈃ ?쒗븳 ?놁쓬)",
     )
     args = ap.parse_args()
 
     target_ids, ref_tags_map = load_needs_json_ids(args.apply_from)
     if not target_ids:
-        print(f"[warn] needs_json=1 대상 id가 없습니다. ({args.apply_from})")
+        print(f"[warn] needs_json=1 ???id媛 ?놁뒿?덈떎. ({args.apply_from})")
 
     in_dir = args.raw_in
     out_dir = args.raw_out
@@ -213,7 +213,7 @@ def main():
 
     files = sorted(in_dir.glob(args.glob))
     if not files:
-        print(f"[warn] 입력 파일이 없습니다: {in_dir}\\{args.glob}")
+        print(f"[warn] ?낅젰 ?뚯씪???놁뒿?덈떎: {in_dir}\\{args.glob}")
         return
 
     grand_total = grand_patched = grand_skipped = 0
@@ -233,7 +233,7 @@ def main():
         f"[summary] files={len(files)}  total={grand_total}  patched={grand_patched}  skipped={grand_skipped}"
     )
     print(
-        "[hint] 다음을 실행하여 재집계하세요:\n"
+        "[hint] ?ㅼ쓬???ㅽ뻾?섏뿬 ?ъ쭛怨꾪븯?몄슂:\n"
         f"  python code/compliance_check.py --apply-from prompts/prompts.csv --raw-dir {out_dir} "
         f"--limit-chars 1000 --bullets-min-n 3 --limit-items-json 5 --forbid-terms docs/forbid_terms.txt\n"
         "  python code/make_compliance_snapshot.py"

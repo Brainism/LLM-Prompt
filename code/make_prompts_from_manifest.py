@@ -9,12 +9,12 @@ OUT = ROOT / "prompts" / "prompts.csv"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
 if not MANI.exists():
-    raise FileNotFoundError(f"매니페스트가 없어요: {MANI}")
+    raise FileNotFoundError(f"留ㅻ땲?섏뒪?멸? ?놁뼱?? {MANI}")
 
 data = json.loads(MANI.read_text(encoding="utf-8"))
 items = data.get("items", [])
 if not items:
-    raise ValueError("매니페스트에 items가 비어 있어요.")
+    raise ValueError("留ㅻ땲?섏뒪?몄뿉 items媛 鍮꾩뼱 ?덉뼱??")
 
 with OUT.open("w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)

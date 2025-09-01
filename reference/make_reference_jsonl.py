@@ -1,26 +1,26 @@
-import json
+﻿import json
 from pathlib import Path
 
 
 def build_reference_jsonl(out_path: str = "reference/reference_corpus.jsonl") -> None:
     items = [
-        {"id": "1", "reference_text": '{"city":"서울","temp_unit":"C"}'},
+        {"id": "1", "reference_text": '{"city":"?쒖슱","temp_unit":"C"}'},
         {
             "id": "2",
-            "reference_text": "데이터 품질은 모델 성능과 신뢰도를 크게 좌우한다",
-        },  # 내용은 참고용
-        {"id": "3", "reference_text": "- 물 끓이기\n- 면 넣기\n- 스프 넣기\n- 불 끄기"},
-        {"id": "4", "reference_text": "한 개 두 개 세 개"},
-        {"id": "5", "reference_text": '{"product":"책상","price":"10000원"}'},
+            "reference_text": "?곗씠???덉쭏? 紐⑤뜽 ?깅뒫怨??좊ː?꾨? ?ш쾶 醫뚯슦?쒕떎",
+        },  # ?댁슜? 李멸퀬??
+        {"id": "3", "reference_text": "- 臾??볦씠湲?n- 硫??ｊ린\n- ?ㅽ봽 ?ｊ린\n- 遺??꾧린"},
+        {"id": "4", "reference_text": "??媛???媛???媛?},
+        {"id": "5", "reference_text": '{"product":"梨낆긽","price":"10000??}'},
         {
             "id": "6",
-            "reference_text": "인공지능 성능은 데이터 품질과 지시 준수가 좌우한다",
-        },  # 내용은 참고용
+            "reference_text": "?멸났吏???깅뒫? ?곗씠???덉쭏怨?吏??以?섍? 醫뚯슦?쒕떎",
+        },  # ?댁슜? 李멸퀬??
         {
             "id": "7",
-            "reference_text": "- 케이블 연결\n- 인증 시작\n- 충전 시작\n- 충전 모니터링\n- 충전 종료",
+            "reference_text": "- 耳?대툝 ?곌껐\n- ?몄쬆 ?쒖옉\n- 異⑹쟾 ?쒖옉\n- 異⑹쟾 紐⑤땲?곕쭅\n- 異⑹쟾 醫낅즺",
         },
-        {"id": "8", "reference_text": "열 개 스무 개 서른 개"},
+        {"id": "8", "reference_text": "??媛??ㅻТ 媛??쒕Ⅸ 媛?},
     ]
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
