@@ -1,5 +1,6 @@
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -239,9 +240,6 @@ def main(summary_path: str, outdir: str):
         print(" - skip: top failing rules (columns missing)")
 
 
-import sys
-
-
 def _autodetect_summary() -> str | None:
     candidates = [
         Path(r"results/quantitative/compliance_summary.csv"),
@@ -254,9 +252,6 @@ def _autodetect_summary() -> str | None:
         for p in Path("results").rglob(f"*compliance*summary*.{ext}"):
             return str(p)
     return None
-
-
-from pathlib import Path
 
 
 def _autodetect_summary() -> str | None:

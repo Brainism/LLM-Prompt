@@ -26,7 +26,7 @@ B. Python & Tooling (프로젝트 venv 기준)
 | Git | 2.46.1.windows.1 |
 | Ollama | 0.5.3 |
 
- `pip freeze` 스냅샷은 파일로 보관:  
+ `pip freeze` 스냅샷은 파일로 보관:
   `python -m pip freeze > docs\pip_freeze.txt`
 
 C. Key Packages (고정 버전)
@@ -77,7 +77,7 @@ G. Git Snapshot
 | Remote | origin (GitHub) |
 
 H. 재현 절차(요약)
-1. venv 활성화 → 의존성 설치 (`pip freeze`를 `docs\pip_freeze.txt`로 저장)  
-2. `configs/baseline.yaml`로 파라미터 고정  
-3. `scripts\baseline_run.bat` 실행 → `logs\baseline_YYYYMMDD.out` 생성  
+1. venv 활성화 → 의존성 설치 (`pip freeze`를 `docs\pip_freeze.txt`로 저장)
+2. `configs/baseline.yaml`로 파라미터 고정
+3. `scripts\baseline_run.bat` 실행 → `logs\baseline_YYYYMMDD.out` 생성
 4. 결과 폴더/지표 값이 이전 baseline과 완전 일치 확인(정렬·평가·통계까지)

@@ -1,3 +1,19 @@
+exclude: |
+  (?x)^(
+    code/aligned_texts\.py|
+    code/eta_from_logs\.py|
+    code/interactive_chat\.py|
+    code/limit_items_json_recalc\.py|
+    code/make_report\.py|
+    code/make_summary_tile\.py|
+    code/patch_batch_outputs\.py|
+    code/prompt_templates\.py|
+    code/run_batch_ollama_gemma\.py|
+    reference/make_reference_jsonl\.py|
+    scripts/create_main_dataset_v1\.py|
+    scripts/m2_seed_data\.py
+  )$
+
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.9

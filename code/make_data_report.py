@@ -11,7 +11,11 @@ m = json.loads(MANI.read_text(encoding="utf-8"))
 items = m["items"]
 
 cnt = len(items)
-by = lambda k: collections.Counter(x[k] for x in items)
+
+
+def by(k):
+    return collections.Counter(x[k] for x in items)
+
 
 lines = []
 lines += ["# Data Report (split_manifest_main)", ""]

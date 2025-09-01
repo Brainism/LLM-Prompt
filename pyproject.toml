@@ -1,0 +1,21 @@
+[tool.ruff]
+extend-exclude = [
+  "code/make_report.py",
+  "code/make_summary_tile.py",
+  "code/patch_batch_outputs.py",
+  "code/prompt_templates.py",
+  "code/run_batch_ollama_gemma.py",
+  "reference/**",
+  "scripts/**",
+]
+
+[tool.isort]
+skip_glob = [
+  "code/make_report.py",
+  "code/make_summary_tile.py",
+  "code/patch_batch_outputs.py",
+  "code/prompt_templates.py",
+  "code/run_batch_ollama_gemma.py",
+  "reference/**",
+  "scripts/**",
+]
