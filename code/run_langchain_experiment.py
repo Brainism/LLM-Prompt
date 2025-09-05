@@ -28,7 +28,9 @@ def run(args: argparse.Namespace) -> None:
 
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
-    outfile = outdir / f"{args.mode}.jsonl"
+
+    suffix = f"_{args.out_suffix}" if args.out_suffix else ""
+    outfile = outdir / f"{args.mode}{suffix}.jsonl"
 
     llm = get_llm(
         args.provider,
@@ -38,11 +40,13 @@ def run(args: argparse.Namespace) -> None:
     )
 
     seen: set[str] = set()
-    if outfile.exists():
-        for _ln, s in enumerate(
-            outfile.read_text(encoding="utf-8-sig", errors="replace").splitlines(),
-            start=1,
-        ):
+    if args.overwrite and outfile.exists():
+        backup = outfile.with_suffix(outfile.suffix + ".bak")
+        backup.write_text(outfile.read_text(encoding="utf-8"), encoding="utf-8")
+        outfile.write_text("", encoding="utf-8")
+
+    if (not args.force) and outfile.exists():
+        for s in outfile.read_text(encoding="utf-8-sig", errors="replace").splitlines():
             s = s.strip()
             if not s:
                 continue
@@ -57,7 +61,7 @@ def run(args: argparse.Namespace) -> None:
 
     with outfile.open("a", encoding="utf-8") as f:
         for item in prompts:
-            if str(item.id) in seen:
+            if (not args.force) and (str(item.id) in seen):
                 n_skip += 1
                 continue
 
@@ -127,6 +131,13 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--model", default="gemma:7b")
     p.add_argument("--temperature", type=float, default=0.0)
     p.add_argument("--num-predict", type=int, default=None, dest="num_predict")
+
+    p.add_argument("--overwrite", action="store_true",
+                   help="기존 outfile가 있으면 .bak 백업 후 비우고 처음부터 다시 생성")
+    p.add_argument("--force", action="store_true",
+                   help="기존 outfile의 중복 검사(seen)를 무시하고 모두 생성(중복 라인 생김 주의)")
+    p.add_argument("--out-suffix", default="",
+                   help="결과 파일명에 접미사 추가 (예: general_<suffix>.jsonl)")
     return p.parse_args()
 
 

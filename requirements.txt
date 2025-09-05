@@ -1,11 +1,11 @@
 # =======================
 # Core (Py>=3.10 권장)
 # =======================
-numpy>=1.24,<2.0
-pandas>=2.0,<3.0
-scipy>=1.10
-matplotlib>=3.8
-tqdm>=4.66
+numpy==1.26.4
+pandas==2.2.2
+scipy>=1.13.1
+matplotlib>=3.9.0
+tqdm>=4.66.4
 orjson>=3.9
 
 # =======================
@@ -13,7 +13,7 @@ orjson>=3.9
 # =======================
 sacrebleu==2.4.2
 rouge-score==0.1.2
-jsonschema==4.22.0
+jsonschema==4.23.0
 
 # =======================
 # LangChain stack (0.3 계열 고정)
@@ -34,3 +34,9 @@ tiktoken>=0.7.0
 # Optional (시각화 등)
 # =======================
 seaborn>=0.13
+
+regex==2024.5.15
+statsmodels==0.14.2
+python-dateutil==2.9.0.post0
+pyyaml==6.0.1
+requests==2.32.3

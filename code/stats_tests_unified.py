@@ -1,14 +1,19 @@
 from __future__ import annotations
 
-import argparse, json, csv, math
+import argparse
+import csv
+import json
+import math
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from typing import Any, Dict, List, Tuple, Optional
+
 import numpy as np
 
 try:
-    from scipy.stats import wilcoxon
+    from scipy.stats import wilcoxon as _wilcoxon
     SCIPY_OK = True
 except Exception:
+    _wilcoxon = None
     SCIPY_OK = False
 
 def _to_float(x) -> float:
@@ -38,13 +43,6 @@ def _infer_metric_key_from_per_item(per_item: List[dict]) -> str:
         if k not in ("id", "prompt_type", "prompt_id", "mode") and isinstance(v, (int, float)):
             return k
     raise ValueError("No numeric metric key found in per_item")
-
-def cohen_d_paired(g: np.ndarray, i: np.ndarray) -> float:
-    diff = i - g
-    sd = np.std(diff, ddof=1) if diff.size > 1 else 0.0
-    if sd == 0.0:
-        return float("nan")
-    return float(np.mean(diff) / sd)
 
 def paired_bootstrap_ci(
     g: np.ndarray, i: np.ndarray, B: int = 10000, alpha: float = 0.05, seed: int = 123
@@ -187,7 +185,7 @@ def summarize_arrays(g: np.ndarray, i: np.ndarray, n_boot: int, do_wilcoxon: boo
     p = float("nan")
     if do_wilcoxon and SCIPY_OK and n > 0 and np.any(diff != 0):
         try:
-            p = float(wilcoxon(i, g, zero_method="pratt", alternative="two-sided", mode="auto").pvalue)
+            p = float(_wilcoxon(i, g, zero_method="pratt", alternative="two-sided", mode="auto").pvalue)
         except Exception:
             p = float("nan")
 
@@ -271,7 +269,10 @@ def print_table(rows: List[Dict]) -> None:
     colw = {h: max(len(h), 8) for h in headers}
     for r in rows:
         colw["metric"] = max(colw["metric"], len(str(r["metric"])))
-
+    def _fmt4(x: float) -> str:
+        if x != x:
+            return "nan"
+        return f"{x:.4f}"
     def fmt_row(r: Dict) -> List[str]:
         return [
             str(r["metric"]).ljust(colw["metric"]),
@@ -286,7 +287,6 @@ def print_table(rows: List[Dict]) -> None:
             _fmt4(r["p_wilcoxon"]).rjust(colw["p"]),
             _fmt4(r.get("q_fdr", float("nan"))).rjust(colw["q"]),
         ]
-
     line = " | ".join([
         "metric".ljust(colw["metric"]),
         "n".rjust(colw["n"]),
@@ -305,20 +305,110 @@ def print_table(rows: List[Dict]) -> None:
     for r in rows:
         print(" | ".join(fmt_row(r)))
 
+def _read_jsonl_map(jsonl_fp: Path) -> Dict[str, Any]:
+    """id -> record 매핑(마지막 라인 우선)."""
+    m: Dict[str, Any] = {}
+    with jsonl_fp.open("r", encoding="utf-8") as f:
+        for ln in f:
+            try:
+                o = json.loads(ln)
+            except Exception:
+                continue
+            pid = str(o.get("id", ""))
+            if not pid:
+                continue
+            m[pid] = o
+    return m
+
+def extract_metric(jsonl_fp: Path, metric: str = "pass") -> Dict[str, float]:
+    vals: Dict[str, float] = {}
+    with jsonl_fp.open("r", encoding="utf-8") as f:
+        for ln in f:
+            try:
+                o = json.loads(ln)
+            except Exception:
+                continue
+            pid = str(o.get("id", ""))
+            if not pid:
+                continue
+            if metric == "pass":
+                v = 1.0 if o.get("pass") else 0.0
+            else:
+                v = float(o.get(metric, 0.0) or 0.0)
+            vals[pid] = v
+    return vals
+
+def compare_pass_mode(baseline_fp: Path, cvd_fp: Path, out_fp: Path) -> None:
+    base = extract_metric(baseline_fp, metric="pass")
+    cvd  = extract_metric(cvd_fp, metric="pass")
+    ids = sorted(set(base.keys()) & set(cvd.keys()))
+    deltas = np.array([cvd[i] - base[i] for i in ids], dtype=float)
+
+    mean_delta = float(np.mean(deltas)) if deltas.size else 0.0
+
+    if deltas.size:
+        rng = np.random.default_rng(42)
+        B = 5000
+        n = deltas.size
+        idx = rng.integers(0, n, size=(B, n))
+        boots = deltas[idx].mean(axis=1)
+        ci_lo = float(np.percentile(boots, 2.5))
+        ci_hi = float(np.percentile(boots, 97.5))
+    else:
+        ci_lo = ci_hi = 0.0
+
+    stat, p = (float("nan"), 1.0)
+    if SCIPY_OK and deltas.size and np.any(deltas != 0):
+        try:
+            stat, p = _wilcoxon(
+                x=[base[i] for i in ids],
+                y=[cvd[i] for i in ids],
+                zero_method="wilcox",
+            )
+            stat = float(stat); p = float(p)
+        except Exception:
+            stat, p = float("nan"), 1.0
+
+    out_fp.parent.mkdir(parents=True, exist_ok=True)
+    with out_fp.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["n","mean_delta","ci_lo","ci_hi","wilcoxon_stat","wilcoxon_p"])
+        w.writeheader()
+        w.writerow({
+            "n": len(ids),
+            "mean_delta": round(mean_delta, 4),
+            "ci_lo": round(ci_lo, 4),
+            "ci_hi": round(ci_hi, 4),
+            "wilcoxon_stat": stat,
+            "wilcoxon_p": p
+        })
+    print("[OK] wrote", out_fp)
+
 def parse_args():
-    ap = argparse.ArgumentParser(description="Paired stats (auto-discovery + robust schema loader).")
+    ap = argparse.ArgumentParser(
+        description="Paired stats utilities: (A) metric files (auto-discovery) OR (B) baseline vs CVD pass compare."
+    )
     ap.add_argument("--rouge", type=Path, help="ROUGE json")
-    ap.add_argument("--bleu", type=Path, help="BLEU/CodeBLEU json")
-    ap.add_argument("--chrf", type=Path, help="chrF json")
+    ap.add_argument("--bleu",  type=Path, help="BLEU/CodeBLEU json")
+    ap.add_argument("--chrf",  type=Path, help="chrF json")
     ap.add_argument("--output", type=Path, default=Path("results/quantitative/stats_summary.csv"))
     ap.add_argument("--bootstrap", type=int, default=0, help="bootstrap resamples (0=off)")
     ap.add_argument("--wilcoxon", action="store_true", help="compute Wilcoxon signed-rank p")
     ap.add_argument("--fdr", action="store_true", help="apply BH-FDR across metrics")
     ap.add_argument("--dry-run", action="store_true", help="파일을 쓰지 않고 요약만 출력")
+
+    ap.add_argument("--baseline", type=Path, help="results/raw/xxx_baseline.jsonl")
+    ap.add_argument("--cvd",      type=Path, help="results/raw/xxx_cvd.jsonl")
+    ap.add_argument("--out",      type=Path, help="results/quantitative/stats_summary.csv (compare-pass mode)")
+
     return ap.parse_args()
 
 def main():
     args = parse_args()
+
+    if args.baseline and args.cvd:
+        out_fp = args.out or Path("results/quantitative/stats_summary.csv")
+        compare_pass_mode(args.baseline, args.cvd, out_fp)
+        return
 
     if not any([args.rouge, args.bleu, args.chrf]):
         discovered = discover_metric_files()

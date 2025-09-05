@@ -1,0 +1,147 @@
+{
+"title": "도시 공원 관리의 장점과 과제",
+"tags": ["공원 관리", "도시 공원", "장점", "과제"]
+}
+{
+"title": "Herd Immunity Effects of Vaccination",
+"tags": ["vaccination", "herd immunity", "disease prevention"]
+}
+{
+"title": "클라우드와 엣지 컴퓨팅의 차이",
+"tags": ["클라우드", "엣지", "컴퓨팅"]
+}
+{
+"title": "Long-term impact of compound interest",
+"tags": ["finance", "investing", "interest", "growth"]
+}
+{
+"title": "형성평가의 학습 동기 강화",
+"tags": ["학습동기", "형성평가", "교육"]
+}
+{
+"title": "Social impact of public transit fare increases",
+"tags": ["public transport", "fare increase", "social impact"]
+}
+도시 공원 관리는 공원의 유용성을 유지하고 이용객 만족도를 높이는 데 도움이 됩니다.
+Vaccination can indirectly protect others by reducing the likelihood of disease transmission among vulnerable populations.
+클라우드 컴퓨팅과 엣지 컴퓨팅의 주요 차이는 클라우드는 데이터 처리를 중앙 서버에 집중하고, 엣지는 데이터 처리를 사용자 기기 또는 네트워크 장치에 분산하여 처리합니다.
+- 복리 이자의 장기 영향은 지속적으로 성장합니다.
+- 복리 이자는 시간에 따라 누적되고 성장합니다.
+- 복리 이자는 금융 성과를 향상시키고 부동산 소유를 증대시킵니다.
+- 형성평가는 학습 동기를 유지하는 데 도움이 된다.
+- 형성평가는 학습 과정에서 학습 목표를 달성하기 위해 필요한 학습 내용을 파악할 수 있다.
+- 형성평가는 학습 과정에서 학습 성과를 확인하고 필요에 따라 학습 내용을 재설정할 수 있다.
+- 사회적 접근성 저하
+- 이용자 만족도 저하
+- 경제적 부담 증가
+도시 공원 관리는 효율적인 공원 운영과 이용객 만족도 향상을 위한 중요한 과제입니다.
+백신 접종은 집단면역 효과를 통해 질병 예방에 중요합니다.
+클라우드 컴퓨팅은 중앙 서버에서 작업을 처리하고 데이터를 저장하는 반면, 엣지 컴퓨팅은 데이터 처리 및 분석을 클라우드 컴퓨팅 기반 장치에 위치하여 실시간 처리할 수 있습니다.
+The long-term investment effect of compound interest
+형성평가 및 학습동기는 학습 성과 향상에 중요한 요인입니다.
+The social impact of public transport fare increases.
+{
+"title": "도시 공원 관리의 장점과 과제",
+"tags": ["공원 관리", "도시 공원", "장점", "과제"]
+}
+{
+"title": "Herd immunity effects of vaccination",
+"tags": ["vaccination", "herd immunity", "disease prevention"]
+}
+{
+"title": "클라우드와 엣지 컴퓨팅의 차이",
+"tags": ["클라우드", "엣지", "컴퓨팅"]
+}
+{
+"title": "Long-term impact of compound interest",
+"tags": ["finance", "investing", "interest", "growth"]
+}
+{
+"title": "형성평가의 학습 동기 강화",
+"tags": ["학습동기", "형성평가", "교육"]
+}
+{
+"title": "Social impact of public transit fare increases",
+"tags": ["public transport", "fare increase", "social impact"]
+}
+도시 공원 관리는 공원의 유용성을 유지하고 이용객 만족도를 높이는 데 도움이 됩니다.
+Vaccination can indirectly protect others by reducing the likelihood of disease transmission among vulnerable populations.
+클라우드 컴퓨팅과 엣지 컴퓨팅의 주요 차이는 클라우드는 데이터 처리를 중앙 서버에 집중하고, 엣지는 데이터 처리를 사용자 기기 또는 네트워크 장치에 분산하여 처리합니다.
+- 복리 이자의 장기 영향은 지속적으로 성장합니다.
+- 복리 이자는 시간에 따라 누적되고 성장합니다.
+- 복리 이자는 금융 성과를 향상시키고 부동산 소유를 증대시킵니다.
+- 형성평가는 학습 동기를 유지하는 데 도움이 된다.
+- 형성평가는 학습 과정에서 학습 목표를 달성하기 위해 필요한 학습 내용을 파악할 수 있다.
+- 형성평가는 학습 과정에서 학습 성과를 확인하고 필요에 따라 학습 내용을 재설정할 수 있다.
+- 사회적 접근성 저하
+- 이용자 만족도 저하
+- 경제적 부담 증가
+도시 공원 관리는 효율적인 공원 운영과 이용객 만족도 향상을 위한 중요한 과제입니다.
+백신 접종은 집단면역 효과를 통해 질병 예방에 중요합니다.
+클라우드 컴퓨팅은 중앙 서버에서 작업을 처리하고 데이터를 저장하는 반면, 엣지 컴퓨팅은 데이터 처리 및 분석을 클라우드 컴퓨팅 기반 장치에 위치하여 실시간 처리할 수 있습니다.
+The long-term investment effect of compound interest
+형성평가 및 학습동기는 학습 성과 향상에 중요한 요인입니다.
+The social impact of public transport fare increases.
+{
+"title": "도시 공원 관리의 장점과 과제",
+"tags": ["공원 관리", "도시 공원", "장점", "과제"]
+}
+{
+"title": "Herd immunity effects of vaccination",
+"tags": ["vaccination", "herd immunity", "disease prevention"]
+}
+{
+"title": "클라우드와 엣지 컴퓨팅의 차이",
+"tags": ["클라우드", "엣지", "컴퓨팅"]
+}
+{
+"title": "Long-term impact of compound interest",
+"tags": ["finance", "investing", "interest", "growth"]
+}
+{
+"title": "형성평가의 학습 동기 강화",
+"tags": ["학습동기", "형성평가", "교육"]
+}
+{
+"title": "Social impact of public transit fare increases",
+"tags": ["public transport", "fare increase", "social impact"]
+}
+도시 공원 관리는 공원의 유용성을 유지하고 이용객 만족도를 높이는 데 도움이 됩니다.
+Vaccination can indirectly protect others by reducing the likelihood of disease transmission among vulnerable populations.
+클라우드 컴퓨팅과 엣지 컴퓨팅의 주요 차이는 클라우드는 데이터 처리를 중앙 서버에 집중하고, 엣지는 데이터 처리를 사용자 기기 또는 네트워크 장치에 분산하여 처리합니다.
+- 복리 이자의 장기 영향은 지속적으로 성장합니다.
+- 복리 이자는 시간에 따라 누적되고 성장합니다.
+- 복리 이자는 금융 성과를 향상시키고 부동산 소유를 증대시킵니다.
+- 형성평가는 학습 동기를 유지하는 데 도움이 된다.
+- 형성평가는 학습 과정에서 학습 목표를 달성하기 위해 필요한 학습 내용을 파악할 수 있다.
+- 형성평가는 학습 과정에서 학습 성과를 확인하고 필요에 따라 학습 내용을 재설정할 수 있다.
+- 사회적 접근성 저하
+- 이용자 만족도 저하
+- 경제적 부담 증가
+도시 공원 관리는 효율적인 공원 운영과 이용객 만족도 향상을 위한 중요한 과제입니다.
+백신 접종은 집단면역 효과를 통해 질병 예방에 중요합니다.
+클라우드 컴퓨팅은 중앙 서버에서 작업을 처리하고 데이터를 저장하는 반면, 엣지 컴퓨팅은 데이터 처리 및 분석을 클라우드 컴퓨팅 기반 장치에 위치하여 실시간 처리할 수 있습니다.
+The long-term investment effect of compound interest
+형성평가 및 학습동기는 학습 성과 향상에 중요한 요인입니다.
+The social impact of public transport fare increases.
+{
+"title": "도시 공원 관리의 장점과 과제",
+"tags": ["공원 관리", "도시 공원", "장점", "과제"]
+}
+{
+"title": "Herd immunity effects of vaccination",
+"tags": ["vaccination", "herd immunity", "disease prevention"]
+}
+{
+"title": "클라우드와 엣지 컴퓨팅의 차이",
+"tags": ["클라우드", "엣지", "컴퓨팅"]
+}
+{
+"title": "Long-term impact of compound interest",
+"tags": ["finance", "investing", "interest", "growth"]
+}
+{
+"title": "형성평가의 학습 동기 강화",
+"tags": ["학습동기", "형성평가", "교육"]
+}
+접종의 예방 효과는 무병 집단 형성에 영향을 미치는 '헤드 아이면티' 효과를 포함하여 이해할 수 있습니다.

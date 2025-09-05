@@ -1,587 +1,304 @@
 {
-  "metric": "rougeL",
-  "n": 96,
   "items": [
     {
-      "id": "ex-0001",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0001",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0002",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0002",
+      "base": 0.56,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0003",
-      "general": 40.0,
-      "instructed": 40.0,
-      "diff": 0.0
+      "id": "EX-0003",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0004",
-      "general": 18.181818181818183,
-      "instructed": 18.181818181818183,
-      "diff": 0.0
+      "id": "EX-0004",
+      "base": 0.64,
+      "instr": 0.7272727272727272
     },
     {
-      "id": "ex-0005",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0005",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0006",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0006",
+      "base": 0.6666666666666666,
+      "instr": 0.6923076923076923
     },
     {
-      "id": "ex-0007",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0007",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0008",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0008",
+      "base": 0.18750000000000003,
+      "instr": 0.16666666666666669
     },
     {
-      "id": "ex-0009",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0009",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0010",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0010",
+      "base": 0.0,
+      "instr": 0
     },
     {
-      "id": "ex-0011",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0011",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0012",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0012",
+      "base": 0.0,
+      "instr": 0
     },
     {
-      "id": "ex-0013",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0013",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0014",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0014",
+      "base": 0.2857142857142857,
+      "instr": 0
     },
     {
-      "id": "ex-0015",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0015",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0016",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0016",
+      "base": 0.33333333333333337,
+      "instr": 0.18181818181818182
     },
     {
-      "id": "ex-0017",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0017",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0018",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0018",
+      "base": 0.3157894736842105,
+      "instr": 0.18181818181818182
     },
     {
-      "id": "ex-0019",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0019",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0020",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0020",
+      "base": 0.56,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0021",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0021",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0022",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0022",
+      "base": 0.64,
+      "instr": 0.7272727272727272
     },
     {
-      "id": "ex-0023",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0023",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0024",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0024",
+      "base": 0.6666666666666666,
+      "instr": 0.6923076923076923
     },
     {
-      "id": "ex-0025",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0025",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0026",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0026",
+      "base": 0.18750000000000003,
+      "instr": 0.16666666666666669
     },
     {
-      "id": "ex-0027",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0027",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0028",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0028",
+      "base": 0.0,
+      "instr": 0
     },
     {
-      "id": "ex-0029",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0029",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0030",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0030",
+      "base": 0.0,
+      "instr": 0
     },
     {
-      "id": "ex-0031",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0031",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0032",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0032",
+      "base": 0.2857142857142857,
+      "instr": 0
     },
     {
-      "id": "ex-0033",
-      "general": 0.0,
-      "instructed": 16.666666666666664,
-      "diff": 16.666666666666664
+      "id": "EX-0033",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0034",
-      "general": 0.0,
-      "instructed": 18.181818181818183,
-      "diff": 18.181818181818183
+      "id": "EX-0034",
+      "base": 0.33333333333333337,
+      "instr": 0.18181818181818182
     },
     {
-      "id": "ex-0035",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0035",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0036",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0036",
+      "base": 0.3157894736842105,
+      "instr": 0.18181818181818182
     },
     {
-      "id": "ex-0037",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0037",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0038",
-      "general": 0.0,
-      "instructed": 16.666666666666668,
-      "diff": 16.666666666666668
+      "id": "EX-0038",
+      "base": 0.56,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0039",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0039",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0040",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0040",
+      "base": 0.64,
+      "instr": 0.7272727272727272
     },
     {
-      "id": "ex-0041",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0041",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0042",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0042",
+      "base": 0.6666666666666666,
+      "instr": 0.6923076923076923
     },
     {
-      "id": "ex-0043",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0043",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0044",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0044",
+      "base": 0.18750000000000003,
+      "instr": 0.16666666666666669
     },
     {
-      "id": "ex-0045",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0045",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0046",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0046",
+      "base": 0.0,
+      "instr": 0
     },
     {
-      "id": "ex-0047",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0047",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0048",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0048",
+      "base": 0.0,
+      "instr": 0
     },
     {
-      "id": "ex-0049",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0049",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0050",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0050",
+      "base": 0.2857142857142857,
+      "instr": 0
     },
     {
-      "id": "ex-0051",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0051",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0052",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0052",
+      "base": 0.33333333333333337,
+      "instr": 0.18181818181818182
     },
     {
-      "id": "ex-0053",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0053",
+      "base": 0,
+      "instr": 0
     },
     {
-      "id": "ex-0054",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0054",
+      "base": 0.3157894736842105,
+      "instr": 0.18181818181818182
     },
     {
-      "id": "ex-0055",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0055",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0056",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0056",
+      "base": 0.56,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0057",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0057",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0058",
-      "general": 18.181818181818183,
-      "instructed": 0.0,
-      "diff": -18.181818181818183
+      "id": "EX-0058",
+      "base": 0.64,
+      "instr": 0.7272727272727272
     },
     {
-      "id": "ex-0059",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0059",
+      "base": 0.5714285714285715,
+      "instr": 0.6666666666666666
     },
     {
-      "id": "ex-0060",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0061",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0062",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0063",
-      "general": 0.0,
-      "instructed": 20.0,
-      "diff": 20.0
-    },
-    {
-      "id": "ex-0064",
-      "general": 0.0,
-      "instructed": 18.181818181818183,
-      "diff": 18.181818181818183
-    },
-    {
-      "id": "ex-0065",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0066",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0067",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0068",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0069",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0070",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0071",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0072",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0073",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0074",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0075",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0076",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0077",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0078",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0079",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0080",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0081",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0082",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0083",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0084",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0085",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0086",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0087",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0088",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0089",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0090",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0091",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0092",
-      "general": 0.0,
-      "instructed": 16.666666666666668,
-      "diff": 16.666666666666668
-    },
-    {
-      "id": "ex-0093",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
-    },
-    {
-      "id": "ex-0094",
-      "general": 18.181818181818183,
-      "instructed": 0.0,
-      "diff": -18.181818181818183
-    },
-    {
-      "id": "ex-0095",
-      "general": 40.0,
-      "instructed": 0.0,
-      "diff": -40.0
-    },
-    {
-      "id": "ex-0096",
-      "general": 0.0,
-      "instructed": 0.0,
-      "diff": 0.0
+      "id": "EX-0060",
+      "base": 0,
+      "instr": 0
     }
-  ],
-  "corpus": {
-    "general": 1.4015151515151516,
-    "instructed": 1.7140151515151516,
-    "diff": 0.3125
-  }
+  ]
 }

@@ -14,3 +14,21 @@ results/**
 !results/quantitative/stats_summary.csv
 !results/quantitative/compliance_summary.json
 !results/figures/summary_tile.png
+
+# bracketed garbage like List[Path], Tuple[List[str]]
+*[[]*
+*[[]*[]]*
+
+# common stray tokens
+/bool
+/int
+/float
+/str
+/None
+/Dict
+/Tuple
+/np.ndarray
+/List[Path]
+/List[str]
+/0
+/1

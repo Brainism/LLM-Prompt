@@ -3,7 +3,7 @@ import sys
 import json
 import argparse
 from typing import Any, Dict, List
-from jsonschema import Draft7Validator, exceptions as js_exceptions
+from jsonschema import Draft7Validator
 
 def _resolve_path(path_str: str, script_dir: str) -> str:
     if not path_str:
@@ -173,16 +173,9 @@ def cli():
         default=r"schema\split_manifest_main.schema.json",
         help="Path to JSON schema (default: schema\\split_manifest_main.schema.json)",
     )
-    ap.add_argument(
-        "--max-errors", type=int, default=100, help="Max errors to display (default: 100)"
-    )
-    ap.add_argument(
-        "--show-sample", type=int, default=5, help="How many items to preview (default: 5)"
-    )
-    ap.add_argument(
-        "--legacy", action="store_true",
-        help="Use legacy exit codes/messages similar to the minimal version."
-    )
+    ap.add_argument("--max-errors", type=int, default=100, help="Max errors to display (default: 100)")
+    ap.add_argument("--show-sample", type=int, default=5, help="How many items to preview (default: 5)")
+    ap.add_argument("--legacy", action="store_true", help="Use legacy exit codes/messages similar to the minimal version.")
     args = ap.parse_args()
 
     code = validate_manifest(args.manifest, args.schema, max_errors=args.max_errors, show_sample=args.show_sample)
