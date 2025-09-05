@@ -1,0 +1,331 @@
+```json
+{
+  "title": "도시 공원 관리의 장점과 과제",
+  "tags": [
+    "도시 공원",
+    "관리",
+    "장점",
+    "과제"
+  ]
+}
+```
+```json
+{
+  "title": "Herd immunity effects of vaccination",
+  "tags": [
+    "Vaccination",
+    "Herd immunity",
+    "Epidemiology",
+    "Disease prevention",
+    "Public health"
+  ]
+}
+```
+```json
+{
+  "title": "클라우드와 엣지 컴퓨팅의 차이",
+  "tags": [
+    "클라우드 컴퓨팅",
+    "엣지 컴퓨팅",
+    "차이",
+    "정보 기술"
+  ]
+}
+```
+```json
+{
+  "title": "Long-term impact of compound interest",
+  "tags": [
+    "Finance",
+    "Investing",
+    "Compound Interest"
+  ]
+}
+```
+```json
+{
+  "title": "형성평가의 학습 동기 강화",
+  "tags": [
+    "형성평가",
+    "학습동기",
+    "강화"
+  ]
+}
+```
+```json
+{
+  "title": "Social Impact of Public Transit Fare Increases",
+  "tags": [
+    "Public transport",
+    "Fare increases",
+    "Social impact",
+    "Urban planning",
+    "Transportation policy"
+  ]
+}
+```
+도시 공원 관리는 공원 이용객의 만족도를 높이고 환경 보호 및 생태계 복원에 도움이 됩니다.
+When a significant proportion of the population is vaccinated, vaccination indirectly protects those who are unable to be vaccinated due to medical reasons.
+클라우드 컴퓨팅은 사용자 인터페이스를 제공하는 서버에 데이터 및 응용 프로그램을 제공하고 관리하는 반면, 엣지 컴퓨팅은 데이터 처리 및 분석을 위해 장치 자체에 처리 장치를 포함합니다.
+- **Exponential growth:** Compound interest results in exponential growth of wealth over time, where each year's return adds to the principal balance and subsequent returns.
+
+
+- **Time value of money:** The power of compound interest lies in its ability to compound over time, earning interest on both the initial investment and the accumulated interest.
+
+
+- **Early investment advantage:** Investing early allows for more time for compound interest to work its magic, leading to potentially greater wealth over the long term.
+- 형성평가는 학습 과정에서 학습 목표 달성도를 확인하고 학습 동기를 유지하는 데 도움이 됩니다.
+- 정확하고 신뢰할 수 있는 형성평가 결과는 학습 목표에 도달했는지 확인하고 향후 학습 계획을 수립하는 데 사용됩니다.
+- 학생들이 형성평가 결과를 통해 학습 과정에 참여하고 목표 달성을 위한 노력을 하는 동기를 유발합니다.
+- **Reduced accessibility:** Fare increases can disproportionately impact low-income individuals and families, potentially reducing access to essential transportation services.
+
+
+- **Increased congestion:** Higher fares can incentivize more people to drive, leading to increased congestion and traffic congestion.
+
+
+- **Social displacement:** Fare increases can contribute to the displacement of vulnerable populations who rely on public transit as a vital lifeline to employment, education, and essential services.
+도시 공원 관리는 효율적인 공원 운영을 통해 이용객 만족도를 높이고, 동시에 도시 환경 개선과 생태계 보호를 통한 장점과 과제를 포함합니다.
+Herd immunity achieved through vaccination protects individuals and society by reducing the transmission and severity of infectious diseases.
+클라우드는 중앙 서버에서 서비스를 제공하고, 엣지 컴퓨팅은 데이터 처리를 네트워크 가장자리에서 처리합니다.
+The English translation of the Korean sentence is: **Long-term investment effects of belly button lint.**
+형성평가와 학습동기입니다.
+The English translation of the Korean sentence is: **The social impact of public transport fare increases**.
+```json
+{
+  "title": "도시 공원 관리의 장점과 과제",
+  "tags": [
+    "도시 공원",
+    "관리",
+    "장점",
+    "과제"
+  ]
+}
+```
+```json
+{
+  "title": "Herd immunity effects of vaccination",
+  "tags": [
+    "Vaccination",
+    "Herd immunity",
+    "Epidemiology",
+    "Disease prevention",
+    "Public health"
+  ]
+}
+```
+```json
+{
+  "title": "클라우드와 엣지 컴퓨팅의 차이",
+  "tags": [
+    "클라우드 컴퓨팅",
+    "엣지 컴퓨팅",
+    "차이",
+    "정보 기술"
+  ]
+}
+```
+```json
+{
+  "title": "Long-term impact of compound interest",
+  "tags": [
+    "Finance",
+    "Investing",
+    "Compound Interest"
+  ]
+}
+```
+```json
+{
+  "title": "형성평가의 학습 동기 강화",
+  "tags": [
+    "형성평가",
+    "학습동기",
+    "강화"
+  ]
+}
+```
+```json
+{
+  "title": "Social Impact of Public Transit Fare Increases",
+  "tags": [
+    "Public transport",
+    "Fare increases",
+    "Social impact",
+    "Urban planning",
+    "Transportation policy"
+  ]
+}
+```
+도시 공원 관리는 공원 이용객의 만족도를 높이고 환경 보호 및 생태계 복원에 도움이 됩니다.
+When a significant proportion of the population is vaccinated, vaccination indirectly protects those who are unable to be vaccinated due to medical reasons.
+클라우드 컴퓨팅은 사용자 인터페이스를 제공하는 서버에 데이터 및 응용 프로그램을 제공하고 관리하는 반면, 엣지 컴퓨팅은 데이터 처리 및 분석을 위해 장치 자체에 처리 장치를 포함합니다.
+- **Exponential growth:** Compound interest results in exponential growth of wealth over time, where each year's return adds to the principal balance and subsequent returns.
+
+
+- **Time value of money:** The power of compound interest lies in its ability to compound over time, earning interest on both the initial investment and the accumulated interest.
+
+
+- **Early investment advantage:** Investing early allows for more time for compound interest to work its magic, leading to potentially greater wealth over the long term.
+- 형성평가는 학습 과정에서 학습 목표 달성도를 확인하고 학습 동기를 유지하는 데 도움이 됩니다.
+- 정확하고 신뢰할 수 있는 형성평가 결과는 학습 목표에 도달했는지 확인하고 향후 학습 계획을 수립하는 데 사용됩니다.
+- 학생들이 형성평가 결과를 통해 학습 과정에 참여하고 목표 달성을 위한 노력을 하는 동기를 유발합니다.
+- **Reduced accessibility:** Fare increases can disproportionately impact low-income individuals and families, potentially reducing access to essential transportation services.
+
+
+- **Increased congestion:** Higher fares can incentivize more people to drive, leading to increased congestion and traffic congestion.
+
+
+- **Social displacement:** Fare increases can contribute to the displacement of vulnerable populations who rely on public transit as a vital lifeline to employment, education, and essential services.
+도시 공원 관리는 효율적인 공원 운영을 통해 이용객 만족도를 높이고, 동시에 도시 환경 개선과 생태계 보호를 통한 장점과 과제를 포함합니다.
+Herd immunity achieved through vaccination protects individuals and society by reducing the transmission and severity of infectious diseases.
+클라우드는 중앙 서버에서 서비스를 제공하고, 엣지 컴퓨팅은 데이터 처리를 네트워크 가장자리에서 처리합니다.
+The English translation of the Korean sentence is: **Long-term investment effects of belly button lint.**
+형성평가와 학습동기입니다.
+The English translation of the Korean sentence is: **The social impact of public transport fare increases**.
+```json
+{
+  "title": "도시 공원 관리의 장점과 과제",
+  "tags": [
+    "도시 공원",
+    "관리",
+    "장점",
+    "과제"
+  ]
+}
+```
+```json
+{
+  "title": "Herd immunity effects of vaccination",
+  "tags": [
+    "Vaccination",
+    "Herd immunity",
+    "Epidemiology",
+    "Disease prevention",
+    "Public health"
+  ]
+}
+```
+```json
+{
+  "title": "클라우드와 엣지 컴퓨팅의 차이",
+  "tags": [
+    "클라우드 컴퓨팅",
+    "엣지 컴퓨팅",
+    "차이",
+    "정보 기술"
+  ]
+}
+```
+```json
+{
+  "title": "Long-term impact of compound interest",
+  "tags": [
+    "Finance",
+    "Investing",
+    "Compound Interest"
+  ]
+}
+```
+```json
+{
+  "title": "형성평가의 학습 동기 강화",
+  "tags": [
+    "형성평가",
+    "학습동기",
+    "강화"
+  ]
+}
+```
+```json
+{
+  "title": "Social Impact of Public Transit Fare Increases",
+  "tags": [
+    "Public transport",
+    "Fare increases",
+    "Social impact",
+    "Urban planning",
+    "Transportation policy"
+  ]
+}
+```
+도시 공원 관리는 공원 이용객의 만족도를 높이고 환경 보호 및 생태계 복원에 도움이 됩니다.
+When a significant proportion of the population is vaccinated, vaccination indirectly protects those who are unable to be vaccinated due to medical reasons.
+클라우드 컴퓨팅은 사용자 인터페이스를 제공하는 서버에 데이터 및 응용 프로그램을 제공하고 관리하는 반면, 엣지 컴퓨팅은 데이터 처리 및 분석을 위해 장치 자체에 처리 장치를 포함합니다.
+- **Exponential growth:** Compound interest results in exponential growth of wealth over time, where each year's return adds to the principal balance and subsequent returns.
+
+
+- **Time value of money:** The power of compound interest lies in its ability to compound over time, earning interest on both the initial investment and the accumulated interest.
+
+
+- **Early investment advantage:** Investing early allows for more time for compound interest to work its magic, leading to potentially greater wealth over the long term.
+- 형성평가는 학습 과정에서 학습 목표 달성도를 확인하고 학습 동기를 유지하는 데 도움이 됩니다.
+- 정확하고 신뢰할 수 있는 형성평가 결과는 학습 목표에 도달했는지 확인하고 향후 학습 계획을 수립하는 데 사용됩니다.
+- 학생들이 형성평가 결과를 통해 학습 과정에 참여하고 목표 달성을 위한 노력을 하는 동기를 유발합니다.
+- **Reduced accessibility:** Fare increases can disproportionately impact low-income individuals and families, potentially reducing access to essential transportation services.
+
+
+- **Increased congestion:** Higher fares can incentivize more people to drive, leading to increased congestion and traffic congestion.
+
+
+- **Social displacement:** Fare increases can contribute to the displacement of vulnerable populations who rely on public transit as a vital lifeline to employment, education, and essential services.
+도시 공원 관리는 효율적인 공원 운영을 통해 이용객 만족도를 높이고, 동시에 도시 환경 개선과 생태계 보호를 통한 장점과 과제를 포함합니다.
+Herd immunity achieved through vaccination protects individuals and society by reducing the transmission and severity of infectious diseases.
+클라우드는 중앙 서버에서 서비스를 제공하고, 엣지 컴퓨팅은 데이터 처리를 네트워크 가장자리에서 처리합니다.
+The English translation of the Korean sentence is: **Long-term investment effects of belly button lint.**
+형성평가와 학습동기입니다.
+The English translation of the Korean sentence is: **The social impact of public transport fare increases**.
+```json
+{
+  "title": "도시 공원 관리의 장점과 과제",
+  "tags": [
+    "도시 공원",
+    "관리",
+    "장점",
+    "과제"
+  ]
+}
+```
+```json
+{
+  "title": "Herd immunity effects of vaccination",
+  "tags": [
+    "Vaccination",
+    "Herd immunity",
+    "Epidemiology",
+    "Disease prevention",
+    "Public health"
+  ]
+}
+```
+```json
+{
+  "title": "클라우드와 엣지 컴퓨팅의 차이",
+  "tags": [
+    "클라우드 컴퓨팅",
+    "엣지 컴퓨팅",
+    "차이",
+    "정보 기술"
+  ]
+}
+```
+```json
+{
+  "title": "Long-term impact of compound interest",
+  "tags": [
+    "Finance",
+    "Investing",
+    "Compound Interest"
+  ]
+}
+```
+```json
+{
+  "title": "형성평가의 학습 동기 강화",
+  "tags": [
+    "형성평가",
+    "학습동기",
+    "강화"
+  ]
+}
+```
+백신 접종의 소집성 예방 효과

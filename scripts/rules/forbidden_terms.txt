@@ -1,0 +1,5 @@
+forbidden_api_key
+password:
+<secret>
+DROP TABLE
+rm -rf /
