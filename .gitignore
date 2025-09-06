@@ -32,3 +32,9 @@ results/**
 /List[str]
 /0
 /1
+
+!results/quantitative/*.v2.json
+!results/quantitative/*.v2.csv
+!results/quantitative/rouge.json
+!results/quantitative/bleu_sacre.json
+!results/quantitative/chrf.json
