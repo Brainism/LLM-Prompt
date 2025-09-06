@@ -1,37 +1,26 @@
-# Analysis Plan (Preregistered) — v1
-- Generated at: 2025-08-19T14:57:40.460800Z
-- Principle: **가설 중심 / 변경 금지(변경 시 사유 기록)**
+## Hypotheses
+- H1 (품질): instructed − general 의 BLEU ⟫ 0
+- H2 (구조): instructed − general 의 ROUGE-L ≈ 0 (불확실)
+- H3 (문자기반): instructed − general 의 chrF ≈ 0 (불확실)
+- Compliance Δ: 0 (동수) 가정
 
-## A. Hypotheses (3-5 core)
-- **H1 (Similarity):** Prompt A has higher **ROUGE-L (median)** than B by **≥ +1.0pt** on Summarization.
-- **H2 (Interaction):** The **BERTScore F1** gain of A over B is larger on **Long** inputs vs **Short**.
-- **H3 (Compliance):** **JSON validity & required-key rate** is higher for A than B on QA/IE-style outputs.
+## Metrics
+- 1차: BLEU (sacreBLEU sentence), ROUGE-L (F1), chrF
+- 2차(선택): BERTScore F1
+- Efficiency: latency (p50/p95)
 
-## B. Primary / Secondary metrics
-- **Primary:** ROUGE-1/2/L, **BERTScore F1**
-- **Compliance:** JSON schema validity, required-key inclusion, forbidden-terms violation rate
-- **Efficiency:** Token cost, latency p50/p95
-- **Robustness:** Paraphrase / word-order perturbation retention rate
+## Statistics
+- Paired Bootstrap (≥10k) for Δ mean 95% CI
+- Wilcoxon signed-rank test (two-sided)
+- Effect size: Cohen’s d_z (paired)
+- Multiple tests: Benjamini–Hochberg FDR (q=0.05)
+- Unit: per-id pair (n=items)
 
-## C. Data & Splits (link to manifest)
-- Target n ≥ 50, stratified by domain, length, difficulty, language
-- Robustness clusters with `cluster_id`; **cluster-aware resampling** in stats
-- Exclusion rules: empty output, truncation/token overflow, corrupted reference
+## Decision
+- 유의: CI가 0 미포함 & q<0.05
+- Report: Δ, Δ%, d, CI, p, q 전부 표기
 
-## D. Statistical plan
-- **Paired bootstrap** (iterations: 10000, CI: 95%)
-- **Wilcoxon signed-rank** (two-sided) on per-item deltas
-- Report **effect size (dz)**; **BH-FDR** for multiple comparisons
-- For robustness: resample **by cluster** (not item) to avoid N inflation
-
-## E. Logging schema (must exist in result logs)
-- item_id, domain, lang, len_bin, diff_bin, cluster_id
-- prompt_id, model_id, seed, temperature, top_p, max_tokens
-- metrics: rouge1/2/L, bertscore_f1, json_valid, req_keys_rate, forbid_viol, tok_cost, lat_p50, lat_p95
-
-## F. Stopping / Gate
-- Proceed to writing if ≥2/3 core H pass with q<0.05 or dz≥0.3 and CI excludes 0
-- Otherwise expand n (toward 80-120) or strengthen ablation
-
-## G. Deviations
-- Any change to H1-H3 or o/iter must be recorded here with timestamp & rationale
+## DoD (Analysis)
+- tables/stats.csv (BLEU/ROUGE-L/chrF/[BERTScore])
+- tables/metrics.csv (집계), tables/latency.csv (p50/p95)
+- figs/error_board.html (상/하위 Δ 사례 스니펫)

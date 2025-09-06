@@ -1,37 +1,22 @@
+SHELL := cmd
+.SHELLFLAGS := /C
 .ONESHELL:
-SHELL := bash
-PYTHON ?= python
+.PHONY: all run tables env clean-garbage
 
-SEED ?= 42
-TEMP ?= 0.2
-TOP_P ?= 1.0
-MAX_TOKENS ?= 1024
+all: run tables env
 
-.PHONY: all baseline env params tag-baseline verify clean
+run:
+	@if not exist .venv ( py -m venv .venv )
+	call .\.venv\Scripts\activate
+	run_all.bat
 
-all: baseline
+tables:
+	call .\.venv\Scripts\activate
+	python scripts\export_tables_and_figs.py
 
 env:
-	$(PYTHON) scripts/capture_env.py --out docs/env_table.md
+	call .\.venv\Scripts\activate
+	python scripts\capture_env.py
 
-params:
-	mkdir -p configs
-	$(PYTHON) scripts/record_params.py \
-	  --seed $(SEED) --temperature $(TEMP) --top_p $(TOP_P) --max_tokens $(MAX_TOKENS) \
-	  --out configs/baseline_params.yaml
-
-baseline: env params verify
-
-verify:
-	$(PYTHON) scripts/verify_baseline.py \
-	  --results_dir results \
-	  --params configs/baseline_params.yaml \
-	  --out_md docs/baseline_repro_log.md
-
-tag-baseline:
-	DATE=$$(date +%Y%m%d-%H%M%S); \
-	git tag -a "v0.3-baseline-$$DATE" -m "Freeze baseline (env/params/results snapshot)"; \
-	git push origin --tags
-
-clean:
-	rm -f docs/baseline_repro_log.md
+clean-garbage:
+	powershell -NoP -C "Get-ChildItem -File -Recurse | Where-Object { $_.Name -match '^(0|1)$' -or $_.Name -match '\[' -or $_.Name -in @('bool','int','float','str','None','Dict','Tuple','np.ndarray','List[Path]','List[str]') } | Remove-Item -Force"

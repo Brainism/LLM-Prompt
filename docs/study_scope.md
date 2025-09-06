@@ -1,32 +1,19 @@
-# Study Scope (v1)
-- Generated at: 2025-08-19T14:57:40.459788Z
+## Domains & Tasks
+- Domains: {일반질문, 정직업무, 규칙지키기(금칙어/JSON/길이), 코딩요약 등}
+- Languages: ko/en (균형)
+- Length bins: short / medium / long (문자 수 기준, schema 참조)
+- Difficulty bins: easy / medium / hard
 
-## 1. Domains (select 1-2 for 최소 플랜)
-- [x] Summarization (news/abstract)
-- [x] QA (short-form factual)
-- [ ] Translation
-- [ ] Information Extraction (JSON)
+## Sampling
+- n (pair): ≥ 60 (현재), 향후 확장 목표: 1500 (ko/en 균형, 길이/난이도 균형)
+- Source mix: 공개참조 60%, 과제/인검 20%, 규칙태스크 20%
+- Duplicates: 유사도 ≥0.9 자동 중복 제거 (클러스터 기준)
 
-## 2. Languages
-- [x] Korean (primary, 60%)
-- [x] English (secondary, 40%)
+## Exclusion
+- PII/금칙: PII/욕설/BNF 규칙 위반 자동 필터
+- 포맷: JSON 스키마 불일치, 길이 초과, 금칙어 위반 시 제외(혹은 Fail 기록)
 
-## 3. Length bins (by input tokens)
-- [x] Short (≤ 120)
-- [x] Medium (121-360)
-- [x] Long (≥ 361)
-
-## 4. Difficulty bins
-- [x] Easy
-- [x] Normal
-- [x] Hard
-
-## 5. Target sample size (최소 플랜)
-- [x] Total n ≥ 50
-- [x] Per-bin minimum share ≥ 15% (length & difficulty)
-- [x] Robustness set: paraphrases 10-15% with cluster_id
-
-## 6. Sources & License (fill)
-- Public benchmarks (60%): <list with license>
-- Teacher→Human (20%): <who/criteria>
-- Rule-based tasks (20%): <schema path>
+## DoD (Scope)
+- 도메인×언어×길이×난이도 분포표 존재
+- data/manifest/split_manifest_main.json 스키마 검증 통과 로그 첨부
+- dataset_card.md / data_report.pdf 링크
