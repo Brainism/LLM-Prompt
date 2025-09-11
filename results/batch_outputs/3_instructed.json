@@ -1,8 +1,0 @@
-{
-  "id": "3",
-  "prompt_type": "instructed",
-  "output_text": "- 물 끓이기\n- 라면 넣기\n- 국물 빼기\n- 완성",
-  "compliance_passed": true,
-  "compliance_reason": "bullets=4 expected=4",
-  "attempts": 1
-}

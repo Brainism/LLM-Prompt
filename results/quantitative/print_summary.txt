@@ -1,7 +1,0 @@
-[OK] compliance -> C:\Project\LLM\results\quantitative\compliance_summary.json , C:\Project\LLM\results\quantitative\compliance_by_item.csv
-forbid-terms: general 100.0% [15.8%, 100.0%], n=2
-forbid-terms: instructed 100.0% [15.8%, 100.0%], n=2
-format-json: general 100.0% [39.8%, 100.0%], n=4
-format-json: instructed 100.0% [39.8%, 100.0%], n=4
-limit-words: general 100.0% [15.8%, 100.0%], n=2
-limit-words: instructed 100.0% [15.8%, 100.0%], n=2

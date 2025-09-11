@@ -1,8 +1,0 @@
-{
-  "id": "1",
-  "prompt_type": "instructed",
-  "output_text": "{\"city\":\"서울\",\"temp_unit\":\"C\"}",
-  "compliance_passed": true,
-  "compliance_reason": "ok",
-  "attempts": 2
-}

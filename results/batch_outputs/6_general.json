@@ -1,8 +1,0 @@
-{
-  "id": "6",
-  "prompt_type": "general",
-  "output_text": "인공지능 모델의 성능은 데이터 품질과 지시 준수 능력에 영향을 받는다.",
-  "compliance_passed": false,
-  "compliance_reason": "words=10 expected=12",
-  "attempts": 2
-}
