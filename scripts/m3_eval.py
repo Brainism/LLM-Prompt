@@ -46,11 +46,25 @@ def main():
     ap.add_argument("--completion_cost_per_1k", type=float, default=0.0)
     args = ap.parse_args()
 
-    man = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
-    pid2meta = {m["id"]: m for m in man}
+    manifest_content = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
 
-    refs    = {d["id"]: d["reference"] for d in load_jsonl(Path(args.references))}
-    outs    = load_jsonl(Path(args.outputs))
+    if isinstance(manifest_content, dict):
+        if "items" in manifest_content and isinstance(manifest_content["items"], list):
+            man = manifest_content["items"]
+        else:
+            vals = list(manifest_content.values())
+            if vals and isinstance(vals[0], dict) and "id" in vals[0]:
+                man = vals
+            else:
+                raise ValueError(f"unexpected manifest structure in {args.manifest}: top-level dict without 'items' or id->meta mapping")
+    elif isinstance(manifest_content, list):
+        man = manifest_content
+    else:
+        raise ValueError(f"unexpected manifest JSON type: {type(manifest_content)}")
+    pid2meta = {m["id"]: m for m in man}
+    
+    refs = {d["id"]: d["reference"] for d in load_jsonl(Path(args.references))}
+    outs = load_jsonl(Path(args.outputs))
 
     terms=[]
     fp_forbid = Path(args.forbidden)

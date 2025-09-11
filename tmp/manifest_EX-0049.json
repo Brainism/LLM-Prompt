@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "id": "EX-0049",
+      "input": "다음 주제를 한 문장으로 요약하라: 도시 공원 관리의 장점과 과제",
+      "reference": "도시 공원 관리의 장점과 과제",
+      "domain": "general",
+      "lang": "ko",
+      "len_bin": "short",
+      "diff_bin": "easy",
+      "cluster_id": "C017",
+      "license": "CC-BY-4.0"
+    }
+  ]
+}

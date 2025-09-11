@@ -1,0 +1,3 @@
+NAME                 ID              SIZE      MODIFIED     
+gemma:7b-instruct    a72c7f4d0a15    5.0 GB    24 hours ago    
+gemma:7b             a72c7f4d0a15    5.0 GB    24 hours ago    

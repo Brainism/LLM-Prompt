@@ -1,0 +1,26 @@
+{
+  "rougeL_f1_mean": 0.28556453232440054,
+  "n": 240,
+  "by_file": [
+    {
+      "file": "general.jsonl",
+      "rougeL_f1_mean": 0.28373590225563916,
+      "n": 60
+    },
+    {
+      "file": "general_pass.jsonl",
+      "rougeL_f1_mean": 0.28373590225563916,
+      "n": 60
+    },
+    {
+      "file": "instructed.jsonl",
+      "rougeL_f1_mean": 0.2873931623931623,
+      "n": 60
+    },
+    {
+      "file": "instructed_pass.jsonl",
+      "rougeL_f1_mean": 0.2873931623931623,
+      "n": 60
+    }
+  ]
+}

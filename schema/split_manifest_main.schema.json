@@ -1,8 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "split_manifest_main",
-  "description": "split_manifest_main: items 배열에 프롬프트 샘플을 담는 최상위 스키마",
   "type": "object",
+  "required": ["items"],
+  "additionalProperties": false,
   "properties": {
     "items": {
       "type": "array",
@@ -11,58 +12,21 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "id",
-          "input",
-          "reference",
-          "domain",
-          "lang",
-          "len_bin",
-          "diff_bin",
-          "cluster_id",
-          "license"
+          "id","input","reference","domain","lang",
+          "len_bin","diff_bin","cluster_id","license"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "예: ex-0001 또는 C001_E1 등",
-            "pattern": "^[A-Z0-9_\\-]{3,64}$"
-          },
-          "input": { "type": "string", "minLength": 1 },
-          "reference": { "type": "string", "minLength": 1 },
-          "domain": { "type": "string", "minLength": 1 },
-          "lang": { "type": "string", "enum": ["ko", "en"] },
-          "len_bin": { "type": "string", "enum": ["short", "medium", "long"] },
-          "diff_bin": { "type": "string", "enum": ["easy", "medium", "hard"] },
-          "cluster_id": { "type": "string", "pattern": "^[A-Z0-9]{3,8}$" },
-          "license": { "type": "string", "minLength": 1 },
-          "prompt_hash": {
-            "type": "string",
-            "description": "SHA-256(hex) of input",
-            "pattern": "^[0-9a-f]{64}$"
-          },
-          "n_chars": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "input 문자 수(길이 QA 및 len_bin 검증용)"
-          }
-        },
-        "allOf": [
-          {
-            "if": { "properties": { "len_bin": { "const": "short" } }, "required": ["len_bin", "n_chars"] },
-            "then": { "properties": { "n_chars": { "type": "integer", "minimum": 1, "maximum": 70 } } }
-          },
-          {
-            "if": { "properties": { "len_bin": { "const": "medium" } }, "required": ["len_bin", "n_chars"] },
-            "then": { "properties": { "n_chars": { "type": "integer", "minimum": 71, "maximum": 160 } } }
-          },
-          {
-            "if": { "properties": { "len_bin": { "const": "long" } }, "required": ["len_bin", "n_chars"] },
-            "then": { "properties": { "n_chars": { "type": "integer", "minimum": 161 } } }
-          }
-        ]
+          "id":        {"type":"string","minLength":1},
+          "input":     {"type":"string","minLength":1},
+          "reference": {"type":"string","minLength":1},
+          "domain":    {"type":"string","minLength":1},
+          "lang":      {"type":"string","enum":["ko","en"]},
+          "len_bin":   {"type":"string","enum":["short","medium","long"]},
+          "diff_bin":  {"type":"string","enum":["easy","medium","hard"]},
+          "cluster_id":{"type":"string","pattern":"^[A-Za-z0-9_\\-]+$"},
+          "license":   {"type":"string","minLength":1}
+        }
       }
     }
-  },
-  "required": ["items"],
-  "additionalProperties": false
+  }
 }

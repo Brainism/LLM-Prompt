@@ -1,0 +1,32 @@
+{
+  "terminal.integrated.scrollback": 1000,
+
+  "files.watcherExclude": {
+    "**/.venv/**": true,
+    "**/__pycache__/**": true,
+    "**/results/**": true,
+    "**/node_modules/**": true
+  },
+
+  "files.exclude": {
+    "*[[]*": true,              // '[' 포함 어떤 파일이든 숨김 (Dict[str 같은 미완성도 포함)
+    "*[[]*[]]*": true,          // 양쪽 대괄호 모두 포함 파일 숨김
+    "**/bool": true,
+    "**/int": true,
+    "**/float": true,
+    "**/str": true,
+    "**/None": true,
+    "**/Dict": true,
+    "**/Tuple": true,
+    "**/np.ndarray": true,
+    "**/List[[]Path]": true,    // 리터럴 '['는 [[], ']'는 []] 로 이스케이프
+    "**/List[[]str]": true,
+    "**/0": true,
+    "**/1": true
+  },
+
+  "search.exclude": {
+    "*[[]*": true,
+    "*[[]*[]]*": true
+  }
+}

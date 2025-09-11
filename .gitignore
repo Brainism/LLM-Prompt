@@ -38,3 +38,12 @@ results/**
 !results/quantitative/rouge.json
 !results/quantitative/bleu_sacre.json
 !results/quantitative/chrf.json
+
+echo .venv/ >> .gitignore
+echo __pycache__/ >> .gitignore
+echo *.pyc >> .gitignore
+echo results/ >> .gitignore
+echo *.log >> .gitignore
+echo *.zip >> .gitignore
+echo *.py[co] >> .gitignore
+echo .vscode/ >> .gitignore

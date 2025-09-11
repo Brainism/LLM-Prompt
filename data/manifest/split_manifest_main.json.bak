@@ -9,7 +9,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C003",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 46
     },
     {
       "id": "EX-0001",
@@ -20,7 +21,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C001",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 57
     },
     {
       "id": "EX-0025",
@@ -31,7 +33,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C009",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 46
     },
     {
       "id": "EX-0017",
@@ -42,7 +45,8 @@
       "len_bin": "short",
       "diff_bin": "medium",
       "cluster_id": "C006",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 65
     },
     {
       "id": "EX-0023",
@@ -53,7 +57,8 @@
       "len_bin": "short",
       "diff_bin": "medium",
       "cluster_id": "C008",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 55
     },
     {
       "id": "EX-0035",
@@ -64,7 +69,8 @@
       "len_bin": "short",
       "diff_bin": "medium",
       "cluster_id": "C012",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 65
     },
     {
       "id": "EX-0051",
@@ -75,7 +81,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C017",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 36
     },
     {
       "id": "EX-0021",
@@ -86,7 +93,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C007",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 57
     },
     {
       "id": "EX-0060",
@@ -97,7 +105,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C020",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 57
     },
     {
       "id": "EX-0046",
@@ -108,7 +117,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C016",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 67
     },
     {
       "id": "EX-0010",
@@ -119,7 +129,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C004",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 67
     },
     {
       "id": "EX-0034",
@@ -130,7 +141,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C012",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 59
     },
     {
       "id": "EX-0054",
@@ -141,7 +153,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C018",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 62
     },
     {
       "id": "EX-0036",
@@ -152,7 +165,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C012",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 62
     },
     {
       "id": "EX-0018",
@@ -163,7 +177,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C006",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 62
     },
     {
       "id": "EX-0058",
@@ -174,7 +189,8 @@
       "len_bin": "medium",
       "diff_bin": "easy",
       "cluster_id": "C020",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 87
     },
     {
       "id": "EX-0022",
@@ -185,7 +201,8 @@
       "len_bin": "medium",
       "diff_bin": "easy",
       "cluster_id": "C008",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 87
     },
     {
       "id": "EX-0040",
@@ -196,7 +213,8 @@
       "len_bin": "medium",
       "diff_bin": "easy",
       "cluster_id": "C014",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 87
     },
     {
       "id": "EX-0056",
@@ -207,7 +225,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C019",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 86
     },
     {
       "id": "EX-0038",
@@ -218,7 +237,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C013",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 86
     },
     {
       "id": "EX-0002",
@@ -229,7 +249,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C001",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 86
     },
     {
       "id": "EX-0042",
@@ -240,7 +261,8 @@
       "len_bin": "medium",
       "diff_bin": "hard",
       "cluster_id": "C014",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 96
     },
     {
       "id": "EX-0024",
@@ -251,7 +273,8 @@
       "len_bin": "medium",
       "diff_bin": "hard",
       "cluster_id": "C008",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 96
     },
     {
       "id": "EX-0006",
@@ -262,7 +285,8 @@
       "len_bin": "medium",
       "diff_bin": "hard",
       "cluster_id": "C002",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 96
     },
     {
       "id": "EX-0043",
@@ -273,7 +297,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C015",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 46
     },
     {
       "id": "EX-0019",
@@ -284,7 +309,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C007",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 57
     },
     {
       "id": "EX-0029",
@@ -295,7 +321,8 @@
       "len_bin": "short",
       "diff_bin": "medium",
       "cluster_id": "C010",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 32
     },
     {
       "id": "EX-0059",
@@ -306,7 +333,8 @@
       "len_bin": "short",
       "diff_bin": "medium",
       "cluster_id": "C020",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 55
     },
     {
       "id": "EX-0045",
@@ -317,7 +345,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C015",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 46
     },
     {
       "id": "EX-0033",
@@ -328,7 +357,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C011",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 36
     },
     {
       "id": "EX-0013",
@@ -339,7 +369,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C005",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 36
     },
     {
       "id": "EX-0049",
@@ -350,7 +381,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C017",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 36
     },
     {
       "id": "EX-0031",
@@ -361,7 +393,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C011",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 36
     },
     {
       "id": "EX-0011",
@@ -372,7 +405,8 @@
       "len_bin": "short",
       "diff_bin": "medium",
       "cluster_id": "C004",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 32
     },
     {
       "id": "EX-0047",
@@ -383,7 +417,8 @@
       "len_bin": "short",
       "diff_bin": "medium",
       "cluster_id": "C016",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 32
     },
     {
       "id": "EX-0003",
@@ -394,7 +429,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C001",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 57
     },
     {
       "id": "EX-0015",
@@ -405,7 +441,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C005",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 36
     },
     {
       "id": "EX-0027",
@@ -416,7 +453,8 @@
       "len_bin": "short",
       "diff_bin": "hard",
       "cluster_id": "C009",
-      "license": "CC-BY-4.0"
+      "license": "CC-BY-4.0",
+      "n_chars": 46
     },
     {
       "id": "EX-0020",
@@ -427,7 +465,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C007",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 86
     },
     {
       "id": "EX-0032",
@@ -438,7 +477,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C011",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 77
     },
     {
       "id": "EX-0014",
@@ -449,7 +489,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C005",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 77
     },
     {
       "id": "EX-0004",
@@ -460,7 +501,8 @@
       "len_bin": "medium",
       "diff_bin": "easy",
       "cluster_id": "C002",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 87
     },
     {
       "id": "EX-0026",
@@ -471,7 +513,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C009",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 83
     },
     {
       "id": "EX-0008",
@@ -482,7 +525,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C003",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 83
     },
     {
       "id": "EX-0050",
@@ -493,7 +537,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C017",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 77
     },
     {
       "id": "EX-0044",
@@ -504,7 +549,8 @@
       "len_bin": "medium",
       "diff_bin": "medium",
       "cluster_id": "C015",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 83
     },
     {
       "id": "EX-0030",
@@ -515,7 +561,8 @@
       "len_bin": "medium",
       "diff_bin": "hard",
       "cluster_id": "C010",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 76
     },
     {
       "id": "EX-0012",
@@ -526,7 +573,8 @@
       "len_bin": "medium",
       "diff_bin": "hard",
       "cluster_id": "C004",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 76
     },
     {
       "id": "EX-0048",
@@ -537,7 +585,8 @@
       "len_bin": "medium",
       "diff_bin": "hard",
       "cluster_id": "C016",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 76
     },
     {
       "id": "EX-0028",
@@ -548,7 +597,8 @@
       "len_bin": "short",
       "diff_bin": "easy",
       "cluster_id": "C010",
-      "license": "CC0-1.0"
+      "license": "CC0-1.0",
+      "n_chars": 67
     }
   ]
 }
