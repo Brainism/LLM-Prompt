@@ -1,20 +1,19 @@
-# Python / virtualenv 
-__pycache__/ 
-*.py[cod] 
-.venv/ 
-venv/ 
-env/ 
-*.egg-info/ 
- 
-# results / artifacts 
-results/ 
-*.zip 
-*.tar.gz 
-*.log 
-*.pt 
-*.bin 
-*.ckpt 
- 
-# editor 
-.vscode/ 
-.idea/ 
+# Python / env
+.venv/
+__pycache__/
+*.pyc
+
+# outputs / logs / temp
+/results/
+*.log
+/tmp/
+*.bak
+*.json.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# others
+.idea/
+.vscode/
