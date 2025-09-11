@@ -1,49 +1,20 @@
-# --- Python / venv
-.venv/
-__pycache__/
-*.py[cod]
-
-# --- Backups
-*.backup.json
-*.backup.py
-
-# --- Results: 기본 무시, 핵심 요약만 추적
-results/**
-!results/quantitative/
-!results/figures/
-!results/quantitative/stats_summary.csv
-!results/quantitative/compliance_summary.json
-!results/figures/summary_tile.png
-
-# bracketed garbage like List[Path], Tuple[List[str]]
-*[[]*
-*[[]*[]]*
-
-# common stray tokens
-/bool
-/int
-/float
-/str
-/None
-/Dict
-/Tuple
-/np.ndarray
-/List[Path]
-/List[str]
-/0
-/1
-
-!results/quantitative/*.v2.json
-!results/quantitative/*.v2.csv
-!results/quantitative/rouge.json
-!results/quantitative/bleu_sacre.json
-!results/quantitative/chrf.json
-
-echo .venv/ >> .gitignore
-echo __pycache__/ >> .gitignore
-echo *.pyc >> .gitignore
-echo results/ >> .gitignore
-echo *.log >> .gitignore
-echo *.zip >> .gitignore
-echo *.py[co] >> .gitignore
-echo .vscode/ >> .gitignore
+# Python / virtualenv 
+__pycache__/ 
+*.py[cod] 
+.venv/ 
+venv/ 
+env/ 
+*.egg-info/ 
+ 
+# results / artifacts 
+results/ 
+*.zip 
+*.tar.gz 
+*.log 
+*.pt 
+*.bin 
+*.ckpt 
+ 
+# editor 
+.vscode/ 
+.idea/ 
