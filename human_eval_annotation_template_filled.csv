@@ -1,0 +1,10 @@
+﻿item_id,prompt,reference,base_output,instructed_output,annotator_id,fluency_base,fluency_instr,adequacy_base,adequacy_instr,compliance_base,compliance_instr,better_fluency,better_adequacy,better_compliance,comments
+EX-0001,Prompt1,Ref1,"Base text A1","Instr text A1",ann1,4,5,4,5,1,1,1,1,1,"Good"
+EX-0001,Prompt1,Ref1,"Base text A1","Instr text A1",ann2,3,4,3,4,1,1,1,1,1,""
+EX-0001,Prompt1,Ref1,"Base text A1","Instr text A1",ann3,4,4,4,4,1,1,0,0,1,""
+EX-0002,Prompt2,Ref2,"Base text B1","Instr text B1",ann1,2,3,2,3,0,1,-1,1,1,"instr better"
+EX-0002,Prompt2,Ref2,"Base text B1","Instr text B1",ann2,2,2,2,2,0,0,0,0,0,"tie"
+EX-0002,Prompt2,Ref2,"Base text B1","Instr text B1",ann3,3,3,3,3,0,1,1,1,1,""
+EX-0003,Prompt3,Ref3,"Base text C1","Instr text C1",ann1,5,5,5,5,1,1,0,0,0,""
+EX-0003,Prompt3,Ref3,"Base text C1","Instr text C1",ann2,4,4,4,3,1,1,0,-1,0,""
+EX-0003,Prompt3,Ref3,"Base text C1","Instr text C1",ann3,4,5,4,5,1,1,1,1,1,""

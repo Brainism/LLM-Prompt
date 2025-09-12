@@ -1,0 +1,12 @@
+{
+  "n": 50,
+  "mean_base": 20.7860879005165,
+  "mean_instr": 21.75432403336059,
+  "delta": 0.9682361328440905,
+  "bootstrap_mean_diff": 0.9884697539297024,
+  "bootstrap_ci_low": -1.0545042151882569,
+  "bootstrap_ci_high": 3.067703470607816,
+  "wilcoxon_stat": 315.0,
+  "wilcoxon_p": 0.08786851126705501,
+  "cohen_d_paired": 0.12657103231550904
+}
