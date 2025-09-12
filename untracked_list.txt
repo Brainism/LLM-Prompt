@@ -1,0 +1,10 @@
+bleu_bootstrap_delta.png
+bleu_boxplot.png
+bleu_sacre_mean_bar.png
+chrf_mean_bar.png
+compliance_by_scenario.png
+docs/paper/appendix/README_repro.md
+error_table_1.png
+metrics_summary_text.png
+rouge_mean_bar.png
+untracked_list.txt
