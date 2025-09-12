@@ -1,0 +1,69 @@
+﻿"id","input","reference","domain","lang","len_bin","diff_bin","cluster_id","license"
+"EX-0007","?꾨씪鍮꾩븘 ?レ옄瑜??ъ슜?섏? 留먭퀬 ??臾몄옣?쇰줈 ?ㅻ챸?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣?????媛꾨떒???ㅻ챸","general","ko","short","easy","C003","CC-BY-4.0"
+"EX-0001","?ㅼ쓬 二쇱젣?????title, tags ?ㅻ? 媛뽯뒗 JSON?쇰줈 異쒕젰?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","{""title"": ""?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣"", ""tags"": [""key1"", ""key2""]}","general","ko","short","easy","C001","CC-BY-4.0"
+"EX-0025","?꾨씪鍮꾩븘 ?レ옄瑜??ъ슜?섏? 留먭퀬 ??臾몄옣?쇰줈 ?ㅻ챸?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣?????媛꾨떒???ㅻ챸","general","ko","short","easy","C009","CC-BY-4.0"
+"EX-0017","?ㅼ쓬 ?곸뼱 臾몄옣???쒓뎅?대줈 踰덉뿭?섎씪: Formative assessment and learning motivation","Formative assessment and learning motivation???쒓뎅??踰덉뿭","education","ko","short","medium","C006","CC-BY-4.0"
+"EX-0023","?ㅼ쓬 二쇱젣?????title, tags ?ㅻ? 媛뽯뒗 JSON?쇰줈 異쒕젰?섎씪: ?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕","{""title"": ""?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕"", ""tags"": [""key1"", ""key2""]}","education","ko","short","medium","C008","CC-BY-4.0"
+"EX-0035","?ㅼ쓬 ?곸뼱 臾몄옣???쒓뎅?대줈 踰덉뿭?섎씪: Formative assessment and learning motivation","Formative assessment and learning motivation???쒓뎅??踰덉뿭","education","ko","short","medium","C012","CC-BY-4.0"
+"EX-0051","?ㅼ쓬 二쇱젣瑜???臾몄옣?쇰줈 ?붿빟?섎씪: ?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","technology","ko","short","hard","C017","CC-BY-4.0"
+"EX-0021","?ㅼ쓬 二쇱젣?????title, tags ?ㅻ? 媛뽯뒗 JSON?쇰줈 異쒕젰?섎씪: ?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","{""title"": ""?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠"", ""tags"": [""key1"", ""key2""]}","technology","ko","short","hard","C007","CC-BY-4.0"
+"EX-0060","?ㅼ쓬 ?곸뼱 臾몄옣???쒓뎅?대줈 踰덉뿭?섎씪: Herd immunity effects of vaccination","Herd immunity effects of vaccination???쒓뎅??踰덉뿭","healthcare","ko","short","hard","C020","CC0-1.0"
+"EX-0046","List 3 key points as bullets: Long-term impact of compound interest","- Point 1
+- Point 2
+- Point 3","finance","en","short","easy","C016","CC0-1.0"
+"EX-0010","List 3 key points as bullets: Long-term impact of compound interest","- Point 1
+- Point 2
+- Point 3","finance","en","short","easy","C004","CC0-1.0"
+"EX-0034","Translate the Korean sentence into English: 蹂듬━ ?댁옄???κ린 ?ъ옄 ?④낵","English translation of 蹂듬━ ?댁옄???κ린 ?ъ옄 ?④낵","finance","en","short","easy","C012","CC0-1.0"
+"EX-0054","Translate the Korean sentence into English: ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢","English translation of ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢","policy","en","short","hard","C018","CC0-1.0"
+"EX-0036","Translate the Korean sentence into English: ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢","English translation of ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢","policy","en","short","hard","C012","CC0-1.0"
+"EX-0018","Translate the Korean sentence into English: ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢","English translation of ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢","policy","en","short","hard","C006","CC0-1.0"
+"EX-0058","Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}","finance","en","medium","easy","C020","CC0-1.0"
+"EX-0022","Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}","finance","en","medium","easy","C008","CC0-1.0"
+"EX-0040","Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}","finance","en","medium","easy","C014","CC0-1.0"
+"EX-0056","Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}","healthcare","en","medium","medium","C019","CC0-1.0"
+"EX-0038","Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}","healthcare","en","medium","medium","C013","CC0-1.0"
+"EX-0002","Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}","healthcare","en","medium","medium","C001","CC0-1.0"
+"EX-0042","Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}","policy","en","medium","hard","C014","CC0-1.0"
+"EX-0024","Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}","policy","en","medium","hard","C008","CC0-1.0"
+"EX-0006","Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}","policy","en","medium","hard","C002","CC0-1.0"
+"EX-0043","?꾨씪鍮꾩븘 ?レ옄瑜??ъ슜?섏? 留먭퀬 ??臾몄옣?쇰줈 ?ㅻ챸?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣?????媛꾨떒???ㅻ챸","general","ko","short","easy","C015","CC-BY-4.0"
+"EX-0019","?ㅼ쓬 二쇱젣?????title, tags ?ㅻ? 媛뽯뒗 JSON?쇰줈 異쒕젰?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","{""title"": ""?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣"", ""tags"": [""key1"", ""key2""]}","general","ko","short","easy","C007","CC-BY-4.0"
+"EX-0029","?듭떖??3以?遺덈┸?쇰줈 ?뺣━?섎씪: ?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕","- ?붿젏 1
+- ?붿젏 2
+- ?붿젏 3","education","ko","short","medium","C010","CC-BY-4.0"
+"EX-0059","?ㅼ쓬 二쇱젣?????title, tags ?ㅻ? 媛뽯뒗 JSON?쇰줈 異쒕젰?섎씪: ?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕","{""title"": ""?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕"", ""tags"": [""key1"", ""key2""]}","education","ko","short","medium","C020","CC-BY-4.0"
+"EX-0045","?꾨씪鍮꾩븘 ?レ옄瑜??ъ슜?섏? 留먭퀬 ??臾몄옣?쇰줈 ?ㅻ챸?섎씪: ?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠?????媛꾨떒???ㅻ챸","technology","ko","short","hard","C015","CC-BY-4.0"
+"EX-0033","?ㅼ쓬 二쇱젣瑜???臾몄옣?쇰줈 ?붿빟?섎씪: ?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","technology","ko","short","hard","C011","CC-BY-4.0"
+"EX-0013","?ㅼ쓬 二쇱젣瑜???臾몄옣?쇰줈 ?붿빟?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","general","ko","short","easy","C005","CC-BY-4.0"
+"EX-0049","?ㅼ쓬 二쇱젣瑜???臾몄옣?쇰줈 ?붿빟?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","general","ko","short","easy","C017","CC-BY-4.0"
+"EX-0031","?ㅼ쓬 二쇱젣瑜???臾몄옣?쇰줈 ?붿빟?섎씪: ?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣","general","ko","short","easy","C011","CC-BY-4.0"
+"EX-0011","?듭떖??3以?遺덈┸?쇰줈 ?뺣━?섎씪: ?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕","- ?붿젏 1
+- ?붿젏 2
+- ?붿젏 3","education","ko","short","medium","C004","CC-BY-4.0"
+"EX-0047","?듭떖??3以?遺덈┸?쇰줈 ?뺣━?섎씪: ?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕","- ?붿젏 1
+- ?붿젏 2
+- ?붿젏 3","education","ko","short","medium","C016","CC-BY-4.0"
+"EX-0003","?ㅼ쓬 二쇱젣?????title, tags ?ㅻ? 媛뽯뒗 JSON?쇰줈 異쒕젰?섎씪: ?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","{""title"": ""?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠"", ""tags"": [""key1"", ""key2""]}","technology","ko","short","hard","C001","CC-BY-4.0"
+"EX-0015","?ㅼ쓬 二쇱젣瑜???臾몄옣?쇰줈 ?붿빟?섎씪: ?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","technology","ko","short","hard","C005","CC-BY-4.0"
+"EX-0027","?꾨씪鍮꾩븘 ?レ옄瑜??ъ슜?섏? 留먭퀬 ??臾몄옣?쇰줈 ?ㅻ챸?섎씪: ?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠","?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠?????媛꾨떒???ㅻ챸","technology","ko","short","hard","C009","CC-BY-4.0"
+"EX-0020","Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}","healthcare","en","medium","medium","C007","CC0-1.0"
+"EX-0032","Summarize the following in one sentence: Herd immunity effects of vaccination","Herd immunity effects of vaccination","healthcare","en","medium","medium","C011","CC0-1.0"
+"EX-0014","Summarize the following in one sentence: Herd immunity effects of vaccination","Herd immunity effects of vaccination","healthcare","en","medium","medium","C005","CC0-1.0"
+"EX-0004","Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}","finance","en","medium","easy","C002","CC0-1.0"
+"EX-0026","Describe in one sentence without using digits: Herd immunity effects of vaccination","A concise description of Herd immunity effects of vaccination","healthcare","en","medium","medium","C009","CC0-1.0"
+"EX-0008","Describe in one sentence without using digits: Herd immunity effects of vaccination","A concise description of Herd immunity effects of vaccination","healthcare","en","medium","medium","C003","CC0-1.0"
+"EX-0050","Summarize the following in one sentence: Herd immunity effects of vaccination","Herd immunity effects of vaccination","healthcare","en","medium","medium","C017","CC0-1.0"
+"EX-0044","Describe in one sentence without using digits: Herd immunity effects of vaccination","A concise description of Herd immunity effects of vaccination","healthcare","en","medium","medium","C015","CC0-1.0"
+"EX-0030","List 3 key points as bullets: Social impact of public transit fare increases","- Point 1
+- Point 2
+- Point 3","policy","en","medium","hard","C010","CC0-1.0"
+"EX-0012","List 3 key points as bullets: Social impact of public transit fare increases","- Point 1
+- Point 2
+- Point 3","policy","en","medium","hard","C004","CC0-1.0"
+"EX-0048","List 3 key points as bullets: Social impact of public transit fare increases","- Point 1
+- Point 2
+- Point 3","policy","en","medium","hard","C016","CC0-1.0"
+"EX-0028","List 3 key points as bullets: Long-term impact of compound interest","- Point 1
+- Point 2
+- Point 3","finance","en","short","easy","C010","CC0-1.0"

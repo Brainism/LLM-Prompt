@@ -1,0 +1,10 @@
+﻿id,mode,reference,prediction,chrf,rouge_l
+row-0,instr,Ref1,,NA,NA
+row-1,instr,Ref1,,NA,NA
+row-2,instr,Ref1,,NA,NA
+row-3,instr,Ref2,,NA,NA
+row-4,instr,Ref2,,NA,NA
+row-5,instr,Ref2,,NA,NA
+row-6,instr,Ref3,,NA,NA
+row-7,instr,Ref3,,NA,NA
+row-8,instr,Ref3,,NA,NA
