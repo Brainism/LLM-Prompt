@@ -17,3 +17,31 @@ Thumbs.db
 # others
 .idea/
 .vscode/
+
+# Virtual env
+.venv/
+venv/
+ENV/
+env/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# large generated outputs (exclude results/raw if too large)
+results/raw/
+figs/highres/
+*.zip
+
+# IDE
+.vscode/
+.idea/
