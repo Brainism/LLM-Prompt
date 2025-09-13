@@ -1,0 +1,10 @@
+﻿id,input,reference,domain,lang,len_bin,diff_bin
+EX-0051,"Output exactly one JSON object only. The JSON must be: {""text"": ""<one-sentence-summary-without-digits>""}. Do not output anything else.
+
+다음 주제를 한 문장으로 요약하라: 클라우드와 엣지 컴퓨팅의 차이",클라우드와 엣지 컴퓨팅의 차이,technology,ko,short,hard
+EX-0015,"Output exactly one JSON object only. The JSON must be: {""text"": ""<one-sentence-summary-without-digits>""}. Do not output anything else.
+
+다음 주제를 한 문장으로 요약하라: 클라우드와 엣지 컴퓨팅의 차이",클라우드와 엣지 컴퓨팅의 차이,technology,ko,short,hard
+EX-0032,"Output exactly one JSON object only. The JSON must be: {""text"": ""<one-sentence-summary-without-digits>""}. Do not output anything else.
+
+Summarize the following in one sentence: Herd immunity effects of vaccination",Herd immunity effects of vaccination,healthcare,en,medium,medium
