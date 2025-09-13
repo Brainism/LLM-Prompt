@@ -1,0 +1,581 @@
+Search report for EX-0006
+
+----
+File: C:\Project\LLM\split_manifest.json
+Sample hits:
+  line 306: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\analysis_outputs\influence_top10.csv
+Sample hits:
+  line 2: EX-0006,40.95821416208051,70.60374899223851,29.645534830158
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851",
+  "delta": "29.645534830158"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\analysis_outputs\in_both.csv
+Sample hits:
+  line 6: EX-0006
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006"
+}
+
+----
+File: C:\Project\LLM\analysis_outputs\per_item_sorted_by_delta.csv
+Sample hits:
+  line 2: EX-0006,40.95821416208051,70.60374899223851,29.645534830158
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851",
+  "delta": "29.645534830158"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\analysis_outputs\per_item_table.csv
+Sample hits:
+  line 6: EX-0006,40.95821416208051,70.60374899223851,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base_full": "40.95821416208051",
+  "instr_full": "70.60374899223851",
+  "base_sub": "40.95821416208051",
+  "instr_sub": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base_full
+40.95821416208051
+  FIELD: instr_full
+70.60374899223851
+  FIELD: base_sub
+40.95821416208051
+  FIELD: instr_sub
+70.60374899223851
+
+----
+File: C:\Project\LLM\analysis_outputs\top10_for_latex.csv
+Sample hits:
+  line 2: EX-0006,29.645534830158,29.645534830158,0.59291069660316,0.59291069660316,61.23616713843856
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "delta_full": "29.645534830158",
+  "abs_delta": "29.645534830158",
+  "cum_mean_contrib": "0.59291069660316",
+  "mean_contrib": "0.59291069660316",
+  "pct_of_mean": "61.23616713843856"
+}
+
+----
+File: C:\Project\LLM\analysis_outputs\top_contributors.csv
+Sample hits:
+  line 2: EX-0006,29.645534830158,29.645534830158,0.59291069660316
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "delta_full": "29.645534830158",
+  "abs_delta": "29.645534830158",
+  "cum_mean_contrib": "0.59291069660316"
+}
+
+----
+File: C:\Project\LLM\analysis_outputs\top_deltas_full.csv
+Sample hits:
+  line 6: EX-0006,40.95821416208051,70.60374899223851,29.645534830158
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base_full": "40.95821416208051",
+  "instr_full": "70.60374899223851",
+  "delta_full": "29.645534830158"
+}
+
+Candidate text fields found:
+  FIELD: base_full
+40.95821416208051
+  FIELD: instr_full
+70.60374899223851
+
+----
+File: C:\Project\LLM\data\candidates.csv
+Sample hits:
+  line 7: EX-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,medium,hard,CC0-1.0,C002
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "input": "Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases",
+  "reference": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+  "domain": "policy",
+  "lang": "en",
+  "len_bin": "medium",
+  "diff_bin": "hard",
+  "license": "CC0-1.0",
+  "cluster_id": "C002"
+}
+
+----
+File: C:\Project\LLM\data\refs.jsonl
+Sample hits:
+  line 6: {"id": "EX-0006", "reference_text": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}"}
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "reference_text": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}"
+}
+
+Candidate text fields found:
+  FIELD: reference_text
+{"title": "Social impact of public transit fare increases", "tags": ["key1", "key2"]}
+
+----
+File: C:\Project\LLM\data\manifest\split_manifest_main.json
+Sample hits:
+  line 257: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\data\manifest\split_manifest_main.v2.json
+Sample hits:
+  line 69: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\figs\aggregated_metrics_fixed.csv
+Sample hits:
+  line 10: EX-0006,your_model,base,40.95821416208051,,
+  line 11: EX-0006,your_model,instr,70.60374899223851,,
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "model": "your_model",
+  "mode": "base",
+  "bleu": "40.95821416208051",
+  "chrf": "",
+  "rouge_l": ""
+}
+
+----
+File: C:\Project\LLM\figs\aggregated_metrics_fixed_with_chrf_rouge.csv
+Sample hits:
+  line 10: EX-0006,base,40.95821416208051,,
+  line 11: EX-0006,instr,70.60374899223851,,
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "mode": "base",
+  "bleu": "40.95821416208051",
+  "chrf": "",
+  "rouge_l": ""
+}
+
+----
+File: C:\Project\LLM\figs\generated\influence_sorted.csv
+Sample hits:
+  line 2: EX-0006,40.95821416208051,70.60374899223851,29.645534830158
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851",
+  "delta": "29.645534830158"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\figs\generated\in_both.csv
+Sample hits:
+  line 6: EX-0006
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006"
+}
+
+----
+File: C:\Project\LLM\figs\generated\top10_delta_full.csv
+Sample hits:
+  line 2: EX-0006,40.95821416208051,70.60374899223851,29.645534830158
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851",
+  "delta_full": "29.645534830158"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\LLM-clean\split_manifest.json
+Sample hits:
+  line 306: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\LLM-clean\data\candidates.csv
+Sample hits:
+  line 7: EX-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,medium,hard,CC0-1.0,C002
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "input": "Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases",
+  "reference": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+  "domain": "policy",
+  "lang": "en",
+  "len_bin": "medium",
+  "diff_bin": "hard",
+  "license": "CC0-1.0",
+  "cluster_id": "C002"
+}
+
+----
+File: C:\Project\LLM\LLM-clean\data\refs.jsonl
+Sample hits:
+  line 6: {"id": "EX-0006", "reference_text": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}"}
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "reference_text": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}"
+}
+
+Candidate text fields found:
+  FIELD: reference_text
+{"title": "Social impact of public transit fare increases", "tags": ["key1", "key2"]}
+
+----
+File: C:\Project\LLM\LLM-clean\data\manifest\split_manifest_main.json
+Sample hits:
+  line 257: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\LLM-clean\data\manifest\split_manifest_main.v2.json
+Sample hits:
+  line 69: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\LLM-clean\prompts\main.csv
+Sample hits:
+  line 29: EX-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,medium,hard
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "input": "Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases",
+  "reference": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+  "domain": "policy",
+  "lang": "en",
+  "len_bin": "medium",
+  "diff_bin": "hard"
+}
+
+----
+File: C:\Project\LLM\LLM-clean\prompts\main.utf8.csv
+Sample hits:
+  line 29: EX-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,medium,hard
+
+Parsed object/row (first match):
+{
+  "﻿id": "EX-0006",
+  "input": "Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases",
+  "reference": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+  "domain": "policy",
+  "lang": "en",
+  "len_bin": "medium",
+  "diff_bin": "hard"
+}
+
+----
+File: C:\Project\LLM\LLM-clean\results\quantitative\bleu_sacre.json
+Sample hits:
+  line 23: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\LLM-clean\results\quantitative\chrf.json
+Sample hits:
+  line 23: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\LLM-clean\results\quantitative\pass_delta.v2.csv
+Sample hits:
+  line 7: EX-0006,False,False,0,,,,
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base_pass": "False",
+  "cvd_pass": "False",
+  "delta": "0",
+  "cluster_id": "",
+  "lang": "",
+  "len_bin": "",
+  "diff_bin": ""
+}
+
+Candidate text fields found:
+  FIELD: base_pass
+False
+
+----
+File: C:\Project\LLM\LLM-clean\results\quantitative\per_item_full_60.csv
+Sample hits:
+  line 6: EX-0006,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\LLM-clean\results\quantitative\per_item_subset_50.jsonl
+Sample hits:
+  line 12: {"id": "EX-0006", "base": 40.95821416208051, "instr": 70.60374899223851}
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": 40.95821416208051,
+  "instr": 70.60374899223851
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\LLM-clean\results\quantitative\rouge.json
+Sample hits:
+  line 23: "id": "EX-0006",
+
+
+----
+File: C:\Project\LLM\output_package\in_both.csv
+Sample hits:
+  line 6: EX-0006
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006"
+}
+
+----
+File: C:\Project\LLM\output_package\per_item_A.csv
+Sample hits:
+  line 6: EX-0006,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\output_package\per_item_B.csv
+Sample hits:
+  line 13: EX-0006,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\output_package\per_item_table.csv
+Sample hits:
+  line 6: EX-0006,40.95821416208051,70.60374899223851,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base_A": "40.95821416208051",
+  "instr_A": "70.60374899223851",
+  "base_B": "40.95821416208051",
+  "instr_B": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base_A
+40.95821416208051
+  FIELD: instr_A
+70.60374899223851
+  FIELD: base_B
+40.95821416208051
+  FIELD: instr_B
+70.60374899223851
+
+----
+File: C:\Project\LLM\prompts\main.csv
+Sample hits:
+  line 29: EX-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,medium,hard
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "input": "Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases",
+  "reference": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+  "domain": "policy",
+  "lang": "en",
+  "len_bin": "medium",
+  "diff_bin": "hard"
+}
+
+----
+File: C:\Project\LLM\prompts\main.utf8.csv
+Sample hits:
+  line 29: EX-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,medium,hard
+
+Parsed object/row (first match):
+{
+  "﻿id": "EX-0006",
+  "input": "Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases",
+  "reference": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+  "domain": "policy",
+  "lang": "en",
+  "len_bin": "medium",
+  "diff_bin": "hard"
+}
+
+----
+File: C:\Project\LLM\tmp_final_pkg\in_both.csv
+Sample hits:
+  line 6: EX-0006
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006"
+}
+
+----
+File: C:\Project\LLM\tmp_final_pkg\per_item_A.csv
+Sample hits:
+  line 6: EX-0006,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\tmp_final_pkg\per_item_B.csv
+Sample hits:
+  line 13: EX-0006,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base": "40.95821416208051",
+  "instr": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base
+40.95821416208051
+  FIELD: instr
+70.60374899223851
+
+----
+File: C:\Project\LLM\tmp_final_pkg\per_item_table.csv
+Sample hits:
+  line 6: EX-0006,40.95821416208051,70.60374899223851,40.95821416208051,70.60374899223851
+
+Parsed object/row (first match):
+{
+  "id": "EX-0006",
+  "base_A": "40.95821416208051",
+  "instr_A": "70.60374899223851",
+  "base_B": "40.95821416208051",
+  "instr_B": "70.60374899223851"
+}
+
+Candidate text fields found:
+  FIELD: base_A
+40.95821416208051
+  FIELD: instr_A
+70.60374899223851
+  FIELD: base_B
+40.95821416208051
+  FIELD: instr_B
+70.60374899223851
+
