@@ -17,3 +17,5 @@ docs/paper/figs/
 .venv/ 
 *.zip 
 original 
+logs/
+tmp_final_pkg/
