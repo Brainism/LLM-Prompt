@@ -1,26 +1,14 @@
-.venv/ 
-.venv\ 
-venv/ 
-__pycache__/ 
-*.pyc 
-*.pkl 
-*.sqlite 
-docs/paper/figs/*_600dpi.png 
-outputs_gemma_instruct_copy.jsonl 
-*.zip 
-aggregated_metrics_fixed_with_chrf_rouge*.csv 
-aggregated_metrics_fixed_with_chrf_rouge*.csv.bak 
-outputs_gemma_instruct_copy.jsonl 
-per_item_text_pairs.csv 
-results/ 
-docs/paper/figs/ 
-.venv/ 
-*.zip 
-original 
+﻿# generated artifacts
 logs/
+tmp/
+tmp_*
+tmp_inspect/
 tmp_final_pkg/
-logs/
-tmp_final_pkg/
+output_package/
+dist/
+final_package*.zip
+final_package_with_analysis.zip
 
-data/derived/
-
+# env
+.venv/
+__pycache__/
