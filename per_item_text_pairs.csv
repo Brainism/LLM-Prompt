@@ -1,0 +1,78 @@
+﻿id,reference,prediction
+row-0,Ref1,Base text A1
+row-1,Ref1,Base text A1
+row-2,Ref1,Base text A1
+row-3,Ref2,Base text B1
+row-4,Ref2,Base text B1
+row-5,Ref2,Base text B1
+row-6,Ref3,Base text C1
+row-7,Ref3,Base text C1
+row-8,Ref3,Base text C1
+EX-0007,?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣?????媛꾨떒???ㅻ챸,
+EX-0001,"{""title"": ""?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣"", ""tags"": [""key1"", ""key2""]}",
+EX-0025,?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣?????媛꾨떒???ㅻ챸,
+EX-0017,Formative assessment and learning motivation???쒓뎅??踰덉뿭,
+EX-0023,"{""title"": ""?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕"", ""tags"": [""key1"", ""key2""]}",
+EX-0035,Formative assessment and learning motivation???쒓뎅??踰덉뿭,
+EX-0051,?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠,
+EX-0021,"{""title"": ""?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠"", ""tags"": [""key1"", ""key2""]}",
+EX-0060,Herd immunity effects of vaccination???쒓뎅??踰덉뿭,
+EX-0046,"- Point 1
+- Point 2
+- Point 3",
+EX-0010,"- Point 1
+- Point 2
+- Point 3",
+EX-0034,English translation of 蹂듬━ ?댁옄???κ린 ?ъ옄 ?④낵,
+EX-0054,English translation of ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢,
+EX-0036,English translation of ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢,
+EX-0018,English translation of ?以묎탳???붽툑 ?몄긽???ы쉶???곹뼢,
+EX-0058,"{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",
+EX-0022,"{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",
+EX-0040,"{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",
+EX-0056,"{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",
+EX-0038,"{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",
+EX-0002,"{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",
+EX-0042,"{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",
+EX-0024,"{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",
+EX-0006,"{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",
+EX-0043,?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣?????媛꾨떒???ㅻ챸,
+EX-0019,"{""title"": ""?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣"", ""tags"": [""key1"", ""key2""]}",
+EX-0029,"- ?붿젏 1
+- ?붿젏 2
+- ?붿젏 3",
+EX-0059,"{""title"": ""?뺤꽦?됯????숈뒿 ?숆린 媛뺥솕"", ""tags"": [""key1"", ""key2""]}",
+EX-0045,?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠?????媛꾨떒???ㅻ챸,
+EX-0033,?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠,
+EX-0013,?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣,
+EX-0049,?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣,
+EX-0031,?꾩떆 怨듭썝 愿由ъ쓽 ?μ젏怨?怨쇱젣,
+EX-0011,"- ?붿젏 1
+- ?붿젏 2
+- ?붿젏 3",
+EX-0047,"- ?붿젏 1
+- ?붿젏 2
+- ?붿젏 3",
+EX-0003,"{""title"": ""?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠"", ""tags"": [""key1"", ""key2""]}",
+EX-0015,?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠,
+EX-0027,?대씪?곕뱶? ?ｌ? 而댄벂?낆쓽 李⑥씠?????媛꾨떒???ㅻ챸,
+EX-0020,"{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",
+EX-0032,Herd immunity effects of vaccination,
+EX-0014,Herd immunity effects of vaccination,
+EX-0004,"{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",
+EX-0026,A concise description of Herd immunity effects of vaccination,
+EX-0008,A concise description of Herd immunity effects of vaccination,
+EX-0050,Herd immunity effects of vaccination,
+EX-0044,A concise description of Herd immunity effects of vaccination,
+EX-0030,"- Point 1
+- Point 2
+- Point 3",
+EX-0012,"- Point 1
+- Point 2
+- Point 3",
+EX-0048,"- Point 1
+- Point 2
+- Point 3",
+EX-0028,"- Point 1
+- Point 2
+- Point 3",

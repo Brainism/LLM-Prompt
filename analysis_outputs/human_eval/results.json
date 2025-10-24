@@ -1,0 +1,61 @@
+{
+  "summary": {
+    "n_items": 3,
+    "n_annotators": 3,
+    "agg_means_sample": [
+      {
+        "item_id": "EX-0001",
+        "fluency_base": 3.6666666666666665,
+        "fluency_instr": 4.333333333333333,
+        "adequacy_base": 3.6666666666666665,
+        "adequacy_instr": 4.333333333333333,
+        "compliance_base": 3,
+        "compliance_instr": 3
+      },
+      {
+        "item_id": "EX-0002",
+        "fluency_base": 2.3333333333333335,
+        "fluency_instr": 2.6666666666666665,
+        "adequacy_base": 2.3333333333333335,
+        "adequacy_instr": 2.6666666666666665,
+        "compliance_base": 0,
+        "compliance_instr": 2
+      },
+      {
+        "item_id": "EX-0003",
+        "fluency_base": 4.333333333333333,
+        "fluency_instr": 4.666666666666667,
+        "adequacy_base": 4.333333333333333,
+        "adequacy_instr": 4.333333333333333,
+        "compliance_base": 3,
+        "compliance_instr": 3
+      }
+    ]
+  },
+  "results": {
+    "fluency_base__vs__fluency_instr": {
+      "n": 3,
+      "wilcoxon_stat": 0.0,
+      "p": 0.25,
+      "bootstrap_ci": [
+        0.33333333333333304,
+        0.6666666666666665
+      ]
+    },
+    "adequacy_base__vs__adequacy_instr": {
+      "n": 3,
+      "wilcoxon_stat": 0.0,
+      "p": 0.5,
+      "bootstrap_ci": [
+        0.0,
+        0.6666666666666665
+      ]
+    },
+    "compliance_mcnemar": {
+      "b_to_i": 0,
+      "i_to_b": 1,
+      "p": 1.0
+    },
+    "fleiss_kappa_compliance_instr": -0.12500000000000056
+  }
+}

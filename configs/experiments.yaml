@@ -1,0 +1,21 @@
+version: 1
+seed: 42
+defaults:
+  provider: ollama
+  model: gemma:7b
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 1024
+runs:
+  - name: general_v2
+    mode: general
+    outdir: results/raw/v2
+    overwrite: true
+  - name: instructed_v2
+    mode: instructed
+    outdir: results/raw/v2
+    overwrite: true
+prompts: prompts/main.csv
+notes: |
+  Grid fixed: model×mode, deterministic seed.
+  Use run_all.bat to execute the full pipeline.

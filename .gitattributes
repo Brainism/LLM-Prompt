@@ -1,0 +1,23 @@
+# Git LFS patterns for large binary/artifact files (ASCII-only comments) 
+# Track model checkpoints and other large artifacts 
+*.pt filter=lfs diff=lfs merge=lfs -text 
+*.bin filter=lfs diff=lfs merge=lfs -text 
+*.ckpt filter=lfs diff=lfs merge=lfs -text 
+*.pth filter=lfs diff=lfs merge=lfs -text 
+*.onnx filter=lfs diff=lfs merge=lfs -text 
+*.tar.gz filter=lfs diff=lfs merge=lfs -text 
+*.zip filter=lfs diff=lfs merge=lfs -text 
+*.npy filter=lfs diff=lfs merge=lfs -text 
+*.parquet filter=lfs diff=lfs merge=lfs -text 
+# Optional: large images (enable only if you want images in LFS) 
+#*.png filter=lfs diff=lfs merge=lfs -text 
+#*.jpg filter=lfs diff=lfs merge=lfs -text 
+# Exclude virtualenv from attributes 
+.venv/** -filter -diff -merge -text 
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.ckpt filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.jsonl filter=lfs diff=lfs merge=lfs -text
+results/raw/* filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,6 @@
+﻿metric,value
+n_items,59
+chrf_mean,3.968
+chrf_median,2.976
+rouge_l_mean,0.000
+rouge_l_median,0.000

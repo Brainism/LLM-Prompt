@@ -1,0 +1,4 @@
+Reproducibility note
+Project root: C:\\Project\\LLM
+Evaluation: sacreBLEU primary; bootstrap B=10000 seed=1234; chrF/ROUGE computed where per-item text available.
+Note: For this submission (2025-09-13), only items with non-empty references were used for chrF/ROUGE. Some items had missing reference texts and thus no per-item chrF/ROUGE could be computed.

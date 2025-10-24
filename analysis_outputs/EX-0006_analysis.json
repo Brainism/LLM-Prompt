@@ -1,0 +1,925 @@
+{
+  "id": "EX-0006",
+  "ref_text": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+  "found_files_count": 41,
+  "files": [
+    {
+      "path": "C:\\Project\\LLM\\split_manifest.json",
+      "candidates": [
+        {
+          "file_type": "context_snippet",
+          "lineno": 306,
+          "snippet": "      \"license\": \"CC-BY-NC-4.0\",\n      \"n_chars\": 96,\n      \"prompt_hash\": \"a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071\"\n    },\n    {\n      \"id\": \"EX-0006\",\n      \"input\": \"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases\",\n      \"reference\": \"{\\\"title\\\": \\\"Social impact of public transit fare increases\\\", \\\"tags\\\": [\\\"key1\\\", \\\"key2\\\"]}\",\n      \"domain\": \"policy\",\n      \"lang\": \"en\",\n      \"len_bin\": \"medium\","
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\EX-0006_extract_report.txt",
+      "candidates": [
+        {
+          "file_type": "context_snippet",
+          "lineno": 1,
+          "snippet": "Search report for EX-0006\n\n----\nFile: C:\\Project\\LLM\\split_manifest.json\nSample hits:\n  line 306: \"id\": \"EX-0006\","
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\influence_top10.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\in_both.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\per_item_sorted_by_delta.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\per_item_table.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base_full",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr_full",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "base_sub",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr_sub",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\top10_for_latex.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\top_contributors.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\analysis_outputs\\top_deltas_full.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base_full",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr_full",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\data\\candidates.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "reference",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\data\\refs.jsonl",
+      "candidates": [
+        {
+          "file_type": "json_record",
+          "field": "reference_text",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\data\\manifest\\split_manifest_main.json",
+      "candidates": [
+        {
+          "file_type": "context_snippet",
+          "lineno": 257,
+          "snippet": "      \"diff_bin\": \"hard\",\n      \"cluster_id\": \"C008\",\n      \"license\": \"CC0-1.0\"\n    },\n    {\n      \"id\": \"EX-0006\",\n      \"input\": \"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases\",\n      \"reference\": \"{\\\"title\\\": \\\"Social impact of public transit fare increases\\\", \\\"tags\\\": [\\\"key1\\\", \\\"key2\\\"]}\",\n      \"domain\": \"policy\",\n      \"lang\": \"en\",\n      \"len_bin\": \"medium\","
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\data\\manifest\\split_manifest_main.v2.json",
+      "candidates": [
+        {
+          "file_type": "context_snippet",
+          "lineno": 69,
+          "snippet": "      \"license\": \"CC-BY-4.0\",\n      \"prompt_hash\": \"2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0\",\n      \"n_chars\": 55\n    },\n    {\n      \"id\": \"EX-0006\",\n      \"input\": \"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases\",\n      \"reference\": \"{\\\"title\\\": \\\"Social impact of public transit fare increases\\\", \\\"tags\\\": [\\\"key1\\\", \\\"key2\\\"]}\",\n      \"domain\": \"policy\",\n      \"lang\": \"en\",\n      \"len_bin\": \"medium\","
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\figs\\aggregated_metrics_fixed.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\figs\\aggregated_metrics_fixed_with_chrf_rouge.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\figs\\generated\\influence_sorted.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\figs\\generated\\in_both.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\figs\\generated\\top10_delta_full.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\split_manifest.json",
+      "candidates": [
+        {
+          "file_type": "context_snippet",
+          "lineno": 306,
+          "snippet": "      \"license\": \"CC-BY-NC-4.0\",\n      \"n_chars\": 96,\n      \"prompt_hash\": \"a05dff75bc1553416db4a0b8b6c87147333fd20c5de1472f56d6e358724c1071\"\n    },\n    {\n      \"id\": \"EX-0006\",\n      \"input\": \"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases\",\n      \"reference\": \"{\\\"title\\\": \\\"Social impact of public transit fare increases\\\", \\\"tags\\\": [\\\"key1\\\", \\\"key2\\\"]}\",\n      \"domain\": \"policy\",\n      \"lang\": \"en\",\n      \"len_bin\": \"medium\","
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\data\\candidates.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "reference",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\data\\refs.jsonl",
+      "candidates": [
+        {
+          "file_type": "json_record",
+          "field": "reference_text",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\data\\manifest\\split_manifest_main.json",
+      "candidates": [
+        {
+          "file_type": "context_snippet",
+          "lineno": 257,
+          "snippet": "      \"diff_bin\": \"hard\",\n      \"cluster_id\": \"C008\",\n      \"license\": \"CC0-1.0\"\n    },\n    {\n      \"id\": \"EX-0006\",\n      \"input\": \"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases\",\n      \"reference\": \"{\\\"title\\\": \\\"Social impact of public transit fare increases\\\", \\\"tags\\\": [\\\"key1\\\", \\\"key2\\\"]}\",\n      \"domain\": \"policy\",\n      \"lang\": \"en\",\n      \"len_bin\": \"medium\","
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\data\\manifest\\split_manifest_main.v2.json",
+      "candidates": [
+        {
+          "file_type": "context_snippet",
+          "lineno": 69,
+          "snippet": "      \"license\": \"CC-BY-4.0\",\n      \"prompt_hash\": \"2e7d7f6a4add01114e63bf54f798138e14509caed18fda446c817d267b7adac0\",\n      \"n_chars\": 55\n    },\n    {\n      \"id\": \"EX-0006\",\n      \"input\": \"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases\",\n      \"reference\": \"{\\\"title\\\": \\\"Social impact of public transit fare increases\\\", \\\"tags\\\": [\\\"key1\\\", \\\"key2\\\"]}\",\n      \"domain\": \"policy\",\n      \"lang\": \"en\",\n      \"len_bin\": \"medium\","
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\prompts\\main.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "reference",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\prompts\\main.utf8.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "reference",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\results\\quantitative\\bleu_sacre.json",
+      "candidates": [
+        {
+          "file_type": "json_array_record",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "json_array_record",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\results\\quantitative\\chrf.json",
+      "candidates": [
+        {
+          "file_type": "json_array_record",
+          "field": "base",
+          "text_preview": "58.16618381516767",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "json_array_record",
+          "field": "instr",
+          "text_preview": "79.96827203156232",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\results\\quantitative\\pass_delta.v2.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base_pass",
+          "text_preview": "False",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.08888888888888889
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\results\\quantitative\\per_item_full_60.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\results\\quantitative\\per_item_subset_50.jsonl",
+      "candidates": [
+        {
+          "file_type": "json_record",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "json_record",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\LLM-clean\\results\\quantitative\\rouge.json",
+      "candidates": [
+        {
+          "file_type": "json_array_record",
+          "field": "base",
+          "text_preview": "0.6428571428571428",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.038834951456310676
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "json_array_record",
+          "field": "instr",
+          "text_preview": "0.7826086956521738",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.019417475728155338
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\output_package\\in_both.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\output_package\\per_item_A.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\output_package\\per_item_B.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\output_package\\per_item_table.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base_A",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr_A",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "base_B",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr_B",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\prompts\\main.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "reference",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\prompts\\main.utf8.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "reference",
+          "text_preview": "{\"title\": \"Social impact of public transit fare increases\", \"tags\": [\"key1\", \"key2\"]}",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 1.0,
+              "sequence_similarity": 1.0
+            },
+            "sacrebleu": {
+              "sacrebleu": 100.00000000000004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\tmp_final_pkg\\in_both.csv",
+      "candidates": []
+    },
+    {
+      "path": "C:\\Project\\LLM\\tmp_final_pkg\\per_item_A.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\tmp_final_pkg\\per_item_B.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "C:\\Project\\LLM\\tmp_final_pkg\\per_item_table.csv",
+      "candidates": [
+        {
+          "file_type": "csv_row",
+          "field": "base_A",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr_A",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "base_B",
+          "text_preview": "40.95821416208051",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0392156862745098
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        },
+        {
+          "file_type": "csv_row",
+          "field": "instr_B",
+          "text_preview": "70.60374899223851",
+          "metrics": {
+            "similarity": {
+              "token_overlap": 0.0,
+              "sequence_similarity": 0.0196078431372549
+            },
+            "sacrebleu": {
+              "sacrebleu": 0.0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

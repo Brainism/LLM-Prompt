@@ -1,0 +1,7 @@
+﻿id,input,reference,domain,lang,len_bin,diff_bin
+EX-0043,"Output exactly one JSON object only. The JSON must be: {""text"": ""<one-sentence-summary-without-digits>""}. Do not output anything else.
+
+아라비아 숫자를 사용하지 말고 한 문장으로 설명하라: 도시 공원 관리의 장점과 과제",도시 공원 관리의 장점과 과제에 대한 간단한 설명,general,ko,short,easy
+EX-0049,"Output exactly one JSON object only. The JSON must be: {""text"": ""<one-sentence-summary-without-digits>""}. Do not output anything else.
+
+다음 주제를 한 문장으로 요약하라: 도시 공원 관리의 장점과 과제",도시 공원 관리의 장점과 과제,general,ko,short,easy

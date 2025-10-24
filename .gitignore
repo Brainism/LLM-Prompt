@@ -1,0 +1,46 @@
+# Python envs
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# data / models / checkpoints
+data/
+checkpoints/
+models/
+weights/
+*.pth
+*.pt
+*.bin
+*.ckpt
+
+# system
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# archives & large backups
+*.zip
+*.tar.gz
+*.tar
+
+# logs
+*.log
+
+# generated artifacts
+logs/
+tmp/
+tmp_*
+tmp_inspect/
+tmp_final_pkg/
+output_package/
+dist/
+final_package*.zip
+final_package_with_analysis.zip
+
+# env
+.venv/
+__pycache__/

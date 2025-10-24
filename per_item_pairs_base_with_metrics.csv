@@ -1,0 +1,10 @@
+﻿id,mode,reference,prediction,chrf,rouge_l
+row-0,base,Ref1,Base text A1,5.9523809523809526,0.0
+row-1,base,Ref1,Base text A1,5.9523809523809526,0.0
+row-2,base,Ref1,Base text A1,5.9523809523809526,0.0
+row-3,base,Ref2,Base text B1,2.9761904761904763,0.0
+row-4,base,Ref2,Base text B1,2.9761904761904763,0.0
+row-5,base,Ref2,Base text B1,2.9761904761904763,0.0
+row-6,base,Ref3,Base text C1,2.9761904761904763,0.0
+row-7,base,Ref3,Base text C1,2.9761904761904763,0.0
+row-8,base,Ref3,Base text C1,2.9761904761904763,0.0

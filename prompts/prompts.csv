@@ -1,0 +1,79 @@
+id,input,reference,domain,lang,len_bin,diff_bin,cluster_id,needs_json,needs_bullets,needs_length,needs_forbid
+ex-0001,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c001,1,0,1,1
+ex-0002,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c001,1,0,1,1
+ex-0003,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c001,1,0,1,1
+ex-0004,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c002,1,0,1,1
+ex-0005,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c002,1,0,1,1
+ex-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,long,hard,c002,1,0,1,1
+ex-0007,아라비아 숫자를 사용하지 말고 한 문장으로 설명하라: 도시 공원 관리의 장점과 과제,도시 공원 관리의 장점과 과제에 대한 간단한 설명,general,ko,short,easy,c003,0,0,1,1
+ex-0008,Describe in one sentence without using digits: Herd immunity effects of vaccination,A concise description of Herd immunity effects of vaccination,healthcare,en,mid,mid,c003,0,0,1,1
+ex-0009,아라비아 숫자를 사용하지 말고 한 문장으로 설명하라: 클라우드와 엣지 컴퓨팅의 차이,클라우드와 엣지 컴퓨팅의 차이에 대한 간단한 설명,technology,ko,long,hard,c003,0,0,1,1
+ex-0010,List 3 key points as bullets: Long-term impact of compound interest,"- Point 1
+- Point 2
+- Point 3",finance,en,short,easy,c004,0,1,1,1
+ex-0011,핵심을 3줄 불릿으로 정리하라: 형성평가의 학습 동기 강화,"- 요점 1
+- 요점 2
+- 요점 3",education,ko,mid,mid,c004,0,1,1,1
+ex-0012,List 3 key points as bullets: Social impact of public transit fare increases,"- Point 1
+- Point 2
+- Point 3",policy,en,long,hard,c004,0,1,1,1
+ex-0013,다음 주제를 한 문장으로 요약하라: 도시 공원 관리의 장점과 과제,도시 공원 관리의 장점과 과제,general,ko,short,easy,c005,0,0,1,1
+ex-0014,Summarize the following in one sentence: Herd immunity effects of vaccination,Herd immunity effects of vaccination,healthcare,en,mid,mid,c005,0,0,1,1
+ex-0015,다음 주제를 한 문장으로 요약하라: 클라우드와 엣지 컴퓨팅의 차이,클라우드와 엣지 컴퓨팅의 차이,technology,ko,long,hard,c005,0,0,1,1
+ex-0016,Translate the Korean sentence into English: 복리 이자의 장기 투자 효과,English translation of 복리 이자의 장기 투자 효과,finance,en,short,easy,c006,0,0,1,1
+ex-0017,다음 영어 문장을 한국어로 번역하라: Formative assessment and learning motivation,Formative assessment and learning motivation의 한국어 번역,education,ko,mid,mid,c006,0,0,1,1
+ex-0018,Translate the Korean sentence into English: 대중교통 요금 인상의 사회적 영향,English translation of 대중교통 요금 인상의 사회적 영향,policy,en,long,hard,c006,0,0,1,1
+ex-0019,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c007,1,0,1,1
+ex-0020,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c007,1,0,1,1
+ex-0021,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c007,1,0,1,1
+ex-0022,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c008,1,0,1,1
+ex-0023,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c008,1,0,1,1
+ex-0024,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,long,hard,c008,1,0,1,1
+ex-0025,아라비아 숫자를 사용하지 말고 한 문장으로 설명하라: 도시 공원 관리의 장점과 과제,도시 공원 관리의 장점과 과제에 대한 간단한 설명,general,ko,short,easy,c009,0,0,1,1
+ex-0026,Describe in one sentence without using digits: Herd immunity effects of vaccination,A concise description of Herd immunity effects of vaccination,healthcare,en,mid,mid,c009,0,0,1,1
+ex-0027,아라비아 숫자를 사용하지 말고 한 문장으로 설명하라: 클라우드와 엣지 컴퓨팅의 차이,클라우드와 엣지 컴퓨팅의 차이에 대한 간단한 설명,technology,ko,long,hard,c009,0,0,1,1
+ex-0028,List 3 key points as bullets: Long-term impact of compound interest,"- Point 1
+- Point 2
+- Point 3",finance,en,short,easy,c010,0,1,1,1
+ex-0029,핵심을 3줄 불릿으로 정리하라: 형성평가의 학습 동기 강화,"- 요점 1
+- 요점 2
+- 요점 3",education,ko,mid,mid,c010,0,1,1,1
+ex-0030,List 3 key points as bullets: Social impact of public transit fare increases,"- Point 1
+- Point 2
+- Point 3",policy,en,long,hard,c010,0,1,1,1
+ex-0031,다음 주제를 한 문장으로 요약하라: 도시 공원 관리의 장점과 과제,도시 공원 관리의 장점과 과제,general,ko,short,easy,c011,0,0,1,1
+ex-0032,Summarize the following in one sentence: Herd immunity effects of vaccination,Herd immunity effects of vaccination,healthcare,en,mid,mid,c011,0,0,1,1
+ex-0033,다음 주제를 한 문장으로 요약하라: 클라우드와 엣지 컴퓨팅의 차이,클라우드와 엣지 컴퓨팅의 차이,technology,ko,long,hard,c011,0,0,1,1
+ex-0034,Translate the Korean sentence into English: 복리 이자의 장기 투자 효과,English translation of 복리 이자의 장기 투자 효과,finance,en,short,easy,c012,0,0,1,1
+ex-0035,다음 영어 문장을 한국어로 번역하라: Formative assessment and learning motivation,Formative assessment and learning motivation의 한국어 번역,education,ko,mid,mid,c012,0,0,1,1
+ex-0036,Translate the Korean sentence into English: 대중교통 요금 인상의 사회적 영향,English translation of 대중교통 요금 인상의 사회적 영향,policy,en,long,hard,c012,0,0,1,1
+ex-0037,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c013,1,0,1,1
+ex-0038,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c013,1,0,1,1
+ex-0039,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c013,1,0,1,1
+ex-0040,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c014,1,0,1,1
+ex-0041,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c014,1,0,1,1
+ex-0042,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,long,hard,c014,1,0,1,1
+ex-0043,아라비아 숫자를 사용하지 말고 한 문장으로 설명하라: 도시 공원 관리의 장점과 과제,도시 공원 관리의 장점과 과제에 대한 간단한 설명,general,ko,short,easy,c015,0,0,1,1
+ex-0044,Describe in one sentence without using digits: Herd immunity effects of vaccination,A concise description of Herd immunity effects of vaccination,healthcare,en,mid,mid,c015,0,0,1,1
+ex-0045,아라비아 숫자를 사용하지 말고 한 문장으로 설명하라: 클라우드와 엣지 컴퓨팅의 차이,클라우드와 엣지 컴퓨팅의 차이에 대한 간단한 설명,technology,ko,long,hard,c015,0,0,1,1
+ex-0046,List 3 key points as bullets: Long-term impact of compound interest,"- Point 1
+- Point 2
+- Point 3",finance,en,short,easy,c016,0,1,1,1
+ex-0047,핵심을 3줄 불릿으로 정리하라: 형성평가의 학습 동기 강화,"- 요점 1
+- 요점 2
+- 요점 3",education,ko,mid,mid,c016,0,1,1,1
+ex-0048,List 3 key points as bullets: Social impact of public transit fare increases,"- Point 1
+- Point 2
+- Point 3",policy,en,long,hard,c016,0,1,1,1
+ex-0049,다음 주제를 한 문장으로 요약하라: 도시 공원 관리의 장점과 과제,도시 공원 관리의 장점과 과제,general,ko,short,easy,c017,0,0,1,1
+ex-0050,Summarize the following in one sentence: Herd immunity effects of vaccination,Herd immunity effects of vaccination,healthcare,en,mid,mid,c017,0,0,1,1
+ex-0051,다음 주제를 한 문장으로 요약하라: 클라우드와 엣지 컴퓨팅의 차이,클라우드와 엣지 컴퓨팅의 차이,technology,ko,long,hard,c017,0,0,1,1
+ex-0052,Translate the Korean sentence into English: 복리 이자의 장기 투자 효과,English translation of 복리 이자의 장기 투자 효과,finance,en,short,easy,c018,0,0,1,1
+ex-0053,다음 영어 문장을 한국어로 번역하라: Formative assessment and learning motivation,Formative assessment and learning motivation의 한국어 번역,education,ko,mid,mid,c018,0,0,1,1
+ex-0054,Translate the Korean sentence into English: 대중교통 요금 인상의 사회적 영향,English translation of 대중교통 요금 인상의 사회적 영향,policy,en,long,hard,c018,0,0,1,1
+ex-0055,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c019,1,0,1,1
+ex-0056,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c019,1,0,1,1
+ex-0057,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c019,1,0,1,1
+ex-0058,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c020,1,0,1,1
+ex-0059,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c020,1,0,1,1
+ex-0060,다음 영어 문장을 한국어로 번역하라: Herd immunity effects of vaccination,Herd immunity effects of vaccination의 한국어 번역,healthcare,ko,short,hard,c020,0,0,1,1
