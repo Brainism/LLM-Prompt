@@ -21,3 +21,12 @@ logs/
 tmp_final_pkg/
 logs/
 tmp_final_pkg/
+tmp/
+tmp_*
+tmp_inspect/
+output_package/
+dist/
+final_package*.zip
+final_package_with_analysis.zip
+figs/generated/
+figs_highres/
