@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7c7e0da217ea6728a9879268ba6ccb34db8d260b39ce9f2cdf81725273d035e7
-size 344
+file,n,latency_ms_mean,latency_ms_p50,latency_ms_p95,latency_ms_min,latency_ms_max,tokens_mean
+general.jsonl,60,10167.4,10137.0,19436,3307.0,24167.0,0.0
+general_pass.jsonl,60,10706.6,10992.0,20507,3532.0,22106.0,0.0
+instructed.jsonl,60,8100.9,7768.0,13012,2994.0,15490.0,0.0
+instructed_pass.jsonl,60,9081.9,8582.5,14033,3356.0,19383.0,0.0

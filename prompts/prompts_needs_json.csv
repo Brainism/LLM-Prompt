@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3d579fbc5e1479eed0cba44d836580085319cf986ad5db9307addf351cd9437f
-size 5643
+﻿id,input,reference,domain,lang,len_bin,diff_bin,cluster_id,needs_json,needs_bullets,needs_length,needs_forbid
+ex-0001,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c001,1,0,1,1
+ex-0002,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c001,1,0,1,1
+ex-0003,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c001,1,0,1,1
+ex-0004,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c002,1,0,1,1
+ex-0005,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c002,1,0,1,1
+ex-0006,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,long,hard,c002,1,0,1,1
+ex-0019,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c007,1,0,1,1
+ex-0020,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c007,1,0,1,1
+ex-0021,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c007,1,0,1,1
+ex-0022,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c008,1,0,1,1
+ex-0023,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c008,1,0,1,1
+ex-0024,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,long,hard,c008,1,0,1,1
+ex-0037,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c013,1,0,1,1
+ex-0038,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c013,1,0,1,1
+ex-0039,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c013,1,0,1,1
+ex-0040,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c014,1,0,1,1
+ex-0041,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c014,1,0,1,1
+ex-0042,"Output JSON with keys: title, tags for the topic: Social impact of public transit fare increases","{""title"": ""Social impact of public transit fare increases"", ""tags"": [""key1"", ""key2""]}",policy,en,long,hard,c014,1,0,1,1
+ex-0055,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 도시 공원 관리의 장점과 과제","{""title"": ""도시 공원 관리의 장점과 과제"", ""tags"": [""key1"", ""key2""]}",general,ko,short,easy,c019,1,0,1,1
+ex-0056,"Output JSON with keys: title, tags for the topic: Herd immunity effects of vaccination","{""title"": ""Herd immunity effects of vaccination"", ""tags"": [""key1"", ""key2""]}",healthcare,en,mid,mid,c019,1,0,1,1
+ex-0057,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 클라우드와 엣지 컴퓨팅의 차이","{""title"": ""클라우드와 엣지 컴퓨팅의 차이"", ""tags"": [""key1"", ""key2""]}",technology,ko,long,hard,c019,1,0,1,1
+ex-0058,"Output JSON with keys: title, tags for the topic: Long-term impact of compound interest","{""title"": ""Long-term impact of compound interest"", ""tags"": [""key1"", ""key2""]}",finance,en,short,easy,c020,1,0,1,1
+ex-0059,"다음 주제에 대해 title, tags 키를 갖는 JSON으로 출력하라: 형성평가의 학습 동기 강화","{""title"": ""형성평가의 학습 동기 강화"", ""tags"": [""key1"", ""key2""]}",education,ko,mid,mid,c020,1,0,1,1

@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75b3c33831ecc511d3ef7a6f34b522d93cc80da0ab3bb54223e3ed0f41cd32a8
-size 123
+metric,value,n
+rougeL_f1_mean,0.28556453232440054,240
+BLEU_mean,27.030515380613654,240
+chrF_mean,42.25482519510084,240

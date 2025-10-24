@@ -1,1 +1,4 @@
-Authors:\n- [Your Full Name] (Your Institution) <your.email@example.com>\n
+Authors:
+- 유다영 (Dayoung Ryu) — Department of [Inje University], Republic of Korea <wlfkfrus9723@naver.com>
+
+Corresponding author: 유다영 <wlfkfrus9723@naver.com>

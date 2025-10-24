@@ -1,4 +1,31 @@
-Reproducibility note
-Project root: C:\\Project\\LLM
-Evaluation: sacreBLEU primary; bootstrap B=10000 seed=1234; chrF/ROUGE computed where per-item text available.
-Note: For this submission (2025-09-13), only items with non-empty references were used for chrF/ROUGE. Some items had missing reference texts and thus no per-item chrF/ROUGE could be computed.
+Reproducibility note (detailed)
+Project root: C:\Project\LLM
+
+Environment:
+- OS: Windows 10/11
+- Python: 3.11
+- Create venv: python -m venv .venv
+- Activate (cmd): call .venv\Scripts\activate
+- Install: python -m pip install -r requirements.txt
+- Key packages (examples): pandas==<version>, numpy==<version>, scipy==<version>, matplotlib==<version>, sacrebleu==<version>
+  (Use pip freeze to capture exact versions: pip freeze > pip_freeze.txt)
+
+Data & inputs:
+- per-item CSV: LLM-clean\results\quantitative\per_item_full_60.csv
+- aggregated metrics: figs\aggregated_metrics_fixed_with_chrf_rouge.csv
+
+Evaluation:
+- Primary metric: sacreBLEU (sacrebleu)
+- chrF and ROUGE computed when reference text available (missing refs omitted).
+- Bootstrap: B = 10000 (seed = 1234 by default). To reproduce set environment variable: set SEED=42 (or set SEED=1234)
+
+Reproduction commands (cmd):
+call .venv\Scripts\activate
+python tools\recompute_stats.py --per_item "LLM-clean\results\quantitative\per_item_full_60.csv" --nboot 10000
+python tools\generate_highperf_figs.py --stats_csv "LLM-clean\results\quantitative\stats_summary.v2.csv" --bleu_json "LLM-clean\results\quantitative\bleu_sacre.json" --comp_csv "figs\compliance_by_scenario.csv" --error_html "figs\error_board.html" --out "figs" --nboot 5000
+
+Files included in submission:
+- final_package.zip
+- submission/checksums.txt
+- figs_highres/*.png
+- docs/paper/tables/* (AUTHOR_INFO.txt, REPRODUCIBILITY.txt, top10_delta.csv, bottom10_delta.csv, etc.)
